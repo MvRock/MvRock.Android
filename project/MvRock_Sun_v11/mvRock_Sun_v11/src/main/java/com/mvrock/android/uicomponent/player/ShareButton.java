@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.mvrock.android.model.MvRockModel;
-import com.mvrock.android.thread.SetShareThread_old;
+import com.mvrock.android.thread.SetShareThread;
 import com.mvrock.android.uicomponent.MvRockUiComponent;
 import com.mvrock.android.uicomponent.MvRockUiComponentObject;
 
@@ -14,7 +14,7 @@ import com.mvrock.android.uicomponent.MvRockUiComponentObject;
  */
 public class ShareButton extends MvRockUiComponentObject {
     public ImageView shareSongImage;
-    public ShareButton(){TAG="ShareButton";}
+    public ShareButton(){TAG+="ShareButton";}
     public void Init(){
         Log.i(TAG,"Init()");
         shareSongImage.setOnClickListener(new View.OnClickListener() {
@@ -36,7 +36,7 @@ public class ShareButton extends MvRockUiComponentObject {
         } else {
             url= MvRockModel.YouLikedSongList.songArrayList.get(MvRockModel.currentMVIndex).get("url");
         }
-        Thread setShareThread = new Thread(new SetShareThread_old(MvRockModel.User.User_Id,url));
+        Thread setShareThread = new Thread(new SetShareThread(MvRockModel.User.User_Id,url));
         setShareThread.start();
     }
 

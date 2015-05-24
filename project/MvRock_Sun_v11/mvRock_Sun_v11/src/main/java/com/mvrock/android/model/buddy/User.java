@@ -17,7 +17,7 @@ public class User {
     public String User_Name;
     public Drawable User_Profile_pic;
     public User() {
-        TAG+="Model.User";
+        TAG="Model.User";
         User_Id="";
         User_Name="";
         Session=null;

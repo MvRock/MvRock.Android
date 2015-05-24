@@ -10,13 +10,14 @@ import com.mvrock.android.model.MvRockModel;
 import com.mvrock.android.model.PlayListOption;
 import com.mvrock.android.thread.GetStationSongsThread;
 import com.mvrock.android.uicomponent.MvRockUiComponent;
+import com.mvrock.android.view.MvRockView;
 
 /**
  * Created by Xuer on 5/5/15.
  */
 public class StationPlayListView extends PlayListView {
-public StationPlayListView(Context context){
-        super(context);
+public StationPlayListView(){
+        super(MvRockView.MainActivity);
         TAG += "StationPlayListView";
     }
     public boolean isAvailable(){

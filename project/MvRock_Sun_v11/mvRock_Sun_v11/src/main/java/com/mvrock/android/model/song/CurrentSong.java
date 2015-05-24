@@ -12,12 +12,12 @@ import org.json.JSONObject;
  * Created by Xuer on 5/9/15.
  */
 public class CurrentSong extends MvRockModelObject {
-    protected String TAG;
     public boolean isLikedIconPressed;
     public boolean isDislikedIconPressed;
     protected String strResponse;
 
     public CurrentSong() {
+        super();
         this.TAG +="CurrentSong";
         this.isLikedIconPressed =false;
         this.isDislikedIconPressed = false;
