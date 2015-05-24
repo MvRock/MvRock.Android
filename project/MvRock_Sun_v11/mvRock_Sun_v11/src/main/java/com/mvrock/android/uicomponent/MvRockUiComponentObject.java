@@ -7,7 +7,4 @@ public abstract class MvRockUiComponentObject {
     protected String TAG;
 
     public abstract void Init();
-    public MvRockUiComponentObject(){
-        TAG="UiComponent.";
-    }
 }

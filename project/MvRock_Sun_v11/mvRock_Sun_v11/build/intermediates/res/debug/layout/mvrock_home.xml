@@ -170,4 +170,4 @@
         android:divider="@android:color/transparent"
         android:dividerHeight="0dp" />
 
-</android.support.v4.widget.DrawerLayout><!-- From: file:/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/layout/mvrock_home.xml -->
+</android.support.v4.widget.DrawerLayout><!-- From: file:/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/layout/mvrock_home.xml -->

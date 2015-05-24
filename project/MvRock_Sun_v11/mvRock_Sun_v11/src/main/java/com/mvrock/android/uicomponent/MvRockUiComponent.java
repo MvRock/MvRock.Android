@@ -1,24 +1,18 @@
 package com.mvrock.android.uicomponent;
 
-import android.support.v4.app.ActionBarDrawerToggle;
 import android.util.Log;
 
 import com.examples.youtubeapidemo.R;
 import com.mvrock.android.model.MvRockModel;
-import com.mvrock.android.uicomponent.drawer.LeftTopDrawer;
 import com.mvrock.android.uicomponent.player.MvRockYoutubePlayerFragment;
 import com.mvrock.android.uicomponent.player.NextSongButton;
 import com.mvrock.android.uicomponent.player.ReportButton;
 import com.mvrock.android.uicomponent.player.ShareButton;
 import com.mvrock.android.uicomponent.player.ThumbDownButton;
 import com.mvrock.android.uicomponent.player.ThumbUpButton;
-import com.mvrock.android.uicomponent.playlist.MvRockTabHost;
 import com.mvrock.android.uicomponent.playlist.StationPlayListView;
 import com.mvrock.android.uicomponent.playlist.YouLikedPlayListView;
 import com.mvrock.android.uicomponent.playlist.YouMayLikePlayListView;
-import com.mvrock.android.uicomponent.station.StationCancelButton;
-import com.mvrock.android.uicomponent.station.StationListView;
-import com.mvrock.android.uicomponent.station.StationSearchView;
 
 /**
  * Created by Xuer on 5/8/15.
@@ -36,17 +30,8 @@ public class MvRockUiComponent {
     public static ReportButton ReportButton;
     public static ShareButton ShareButton;
 
-    public static MvRockTabHost MvRockTabHost;
-
-    public static ActionBarDrawerToggle LeftDrawerToggle;
-    public static LeftTopDrawer LeftTopDrawer;
-
-    public static StationCancelButton StationCancelButton;
-    public static StationListView StationListView;
-    public static StationSearchView StationSearchView;
-
     static{
-        TAG="MvRockUiComponent.";
+        TAG="MvRockUiComponent";
 
     }
 

@@ -13,7 +13,7 @@ import com.mvrock.android.uicomponent.MvRockUiComponentObject;
  */
 public class NextSongButton extends MvRockUiComponentObject {
     public ImageView nextSongImage;
-    public NextSongButton(){TAG+="NextSongButton";}
+    public NextSongButton(){TAG="NextSongButton";}
     public void Init(){
         Log.i(TAG,"Init()");
         nextSongImage.setOnClickListener(new View.OnClickListener() {

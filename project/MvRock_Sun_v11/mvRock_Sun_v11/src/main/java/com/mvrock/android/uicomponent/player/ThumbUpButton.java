@@ -13,7 +13,7 @@ import com.mvrock.android.uicomponent.MvRockUiComponent;
  */
 public class ThumbUpButton extends PlayerControlButton{
     public ImageView likeSongImage;
-    public ThumbUpButton(){TAG+="ThumbUpButton";}
+    public ThumbUpButton(){TAG="ThumbUpButton";}
     public void Init(){
         Log.i(TAG,"Init()");
         likeSongImage.setOnClickListener(new View.OnClickListener() {

@@ -9,7 +9,7 @@ import android.widget.ImageView;
  */
 public class ReportButton extends PlayerControlButton{
     public ImageView reportSongImage;
-    public ReportButton(){TAG+="ReportButton";};
+    public ReportButton(){TAG="ReportButton";};
     public void Init(){
         Log.i(TAG,"Init()");
         reportSongImage.setOnClickListener(new View.OnClickListener() {

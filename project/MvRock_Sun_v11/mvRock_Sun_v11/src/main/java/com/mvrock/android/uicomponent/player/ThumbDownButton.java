@@ -13,7 +13,7 @@ import com.mvrock.android.uicomponent.MvRockUiComponent;
  */
 public class ThumbDownButton extends PlayerControlButton {
     public ImageView dislikeSongImage;
-    public ThumbDownButton(){TAG+="ThumbDownButton";}
+    public ThumbDownButton(){TAG="ThumbDownButton";}
     public void Init(){
         Log.i(TAG,"Init()");
         dislikeSongImage.setOnClickListener(new View.OnClickListener() {

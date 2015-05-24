@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- From: file:/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/values/strings.xml -->
+    <!-- From: file:/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string-array name="planets_array">
         <item>Mercury</item>
@@ -12,14 +12,14 @@
         <item>Uranus</item>
         <item>Neptune</item>
     </string-array>
-    <!-- From: file:/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/values/arrays.xml -->
+    <!-- From: file:/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/values/arrays.xml -->
     <eat-comment/>
     <string-array name="string_array">
         <item>ALL</item>
         <item>EN</item>
         <item>中文</item>
     </string-array>
-    <!-- From: file:/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/values/values.xml -->
     <eat-comment/>
     <attr format="reference" name="drawerArrowStyle"/>
     <attr format="dimension" name="height"/>
@@ -50,7 +50,7 @@
     <color name="bright_foreground_material_light">@android:color/black</color>
     <color name="button_material_dark">#ff5a595b</color>
     <color name="button_material_light">#ffd6d7d7</color>
-    <!-- From: file:/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/values/values.xml -->
+    <!-- From: file:/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/values/values.xml -->
     <eat-comment/>
     <color name="com_facebook_blue">#3B5998</color>
     <color name="com_facebook_likeboxcountview_border_color">#6a7180</color>
@@ -63,16 +63,16 @@
     <color name="com_facebook_usersettingsfragment_connected_shadow_color">#000000</color>
     <color name="com_facebook_usersettingsfragment_connected_text_color">#FFFFFF</color>
     <color name="com_facebook_usersettingsfragment_not_connected_text_color">#A6AED7</color>
-    <!-- From: file:/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/values/values.xml -->
     <eat-comment/>
     <color name="dim_foreground_disabled_material_dark">#80bebebe</color>
     <color name="dim_foreground_disabled_material_light">#80323232</color>
     <color name="dim_foreground_material_dark">#ffbebebe</color>
     <color name="dim_foreground_material_light">#ff323232</color>
-    <!-- From: file:/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/values/colors.xml -->
+    <!-- From: file:/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="gray">#ff888888</color>
-    <!-- From: file:/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/values/values.xml -->
     <eat-comment/>
     <color name="highlighted_text_material_dark">#6680cbc4</color>
     <color name="highlighted_text_material_light">#66009688</color>
@@ -93,10 +93,10 @@
     <color name="primary_text_default_material_light">#de000000</color>
     <color name="primary_text_disabled_material_dark">#4Dffffff</color>
     <color name="primary_text_disabled_material_light">#39000000</color>
-    <!-- From: file:/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/values/colors.xml -->
+    <!-- From: file:/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="red">#ff0000</color>
-    <!-- From: file:/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/values/values.xml -->
     <eat-comment/>
     <color name="ripple_material_dark">#4dffffff</color>
     <color name="ripple_material_light">#1f000000</color>
@@ -199,7 +199,7 @@
     <dimen name="abc_text_size_subtitle_material_toolbar">16dp</dimen>
     <dimen name="abc_text_size_title_material">20sp</dimen>
     <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
-    <!-- From: file:/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/values/values.xml -->
+    <!-- From: file:/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/values/values.xml -->
     <eat-comment/>
     <dimen name="com_facebook_likeboxcountview_border_radius">3dp</dimen>
     <dimen name="com_facebook_likeboxcountview_border_width">1dp</dimen>
@@ -229,7 +229,7 @@
     <dimen name="com_facebook_tooltip_horizontal_padding">10dp</dimen>
     <dimen name="com_facebook_usersettingsfragment_profile_picture_height">64dp</dimen>
     <dimen name="com_facebook_usersettingsfragment_profile_picture_width">64dp</dimen>
-    <!-- From: file:/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/values/values.xml -->
     <eat-comment/>
     <item name="dialog_fixed_height_major" type="dimen">80%</item>
     <item name="dialog_fixed_height_minor" type="dimen">100%</item>
@@ -237,20 +237,20 @@
     <item name="dialog_fixed_width_minor" type="dimen">320dp</item>
     <item format="float" name="disabled_alpha_material_dark" type="dimen">0.30</item>
     <item format="float" name="disabled_alpha_material_light" type="dimen">0.26</item>
-    <!-- From: file:/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/values/values.xml -->
+    <!-- From: file:/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/values/values.xml -->
     <eat-comment/>
     <drawable name="com_facebook_picker_default_separator_color">#33464c59</drawable>
-    <!-- From: file:/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/values/values.xml -->
     <eat-comment/>
     <item name="action_bar_activity_content" type="id"/>
     <item name="action_bar_spinner" type="id"/>
     <item name="action_menu_divider" type="id"/>
     <item name="action_menu_presenter" type="id"/>
     <item name="home" type="id"/>
-    <!-- From: file:/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/values/constants.xml -->
+    <!-- From: file:/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/values/constants.xml -->
     <eat-comment/>
     <item name="player_view" type="id"/>
-    <!-- From: file:/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/values/values.xml -->
     <eat-comment/>
     <item name="progress_circular" type="id"/>
     <item name="progress_horizontal" type="id"/>
@@ -259,12 +259,12 @@
     <integer name="abc_config_activityDefaultDur">220</integer>
     <integer name="abc_config_activityShortDur">150</integer>
     <integer name="abc_max_action_buttons">2</integer>
-    <!-- From: file:/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/values/strings.xml -->
+    <!-- From: file:/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="ALL">ALL</string>
     <string name="CHN">CHN</string>
     <string name="ENG">ENG</string>
-    <!-- From: file:/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/values/values.xml -->
     <eat-comment/>
     <string name="abc_action_bar_home_description">Navigate home</string>
     <string name="abc_action_bar_home_description_format">%1$s, %2$s</string>
@@ -283,14 +283,14 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
-    <!-- From: file:/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/values/strings.xml -->
+    <!-- From: file:/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="action_bar_demo_name">Overlay ActionBar Demo</string>
     <string name="actionbar_tutorial">This is a demo which shows how to use the ActionBar as an overlay when the video is playing in fullscreen. The actionbar will automatically fade away along with the player controls when the video is being played in fullscreen. While not in fullscreen the Actionbar is visible and does not overlay any of the views.</string>
     <string name="app_name">MvRock</string>
     <string name="autoplay">Autoplay</string>
     <string name="chromeless">Chromeless</string>
-    <!-- From: file:/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/values/values.xml -->
+    <!-- From: file:/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/values/values.xml -->
     <eat-comment/>
     <string name="com_facebook_choose_friends">Choose Friends</string>
     <string name="com_facebook_dialogloginactivity_ok_button">OK</string>
@@ -321,7 +321,7 @@
     <string name="com_facebook_usersettingsfragment_log_in_button">Log in…</string>
     <string name="com_facebook_usersettingsfragment_logged_in">Logged in</string>
     <string name="com_facebook_usersettingsfragment_not_logged_in">Not logged in</string>
-    <!-- From: file:/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/values/strings.xml -->
+    <!-- From: file:/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="def">Default</string>
     <string name="demo_select">Please select a demo:</string>
@@ -339,10 +339,10 @@
     <string name="intent_disabled">This intent is not supported with the currently installed version of YouTube.</string>
     <string name="intent_select">Please select an action:</string>
     <string name="intents_demo_name">YouTube App Launcher Intents</string>
-    <!-- From: file:/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/values/constants.xml -->
+    <!-- From: file:/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/values/constants.xml -->
     <eat-comment/>
     <string name="isLaunchableActivity">isLaunchableActivity</string>
-    <!-- From: file:/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/values/strings.xml -->
+    <!-- From: file:/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="landscape_fullscreen">Always fullscreen in landscape</string>
     <string name="language_change">all_en_zh</string>
@@ -350,16 +350,16 @@
     <string name="lightbox_mode">Lightbox mode</string>
     <string name="like_song">like_song</string>
     <string name="list_item_disabled">Requires Android API version <ns1:g id="required_version">%1$s</ns1:g> or higher.</string>
-    <!-- From: file:/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/values/constants.xml -->
+    <!-- From: file:/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/values/constants.xml -->
     <eat-comment/>
     <string name="loggingTag">YoutubeAPIDemos</string>
-    <!-- From: file:/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/values/strings.xml -->
+    <!-- From: file:/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="logo_mark">logo</string>
-    <!-- From: file:/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/values/constants.xml -->
+    <!-- From: file:/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/values/constants.xml -->
     <eat-comment/>
     <string name="minVersion">minVersion</string>
-    <!-- From: file:/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/values/strings.xml -->
+    <!-- From: file:/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="minimal">Minimal</string>
     <string name="next_song">next_song</string>
@@ -388,7 +388,7 @@
     <string name="videowall_demo_name">Video Wall</string>
     <string name="youtube_currently_installed">YouTube version installed on this device: <ns1:g id="youtube_version">%1$s</ns1:g>.</string>
     <string name="youtube_not_installed">YouTube is not installed on this device.</string>
-    <!-- From: file:/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/values/values.xml -->
     <eat-comment/>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
@@ -1303,7 +1303,7 @@
         <item name="android:scaleType">center</item>
         <item name="android:background">?attr/selectableItemBackground</item>
     </style>
-    <!-- From: file:/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/values/styles.xml -->
+    <!-- From: file:/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="BlackNoBarsTheme" parent="android:Theme.Holo.NoActionBar.Fullscreen">
     <item name="android:windowBackground">@android:color/black</item>
@@ -1313,7 +1313,7 @@
     <style name="OverlayActionBarTheme" parent="android:Theme.Holo">
     <item name="android:windowActionBarOverlay">true</item>
   </style>
-    <!-- From: file:/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/values/values.xml -->
     <eat-comment/>
     <style name="Platform.AppCompat" parent="android:Theme">
         <item name="android:windowNoTitle">true</item>
@@ -1631,7 +1631,7 @@
     <style name="Widget.AppCompat.TextView.SpinnerItem" parent="Base.Widget.AppCompat.TextView.SpinnerItem"/>
     <style name="Widget.AppCompat.Toolbar" parent="Base.Widget.AppCompat.Toolbar"/>
     <style name="Widget.AppCompat.Toolbar.Button.Navigation" parent="RtlOverlay.Widget.AppCompat.Toolbar.Button.Navigation"/>
-    <!-- From: file:/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/values/values.xml -->
+    <!-- From: file:/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/values/values.xml -->
     <eat-comment/>
     <style name="com_facebook_loginview_default_style" parent="@android:style/Widget.Button">
         <item name="android:layout_width">wrap_content</item>

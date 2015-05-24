@@ -15,7 +15,6 @@ public class StationList  extends MvRockModelObject {
     public ArrayList<String> stationArrayList = new ArrayList<String>();
 
     public StationList(){
-        super();
         this.TAG+="StationList";
         stationArrayList = new ArrayList<String>();
     }

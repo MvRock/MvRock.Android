@@ -13,7 +13,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.examples.youtubeapidemo.R;
-import com.mvrock.android.thread.GetImageListThread;
+import com.mvrock.android.thread.GetImageListThread_old;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,14 +52,14 @@ public abstract class PlaylistAdapter extends SimpleAdapter {
 	}
     public Map<Integer, Drawable> RequestImageListByThread(List<Map<String, String>> song_info){
         Log.i(TAG, "RequestImageListByThread()");
-        Thread getImageListThread=  new Thread(new GetImageListThread(song_info,context));
+        Thread getImageListThread=  new Thread(new GetImageListThread_old(song_info,context));
         getImageListThread.start();
         try {
             getImageListThread.join();
         } catch (InterruptedException e1) {
             e1.printStackTrace();
         }
-         return GetImageListThread.getImageView_List();
+         return GetImageListThread_old.getImageView_List();
     }
 	protected static class ViewHolder {
 	    public TextView songname_textview;

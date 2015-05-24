@@ -15,7 +15,9 @@ import org.json.JSONArray;
  * Created by Xuer on 5/6/15.
  */
 public class MvRockModel {
+
     private static final String TAG;
+
     public static PlayListOption playListOption;
     public static YouLikedSongList YouLikedSongList;
     public static YouMayLikeSongList YouMayLikeSongList;
