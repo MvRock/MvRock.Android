@@ -1,7 +1,5 @@
 package com.mvrock.android.thread;
-/**
- *
- */
+
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 

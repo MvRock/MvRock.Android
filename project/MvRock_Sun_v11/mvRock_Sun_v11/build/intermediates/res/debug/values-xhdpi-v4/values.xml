@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/values-xhdpi-v4/values.xml -->
+    <!-- From: file:/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/values-xhdpi-v4/values.xml -->
     <eat-comment/>
     <dimen name="com_facebook_picker_divider_width">2px</dimen>
 </resources>

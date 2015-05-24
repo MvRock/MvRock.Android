@@ -1,10 +1,4 @@
 package com.mvrock.android.view;
-/**
- *This is the MainActivity of the App
- *This activity extends FragmentActivity and so Fragment can be used in this activity.
- *Therefore the consistent of the activity is only one activity and several fragments are created to
- implement some functions
- */
 
 import com.examples.youtubeapidemo.R;
 import com.facebook.AppEventsLogger;
@@ -12,91 +6,65 @@ import com.facebook.Session;
 import com.facebook.SessionState;
 import com.facebook.UiLifecycleHelper;
 import com.mvrock.android.model.MvRockModel;
+import com.mvrock.android.view.fragment.FbLoginFragment;
+import com.mvrock.android.view.fragment.MvRockFragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 
-import java.util.ArrayList;
 
 public class MainActivity extends FragmentActivity {
-    private static final String USER_SKIPPED_LOGIN_KEY = "user_skipped_login";
-    private static final String TAG = "View.MainActivity";
+	private static final String USER_SKIPPED_LOGIN_KEY = "user_skipped_login";
+	private static final String TAG = "View.MainActivity";
 
-    private static final int FBLOGIN_FRAG = 0;
-    private static final int FB_LOGOUT = -1;
-    private static final int MVROCK_FRAG = 1;
-    private int FRAGMENT_COUNT = MVROCK_FRAG + 1;
-    private ArrayList<Fragment> fragments;
-
-    private FragmentTransaction transaction;
-    private FragmentManager fm;
-
-    private boolean isResumed = false;
-
-    private boolean userSkippedLogin = false;
-    private UiLifecycleHelper uiHelper;
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        Log.i(TAG, "onCreate()");
-
-        if (savedInstanceState != null) {
+	
+	private boolean isResumed = false;
+	private boolean userSkippedLogin = false;
+	private UiLifecycleHelper uiHelper;
+	
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+	    super.onCreate(savedInstanceState);
+	    Log.i(TAG,"onCreate()");
+	    if (savedInstanceState != null) {
             userSkippedLogin = savedInstanceState.getBoolean(USER_SKIPPED_LOGIN_KEY);
         }
+	    uiHelper = new UiLifecycleHelper(this, callback);
+	    uiHelper.onCreate(savedInstanceState);
+	    setContentView(R.layout.main);
 
-
-        uiHelper = new UiLifecycleHelper(this, callback);
-        uiHelper.onCreate(savedInstanceState);
-
-        setContentView(R.layout.main);
-
-        fragments = new ArrayList<Fragment>();
-
-        FRAGMENT_COUNT = FBLOGIN_FRAG + 1;
-
-        fm = getSupportFragmentManager();
-
-        FbLoginFragment fbLoginFragment = new FbLoginFragment();
-        //fragments[FBLOGIN_FRAG] = fm.findFragmentById(R.id.fbloginFragment);
-
-        fragments.add(fm.findFragmentById(R.id.fbloginFragment));
-        //fragments[MVROCK_FRAG]=null;
-
-        transaction = fm.beginTransaction();
-
-        transaction.show(fragments.get(FBLOGIN_FRAG));
-
-        transaction.commit();
-
-        fbLoginFragment.setSkipLoginCallback(new FbLoginFragment.SkipLoginCallback() {
+        MvRockView.Context=this;
+	    MvRockView.FragmentManager = getSupportFragmentManager();
+	    FbLoginFragment fbLoginFragment = new FbLoginFragment();
+        MvRockView.FragmentList.add(MvRockView.FragmentManager.findFragmentById(R.id.fbloginFragment));
+	    MvRockView.Transaction = MvRockView.FragmentManager.beginTransaction();
+	    MvRockView.Transaction.show(MvRockView.FragmentList.get(MvRockView.FBLOGIN_FRAG));
+	    MvRockView.Transaction.commit();
+	    fbLoginFragment.setSkipLoginCallback(new FbLoginFragment.SkipLoginCallback() {
             @Override
             public void onSkipLoginPressed() {
                 userSkippedLogin = true;
-                showFragment(MVROCK_FRAG, false);
+                showFragment(MvRockView.MVROCK_FRAG, false);
             }
         });
-    }
+	}	
 
-
-    @Override
-    public void onResume() {
-        Log.i(TAG, "onResume()");
+	@Override
+	public void onResume() {
+		Log.i(TAG,"onResume()");
         super.onResume();
         uiHelper.onResume();
         isResumed = true;
         AppEventsLogger.activateApp(this);
     }
-
-
-    @Override
-    public void onPause() {
-        Log.i(TAG, "onPause()");
+	
+	
+	@Override
+	 public void onPause() {
+		Log.i(TAG,"onPause()");
         super.onPause();
         uiHelper.onPause();
         isResumed = false;
@@ -105,26 +73,28 @@ public class MainActivity extends FragmentActivity {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.i(TAG, "onActivityResult()");
-        super.onActivityResult(requestCode, resultCode, data);
-        uiHelper.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == MVROCK_FRAG) {
-            if (resultCode == FB_LOGOUT) {
-                if (Session.getActiveSession() != null) {
-                    Session.getActiveSession().closeAndClearTokenInformation();
-                }
-                Session.setActiveSession(null);
-                userSkippedLogin = false;
-            }
+    	Log.i(TAG,"onActivityResult()");
+        super.onActivityResult(requestCode, resultCode, data);    
+            uiHelper.onActivityResult(requestCode, resultCode, data);
+            if (requestCode== MvRockView.MVROCK_FRAG){
+    			if(resultCode==MvRockView.FB_LOGOUT)
+    			{
+    				if (Session.getActiveSession() != null) {
+    				    Session.getActiveSession().closeAndClearTokenInformation();
+    				}
 
-        }
-
+    				Session.setActiveSession(null);
+    				userSkippedLogin=false;
+    			}
+    				
+    			}
+       
     }
 
     @Override
     public void onDestroy() {
-        Log.i(TAG, "onDestroy()");
-
+    	Log.i(TAG,"onDestroy()");
+    	
         super.onDestroy();
         uiHelper.onDestroy();
     }
@@ -132,7 +102,7 @@ public class MainActivity extends FragmentActivity {
 
     private void onSessionStateChange(Session session, SessionState state, Exception exception) {
         // Only make changes if the activity is visible
-        Log.i(TAG, "onSessionStateChange()");
+        Log.i(TAG,"onSessionStateChange()");
         if (isResumed) {
             FragmentManager manager = getSupportFragmentManager();
             // Get the number of entries in the back stack
@@ -144,62 +114,60 @@ public class MainActivity extends FragmentActivity {
             if (state.isOpened()) {
                 // If the session state is open:
                 // Show the authenticated fragment
-                showFragment(MVROCK_FRAG, false);
+                showFragment(MvRockView.MVROCK_FRAG, false);
             } else if (state.isClosed()) {
                 // If the session state is closed:
                 // Show the login fragment
-                showFragment(FBLOGIN_FRAG, false);
+                showFragment(MvRockView.FBLOGIN_FRAG, false);
             }
         }
     }
-
     public void showFragment(int fragmentIndex, boolean addToBackStack) {
-        Log.i(TAG, "showFragment(" + fragmentIndex + ")");
-        fm = getSupportFragmentManager();
-        transaction = fm.beginTransaction();
-        for (int i = 0; i < fragments.size(); i++) {
+        Log.i(TAG,"showFragment("+fragmentIndex+")");
+        MvRockView.FragmentManager = getSupportFragmentManager();
+        MvRockView.Transaction = MvRockView.FragmentManager.beginTransaction();
+        for (int i = 0; i < MvRockView.FragmentList.size(); i++) {
             if (i == fragmentIndex) {
-                if (i == 1) {
-                    MvRockModel.User.Session = Session.getActiveSession();
+                if(i==1){
+                    MvRockModel.User.Session= Session.getActiveSession();
                     MvRockModel.User.RequestFBUserInfoByThread();
                 }
-                transaction.show(fragments.get(i));
+                MvRockView.Transaction.show(MvRockView.FragmentList.get(i));
             } else {
-                transaction.hide(fragments.get(i));
+                MvRockView.Transaction.hide(MvRockView.FragmentList.get(i));
             }
         }
         if (addToBackStack) {
-            transaction.addToBackStack(null);
+            MvRockView.Transaction.addToBackStack(null);
         }
-        transaction.commit();
+        MvRockView.Transaction.commit();
     }
 
 
     @Override
     protected void onResumeFragments() {
-        Log.i(TAG, "onResumeFragments()");
+        Log.i(TAG,"onResumeFragments()");
 
         super.onResumeFragments();
         Session session = Session.getActiveSession();
 
         if (session != null && session.isOpened()) {
-            if (fragments.size() < (MVROCK_FRAG + 1)) {
-                fragments.add(new MvRockFragment());
-                fm = getSupportFragmentManager();
-                transaction = fm.beginTransaction();
-                transaction.add(R.id.mvRockFragment, fragments.get(MVROCK_FRAG));
-                transaction.commit();
+            if (MvRockView.FragmentList.size()<(MvRockView.MVROCK_FRAG+1)) {
+                MvRockView.FragmentList.add(new MvRockFragment());
+                MvRockView.FragmentManager = getSupportFragmentManager();
+                MvRockView.Transaction = MvRockView.FragmentManager.beginTransaction();
+                MvRockView.Transaction.add(R.id.mvRockFragment, MvRockView.FragmentList.get(MvRockView.MVROCK_FRAG));
+                MvRockView.Transaction.commit();
             }
-            showFragment(MVROCK_FRAG, false);
+            showFragment(MvRockView.MVROCK_FRAG, false);
             userSkippedLogin = false;
-        } else {
-            showFragment(FBLOGIN_FRAG, false);
+        }else {
+            showFragment(MvRockView.FBLOGIN_FRAG, false);
         }
     }
-
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        Log.i(TAG, "onSaveInstanceState()");
+        Log.i(TAG,"onSaveInstanceState()");
         super.onSaveInstanceState(outState);
         uiHelper.onSaveInstanceState(outState);
 
@@ -211,9 +179,9 @@ public class MainActivity extends FragmentActivity {
                 @Override
                 public void call(Session session,
                                  SessionState state, Exception exception) {
-                    Log.i(TAG, "StatusCallback() call()");
+                    Log.i(TAG,"StatusCallback() call()");
                     onSessionStateChange(session, state, exception);
                 }
             };
-
+	
 }

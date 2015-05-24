@@ -6,14 +6,6 @@ import org.json.JSONException;
 
 /**
  * Created by Xuer on 5/9/15.
- *
- * Add comments on 5/24/15
- *
- * Abstract Class
- *
- * setHttpResponse is used to pass HttpResponse which is recorded by "strResponse"
- *
- * method : convertData()
  */
 public abstract class MvRockModelObject {
     protected String TAG;

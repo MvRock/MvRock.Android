@@ -1,6 +1,8 @@
 -- Merging decision tree log ---
 manifest
 ADDED from AndroidManifest.xml:17:1
+	xmlns:android
+		ADDED from AndroidManifest.xml:17:11
 	package
 		ADDED from AndroidManifest.xml:18:5
 		INJECTED from AndroidManifest.xml:0:0
@@ -11,8 +13,6 @@ ADDED from AndroidManifest.xml:17:1
 		ADDED from AndroidManifest.xml:19:5
 		INJECTED from AndroidManifest.xml:0:0
 		INJECTED from AndroidManifest.xml:0:0
-	xmlns:android
-		ADDED from AndroidManifest.xml:17:11
 uses-sdk
 ADDED from AndroidManifest.xml:22:5
 MERGED from com.android.support:support-v4:22.1.1:20:5
@@ -47,10 +47,10 @@ MERGED from com.android.support:support-v4:22.1.1:22:5
 		ADDED from AndroidManifest.xml:28:9
 meta-data#com.facebook.sdk.ApplicationId
 ADDED from AndroidManifest.xml:30:9
-	android:value
-		ADDED from AndroidManifest.xml:32:17
 	android:name
 		ADDED from AndroidManifest.xml:31:11
+	android:value
+		ADDED from AndroidManifest.xml:32:17
 activity#com.mvrock.android.view.MainActivity
 ADDED from AndroidManifest.xml:34:10
 	android:label
@@ -69,16 +69,16 @@ ADDED from AndroidManifest.xml:39:17
 		ADDED from AndroidManifest.xml:39:27
 meta-data#@string/minVersion
 ADDED from AndroidManifest.xml:41:13
-	android:value
-		ADDED from AndroidManifest.xml:43:17
 	android:name
 		ADDED from AndroidManifest.xml:42:17
+	android:value
+		ADDED from AndroidManifest.xml:43:17
 meta-data#@string/isLaunchableActivity
 ADDED from AndroidManifest.xml:44:13
-	android:value
-		ADDED from AndroidManifest.xml:46:17
 	android:name
 		ADDED from AndroidManifest.xml:45:17
+	android:value
+		ADDED from AndroidManifest.xml:46:17
 activity#com.facebook.LoginActivity
 ADDED from AndroidManifest.xml:50:10
 	android:label

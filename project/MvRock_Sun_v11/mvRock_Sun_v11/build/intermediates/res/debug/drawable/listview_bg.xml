@@ -10,4 +10,4 @@ android:drawable="@color/red" />
 <item android:state_selected="true"  android:drawable="@color/red" android:state_pressed="false" />  
 <!--获得焦点时的背景  颜色-->  
 <item android:state_focused="true" android:drawable="@color/red" />  
-</selector><!-- From: file:/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/drawable/listview_bg.xml -->
+</selector><!-- From: file:/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/drawable/listview_bg.xml -->

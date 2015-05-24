@@ -5,7 +5,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
-    <fragment android:name="com.mvrock.android.view.FbLoginFragment"
+    <fragment android:name="com.mvrock.android.view.fragment.FbLoginFragment"
           android:id="@+id/fbloginFragment"
           android:layout_width="match_parent"
           android:layout_height="match_parent" />
@@ -14,4 +14,4 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
     </FrameLayout>
-</LinearLayout><!-- From: file:/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/layout/main.xml -->
+</LinearLayout><!-- From: file:/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/layout/main.xml -->

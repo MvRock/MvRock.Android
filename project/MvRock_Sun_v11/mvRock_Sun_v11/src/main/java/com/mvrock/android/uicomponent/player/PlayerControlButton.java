@@ -3,7 +3,7 @@ package com.mvrock.android.uicomponent.player;
 import android.util.Log;
 
 import com.mvrock.android.model.MvRockModel;
-import com.mvrock.android.thread.SetRatingThread_old;
+import com.mvrock.android.thread.SetRatingThread;
 import com.mvrock.android.uicomponent.MvRockUiComponent;
 import com.mvrock.android.uicomponent.MvRockUiComponentObject;
 
@@ -20,7 +20,7 @@ public abstract class PlayerControlButton extends MvRockUiComponentObject {
             url= MvRockModel.YouLikedSongList.songArrayList.get(MvRockModel.currentMVIndex).get("url");
         }
 
-        Thread setRatingThread = new Thread(new SetRatingThread_old(MvRockModel.User.User_Id,url,flag));
+        SetRatingThread setRatingThread = new SetRatingThread(MvRockModel.User.User_Id,url,flag);
         setRatingThread.start();
     }
 

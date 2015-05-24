@@ -2,53 +2,53 @@
 <items version="2" >
 
     <item
-        jar="/Users/Tianhao/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.1.4/129874135e6081269ace2312092031558865de12/bolts-android-1.1.4.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="129874135e6081269ace2312092031558865de12">
-        <dex dex="/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/pre-dexed/debug/bolts-android-1.1.4-eeb6416b66808fd404918eae5de6b931fdebdc55.jar" />
-    </item>
-    <item
-        jar="/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/libs/internal_impl-22.1.1.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
-        <dex dex="/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/pre-dexed/debug/internal_impl-22.1.1-e725ce12b92497f364bd8f76b40aae17faf678bf.jar" />
-    </item>
-    <item
-        jar="/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="a3ff3c506644c820eb2bdf06e8339f72be578551">
-        <dex dex="/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/pre-dexed/debug/classes-fecbbf652e6c47b30b7052a7c95a218059f57f45.jar" />
-    </item>
-    <item
-        jar="/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/classes.jar"
+        jar="/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="c8414f03ff9e5b045f185921c9bc42914c906458">
-        <dex dex="/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/pre-dexed/debug/classes-9101eab5f94a5cf1d4bad47169663c685ed4b6fc.jar" />
+        <dex dex="/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/pre-dexed/debug/classes-b375f783af2daa2e7df4f28c8c907f002987f9c2.jar" />
     </item>
     <item
-        jar="/Users/Tianhao/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.1.1/support-annotations-22.1.1.jar"
+        jar="/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/libs/internal_impl-22.1.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
+        <dex dex="/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/pre-dexed/debug/internal_impl-22.1.1-545eac8731e128170f94a1720a4e3812718a102d.jar" />
+    </item>
+    <item
+        jar="/Users/Xuer/Desktop/eclipse-kepler-j2ee/android-sdk-macosx/extras/android/m2repository/com/android/support/support-annotations/22.1.1/support-annotations-22.1.1.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="01d051a6bfb1218b1db2d3a5af0480ac2c25c42a">
-        <dex dex="/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/pre-dexed/debug/support-annotations-22.1.1-f866e624119f9a55c2932e731e05e962d4fe76a4.jar" />
+        <dex dex="/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/pre-dexed/debug/support-annotations-22.1.1-d2042f31d151fb4fbfcc267368f9dc238b92a650.jar" />
     </item>
     <item
-        jar="/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/libs/YouTubeAndroidPlayerApi.jar"
+        jar="/Users/Xuer/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.1.4/129874135e6081269ace2312092031558865de12/bolts-android-1.1.4.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="129874135e6081269ace2312092031558865de12">
+        <dex dex="/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/pre-dexed/debug/bolts-android-1.1.4-2e8bd8451809de75f33a24986a70667498ac4621.jar" />
+    </item>
+    <item
+        jar="/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/libs/YouTubeAndroidPlayerApi.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="78b8f6e37921559ed21c1fae1f30f9f713494db8">
-        <dex dex="/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/pre-dexed/debug/YouTubeAndroidPlayerApi-b6f80a5d24e4578b4d7945c08dc36738cdf70e09.jar" />
+        <dex dex="/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/pre-dexed/debug/YouTubeAndroidPlayerApi-4cc077dfddbe0d9cf7e1ab5f9a8344bd6dc3a0f5.jar" />
     </item>
     <item
-        jar="/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/classes.jar"
+        jar="/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="c95ba8152923e4872e86a82cfcba9a51c0214328">
-        <dex dex="/Users/Tianhao/Documents/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/pre-dexed/debug/classes-e0228940a3256f7ff131e3851d4a13c3864a56ef.jar" />
+        <dex dex="/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/pre-dexed/debug/classes-04408673e557f91d6541ef1eae711a1c5523eb50.jar" />
+    </item>
+    <item
+        jar="/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a3ff3c506644c820eb2bdf06e8339f72be578551">
+        <dex dex="/Users/Xuer/Documents/AndroidStudio_WorkSpace/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/pre-dexed/debug/classes-323e54f9405bce48bf450c86424ce3f6a18ba574.jar" />
     </item>
 
 </items>
