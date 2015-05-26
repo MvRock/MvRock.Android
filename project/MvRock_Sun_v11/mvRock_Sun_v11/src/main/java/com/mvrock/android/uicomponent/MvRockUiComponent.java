@@ -22,6 +22,43 @@ import com.mvrock.android.uicomponent.station.StationSearchView;
 
 /**
  * Created by Xuer on 5/8/15.
+ * Add comment on 5/26/15.
+ *
+ * This class is used for define and storing UI component.
+ *
+ *
+ * Component :
+ *
+ * List:
+ * YouMayLikePlayListView
+ * YouLikedPlayListView
+ * StationPlayListView
+ *
+ * Player:
+ * MvRockYoutubePlayerFragment
+ *
+ * Button:
+ * NextSongButton
+ * ThumbUpButton
+ * ThumbDownButton
+ * ReportButton
+ * ShareButton
+ *
+ * TabHost:
+ * MvRockTabHost
+ *
+ * Tool:
+ * ActionbarDrawerToggle
+ * LeftTopDrawer
+ *
+ * Station Operation:
+ * StationListView
+ * StationListView
+ * StationSearchView
+ *
+ * ChangeToolBarImage :
+ * when the thumbup or thumbdown button are pressed, the icon of each should be changed
+ * load the icon.
  */
 public class MvRockUiComponent {
     private static final String TAG;

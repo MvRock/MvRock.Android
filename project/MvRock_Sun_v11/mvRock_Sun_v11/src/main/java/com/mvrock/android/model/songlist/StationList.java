@@ -10,9 +10,13 @@ import java.util.ArrayList;
 
 /**
  * Created by Xuer on 5/9/15.
+ * Add comment on 5/26/15.
+ *
+ * This class is used for reading JSON info of stationList of one user.
+ * When the stationList is required to load, add the station one by one and change its format for showing
  */
 public class StationList  extends MvRockModelObject {
-    public ArrayList<String> stationArrayList = new ArrayList<String>();
+    public ArrayList<String> stationArrayList;
 
     public StationList(){
         super();

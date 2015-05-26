@@ -6,6 +6,9 @@ import android.widget.ImageView;
 
 /**
  * Created by Xuer on 5/5/15.
+ * Add comment on 5/26/15
+ *
+ * coming soon :)
  */
 public class ReportButton extends PlayerControlButton{
     public ImageView reportSongImage;

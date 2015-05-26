@@ -11,6 +11,20 @@ import com.mvrock.android.uicomponent.MvRockUiComponentObject;
 
 /**
  * Created by Xuer on 5/5/15.
+ * Add comment on 5/26/15.
+ *
+ * This class is used for defining the function of shareSong button
+ *
+ * ImageView
+ * Init :
+ *      onclick : call for PostShareByThread()
+ *
+ * PostShareByThread:
+ *
+ * get the url of the song from YouMayLikeSongList or YouLikeSongList
+ * pass it for the Thread
+ * Thread Starts
+ *
  */
 public class ShareButton extends MvRockUiComponentObject {
     public ImageView shareSongImage;

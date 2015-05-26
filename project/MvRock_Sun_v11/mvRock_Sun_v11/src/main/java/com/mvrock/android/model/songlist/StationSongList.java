@@ -1,9 +1,23 @@
 package com.mvrock.android.model.songlist;
-
 /**
  * Created by Xuer on 5/7/15.
+ * Add comment on 5/26/15.
+ *
+ * This class is used for reading info from JSON and store the info in songArrayList.
+ *
+ * The construction of the songArrayList is
+ *
+ * songArrayList
+ * [
+ * ...
+ *  Map[
+ *      song_name, songInfo
+ *      url, songInfo
+ *      artist_name, By artistInfo
+ *      ]
+ * ...
+ * ]
  */
-
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -11,7 +25,6 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
-
 /**
  * JSON format:
  *
@@ -50,7 +63,6 @@ public class StationSongList extends SongList {
                 map.put("artist_name", new String(buffer));
                 songArrayList.add(map);
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }

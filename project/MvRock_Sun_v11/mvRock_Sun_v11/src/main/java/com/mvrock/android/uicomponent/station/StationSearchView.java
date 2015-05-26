@@ -15,6 +15,21 @@ import static android.util.Log.i;
 
 /**
  * Created by Xuer on 5/5/15.
+ * Add comments on 5/26/15.
+ *
+ * This class is used for define station searching component
+ *
+ * Add topSearchView object
+ * Init:
+ *      Default String : Search Stations.
+ *      onQueryTextChange : not change with the text typed in (false)
+ *      onQueryTextSubmit : call for RequestSearchStationResultByThread() function
+ *
+ * RequestSearchStationResultByThread()
+ *      Call for GetSearchStationThread
+ *      Processing
+ *      Set the StationViewList
+ *
  */
 public class StationSearchView extends MvRockUiComponentObject {
     public SearchView topSearchView;
@@ -25,6 +40,8 @@ public class StationSearchView extends MvRockUiComponentObject {
         Log.i(TAG, "Init()");
         topSearchView.setQueryHint("Search Stations");
         topSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+            @Override
             public boolean onQueryTextChange(String s) {
                 return false;
             }

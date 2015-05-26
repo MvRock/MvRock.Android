@@ -10,6 +10,9 @@ import java.util.Map;
 
 /**
  * Created by Xuer on 5/6/15.
+ * Add comment on 5/26/15
+ *
+ * Similar with Class StationSongList
  */
 
 /**

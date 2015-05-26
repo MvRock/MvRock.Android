@@ -10,6 +10,13 @@ import java.util.Map;
 
 /**
  * Created by Xuer on 5/8/15.
+ * Add comment on 5/26/15
+ *
+ *
+ * Abstract class for Song
+ * Extend from MvRockModelObjectList
+ *
+ *
  */
 public abstract class SongList extends MvRockModelObject {
     public Map<Integer, Drawable> imageViewList;
