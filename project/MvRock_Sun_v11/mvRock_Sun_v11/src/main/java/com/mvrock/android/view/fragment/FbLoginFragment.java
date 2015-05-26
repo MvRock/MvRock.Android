@@ -1,5 +1,9 @@
 package com.mvrock.android.view.fragment;
-
+/**
+ *This is a view used for FB login.
+ *Based on Fragment.
+ *Using FB API
+ */
 import java.util.Arrays;
 
 import android.content.Intent;
@@ -47,7 +51,8 @@ public class FbLoginFragment extends Fragment{
 	    uiHelper = new UiLifecycleHelper(getActivity(), callback);
 	    uiHelper.onCreate(savedInstanceState);
 	}
-	
+
+	//FB API to generate the view and get the permissions of the APP user from FB
 	@Override
 	public View onCreateView(LayoutInflater inflater, 
 	        ViewGroup container, 
@@ -92,6 +97,7 @@ public class FbLoginFragment extends Fragment{
 	    uiHelper.onResume();
 	}
 
+	//This function is used for passing back the login info.
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 	    super.onActivityResult(requestCode, resultCode, data);

@@ -9,6 +9,11 @@ import com.mvrock.android.thread.GetUserInfoThread;
 
 /**
  * Created by Xuer on 5/8/15.
+ * Add comments on 5/25/15
+ *
+ * This class is used for get the info of one user.
+ * call a thread to get the info.
+ *
  */
 public class User {
     protected String TAG;

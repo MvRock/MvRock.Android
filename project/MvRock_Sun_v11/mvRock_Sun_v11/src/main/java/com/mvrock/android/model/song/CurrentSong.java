@@ -10,6 +10,10 @@ import org.json.JSONObject;
 
 /**
  * Created by Xuer on 5/9/15.
+ * Add comment on 5/24/15
+ *
+ * This class is used to deal with the current song which is liked or disliked by user.
+ *
  */
 public class CurrentSong extends MvRockModelObject {
     public boolean isLikedIconPressed;

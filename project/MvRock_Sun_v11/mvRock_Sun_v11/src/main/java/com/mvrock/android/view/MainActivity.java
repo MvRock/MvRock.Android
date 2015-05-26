@@ -1,5 +1,10 @@
 package com.mvrock.android.view;
-
+/**
+ *This is the MainActivity of the App
+ *This activity extends FragmentActivity and so Fragment can be used in this activity.
+ *Therefore the consistent of the activity is only one activity and several fragments are created to
+ implement some functions
+ */
 import com.examples.youtubeapidemo.R;
 import com.facebook.AppEventsLogger;
 import com.facebook.Session;
@@ -15,7 +20,6 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
 
-
 public class MainActivity extends FragmentActivity {
 	private static final String USER_SKIPPED_LOGIN_KEY = "user_skipped_login";
 	private static final String TAG = "View.MainActivity";
@@ -24,7 +28,11 @@ public class MainActivity extends FragmentActivity {
 	private boolean isResumed = false;
 	private boolean userSkippedLogin = false;
 	private UiLifecycleHelper uiHelper;
-	
+
+    /*In onCreate, we initialize the uiHelper provided by FB; Initialize the Fragment list and Fragment
+    Manager and Fragment Transaction. Also set the the fragment without login.
+    */
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
@@ -99,7 +107,7 @@ public class MainActivity extends FragmentActivity {
         uiHelper.onDestroy();
     }
 
-
+    //Change when the state of current session state change
     private void onSessionStateChange(Session session, SessionState state, Exception exception) {
         // Only make changes if the activity is visible
         Log.i(TAG,"onSessionStateChange()");
@@ -122,6 +130,7 @@ public class MainActivity extends FragmentActivity {
             }
         }
     }
+    //According to the info to choose which fragment showed.
     public void showFragment(int fragmentIndex, boolean addToBackStack) {
         Log.i(TAG,"showFragment("+fragmentIndex+")");
         MvRockView.FragmentManager = getSupportFragmentManager();

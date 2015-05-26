@@ -13,6 +13,10 @@ import org.json.JSONArray;
 
 /**
  * Created by Xuer on 5/6/15.
+ * Add comments on 5/24/15
+ *
+ * Define the object used in MvRock and initialize them in static
+ * Define Set and Get method to get and set private object.
  */
 public class MvRockModel {
     private static final String TAG;

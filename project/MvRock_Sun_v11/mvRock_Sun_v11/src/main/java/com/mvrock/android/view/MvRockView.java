@@ -9,6 +9,9 @@ import java.util.ArrayList;
 
 /**
  * Created by Xuer on 5/24/15.
+ * Add comment on 5/25/15
+ *
+ * This class is used to create the view of MvRock and generate the static fragment list.
  */
 public class MvRockView {
     public static ArrayList<Fragment> FragmentList;
