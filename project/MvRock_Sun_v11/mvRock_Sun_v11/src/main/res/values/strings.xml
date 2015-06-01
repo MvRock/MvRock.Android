@@ -66,6 +66,8 @@
     <string name="other_info">侧边栏</string>
     <string name="drawer_open">MvRock</string>
     <string name="drawer_close">MvRock</string>
+    <string name = "acc_drawer_open">shabima</string>
+    <string name = "acc_drawer_close">shaodiao</string>
 <string name="get_started">To get started, log in using Facebook</string>
 <string name="settings">Settings</string>
     <string-array name="planets_array">

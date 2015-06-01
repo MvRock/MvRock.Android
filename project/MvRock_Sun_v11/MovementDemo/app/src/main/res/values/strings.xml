@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MovementDemo</string>
+    <string name = "acc_drawer_open">shabima</string>
+    <string name = "acc_drawer_close">shaodiao</string>
+</resources>

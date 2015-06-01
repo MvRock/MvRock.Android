@@ -5,6 +5,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
+import com.mvrock.android.view.fragment.RightDrawerFragment;
+
 import java.util.ArrayList;
 
 /**
@@ -17,6 +19,7 @@ public class MvRockView {
     public static ArrayList<Fragment> FragmentList;
     public static FragmentTransaction Transaction;
     public static FragmentManager FragmentManager;
+    public static RightDrawerFragment RightDrawerFragment;
     public static MainActivity MainActivity;
     public static Context Context;
 

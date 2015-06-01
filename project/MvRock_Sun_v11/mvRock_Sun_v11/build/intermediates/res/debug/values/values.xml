@@ -285,6 +285,8 @@
     <string name="abc_toolbar_collapse_description">Collapse</string>
     <!-- From: file:/Users/Tianhao/Desktop/MvRock.Android/project/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/values/strings.xml -->
     <eat-comment/>
+    <string name="acc_drawer_close">shaodiao</string>
+    <string name="acc_drawer_open">shabima</string>
     <string name="action_bar_demo_name">Overlay ActionBar Demo</string>
     <string name="actionbar_tutorial">This is a demo which shows how to use the ActionBar as an overlay when the video is playing in fullscreen. The actionbar will automatically fade away along with the player controls when the video is being played in fullscreen. While not in fullscreen the Actionbar is visible and does not overlay any of the views.</string>
     <string name="app_name">MvRock</string>

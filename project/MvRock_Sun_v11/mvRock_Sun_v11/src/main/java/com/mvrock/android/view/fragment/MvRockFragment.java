@@ -1,7 +1,9 @@
 package com.mvrock.android.view.fragment;
 
 import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
@@ -11,8 +13,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.TranslateAnimation;
 import android.widget.ExpandableListView;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TabHost;
@@ -54,6 +59,14 @@ import static android.util.Log.i;
 public class MvRockFragment extends Fragment {
 	private static final String TAG = "View.MvRockFragment";
 
+    private DrawerLayout mDrawerLayout;
+    private ActionBarDrawerToggle mDrawerToggle;
+    private FrameLayout frame,leftFragment, rightFragment;
+    private float lastTranslate = 0.0f;
+
+    public MvRockFragment(){
+
+    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +76,7 @@ public class MvRockFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
         Log.i(TAG, "onCreateView()");
         View view = inflater.inflate(R.layout.mvrock_home,container, false);
+
 
         Session.setActiveSession(MvRockModel.User.Session);
 
@@ -102,10 +116,42 @@ public class MvRockFragment extends Fragment {
         MvRockUiComponent.MvRockTabHost.TabHost = (TabHost) view.findViewById(R.id.tabhost);
         MvRockUiComponent.MvRockTabHost.Init();
 
-        MvRockUiComponent.LeftTopDrawer=new LeftTopDrawer();
-        MvRockUiComponent.LeftTopDrawer.LeftDrawerLayout = (DrawerLayout) view.findViewById(R.id.drawer_layout);
-        MvRockUiComponent.LeftTopDrawer.LeftDrawerListview = (ExpandableListView) view.findViewById(R.id.left_drawer);
-        MvRockUiComponent.LeftTopDrawer.Init();
+//        MvRockUiComponent.LeftTopDrawer=new LeftTopDrawer();
+//        MvRockUiComponent.LeftTopDrawer.LeftDrawerLayout = (DrawerLayout) view.findViewById(R.id.drawer_layout);
+//        MvRockUiComponent.LeftTopDrawer.LeftDrawerListview = (ExpandableListView) view.findViewById(R.id.left_drawer);
+//        MvRockUiComponent.LeftTopDrawer.Init();
+
+        mDrawerLayout = (DrawerLayout) view.findViewById(R.id.drawer_layout);
+        leftFragment = (FrameLayout) view.findViewById(R.id.left_drawer);
+        rightFragment = (FrameLayout) view.findViewById(R.id.right_drawer);
+        frame = (FrameLayout) view.findViewById(R.id.content_frame);
+        getFragmentManager().beginTransaction().
+                add(R.id.right_drawer,new RightDrawerFragment()).commit();
+        mDrawerToggle = new ActionBarDrawerToggle(getActivity(), mDrawerLayout, R.drawable.ic_launcher, R.string.acc_drawer_open, R.string.acc_drawer_close) {
+
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+                float moveFactor;
+                if (drawerView.getId() == R.id.right_drawer) {
+                    slideOffset = -slideOffset;
+                    moveFactor = (rightFragment.getWidth() * slideOffset);
+                } else {
+                    moveFactor = (leftFragment.getWidth() * slideOffset);
+                }
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+                    frame.setTranslationX(moveFactor);
+                } else {
+                    TranslateAnimation anim = new TranslateAnimation(lastTranslate, moveFactor, 0.0f, 0.0f);
+                    anim.setDuration(0);
+                    anim.setFillAfter(true);
+                    frame.startAnimation(anim);
+                    lastTranslate = moveFactor;
+                }
+            }
+        };
+        mDrawerLayout.setDrawerListener(mDrawerToggle);
+
+
 
         MvRockUiComponent.StationCancelButton=new StationCancelButton();
         MvRockUiComponent.StationCancelButton.stationCancelImage = (ImageView) view.findViewById(R.id.station_cancel);
@@ -114,6 +160,7 @@ public class MvRockFragment extends Fragment {
         MvRockUiComponent.StationListView=new StationListView();
         MvRockUiComponent.StationListView.StationListview = (ListView) view.findViewById(R.id.station_suggestion);
         MvRockUiComponent.StationListView.Init();
+
 
         setHasOptionsMenu(true);
         return view;
