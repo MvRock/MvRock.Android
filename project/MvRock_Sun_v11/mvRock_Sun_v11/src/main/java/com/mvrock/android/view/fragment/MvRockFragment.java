@@ -59,7 +59,7 @@ import static android.util.Log.i;
 public class MvRockFragment extends Fragment {
 	private static final String TAG = "View.MvRockFragment";
 
-    private DrawerLayout mDrawerLayout;
+    public static DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private FrameLayout frame,leftFragment, rightFragment;
     private float lastTranslate = 0.0f;
@@ -147,6 +147,11 @@ public class MvRockFragment extends Fragment {
                     frame.startAnimation(anim);
                     lastTranslate = moveFactor;
                 }
+            }
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
             }
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);

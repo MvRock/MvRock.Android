@@ -2,6 +2,7 @@ package com.mvrock.android.uicomponent.playlist;
 
 import android.content.Context;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 
@@ -10,6 +11,7 @@ import com.mvrock.android.model.MvRockModel;
 import com.mvrock.android.model.PlayListOption;
 import com.mvrock.android.thread.GetYoumaylikePlayListThread;
 import com.mvrock.android.uicomponent.MvRockUiComponent;
+import com.mvrock.android.view.fragment.MvRockFragment;
 
 /**
  * Created by Xuer on 5/5/15.
@@ -61,6 +63,7 @@ public class YouMayLikePlayListView extends PlayListView {
                 MvRockModel.currentMVIndex = position;
                 String selectedId = MvRockModel.YouMayLikeSongList.songArrayList.get(MvRockModel.currentMVIndex).get("url");
                 MvRockUiComponent.MvRockYoutubePlayer.YouTubePlayer.loadVideo(selectedId);
+                MvRockFragment.mDrawerLayout.closeDrawer(Gravity.RIGHT);
             }
         });
     }
