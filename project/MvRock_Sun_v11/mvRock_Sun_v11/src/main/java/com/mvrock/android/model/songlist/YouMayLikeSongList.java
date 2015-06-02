@@ -42,11 +42,13 @@ public class YouMayLikeSongList extends SongList{
             JSONObject YouMayLikeSongJSON=new JSONObject(strResponse);
             JSONArray names = YouMayLikeSongJSON.getJSONArray("Name");
             JSONArray urls = YouMayLikeSongJSON.getJSONArray("Url");
+            JSONArray reasons = YouMayLikeSongJSON.getJSONArray("Reason");
             JSONArray artists = YouMayLikeSongJSON.getJSONArray("Artist");
             for (int i = 0; i < names.length(); i++) {
                 Map<String, String> map = new HashMap<String, String>();
                 map.put("song_name", names.get(i).toString());
                 map.put("url", urls.get(i).toString());
+                map.put("reason",reasons.get(i).toString());
                 StringBuffer buffer = new StringBuffer();
                 buffer.append("By ");
                 buffer.append(artists.get(i).toString());
