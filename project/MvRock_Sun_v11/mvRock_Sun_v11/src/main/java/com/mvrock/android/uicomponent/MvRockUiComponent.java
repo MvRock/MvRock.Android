@@ -6,6 +6,7 @@ import android.util.Log;
 import com.examples.youtubeapidemo.R;
 import com.mvrock.android.model.MvRockModel;
 import com.mvrock.android.uicomponent.drawer.LeftTopDrawer;
+import com.mvrock.android.uicomponent.drawer.MvRockDrawer;
 import com.mvrock.android.uicomponent.player.MvRockYoutubePlayerFragment;
 import com.mvrock.android.uicomponent.player.NextSongButton;
 import com.mvrock.android.uicomponent.player.ReportButton;
@@ -13,6 +14,7 @@ import com.mvrock.android.uicomponent.player.ShareButton;
 import com.mvrock.android.uicomponent.player.ThumbDownButton;
 import com.mvrock.android.uicomponent.player.ThumbUpButton;
 import com.mvrock.android.uicomponent.playlist.MvRockTabHost;
+import com.mvrock.android.uicomponent.playlist.RightFloatingMenu;
 import com.mvrock.android.uicomponent.playlist.StationPlayListView;
 import com.mvrock.android.uicomponent.playlist.YouLikedPlayListView;
 import com.mvrock.android.uicomponent.playlist.YouMayLikePlayListView;
@@ -81,6 +83,10 @@ public class MvRockUiComponent {
     public static StationCancelButton StationCancelButton;
     public static StationListView StationListView;
     public static StationSearchView StationSearchView;
+
+    public static RightFloatingMenu RightFloatingMenu;
+
+    public static MvRockDrawer MvRockDrawer;
 
     static{
         TAG="MvRockUiComponent.";

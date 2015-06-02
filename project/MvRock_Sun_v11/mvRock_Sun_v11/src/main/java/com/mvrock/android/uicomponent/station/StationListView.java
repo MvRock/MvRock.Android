@@ -23,6 +23,7 @@ public class StationListView extends MvRockUiComponentObject {
     public ListView StationListview;
     public StationListView(){
         TAG+="StationListView";
+        RequestStationByThread();
     }
     public void Init(){
         i(TAG,"Init()");
@@ -45,7 +46,6 @@ public class StationListView extends MvRockUiComponentObject {
                 MvRockUiComponent.StationSearchView.topSearchView.onActionViewCollapsed();
                 StationListview.setVisibility(View.INVISIBLE);
                 MvRockUiComponent.StationCancelButton.stationCancelImage.setVisibility(View.VISIBLE);
-                RequestStationByThread();
                 MvRockUiComponent.LeftTopDrawer.AddStationList();
             }
         });

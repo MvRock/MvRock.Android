@@ -354,12 +354,12 @@ public final class R {
 		public static final int abc_text_size_subtitle_material_toolbar = 0x7f080039;
 		public static final int abc_text_size_title_material = 0x7f08003a;
 		public static final int abc_text_size_title_material_toolbar = 0x7f08003b;
-		public static final int dialog_fixed_height_major = 0x7f080058;
-		public static final int dialog_fixed_height_minor = 0x7f080059;
-		public static final int dialog_fixed_width_major = 0x7f08005a;
-		public static final int dialog_fixed_width_minor = 0x7f08005b;
-		public static final int disabled_alpha_material_dark = 0x7f08005c;
-		public static final int disabled_alpha_material_light = 0x7f08005d;
+		public static final int dialog_fixed_height_major = 0x7f08005c;
+		public static final int dialog_fixed_height_minor = 0x7f08005d;
+		public static final int dialog_fixed_width_major = 0x7f08005e;
+		public static final int dialog_fixed_width_minor = 0x7f08005f;
+		public static final int disabled_alpha_material_dark = 0x7f080060;
+		public static final int disabled_alpha_material_light = 0x7f080061;
 	}
 	public static final class drawable {
 		public static final int abc_ab_share_pack_mtrl_alpha = 0x7f020000;
@@ -534,10 +534,10 @@ public final class R {
 		public static final int abc_search_view = 0x7f030016;
 		public static final int abc_select_dialog_material = 0x7f030017;
 		public static final int abc_simple_dropdown_hint = 0x7f030018;
-		public static final int select_dialog_item_material = 0x7f030031;
-		public static final int select_dialog_multichoice_material = 0x7f030032;
-		public static final int select_dialog_singlechoice_material = 0x7f030033;
-		public static final int support_simple_spinner_dropdown_item = 0x7f030034;
+		public static final int select_dialog_item_material = 0x7f030034;
+		public static final int select_dialog_multichoice_material = 0x7f030035;
+		public static final int select_dialog_singlechoice_material = 0x7f030036;
+		public static final int support_simple_spinner_dropdown_item = 0x7f030037;
 	}
 	public static final class string {
 		public static final int abc_action_bar_home_description = 0x7f0b0003;

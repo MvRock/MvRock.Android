@@ -199,6 +199,12 @@
     <dimen name="abc_text_size_subtitle_material_toolbar">16dp</dimen>
     <dimen name="abc_text_size_title_material">20sp</dimen>
     <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
+    <!-- From: file:/Users/Tianhao/Desktop/MvRock.Android/project/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.oguzdev/CircularFloatingActionMenu/1.0.2/res/values/values.xml -->
+    <eat-comment/>
+    <dimen name="action_button_content_margin">16dp</dimen>
+    <dimen name="action_button_margin">12dp</dimen>
+    <dimen name="action_button_size">72dp</dimen>
+    <dimen name="action_menu_radius">96dp</dimen>
     <!-- From: file:/Users/Tianhao/Desktop/MvRock.Android/project/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/values/values.xml -->
     <eat-comment/>
     <dimen name="com_facebook_likeboxcountview_border_radius">3dp</dimen>
@@ -237,6 +243,10 @@
     <item name="dialog_fixed_width_minor" type="dimen">320dp</item>
     <item format="float" name="disabled_alpha_material_dark" type="dimen">0.30</item>
     <item format="float" name="disabled_alpha_material_light" type="dimen">0.26</item>
+    <!-- From: file:/Users/Tianhao/Desktop/MvRock.Android/project/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.oguzdev/CircularFloatingActionMenu/1.0.2/res/values/values.xml -->
+    <eat-comment/>
+    <dimen name="sub_action_button_content_margin">6dp</dimen>
+    <dimen name="sub_action_button_size">36dp</dimen>
     <!-- From: file:/Users/Tianhao/Desktop/MvRock.Android/project/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/res/values/values.xml -->
     <eat-comment/>
     <drawable name="com_facebook_picker_default_separator_color">#33464c59</drawable>

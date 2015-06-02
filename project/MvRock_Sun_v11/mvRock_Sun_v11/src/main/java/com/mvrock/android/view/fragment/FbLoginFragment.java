@@ -58,7 +58,7 @@ public class FbLoginFragment extends Fragment{
 	        ViewGroup container, 
 	        Bundle savedInstanceState) {
 		Log.i(TAG, "onCreateView()");
-	    view = inflater.inflate(R.layout.facebook_login_ui,container, false);
+	    view = inflater.inflate(R.layout.fragment_facebook_login,container, false);
 	    login_button = (LoginButton) view.findViewById(R.id.login_button);  
 	    login_button.setReadPermissions(Arrays.asList("public_profile","user_likes", "user_status","user_friends","email"));
 	    return view;

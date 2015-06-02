@@ -1,9 +1,7 @@
 package com.mvrock.android.view.fragment;
 
 import android.content.res.Configuration;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
@@ -13,11 +11,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.TranslateAnimation;
-import android.widget.ExpandableListView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TabHost;
@@ -29,7 +24,7 @@ import com.google.android.youtube.player.YouTubePlayerView;
 import com.mvrock.android.model.MvRockModel;
 import com.mvrock.android.thread.ChangeLanguageThread;
 import com.mvrock.android.uicomponent.MvRockUiComponent;
-import com.mvrock.android.uicomponent.drawer.LeftTopDrawer;
+import com.mvrock.android.uicomponent.drawer.MvRockDrawer;
 import com.mvrock.android.uicomponent.player.MvRockYoutubePlayerFragment;
 import com.mvrock.android.uicomponent.player.NextSongButton;
 import com.mvrock.android.uicomponent.player.ReportButton;
@@ -37,6 +32,7 @@ import com.mvrock.android.uicomponent.player.ShareButton;
 import com.mvrock.android.uicomponent.player.ThumbDownButton;
 import com.mvrock.android.uicomponent.player.ThumbUpButton;
 import com.mvrock.android.uicomponent.playlist.MvRockTabHost;
+import com.mvrock.android.uicomponent.playlist.RightFloatingMenu;
 import com.mvrock.android.uicomponent.playlist.YouLikedPlayListView;
 import com.mvrock.android.uicomponent.playlist.YouMayLikePlayListView;
 import com.mvrock.android.uicomponent.station.StationCancelButton;
@@ -59,12 +55,19 @@ import static android.util.Log.i;
 public class MvRockFragment extends Fragment {
 	private static final String TAG = "View.MvRockFragment";
 
-    public static DrawerLayout mDrawerLayout;
-    private ActionBarDrawerToggle mDrawerToggle;
-    private FrameLayout frame,leftFragment, rightFragment;
-    private float lastTranslate = 0.0f;
-
     public MvRockFragment(){
+        MvRockUiComponent.MvRockYoutubePlayer = MvRockYoutubePlayerFragment.newInstance("video_id");
+        MvRockUiComponent.NextSongButton= new NextSongButton();
+        MvRockUiComponent.ThumbUpButton= new ThumbUpButton();
+        MvRockUiComponent.ThumbDownButton=new ThumbDownButton();
+        MvRockUiComponent.ReportButton=new ReportButton();
+        MvRockUiComponent.ShareButton=new ShareButton();
+        MvRockUiComponent.MvRockTabHost=new MvRockTabHost();
+        MvRockUiComponent.RightFloatingMenu = new RightFloatingMenu();
+        MvRockUiComponent.StationCancelButton=new StationCancelButton();
+        MvRockUiComponent.StationListView=new StationListView();
+        MvRockUiComponent.MvRockDrawer = new MvRockDrawer();
+
 
     }
     @Override
@@ -75,94 +78,56 @@ public class MvRockFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
         Log.i(TAG, "onCreateView()");
-        View view = inflater.inflate(R.layout.mvrock_home,container, false);
+        View view = inflater.inflate(R.layout.fragment_mvrock,container, false);
 
 
         Session.setActiveSession(MvRockModel.User.Session);
 
-        MvRockUiComponent.MvRockYoutubePlayer = MvRockYoutubePlayerFragment.newInstance("video_id");
-        MvRockUiComponent.MvRockYoutubePlayer.init();
-        MvRockView.MainActivity.getSupportFragmentManager().beginTransaction().replace(R.id.youtubeplayerfragment, MvRockUiComponent.MvRockYoutubePlayer).commit();
+       MvRockUiComponent.MvRockYoutubePlayer.init();
+        MvRockView.MainActivity.getSupportFragmentManager().beginTransaction()
+                .replace(R.id.youtubeplayerfragment, MvRockUiComponent.MvRockYoutubePlayer).commit();
 
-        MvRockUiComponent.YouMayLikePlayListView = new YouMayLikePlayListView(MvRockView.MainActivity);
+        MvRockUiComponent.YouMayLikePlayListView = new YouMayLikePlayListView();
         MvRockUiComponent.YouMayLikePlayListView.playListview=(ListView) view.findViewById(R.id.youmaylike);
         MvRockUiComponent.YouMayLikePlayListView.Init();
 
-        MvRockUiComponent.YouLikedPlayListView = new YouLikedPlayListView(MvRockView.MainActivity);
+        MvRockUiComponent.YouLikedPlayListView = new YouLikedPlayListView();
         MvRockUiComponent.YouLikedPlayListView.playListview = (ListView) view.findViewById(R.id.youliked);
         MvRockUiComponent.YouLikedPlayListView.Init();
 
-        MvRockUiComponent.NextSongButton= new NextSongButton();
         MvRockUiComponent.NextSongButton.nextSongImage = (ImageView) view.findViewById(R.id.nextbutton);
         MvRockUiComponent.NextSongButton.Init();
 
-        MvRockUiComponent.ThumbUpButton= new ThumbUpButton();
         MvRockUiComponent.ThumbUpButton.likeSongImage = (ImageView) view.findViewById(R.id.thumbupbutton);
         MvRockUiComponent.ThumbUpButton.Init();
 
-        MvRockUiComponent.ThumbDownButton=new ThumbDownButton();
         MvRockUiComponent.ThumbDownButton.dislikeSongImage = (ImageView) view.findViewById(R.id.thumbdownbotton);
         MvRockUiComponent.ThumbDownButton.Init();
 
-        MvRockUiComponent.ReportButton=new ReportButton();
         MvRockUiComponent.ReportButton.reportSongImage = (ImageView) view.findViewById(R.id.reportbutton);
         MvRockUiComponent.ReportButton.Init();
 
-        MvRockUiComponent.ShareButton=new ShareButton();
         MvRockUiComponent.ShareButton.shareSongImage = (ImageView) view.findViewById(R.id.sharebutton);
         MvRockUiComponent.ShareButton.Init();
 
-        MvRockUiComponent.MvRockTabHost=new MvRockTabHost();
         MvRockUiComponent.MvRockTabHost.TabHost = (TabHost) view.findViewById(R.id.tabhost);
         MvRockUiComponent.MvRockTabHost.Init();
 
-//        MvRockUiComponent.LeftTopDrawer=new LeftTopDrawer();
-//        MvRockUiComponent.LeftTopDrawer.LeftDrawerLayout = (DrawerLayout) view.findViewById(R.id.drawer_layout);
-//        MvRockUiComponent.LeftTopDrawer.LeftDrawerListview = (ExpandableListView) view.findViewById(R.id.left_drawer);
-//        MvRockUiComponent.LeftTopDrawer.Init();
+//        MvRockUiComponent.RightFloatingMenu.RightDrawerControlButton = (ImageView)view.findViewById(R.id.right_drawer_control_button);
+        MvRockUiComponent.RightFloatingMenu.Init();
 
-        mDrawerLayout = (DrawerLayout) view.findViewById(R.id.drawer_layout);
-        leftFragment = (FrameLayout) view.findViewById(R.id.left_drawer);
-        rightFragment = (FrameLayout) view.findViewById(R.id.right_drawer);
-        frame = (FrameLayout) view.findViewById(R.id.content_frame);
-        getFragmentManager().beginTransaction().
-                add(R.id.right_drawer,new RightDrawerFragment()).commit();
-        mDrawerToggle = new ActionBarDrawerToggle(getActivity(), mDrawerLayout, R.drawable.ic_launcher, R.string.acc_drawer_open, R.string.acc_drawer_close) {
 
-            public void onDrawerSlide(View drawerView, float slideOffset) {
-                float moveFactor;
-                if (drawerView.getId() == R.id.right_drawer) {
-                    slideOffset = -slideOffset;
-                    moveFactor = (rightFragment.getWidth() * slideOffset);
-                } else {
-                    moveFactor = (leftFragment.getWidth() * slideOffset);
-                }
-
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-                    frame.setTranslationX(moveFactor);
-                } else {
-                    TranslateAnimation anim = new TranslateAnimation(lastTranslate, moveFactor, 0.0f, 0.0f);
-                    anim.setDuration(0);
-                    anim.setFillAfter(true);
-                    frame.startAnimation(anim);
-                    lastTranslate = moveFactor;
-                }
-            }
-
-            @Override
-            public void onDrawerClosed(View drawerView) {
-                super.onDrawerClosed(drawerView);
-            }
-        };
-        mDrawerLayout.setDrawerListener(mDrawerToggle);
+        MvRockUiComponent.MvRockDrawer.mDrawerLayout = (DrawerLayout) view.findViewById(R.id.drawer_layout);
+        MvRockUiComponent.MvRockDrawer.leftFragment = (FrameLayout) view.findViewById(R.id.left_drawer);
+        MvRockUiComponent.MvRockDrawer.rightFragment = (FrameLayout) view.findViewById(R.id.right_drawer);
+        MvRockUiComponent.MvRockDrawer.frame = (FrameLayout) view.findViewById(R.id.content_frame);
+        MvRockUiComponent.MvRockDrawer.Init();
 
 
 
-        MvRockUiComponent.StationCancelButton=new StationCancelButton();
         MvRockUiComponent.StationCancelButton.stationCancelImage = (ImageView) view.findViewById(R.id.station_cancel);
         MvRockUiComponent.StationCancelButton.Init();
 
-        MvRockUiComponent.StationListView=new StationListView();
         MvRockUiComponent.StationListView.StationListview = (ListView) view.findViewById(R.id.station_suggestion);
         MvRockUiComponent.StationListView.Init();
 

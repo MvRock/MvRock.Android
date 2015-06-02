@@ -1,6 +1,5 @@
 package com.mvrock.android.thread;
 
-import android.os.StrictMode;
 import android.util.Log;
 
 import org.apache.http.HttpResponse;
@@ -15,7 +14,6 @@ import org.apache.http.util.EntityUtils;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Xuer on 5/5/15.

@@ -1,6 +1,5 @@
 package com.mvrock.android.uicomponent.playlist;
 
-import android.content.Context;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -12,6 +11,8 @@ import com.mvrock.android.model.PlayListOption;
 import com.mvrock.android.thread.GetYoumaylikePlayListThread;
 import com.mvrock.android.uicomponent.MvRockUiComponent;
 import com.mvrock.android.view.fragment.MvRockFragment;
+import com.mvrock.android.view.MvRockView;
+
 
 /**
  * Created by Xuer on 5/5/15.
@@ -19,8 +20,8 @@ import com.mvrock.android.view.fragment.MvRockFragment;
 public class YouMayLikePlayListView extends PlayListView {
 
 
-    public YouMayLikePlayListView(Context context) {
-        super(context);
+    public YouMayLikePlayListView() {
+        super(MvRockView.MainActivity);
         TAG += "YouMayLikeListView";
     }
 
@@ -51,7 +52,6 @@ public class YouMayLikePlayListView extends PlayListView {
 
     public void Init(){
         Log.i(TAG, "Init()");
-        this.RequestPlayListByThread();
         this.RefreshListView();
         MvRockModel.currentMVIndex = 0;
         this.playListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -63,7 +63,7 @@ public class YouMayLikePlayListView extends PlayListView {
                 MvRockModel.currentMVIndex = position;
                 String selectedId = MvRockModel.YouMayLikeSongList.songArrayList.get(MvRockModel.currentMVIndex).get("url");
                 MvRockUiComponent.MvRockYoutubePlayer.YouTubePlayer.loadVideo(selectedId);
-                MvRockFragment.mDrawerLayout.closeDrawer(Gravity.RIGHT);
+                MvRockUiComponent.MvRockDrawer.mDrawerLayout.closeDrawer(Gravity.RIGHT);
             }
         });
     }

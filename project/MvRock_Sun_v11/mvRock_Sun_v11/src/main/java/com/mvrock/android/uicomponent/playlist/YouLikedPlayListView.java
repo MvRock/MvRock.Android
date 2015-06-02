@@ -1,6 +1,5 @@
 package com.mvrock.android.uicomponent.playlist;
 
-import android.content.Context;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -10,13 +9,14 @@ import com.mvrock.android.model.MvRockModel;
 import com.mvrock.android.model.PlayListOption;
 import com.mvrock.android.thread.GetYouLikedSongAndUserDataThread;
 import com.mvrock.android.uicomponent.MvRockUiComponent;
+import com.mvrock.android.view.MvRockView;
 
 /**
  * Created by Xuer on 5/5/15.
  */
 public class YouLikedPlayListView extends PlayListView {
-  public YouLikedPlayListView(Context context){
-        super(context);
+  public YouLikedPlayListView(){
+        super(MvRockView.MainActivity);
         TAG += "YouLikedListView";
     }
     public boolean isAvailable(){return MvRockModel.playListOption== PlayListOption.YOU_LIKED_LIST;}
@@ -49,7 +49,6 @@ public class YouLikedPlayListView extends PlayListView {
 
     public void Init(){
         Log.i(TAG, "Init()");
-        this.RequestPlayListByThread();
         this.RefreshListView();
         MvRockModel.currentMVIndex = 0;
         this.playListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {

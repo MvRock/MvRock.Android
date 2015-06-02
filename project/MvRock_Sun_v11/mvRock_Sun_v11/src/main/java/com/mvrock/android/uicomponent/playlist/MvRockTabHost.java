@@ -15,7 +15,7 @@ public class MvRockTabHost extends MvRockUiComponentObject{
 
     public MvRockTabHost(){
         TAG+="MvRockTabHost";
-        TabHost =new TabHost(MvRockView.Context);
+        TabHost =new TabHost(MvRockView.MainActivity);
     }
 
     public void Init(){

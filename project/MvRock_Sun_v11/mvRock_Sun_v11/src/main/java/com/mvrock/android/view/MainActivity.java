@@ -13,6 +13,8 @@ import com.facebook.UiLifecycleHelper;
 import com.mvrock.android.model.MvRockModel;
 import com.mvrock.android.view.fragment.FbLoginFragment;
 import com.mvrock.android.view.fragment.MvRockFragment;
+import com.mvrock.android.view.fragment.YouLikedPlayListFragment;
+import com.mvrock.android.view.fragment.YouMayLikePlayListFragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -43,14 +45,12 @@ public class MainActivity extends FragmentActivity {
 	    uiHelper = new UiLifecycleHelper(this, callback);
 	    uiHelper.onCreate(savedInstanceState);
 	    setContentView(R.layout.main);
-
-        MvRockView.Context=this;
-	    MvRockView.FragmentManager = getSupportFragmentManager();
+        MvRockView.MainActivity=this;
 	    FbLoginFragment fbLoginFragment = new FbLoginFragment();
-        MvRockView.FragmentList.add(MvRockView.FragmentManager.findFragmentById(R.id.fbloginFragment));
-	    MvRockView.Transaction = MvRockView.FragmentManager.beginTransaction();
-	    MvRockView.Transaction.show(MvRockView.FragmentList.get(MvRockView.FBLOGIN_FRAG));
-	    MvRockView.Transaction.commit();
+        MvRockView.FragmentList.add(this.getSupportFragmentManager().findFragmentById(R.id.fbloginFragment));
+
+
+        this.getSupportFragmentManager().beginTransaction().show(MvRockView.FragmentList.get(MvRockView.FBLOGIN_FRAG)).commit();
 	    fbLoginFragment.setSkipLoginCallback(new FbLoginFragment.SkipLoginCallback() {
             @Override
             public void onSkipLoginPressed() {
@@ -133,23 +133,21 @@ public class MainActivity extends FragmentActivity {
     //According to the info to choose which fragment showed.
     public void showFragment(int fragmentIndex, boolean addToBackStack) {
         Log.i(TAG,"showFragment("+fragmentIndex+")");
-        MvRockView.FragmentManager = getSupportFragmentManager();
-        MvRockView.Transaction = MvRockView.FragmentManager.beginTransaction();
         for (int i = 0; i < MvRockView.FragmentList.size(); i++) {
             if (i == fragmentIndex) {
                 if(i==1){
-                    MvRockModel.User.Session= Session.getActiveSession();
-                    MvRockModel.User.RequestFBUserInfoByThread();
+//                    MvRockModel.User.Session= Session.getActiveSession();
+//                    MvRockModel.User.RequestFBUserInfoByThread();
                 }
-                MvRockView.Transaction.show(MvRockView.FragmentList.get(i));
+                this.getSupportFragmentManager().beginTransaction().show(MvRockView.FragmentList.get(i)).commit();
             } else {
-                MvRockView.Transaction.hide(MvRockView.FragmentList.get(i));
+                this.getSupportFragmentManager().beginTransaction().hide(MvRockView.FragmentList.get(i)).commit();
             }
         }
         if (addToBackStack) {
-            MvRockView.Transaction.addToBackStack(null);
+            this.getSupportFragmentManager().beginTransaction().addToBackStack(null).commit();
         }
-        MvRockView.Transaction.commit();
+
     }
 
 
@@ -161,12 +159,16 @@ public class MainActivity extends FragmentActivity {
         Session session = Session.getActiveSession();
 
         if (session != null && session.isOpened()) {
+            MvRockModel.User.Session= Session.getActiveSession();
+            MvRockModel.User.RequestFBUserInfoByThread();
             if (MvRockView.FragmentList.size()<(MvRockView.MVROCK_FRAG+1)) {
-                MvRockView.FragmentList.add(new MvRockFragment());
-                MvRockView.FragmentManager = getSupportFragmentManager();
-                MvRockView.Transaction = MvRockView.FragmentManager.beginTransaction();
-                MvRockView.Transaction.add(R.id.mvRockFragment, MvRockView.FragmentList.get(MvRockView.MVROCK_FRAG));
-                MvRockView.Transaction.commit();
+                MvRockView.MvRockFragment=new MvRockFragment();
+                MvRockView.YouMayLikePlayListFragment=new YouMayLikePlayListFragment();
+                MvRockView.YouLikedPlayListFragment =new YouLikedPlayListFragment();
+                MvRockView.FragmentList.add(MvRockView.MvRockFragment);
+                this.getSupportFragmentManager().beginTransaction()
+                        .add(R.id.mvRockFragment, MvRockView.FragmentList.get(MvRockView.MVROCK_FRAG)).commit();
+
             }
             showFragment(MvRockView.MVROCK_FRAG, false);
             userSkippedLogin = false;

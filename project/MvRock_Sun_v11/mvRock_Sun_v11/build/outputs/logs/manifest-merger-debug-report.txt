@@ -20,6 +20,7 @@ MERGED from com.android.support:appcompat-v7:22.1.1:20:5
 MERGED from com.android.support:support-v4:22.1.1:20:5
 MERGED from com.facebook.android:facebook-android-sdk:3.23.1:20:5
 MERGED from com.android.support:support-v4:22.1.1:20:5
+MERGED from com.oguzdev:CircularFloatingActionMenu:1.0.2:7:5
 	android:targetSdkVersion
 		ADDED from AndroidManifest.xml:24:9
 		INJECTED from AndroidManifest.xml:0:0

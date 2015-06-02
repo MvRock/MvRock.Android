@@ -51,7 +51,6 @@ public StationPlayListView(){
 
     public void Init(){
         Log.i(TAG, "Init()");
-        this.RequestPlayListByThread();
         this.RefreshListView();
         MvRockModel.currentMVIndex = 0;
         this.playListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {

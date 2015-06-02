@@ -2,6 +2,13 @@
 <items version="2" >
 
     <item
+        jar="/Users/Tianhao/Desktop/MvRock.Android/project/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.oguzdev/CircularFloatingActionMenu/1.0.2/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="607d961caf1a59b6e782724654c1f3229e036c20">
+        <dex dex="/Users/Tianhao/Desktop/MvRock.Android/project/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/pre-dexed/debug/classes-7a7e75564ac8636059b7d9a7428c955a50315b31.jar" />
+    </item>
+    <item
         jar="/Users/Tianhao/Desktop/MvRock.Android/project/MvRock_Sun_v11/mvRock_Sun_v11/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.23.1/classes.jar"
         jumboMode="false"
         revision="21.1.2"
