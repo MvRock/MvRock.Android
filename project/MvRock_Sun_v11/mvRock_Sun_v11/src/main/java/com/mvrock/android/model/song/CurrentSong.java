@@ -18,13 +18,22 @@ import org.json.JSONObject;
 public class CurrentSong extends MvRockModelObject {
     public boolean isLikedIconPressed;
     public boolean isDislikedIconPressed;
+    public boolean isChanged;
+    public int currentMVIndex;
+    public String url;
+    public int currentTime;
     protected String strResponse;
+
 
     public CurrentSong() {
         super();
         this.TAG +="CurrentSong";
         this.isLikedIconPressed =false;
         this.isDislikedIconPressed = false;
+        this.isChanged=false;
+        this.currentMVIndex=-1;
+        this.currentTime=0;
+        this.url="";
     }
 
     public void convertData(){

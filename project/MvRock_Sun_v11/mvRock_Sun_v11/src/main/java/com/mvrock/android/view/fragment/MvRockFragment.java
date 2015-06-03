@@ -33,8 +33,6 @@ import com.mvrock.android.uicomponent.player.ThumbDownButton;
 import com.mvrock.android.uicomponent.player.ThumbUpButton;
 import com.mvrock.android.uicomponent.playlist.MvRockTabHost;
 import com.mvrock.android.uicomponent.playlist.RightFloatingMenu;
-import com.mvrock.android.uicomponent.playlist.YouLikedPlayListView;
-import com.mvrock.android.uicomponent.playlist.YouMayLikePlayListView;
 import com.mvrock.android.uicomponent.station.StationCancelButton;
 import com.mvrock.android.uicomponent.station.StationListView;
 import com.mvrock.android.uicomponent.station.StationSearchView;
@@ -83,17 +81,9 @@ public class MvRockFragment extends Fragment {
 
         Session.setActiveSession(MvRockModel.User.Session);
 
-       MvRockUiComponent.MvRockYoutubePlayer.init();
+        MvRockUiComponent.MvRockYoutubePlayer.Init();
         MvRockView.MainActivity.getSupportFragmentManager().beginTransaction()
                 .replace(R.id.youtubeplayerfragment, MvRockUiComponent.MvRockYoutubePlayer).commit();
-
-        MvRockUiComponent.YouMayLikePlayListView = new YouMayLikePlayListView();
-        MvRockUiComponent.YouMayLikePlayListView.playListview=(ListView) view.findViewById(R.id.youmaylike);
-        MvRockUiComponent.YouMayLikePlayListView.Init();
-
-        MvRockUiComponent.YouLikedPlayListView = new YouLikedPlayListView();
-        MvRockUiComponent.YouLikedPlayListView.playListview = (ListView) view.findViewById(R.id.youliked);
-        MvRockUiComponent.YouLikedPlayListView.Init();
 
         MvRockUiComponent.NextSongButton.nextSongImage = (ImageView) view.findViewById(R.id.nextbutton);
         MvRockUiComponent.NextSongButton.Init();
@@ -110,10 +100,7 @@ public class MvRockFragment extends Fragment {
         MvRockUiComponent.ShareButton.shareSongImage = (ImageView) view.findViewById(R.id.sharebutton);
         MvRockUiComponent.ShareButton.Init();
 
-        MvRockUiComponent.MvRockTabHost.TabHost = (TabHost) view.findViewById(R.id.tabhost);
-        MvRockUiComponent.MvRockTabHost.Init();
 
-//        MvRockUiComponent.RightFloatingMenu.RightDrawerControlButton = (ImageView)view.findViewById(R.id.right_drawer_control_button);
         MvRockUiComponent.RightFloatingMenu.Init();
 
 
@@ -201,6 +188,23 @@ public class MvRockFragment extends Fragment {
         i(TAG, "onConfigurationChanged()");
         super.onConfigurationChanged(newConfig);
         MvRockUiComponent.LeftDrawerToggle.onConfigurationChanged(newConfig);
+    }
+
+
+    @Override
+    public void onSaveInstanceState(Bundle state) {
+        super.onSaveInstanceState(state);
+        i(TAG, "onSaveInstanceState()");
+        MvRockModel.CurrentSong.currentTime =MvRockUiComponent.MvRockYoutubePlayer.YouTubePlayer.getCurrentTimeMillis();
+    }
+
+    @Override
+    public void onViewStateRestored(Bundle state) {
+        super.onViewStateRestored(state);
+        i(TAG, "onViewStateRestored()");
+        if(MvRockUiComponent.MvRockYoutubePlayer.isReady)
+            MvRockUiComponent.MvRockYoutubePlayer.YouTubePlayer
+                    .cueVideo(MvRockModel.CurrentSong.url, MvRockModel.CurrentSong.currentTime);
     }
 
 }

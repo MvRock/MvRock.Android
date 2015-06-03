@@ -22,25 +22,25 @@ public class NextSongButton extends MvRockUiComponentObject {
             public void onClick(View v) {
                 Log.i("nextSongImage", "onClick()");
                 if ( MvRockUiComponent.YouMayLikePlayListView.isAvailable()) {
-                    if (MvRockModel.currentMVIndex < 14) {
-                        MvRockUiComponent.MvRockYoutubePlayer.YouTubePlayer.loadVideo(MvRockModel.YouLikedSongList.songArrayList.get(MvRockModel.currentMVIndex + 1).get("url"));
-                        MvRockModel.currentMVIndex++;
+                    if (MvRockModel.CurrentSong.currentMVIndex < 14) {
+                        MvRockUiComponent.MvRockYoutubePlayer.YouTubePlayer.loadVideo(MvRockModel.YouLikedSongList.songArrayList.get(MvRockModel.CurrentSong.currentMVIndex + 1).get("url"));
+                        MvRockModel.CurrentSong.currentMVIndex++;
                     } else {
                         MvRockUiComponent.YouMayLikePlayListView.RequestPlayListByThread();
-                        MvRockModel.currentMVIndex = 0;
+                        MvRockModel.CurrentSong.currentMVIndex = 0;
                         MvRockUiComponent.MvRockYoutubePlayer.YouTubePlayer.loadVideo(MvRockModel.YouLikedSongList.songArrayList.get(0).get("url"));
                     }
                 } else {
                     if(MvRockModel.YouLikedSongList.songArrayList.size()>0)
                     {
-                        if (MvRockModel.currentMVIndex < MvRockModel.YouLikedSongList.songArrayList.size() - 1) {
-                            String next = MvRockModel.YouLikedSongList.songArrayList.get(MvRockModel.currentMVIndex + 1).get("url");
-                            MvRockModel.currentMVIndex++;
+                        if (MvRockModel.CurrentSong.currentMVIndex < MvRockModel.YouLikedSongList.songArrayList.size() - 1) {
+                            String next = MvRockModel.YouLikedSongList.songArrayList.get(MvRockModel.CurrentSong.currentMVIndex + 1).get("url");
+                            MvRockModel.CurrentSong.currentMVIndex++;
                             MvRockUiComponent.MvRockYoutubePlayer.YouTubePlayer.loadVideo(next);
 
                         } else {
                             String first = MvRockModel.YouLikedSongList.songArrayList.get(0).get("url");
-                            MvRockModel.currentMVIndex = 0;
+                            MvRockModel.CurrentSong.currentMVIndex = 0;
                             MvRockUiComponent.MvRockYoutubePlayer.YouTubePlayer.loadVideo(first);
                         }
                     }

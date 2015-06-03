@@ -32,7 +32,7 @@ public class ThumbUpButton extends PlayerControlButton{
                         //1. rate this song
                         PostRatingByThread(1);
                         //2. add this song into you liked list
-                        MvRockModel.YouLikedSongList.songArrayList.add(MvRockModel.YouLikedSongList.songArrayList.get(MvRockModel.currentMVIndex));
+                        MvRockModel.YouLikedSongList.songArrayList.add(MvRockModel.YouLikedSongList.songArrayList.get(MvRockModel.CurrentSong.currentMVIndex));
                         MvRockUiComponent.YouLikedPlayListView.RefreshListView();
                         //3. change the tool bar image of this song.
                         likeSongImage.setImageResource(R.drawable.thumbuporange);
@@ -45,7 +45,7 @@ public class ThumbUpButton extends PlayerControlButton{
                         //1. rate this song
                         PostRatingByThread(1);
                         //2. add this song into you liked list
-                        MvRockModel.YouLikedSongList.songArrayList.add( MvRockModel.YouLikedSongList.songArrayList.get(MvRockModel.currentMVIndex));
+                        MvRockModel.YouLikedSongList.songArrayList.add( MvRockModel.YouLikedSongList.songArrayList.get(MvRockModel.CurrentSong.currentMVIndex));
                         MvRockUiComponent.YouLikedPlayListView.RefreshListView();
                         //3. change the tool bar image of this song.
                         likeSongImage.setImageResource(R.drawable.thumbuporange);
@@ -60,7 +60,7 @@ public class ThumbUpButton extends PlayerControlButton{
                         //1. rate this song
                         PostRatingByThread(0);
                         //2. remove song from you liked list.
-                        String currentSongUrl= MvRockModel.YouMayLikeSongList.songArrayList.get(MvRockModel.currentMVIndex).get("url");
+                        String currentSongUrl= MvRockModel.YouMayLikeSongList.songArrayList.get(MvRockModel.CurrentSong.currentMVIndex).get("url");
                         for(int i=0;i<MvRockModel.YouLikedSongList.songArrayList.size();i++)
                         {
                             if(currentSongUrl.equals(MvRockModel.YouLikedSongList.songArrayList.get(i).get("url")))
@@ -88,7 +88,7 @@ public class ThumbUpButton extends PlayerControlButton{
                     //3. change status variable
                     MvRockModel.CurrentSong.isLikedIconPressed=false;
                     //4. remove song from you liked list.
-                    MvRockModel.YouLikedSongList.songArrayList.remove(MvRockModel.currentMVIndex);
+                    MvRockModel.YouLikedSongList.songArrayList.remove(MvRockModel.CurrentSong.currentMVIndex);
                     MvRockUiComponent.YouLikedPlayListView.RefreshListView();
                     //5. play the next song.
                     playNextSongAfterRemovedASongFromYoulikedList();

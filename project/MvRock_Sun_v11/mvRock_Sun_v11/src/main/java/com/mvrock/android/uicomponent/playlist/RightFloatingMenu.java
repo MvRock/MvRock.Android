@@ -21,6 +21,7 @@ public class RightFloatingMenu extends MvRockUiComponentObject {
     private ImageView YouMayLikePlayListButton;
     private ImageView YouLikedPlayListButton;
     private ImageView StationPlayListButton;
+    public FloatingActionMenu actionMenu;
 
     public RightFloatingMenu() {
         RightDrawerControlButton = new ImageView(MvRockView.MainActivity);
@@ -30,10 +31,12 @@ public class RightFloatingMenu extends MvRockUiComponentObject {
     public void Init() {
         //1 - Create a button to attach the menu
         // in Activity Context
-        RightDrawerControlButton.setImageDrawable(MvRockView.MainActivity.
-                getResources().getDrawable(R.drawable.mvrock_phone_1_icon));
+//        RightDrawerControlButton.setImageDrawable(MvRockView.MainActivity.
+//                getResources().getDrawable(R.drawable.mvrock_phone_1_icon));
 
         actionButton = new FloatingActionButton.Builder(MvRockView.MainActivity)
+                .setBackgroundDrawable(MvRockView.MainActivity.
+                        getResources().getDrawable(R.drawable.mvrock_phone_1_icon))
                 .setContentView(RightDrawerControlButton).build();
 
         //2 - Create menu items:
@@ -54,7 +57,7 @@ public class RightFloatingMenu extends MvRockUiComponentObject {
         StationPlayListButton.setImageDrawable(MvRockView.MainActivity.getResources().getDrawable(R.drawable.mvrock_station_grey));
         SubActionButton button3 = itemBuilder.setContentView(StationPlayListButton).build();
 
-        FloatingActionMenu actionMenu = new FloatingActionMenu.Builder(MvRockView.MainActivity)
+        actionMenu = new FloatingActionMenu.Builder(MvRockView.MainActivity)
                 .addSubActionView(button1)
                 .addSubActionView(button2)
                 .addSubActionView(button3)

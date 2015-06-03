@@ -46,9 +46,9 @@ public class ShareButton extends MvRockUiComponentObject {
         Log.i(TAG, "PostShareByThread()");
         String url;
         if ( MvRockUiComponent.YouMayLikePlayListView.isAvailable()) {
-            url=  MvRockModel.YouMayLikeSongList.songArrayList.get(MvRockModel.currentMVIndex).get("url");
+            url=  MvRockModel.YouMayLikeSongList.songArrayList.get(MvRockModel.CurrentSong.currentMVIndex).get("url");
         } else {
-            url= MvRockModel.YouLikedSongList.songArrayList.get(MvRockModel.currentMVIndex).get("url");
+            url= MvRockModel.YouLikedSongList.songArrayList.get(MvRockModel.CurrentSong.currentMVIndex).get("url");
         }
         Thread setShareThread = new Thread(new SetShareThread(MvRockModel.User.User_Id,url));
         setShareThread.start();

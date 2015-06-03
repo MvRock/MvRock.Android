@@ -35,6 +35,18 @@ public class MvRockDrawer extends MvRockUiComponentObject {
                     public void onDrawerSlide(View drawerView, float slideOffset) {
                         DrawerSlide(drawerView, slideOffset);
                     }
+
+                    @Override
+                    public void onDrawerOpened(View drawerView) {
+                        super.onDrawerOpened(drawerView);
+                        MvRockUiComponent.RightFloatingMenu.actionMenu.open(true);
+                    }
+
+                    @Override
+                    public void onDrawerClosed(View drawerView) {
+                        super.onDrawerClosed(drawerView);
+                        MvRockUiComponent.RightFloatingMenu.actionMenu.close(true);
+                    }
                 };
         MvRockUiComponent.MvRockDrawer.mDrawerLayout.setDrawerListener(MvRockUiComponent.MvRockDrawer.mDrawerToggle);
     }

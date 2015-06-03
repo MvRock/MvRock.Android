@@ -16,4 +16,4 @@
             android:listSelector="@drawable/listview_bg" >
         </ListView>
     <!--</ScrollView>-->
-</LinearLayout><!-- From: file:/Users/Tianhao/Desktop/MvRock.Android/project/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/layout/right_drawer.xml -->
+</LinearLayout><!-- From: file:/Users/Xuer/Desktop/Code/github/MvRock.Android/project/MvRock_Sun_v11/mvRock_Sun_v11/src/main/res/layout/right_drawer.xml -->

@@ -38,7 +38,7 @@ public class MvRockModel {
     public static int skin=-1;
     public static int language=-1;
     public static int accuPoint=-1;
-    public static int currentMVIndex=-1;
+
 
 
     /**

@@ -1,6 +1,7 @@
 package com.mvrock.android.uicomponent.playlist;
 
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 
@@ -50,16 +51,20 @@ public class YouLikedPlayListView extends PlayListView {
     public void Init(){
         Log.i(TAG, "Init()");
         this.RefreshListView();
-        MvRockModel.currentMVIndex = 0;
+        MvRockModel.CurrentSong.currentMVIndex = 0;
         this.playListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1,int position, long arg3) {
                 Log.i(TAG, "onItemClick(" + arg0 + ", " + arg1 + ", " + position + ", " + arg3 + ")");
                 setAvailable();
-                MvRockModel.currentMVIndex = position;
-                String selectedId = MvRockModel.YouLikedSongList.songArrayList.get(MvRockModel.currentMVIndex).get("url");
-                MvRockUiComponent.MvRockYoutubePlayer.YouTubePlayer.loadVideo(selectedId);
+                MvRockModel.CurrentSong.currentMVIndex = position;
+                MvRockModel.CurrentSong.url= MvRockModel.YouLikedSongList.songArrayList.get(MvRockModel.CurrentSong.currentMVIndex).get("url");
+                MvRockModel.CurrentSong.currentTime=0;
+                MvRockUiComponent.MvRockDrawer.mDrawerLayout.closeDrawer(Gravity.RIGHT);
+                MvRockUiComponent.RightFloatingMenu.actionMenu.close(true);
+                MvRockUiComponent.MvRockYoutubePlayer.YouTubePlayer
+                        .loadVideo(MvRockModel.CurrentSong.url, MvRockModel.CurrentSong.currentTime);
             }
         });
     }
