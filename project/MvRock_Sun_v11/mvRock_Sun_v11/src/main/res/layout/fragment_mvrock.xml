@@ -2,6 +2,34 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
+
+    <!--left-->
+    <!--<ExpandableListView-->
+        <!--android:id="@+id/left_drawer"-->
+        <!--android:layout_width="240dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_gravity="start"-->
+        <!--android:background="#111"-->
+        <!--android:choiceMode="singleChoice"-->
+        <!--android:divider="@android:color/transparent"-->
+        <!--android:dividerHeight="0dp" />-->
+
+    <!-- left -->
+    <FrameLayout
+        android:id="@+id/left_drawer"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/material_blue_grey_800"
+        android:orientation="vertical"/>
+
+    <!-- right-->
+    <FrameLayout
+        android:id="@+id/right_drawer"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:orientation="vertical"/>
     <!-- body-->
     <FrameLayout
         android:id="@+id/content_frame"
@@ -17,7 +45,8 @@
             <FrameLayout
                 android:id="@+id/youtubeplayerfragment"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                />
             <LinearLayout
                 android:id="@+id/icon_bar"
                 android:layout_width="match_parent"
@@ -111,11 +140,11 @@
         </LinearLayout>
 
         <!--<ImageView-->
-            <!--android:id="@+id/right_drawer_control_button"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:src="@drawable/mvrock_phone_1_icon"-->
-            <!--android:layout_gravity="bottom|right" />-->
+        <!--android:id="@+id/right_drawer_control_button"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:src="@drawable/mvrock_phone_1_icon"-->
+        <!--android:layout_gravity="bottom|right" />-->
 
         <ImageView
             android:id="@+id/left_drawer_control_button"
@@ -124,32 +153,4 @@
 
             android:layout_gravity="bottom|left" />
     </FrameLayout>
-    <!--left-->
-    <!--<ExpandableListView-->
-        <!--android:id="@+id/left_drawer"-->
-        <!--android:layout_width="240dp"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_gravity="start"-->
-        <!--android:background="#111"-->
-        <!--android:choiceMode="singleChoice"-->
-        <!--android:divider="@android:color/transparent"-->
-        <!--android:dividerHeight="0dp" />-->
-
-    <!-- left -->
-    <FrameLayout
-        android:id="@+id/left_drawer"
-        android:layout_width="240dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:background="@color/material_blue_grey_800"
-        android:orientation="vertical"/>
-
-    <!-- right-->
-    <FrameLayout
-        android:id="@+id/right_drawer"
-        android:layout_width="240dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="end"
-        android:orientation="vertical"/>
-
 </android.support.v4.widget.DrawerLayout>

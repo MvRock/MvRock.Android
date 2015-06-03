@@ -13,6 +13,9 @@
       <config />
     </shared>
   </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.examples.youtubeapidemo" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="bcd280a8-0cf4-4df9-81c2-93923cbca089" name="Default" comment="" />
     <ignored path="MvRock_Sun_v11.iws" />
@@ -36,11 +39,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MvRockFragment.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MvRockFragment.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mvRock_Sun_v11/src/main/java/com/mvrock/android/view/fragment/MvRockFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="5.376623" vertical-offset="0" max-vertical-offset="3186">
-              <caret line="200" column="0" selection-start-line="200" selection-start-column="0" selection-end-line="200" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3186">
+              <caret line="47" column="7" selection-start-line="47" selection-start-column="7" selection-end-line="47" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fragment_mvrock.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mvRock_Sun_v11/src/main/res/layout/fragment_mvrock.xml">
+          <provider selected="true" editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="580" max-vertical-offset="1404">
+              <caret line="125" column="12" selection-start-line="125" selection-start-column="12" selection-end-line="125" selection-end-column="12" />
+              <folding>
+                <element signature="tag#LinearLayout#0;tag#LinearLayout#0;tag#FrameLayout#2;tag#android.support.v4.widget.DrawerLayout#0" expanded="false" />
+                <element signature="e#2248#2267#0" expanded="true" />
+                <element signature="e#2632#2651#0" expanded="true" />
+                <element signature="e#3021#3043#0" expanded="true" />
+                <element signature="e#3411#3431#0" expanded="true" />
+                <element signature="e#3797#3816#0" expanded="true" />
+                <element signature="e#4183#4204#0" expanded="true" />
+                <element signature="tag#TextView#0;tag#LinearLayout#0;tag#FrameLayout#2;tag#android.support.v4.widget.DrawerLayout#0" expanded="false" />
+                <element signature="tag#ListView#0;tag#FrameLayout#2;tag#android.support.v4.widget.DrawerLayout#0" expanded="false" />
+                <element signature="tag#LinearLayout#1;tag#FrameLayout#2;tag#android.support.v4.widget.DrawerLayout#0" expanded="false" />
+                <element signature="e#5327#5346#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MvRockDrawer.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mvRock_Sun_v11/src/main/java/com/mvrock/android/uicomponent/drawer/MvRockDrawer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.1795408" vertical-offset="817" max-vertical-offset="1386">
+              <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -49,7 +87,7 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mvRock_Sun_v11/src/main/java/com/mvrock/android/view/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2808" max-vertical-offset="3276">
+            <state vertical-scroll-proportion="0.0" vertical-offset="3258" max-vertical-offset="3672">
               <caret line="181" column="0" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
               <folding />
             </state>
@@ -1420,15 +1458,16 @@
         <option value="$PROJECT_DIR$/mvRock_Sun_v11/src/main/java/com/mvrock/android/uicomponent/player/MvRockYoutubePlayerFragment.java" />
         <option value="$PROJECT_DIR$/mvRock_Sun_v11/src/main/java/com/mvrock/android/uicomponent/playlist/YouMayLikePlayListView.java" />
         <option value="$PROJECT_DIR$/mvRock_Sun_v11/src/main/java/com/mvrock/android/view/fragment/MvRockFragment.java" />
-        <option value="$PROJECT_DIR$/mvRock_Sun_v11/src/main/res/layout/fragment_mvrock.xml" />
         <option value="$PROJECT_DIR$/mvRock_Sun_v11/src/main/java/com/mvrock/android/uicomponent/playlist/YouLikedPlayListView.java" />
         <option value="$PROJECT_DIR$/mvRock_Sun_v11/src/main/java/com/mvrock/android/uicomponent/playlist/StationPlayListView.java" />
-        <option value="$PROJECT_DIR$/mvRock_Sun_v11/src/main/java/com/mvrock/android/uicomponent/drawer/MvRockDrawer.java" />
         <option value="$PROJECT_DIR$/mvRock_Sun_v11/src/main/java/com/mvrock/android/uicomponent/playlist/RightFloatingMenu.java" />
+        <option value="$PROJECT_DIR$/mvRock_Sun_v11/src/main/java/com/mvrock/android/uicomponent/drawer/MvRockDrawer.java" />
+        <option value="$PROJECT_DIR$/mvRock_Sun_v11/src/main/res/layout/fragment_mvrock.xml" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="-24" />
     <option name="y" value="23" />
     <option name="width" value="1280" />
     <option name="height" value="773" />
@@ -1460,6 +1499,7 @@
     </navigator>
     <panes>
       <pane id="ProjectPane" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
@@ -1491,6 +1531,24 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MvRock_Sun_v11" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mvRock_Sun_v11" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -1580,10 +1638,61 @@
               <option name="myItemId" value="android" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uicomponent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="player" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MvRock_Sun_v11" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mvRock_Sun_v11" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uicomponent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drawer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MvRock_Sun_v11" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mvRock_Sun_v11" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -1598,6 +1707,7 @@
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="big" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/MvRock_Sun_v12" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -1606,18 +1716,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Android Application.mvRock_Sun_v11">
-    <configuration default="true" type="executeSpecs" factoryName="Gauge Execution">
-      <setting name="environment" value="" />
-      <setting name="specsToExecute" value="" />
-      <setting name="tags" value="" />
-      <setting name="parallelNodes" value="" />
-      <setting name="execInParallel" value="false" />
-      <setting name="programParameters" value="" />
-      <setting name="workingDirectory" value="" />
-      <envMap />
-      <setting name="rowsRange" value="" />
-      <method />
-    </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
       <module name="" />
       <option name="TESTING_TYPE" value="0" />
@@ -1637,6 +1735,18 @@
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="executeSpecs" factoryName="Gauge Execution">
+      <setting name="environment" value="" />
+      <setting name="specsToExecute" value="" />
+      <setting name="tags" value="" />
+      <setting name="parallelNodes" value="" />
+      <setting name="execInParallel" value="false" />
+      <setting name="programParameters" value="" />
+      <setting name="workingDirectory" value="" />
+      <envMap />
+      <setting name="rowsRange" value="" />
       <method />
     </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
@@ -1794,15 +1904,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="773" extended-state="7" />
+    <frame x="-24" y="23" width="1280" height="773" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5981735" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1810,20 +1919,21 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32724506" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11719939" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20852359" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1736672" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14458804" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1848,6 +1958,22 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/mvRock_Sun_v11/src/main/java/com/mvrock/android/view/fragment/MvRockFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2898" max-vertical-offset="3186">
+          <caret line="200" column="0" selection-start-line="200" selection-start-column="0" selection-end-line="200" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mvRock_Sun_v11/src/main/java/com/mvrock/android/view/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3258" max-vertical-offset="3672">
+          <caret line="181" column="0" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mvRock_Sun_v11/src/main/java/com/mvrock/android/uicomponent/playlist/RightFloatingMenu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="792" max-vertical-offset="2142">
@@ -1879,7 +2005,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="378">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1911,7 +2036,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1938,9 +2062,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8716707" vertical-offset="0" max-vertical-offset="774">
           <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1988,7 +2109,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334" vertical-offset="6030" max-vertical-offset="23958">
           <caret line="379" column="16" selection-start-line="379" selection-start-column="16" selection-end-line="379" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1996,7 +2116,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.47572815" vertical-offset="25" max-vertical-offset="810">
           <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2008,27 +2127,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mvRock_Sun_v11/src/main/res/layout/fragment_mvrock.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.672355" vertical-offset="0" max-vertical-offset="2880">
-          <caret line="87" column="21" selection-start-line="87" selection-start-column="21" selection-end-line="87" selection-end-column="21" />
-          <folding>
-            <element signature="e#4350#4369#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mvRock_Sun_v11/src/main/java/com/mvrock/android/uicomponent/playlist/StationPlayListView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.32463294" vertical-offset="755" max-vertical-offset="1368">
           <caret line="55" column="49" selection-start-line="55" selection-start-column="49" selection-end-line="55" selection-end-column="49" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1926#2842#0" expanded="true" />
-            <element signature="e#2831#2832#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#1926#2842#0" expanded="false" />
+            <element signature="e#2831#2832#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2046,7 +2152,7 @@
         <state vertical-scroll-proportion="-0.7030995" vertical-offset="1763" max-vertical-offset="2412">
           <caret line="74" column="59" selection-start-line="74" selection-start-column="59" selection-end-line="74" selection-end-column="59" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2064,17 +2170,6 @@
         <state vertical-scroll-proportion="0.91719747" vertical-offset="0" max-vertical-offset="1908">
           <caret line="34" column="78" selection-start-line="34" selection-start-column="78" selection-end-line="34" selection-end-column="78" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mvRock_Sun_v11/src/main/java/com/mvrock/android/uicomponent/drawer/MvRockDrawer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2611465" vertical-offset="0" max-vertical-offset="1242">
-          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding>
-            <element signature="e#1229#1253#0" expanded="true" />
-            <element signature="e#1255#1280#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2110,10 +2205,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mvRock_Sun_v11/src/main/java/com/mvrock/android/model/songlist/StationList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5658627" vertical-offset="145" max-vertical-offset="882">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mvRock_Sun_v11/src/main/java/com/mvrock/android/view/fragment/MvRockFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="5.376623" vertical-offset="0" max-vertical-offset="3186">
-          <caret line="200" column="0" selection-start-line="200" selection-start-column="0" selection-end-line="200" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3186">
+          <caret line="47" column="7" selection-start-line="47" selection-start-column="7" selection-end-line="47" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mvRock_Sun_v11/src/main/res/layout/fragment_mvrock.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="580" max-vertical-offset="1404">
+          <caret line="125" column="12" selection-start-line="125" selection-start-column="12" selection-end-line="125" selection-end-column="12" />
+          <folding>
+            <element signature="tag#LinearLayout#0;tag#LinearLayout#0;tag#FrameLayout#2;tag#android.support.v4.widget.DrawerLayout#0" expanded="false" />
+            <element signature="e#2248#2267#0" expanded="true" />
+            <element signature="e#2632#2651#0" expanded="true" />
+            <element signature="e#3021#3043#0" expanded="true" />
+            <element signature="e#3411#3431#0" expanded="true" />
+            <element signature="e#3797#3816#0" expanded="true" />
+            <element signature="e#4183#4204#0" expanded="true" />
+            <element signature="tag#TextView#0;tag#LinearLayout#0;tag#FrameLayout#2;tag#android.support.v4.widget.DrawerLayout#0" expanded="false" />
+            <element signature="tag#ListView#0;tag#FrameLayout#2;tag#android.support.v4.widget.DrawerLayout#0" expanded="false" />
+            <element signature="tag#LinearLayout#1;tag#FrameLayout#2;tag#android.support.v4.widget.DrawerLayout#0" expanded="false" />
+            <element signature="e#5327#5346#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mvRock_Sun_v11/src/main/java/com/mvrock/android/uicomponent/drawer/MvRockDrawer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.1795408" vertical-offset="817" max-vertical-offset="1386">
+          <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
           <folding />
         </state>
       </provider>

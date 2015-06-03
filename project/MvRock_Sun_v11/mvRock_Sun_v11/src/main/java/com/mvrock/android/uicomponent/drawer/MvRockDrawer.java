@@ -39,13 +39,21 @@ public class MvRockDrawer extends MvRockUiComponentObject {
                     @Override
                     public void onDrawerOpened(View drawerView) {
                         super.onDrawerOpened(drawerView);
-                        MvRockUiComponent.RightFloatingMenu.actionMenu.open(true);
+                        if (drawerView.getId() == R.id.right_drawer) {
+                            MvRockUiComponent.RightFloatingMenu.actionMenu.open(true);
+                        }else{
+
+                        }
                     }
 
                     @Override
                     public void onDrawerClosed(View drawerView) {
                         super.onDrawerClosed(drawerView);
+                        if (drawerView.getId() == R.id.right_drawer) {
                         MvRockUiComponent.RightFloatingMenu.actionMenu.close(true);
+                        }else{
+
+                        }
                     }
                 };
         MvRockUiComponent.MvRockDrawer.mDrawerLayout.setDrawerListener(MvRockUiComponent.MvRockDrawer.mDrawerToggle);

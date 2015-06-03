@@ -1863,9 +1863,9 @@ containing a value of this type.
         public static final int alertTitle=0x7f09003c;
         public static final int always=0x7f090017;
         public static final int artist_name=0x7f09009c;
-        public static final int atbutton=0x7f090085;
+        public static final int atbutton=0x7f090087;
         public static final int beginning=0x7f090014;
-        public static final int blueline=0x7f090087;
+        public static final int blueline=0x7f090089;
         public static final int bottom=0x7f090027;
         public static final int box_count=0x7f090024;
         public static final int button=0x7f090025;
@@ -1899,7 +1899,7 @@ containing a value of this type.
         public static final int com_facebook_usersettingsfragment_logo_image=0x7f090075;
         public static final int com_facebook_usersettingsfragment_profile_name=0x7f090076;
         public static final int contentPanel=0x7f09003d;
-        public static final int content_frame=0x7f09007d;
+        public static final int content_frame=0x7f09007f;
         public static final int custom=0x7f090041;
         public static final int customPanel=0x7f090040;
         public static final int decor_content_parent=0x7f09004a;
@@ -1916,7 +1916,7 @@ containing a value of this type.
         public static final int home=0x7f090004;
         public static final int homeAsUp=0x7f09000e;
         public static final int icon=0x7f090037;
-        public static final int icon_bar=0x7f090080;
+        public static final int icon_bar=0x7f090082;
         public static final int ifRoom=0x7f090019;
         public static final int image=0x7f090034;
         public static final int inline=0x7f090028;
@@ -1925,19 +1925,19 @@ containing a value of this type.
         public static final int lblListHeader=0x7f09008f;
         public static final int lblListItem=0x7f090092;
         public static final int left=0x7f09002b;
-        public static final int left_drawer=0x7f09008b;
-        public static final int left_drawer_control_button=0x7f09008a;
+        public static final int left_drawer=0x7f09007d;
+        public static final int left_drawer_control_button=0x7f09008c;
         public static final int listMode=0x7f09000a;
         public static final int list_item=0x7f090036;
         public static final int list_item_disabled_text=0x7f090091;
         public static final int list_item_text=0x7f090090;
         public static final int login_button=0x7f09007a;
-        public static final int main_layout=0x7f09007e;
+        public static final int main_layout=0x7f090080;
         public static final int middle=0x7f090016;
         public static final int multiply=0x7f09001f;
         public static final int mvRockFragment=0x7f090094;
         public static final int never=0x7f09001a;
-        public static final int nextbutton=0x7f090081;
+        public static final int nextbutton=0x7f090083;
         public static final int none=0x7f09000f;
         public static final int normal=0x7f09000b;
         public static final int parentPanel=0x7f090039;
@@ -1949,9 +1949,9 @@ containing a value of this type.
         public static final int progress_circular=0x7f090006;
         public static final int progress_horizontal=0x7f090007;
         public static final int radio=0x7f090046;
-        public static final int reportbutton=0x7f090086;
+        public static final int reportbutton=0x7f090088;
         public static final int right=0x7f09002c;
-        public static final int right_drawer=0x7f09008c;
+        public static final int right_drawer=0x7f09007e;
         public static final int right_drawer_play_list=0x7f09008e;
         public static final int right_drawer_tab=0x7f09008d;
         public static final int screen=0x7f090020;
@@ -1968,7 +1968,7 @@ containing a value of this type.
         public static final int search_stations=0x7f0900a2;
         public static final int search_voice_btn=0x7f090059;
         public static final int select_dialog_listview=0x7f09005a;
-        public static final int sharebutton=0x7f090084;
+        public static final int sharebutton=0x7f090086;
         public static final int shortcut=0x7f090045;
         public static final int showCustom=0x7f090010;
         public static final int showHome=0x7f090011;
@@ -1983,16 +1983,16 @@ containing a value of this type.
         public static final int src_in=0x7f090022;
         public static final int src_over=0x7f090023;
         public static final int standard=0x7f090026;
-        public static final int station_cancel=0x7f090089;
-        public static final int station_suggestion=0x7f090088;
+        public static final int station_cancel=0x7f09008b;
+        public static final int station_suggestion=0x7f09008a;
         public static final int submit_area=0x7f090057;
         public static final int tab1=0x7f090096;
         public static final int tab2=0x7f090098;
         public static final int tabMode=0x7f09000c;
         public static final int tabhost=0x7f090095;
         public static final int textSpacerNoButtons=0x7f09003f;
-        public static final int thumbdownbotton=0x7f090083;
-        public static final int thumbupbutton=0x7f090082;
+        public static final int thumbdownbotton=0x7f090085;
+        public static final int thumbupbutton=0x7f090084;
         public static final int title=0x7f090038;
         public static final int title_template=0x7f09003b;
         public static final int top=0x7f090029;
@@ -2005,7 +2005,7 @@ containing a value of this type.
         public static final int wrap_content=0x7f09001e;
         public static final int youliked=0x7f090099;
         public static final int youmaylike=0x7f090097;
-        public static final int youtubeplayerfragment=0x7f09007f;
+        public static final int youtubeplayerfragment=0x7f090081;
     }
     public static final class integer {
         public static final int abc_config_activityDefaultDur=0x7f0a0000;
