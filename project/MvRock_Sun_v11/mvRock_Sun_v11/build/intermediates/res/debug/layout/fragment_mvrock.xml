@@ -17,6 +17,7 @@
     <FrameLayout
         android:id="@+id/content_frame"
         android:layout_width="match_parent"
+        android:background="#363636"
         android:layout_height="match_parent">
 
         <LinearLayout
@@ -91,41 +92,33 @@
                     android:src="@drawable/flaggrey" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/blueline"
-                android:layout_width="match_parent"
-                android:layout_height="1dip"
-
-                android:background="#ffffff"
-                android:text="" />
-
             <LinearLayout
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
                 android:id="@+id/info_part"
+                android:background="#363636"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:id="@+id/music_title"
+                    android:background="@drawable/myborder"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="0.36"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginBottom="2dp"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
                     android:orientation="vertical">
 
                     <TextView
-                        android:padding="1dp"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="0.3"
                         android:text="MUSIC TITLE"
-                        android:textSize="20dp"/>
+                        android:textSize="18dp"/>
 
                     <LinearLayout
-                        android:padding="1dp"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="0.2"
@@ -137,8 +130,7 @@
                             android:text="Recommendation Reasons : " />
 
                         <TextView
-                            android:paddingLeft="2dp"
-                            android:paddingRight="2dp"
+
                             android:id="@+id/recommendation_reasons"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
@@ -146,27 +138,26 @@
                     </LinearLayout>
 
                     <TextView
-                        android:padding="1dp"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="1dip"
 
                         android:background="#ffffff"
                         android:text="" />
 
                     <LinearLayout
-                        android:padding="1dp"
                         android:id="@+id/thumb_share"
                         android:layout_width="match_parent"
                         android:layout_weight="0.5"
                         android:layout_height="0dp"
                         android:orientation="horizontal">
 
-                        <ImageButton
+                        <ImageView
                             android:id="@+id/music_title_thumbup"
                             android:layout_width="0dp"
                             android:layout_weight="0.12"
                             android:layout_height="match_parent"
-                            android:src="@drawable/thumbup" />
+
+                            android:src="@drawable/thumbup_new" />
 
                         <TextView
                             android:id="@+id/number_thumbup"
@@ -175,12 +166,12 @@
                             android:layout_height="match_parent"
                             android:text="" />
 
-                        <ImageButton
+                        <ImageView
                             android:id="@+id/music_title_thumbdown"
                             android:layout_width="0dp"
                             android:layout_weight="0.12"
                             android:layout_height="match_parent"
-                            android:src="@drawable/thumbdown" />
+                            android:src="@drawable/thumbdown_new" />
 
                         <TextView
                             android:id="@+id/number_thumbdown"
@@ -189,12 +180,12 @@
                             android:layout_height="match_parent"
                             android:text="" />
 
-                        <ImageButton
+                        <ImageView
                             android:id="@+id/music_title_share"
                             android:layout_width="0dp"
                             android:layout_weight="0.12"
                             android:layout_height="match_parent"
-                            android:src="@drawable/sharewhite" />
+                            android:src="@drawable/share_new" />
 
                         <TextView
                             android:layout_weight="0.4"
