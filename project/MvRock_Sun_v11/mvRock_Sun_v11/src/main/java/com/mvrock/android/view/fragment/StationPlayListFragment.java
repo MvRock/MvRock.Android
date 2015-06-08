@@ -24,7 +24,7 @@ public class StationPlayListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rightDrawerView = inflater.inflate(R.layout.fragment_right_drawer_play_list,container,false);
-        MvRockUiComponent.StationPlayListView.playListview=(ListView) rightDrawerView.findViewById(R.id.right_drawer_play_list);
+        MvRockUiComponent.StationPlayListView.playListview=(ListView) rightDrawerView.findViewById(R.id.right_drawer_item);
         MvRockUiComponent.StationPlayListView.Init();
         return rightDrawerView;
     }

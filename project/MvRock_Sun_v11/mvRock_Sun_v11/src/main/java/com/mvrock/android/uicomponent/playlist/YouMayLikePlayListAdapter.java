@@ -18,7 +18,7 @@ public class YouMayLikePlayListAdapter extends PlaylistAdapter {
     public YouMayLikePlayListAdapter( Context context,String[] from, int[] to) {
         super(context,MvRockModel.YouMayLikeSongList.songArrayList , from, to);
         TAG+="YouMayLikePlayListAdapter";
-        MvRockModel.YouMayLikeSongList.imageViewList=RequestImageListByThread(MvRockModel.YouMayLikeSongList.songArrayList);
+
     }
 
     @SuppressLint("InflateParams")

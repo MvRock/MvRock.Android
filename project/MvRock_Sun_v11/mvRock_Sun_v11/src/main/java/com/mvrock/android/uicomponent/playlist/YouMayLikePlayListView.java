@@ -44,7 +44,7 @@ public class YouMayLikePlayListView extends PlayListView {
 
     public void RefreshListView(){
         Log.i(TAG, "RefreshListView()");
-
+        MvRockModel.YouMayLikeSongList.imageViewList=RequestImageListByThread(MvRockModel.YouMayLikeSongList.songArrayList);
         YouMayLikePlayListAdapter playListAdapter = new YouMayLikePlayListAdapter(context,
                 new String[] { "song_name","artist_name" },
                 new int[] { R.id.song_name, R.id.artist_name });

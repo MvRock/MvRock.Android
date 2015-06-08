@@ -40,8 +40,15 @@ public class YouLikedSongList extends SongList {
         try {
             Log.i(TAG, strResponse);
             JSONObject YouMayLikeSongJSON=new JSONObject(strResponse);
-            JSONArray liked_songs = YouMayLikeSongJSON.getJSONArray("LikedSong");
-            for (int i = 0; i < liked_songs.length(); i++) {
+            JSONArray liked_songs;
+            if(YouMayLikeSongJSON.getJSONArray("LikedSong")==null){
+                songArrayList=null;
+                return;
+            }
+
+            else
+                liked_songs = YouMayLikeSongJSON.getJSONArray("LikedSong");
+            for (int i = 0; i < liked_songs.length() && liked_songs.length()>0; i++) {
                 JSONObject cur = (JSONObject) liked_songs.get(i);
                 Map<String, String> map = new HashMap<String, String>();
                 map.put("song_name", cur.get("name").toString());

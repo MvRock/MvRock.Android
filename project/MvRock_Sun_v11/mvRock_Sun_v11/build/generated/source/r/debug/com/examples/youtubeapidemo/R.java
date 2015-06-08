@@ -1952,7 +1952,7 @@ containing a value of this type.
         public static final int reportbutton=0x7f090086;
         public static final int right=0x7f09002c;
         public static final int right_drawer=0x7f09008c;
-        public static final int right_drawer_play_list=0x7f09008e;
+        public static final int right_drawer_item=0x7f09008e;
         public static final int right_drawer_tab=0x7f09008d;
         public static final int screen=0x7f090020;
         public static final int scrollView=0x7f09003e;

@@ -26,7 +26,7 @@ public class YouMayLikePlayListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Log.i(TAG, "onCreateView()");
         View rightDrawerView = inflater.inflate(R.layout.fragment_right_drawer_play_list,container,false);
-        MvRockUiComponent.YouMayLikePlayListView.playListview=(ListView) rightDrawerView.findViewById(R.id.right_drawer_play_list);
+        MvRockUiComponent.YouMayLikePlayListView.playListview=(ListView) rightDrawerView.findViewById(R.id.right_drawer_item);
         MvRockUiComponent.YouMayLikePlayListView.Init();
         return rightDrawerView;
     }

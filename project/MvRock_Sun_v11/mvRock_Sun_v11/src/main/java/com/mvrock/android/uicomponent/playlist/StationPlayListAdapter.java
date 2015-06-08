@@ -17,7 +17,7 @@ public class StationPlayListAdapter extends PlaylistAdapter{
     public StationPlayListAdapter( Context context,String[] from, int[] to) {
         super(context, MvRockModel.StationSongList.songArrayList , from, to);
         TAG+="StationPlayListAdapter";
-       MvRockModel.StationSongList.imageViewList=RequestImageListByThread(MvRockModel.StationSongList.songArrayList);
+
     }
 
     @SuppressLint("InflateParams")

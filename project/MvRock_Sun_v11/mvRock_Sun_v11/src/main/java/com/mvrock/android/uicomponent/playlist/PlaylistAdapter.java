@@ -50,17 +50,7 @@ public abstract class PlaylistAdapter extends SimpleAdapter {
 		    }
 		return convertView;
 	}
-    public Map<Integer, Drawable> RequestImageListByThread(List<Map<String, String>> song_info){
-        Log.i(TAG, "RequestImageListByThread()");
-        Thread getImageListThread=  new Thread(new GetImageListThread(song_info,context));
-        getImageListThread.start();
-        try {
-            getImageListThread.join();
-        } catch (InterruptedException e1) {
-            e1.printStackTrace();
-        }
-         return GetImageListThread.getImageView_List();
-    }
+
 	protected static class ViewHolder {
 	    public TextView songname_textview;
 	    public TextView artistname_textview;

@@ -1,17 +1,7 @@
 package com.mvrock.android.view;
 
-import android.content.Context;
-import android.os.Build;
-import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.widget.DrawerLayout;
-import android.view.View;
-import android.view.animation.TranslateAnimation;
-import android.widget.FrameLayout;
 
-import com.examples.youtubeapidemo.R;
 import com.mvrock.android.view.fragment.MvRockFragment;
 import com.mvrock.android.view.fragment.StationPlayListFragment;
 import com.mvrock.android.view.fragment.YouLikedPlayListFragment;
@@ -40,10 +30,6 @@ public class MvRockView {
     public static final int NOW_SHOWING_POSITION = 0;
     public static final int MY_STATION_POSITION = 1;
     public static final int LOGOUT_POSITION = 2;
-
-
-
-
 
 
     static{

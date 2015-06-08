@@ -135,10 +135,6 @@ public class MainActivity extends FragmentActivity {
         Log.i(TAG,"showFragment("+fragmentIndex+")");
         for (int i = 0; i < MvRockView.FragmentList.size(); i++) {
             if (i == fragmentIndex) {
-                if(i==1){
-//                    MvRockModel.User.Session= Session.getActiveSession();
-//                    MvRockModel.User.RequestFBUserInfoByThread();
-                }
                 this.getSupportFragmentManager().beginTransaction().show(MvRockView.FragmentList.get(i)).commit();
             } else {
                 this.getSupportFragmentManager().beginTransaction().hide(MvRockView.FragmentList.get(i)).commit();
@@ -165,6 +161,7 @@ public class MainActivity extends FragmentActivity {
                 MvRockView.MvRockFragment=new MvRockFragment();
                 MvRockView.YouMayLikePlayListFragment=new YouMayLikePlayListFragment();
                 MvRockView.YouLikedPlayListFragment =new YouLikedPlayListFragment();
+
                 MvRockView.FragmentList.add(MvRockView.MvRockFragment);
                 this.getSupportFragmentManager().beginTransaction()
                         .add(R.id.mvRockFragment, MvRockView.FragmentList.get(MvRockView.MVROCK_FRAG)).commit();

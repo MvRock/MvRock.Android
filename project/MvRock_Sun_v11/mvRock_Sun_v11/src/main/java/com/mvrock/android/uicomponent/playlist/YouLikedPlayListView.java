@@ -1,5 +1,6 @@
 package com.mvrock.android.uicomponent.playlist;
 
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -8,9 +9,13 @@ import android.widget.AdapterView;
 import com.examples.youtubeapidemo.R;
 import com.mvrock.android.model.MvRockModel;
 import com.mvrock.android.model.PlayListOption;
+import com.mvrock.android.thread.GetImageListThread;
 import com.mvrock.android.thread.GetYouLikedSongAndUserDataThread;
 import com.mvrock.android.uicomponent.MvRockUiComponent;
 import com.mvrock.android.view.MvRockView;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Xuer on 5/5/15.
@@ -41,7 +46,8 @@ public class YouLikedPlayListView extends PlayListView {
 
     public void RefreshListView(){
         Log.i(TAG, "RefreshListView()");
-
+        if(MvRockModel.YouLikedSongList.songArrayList!=null)
+            MvRockModel.YouLikedSongList.imageViewList=RequestImageListByThread(MvRockModel.YouLikedSongList.songArrayList);
         YouLikedPlayListAdapter playListAdapter = new YouLikedPlayListAdapter(context,
                 new String[] { "song_name","artist_name" },
                 new int[] { R.id.song_name, R.id.artist_name });
@@ -68,5 +74,7 @@ public class YouLikedPlayListView extends PlayListView {
             }
         });
     }
+
+
 
 }

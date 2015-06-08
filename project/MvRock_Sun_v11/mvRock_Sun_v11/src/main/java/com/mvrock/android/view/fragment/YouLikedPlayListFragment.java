@@ -11,7 +11,6 @@ import android.widget.ListView;
 import com.examples.youtubeapidemo.R;
 import com.mvrock.android.uicomponent.MvRockUiComponent;
 import com.mvrock.android.uicomponent.playlist.YouLikedPlayListView;
-import com.mvrock.android.view.MvRockView;
 
 /**
  * Created by Xuer on 6/2/15.
@@ -28,7 +27,7 @@ public class YouLikedPlayListFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Log.i(TAG, "onCreateView()");
         View rightDrawerView = inflater.inflate(R.layout.fragment_right_drawer_play_list,container,false);
-       MvRockUiComponent.YouLikedPlayListView.playListview=(ListView) rightDrawerView.findViewById(R.id.right_drawer_play_list);
+       MvRockUiComponent.YouLikedPlayListView.playListview=(ListView) rightDrawerView.findViewById(R.id.right_drawer_item);
         MvRockUiComponent.YouLikedPlayListView.Init();
         return rightDrawerView;
     }
