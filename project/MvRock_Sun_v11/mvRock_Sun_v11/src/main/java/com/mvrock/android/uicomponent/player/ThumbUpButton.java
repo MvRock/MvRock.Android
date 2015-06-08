@@ -32,8 +32,7 @@ public class ThumbUpButton extends PlayerControlButton{
                         //1. rate this song
                         PostRatingByThread(1);
                         //2. add this song into you liked list
-                        MvRockModel.YouLikedSongList.songArrayList.add(MvRockModel.YouLikedSongList.songArrayList.get(MvRockModel.CurrentSong.currentMVIndex));
-                        MvRockUiComponent.YouLikedPlayListView.RefreshListView();
+                        MvRockModel.YouLikedSongList.songArrayList.add(MvRockModel.YouMayLikeSongList.songArrayList.get(MvRockModel.CurrentSong.currentMVIndex));
                         //3. change the tool bar image of this song.
                         likeSongImage.setImageResource(R.drawable.thumbuporange);
                         //4. change status variable
@@ -45,8 +44,7 @@ public class ThumbUpButton extends PlayerControlButton{
                         //1. rate this song
                         PostRatingByThread(1);
                         //2. add this song into you liked list
-                        MvRockModel.YouLikedSongList.songArrayList.add( MvRockModel.YouLikedSongList.songArrayList.get(MvRockModel.CurrentSong.currentMVIndex));
-                        MvRockUiComponent.YouLikedPlayListView.RefreshListView();
+                        MvRockModel.YouLikedSongList.songArrayList.add( MvRockModel.YouMayLikeSongList.songArrayList.get(MvRockModel.CurrentSong.currentMVIndex));
                         //3. change the tool bar image of this song.
                         likeSongImage.setImageResource(R.drawable.thumbuporange);
                         MvRockUiComponent.ThumbDownButton.dislikeSongImage.setImageResource(R.drawable.thumbdown);
@@ -69,8 +67,6 @@ public class ThumbUpButton extends PlayerControlButton{
                                 break;
                             }
                         }
-
-                        MvRockUiComponent.YouLikedPlayListView.RefreshListView();
                         //3. change the tool bar image of this song.
                         likeSongImage.setImageResource(R.drawable.thumbup);
                         //4. change status variable
@@ -89,7 +85,6 @@ public class ThumbUpButton extends PlayerControlButton{
                     MvRockModel.CurrentSong.isLikedIconPressed=false;
                     //4. remove song from you liked list.
                     MvRockModel.YouLikedSongList.songArrayList.remove(MvRockModel.CurrentSong.currentMVIndex);
-                    MvRockUiComponent.YouLikedPlayListView.RefreshListView();
                     //5. play the next song.
                     playNextSongAfterRemovedASongFromYoulikedList();
                     return;

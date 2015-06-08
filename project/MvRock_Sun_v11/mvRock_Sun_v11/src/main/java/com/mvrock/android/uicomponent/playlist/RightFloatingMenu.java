@@ -85,6 +85,7 @@ public class RightFloatingMenu extends MvRockUiComponentObject {
                 StationPlayListButton.setImageDrawable(MvRockView.MainActivity.getResources().getDrawable(R.drawable.mvrock_station_grey));
                 MvRockView.MainActivity.getSupportFragmentManager().beginTransaction().
                         replace(R.id.right_drawer, MvRockView.YouMayLikePlayListFragment).commit();
+               // MvRockUiComponent.YouMayLikePlayListView.RefreshListView();
             }
         });
 
@@ -96,6 +97,7 @@ public class RightFloatingMenu extends MvRockUiComponentObject {
                 StationPlayListButton.setImageDrawable(MvRockView.MainActivity.getResources().getDrawable(R.drawable.mvrock_station_grey));
                 MvRockView.MainActivity.getSupportFragmentManager().beginTransaction().
                         replace(R.id.right_drawer, MvRockView.YouLikedPlayListFragment).commit();
+               // MvRockUiComponent.YouLikedPlayListView.RefreshListView();
             }
         });
         //3 - Create the menu with the items:
@@ -109,6 +111,7 @@ public class RightFloatingMenu extends MvRockUiComponentObject {
 //                StationPlayListButton.setImageDrawable(MvRockView.MainActivity.getResources().getDrawable(R.drawable.mvrock_station_red));
 //                MvRockView.MainActivity.getSupportFragmentManager().beginTransaction().
 //                        add(R.id.right_drawer,MvRockView.StationPlayListFragment).commit();
+
 //            }
 //        });
 

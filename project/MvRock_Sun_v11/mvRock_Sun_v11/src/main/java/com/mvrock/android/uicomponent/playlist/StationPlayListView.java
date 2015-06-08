@@ -38,11 +38,12 @@ public StationPlayListView(){
             e1.printStackTrace();
         }
         getStationSongsThread.setResponse();
+        MvRockModel.StationSongList.convertData();
     }
 
     public void RefreshListView(){
         Log.i(TAG, "RefreshListView()");
-        MvRockModel.StationSongList.convertData();
+
         StationPlayListAdapter playListAdapter = new StationPlayListAdapter(context,
                 new String[] { "song_name","artist_name" },
                 new int[] { R.id.song_name, R.id.artist_name });

@@ -23,12 +23,12 @@ public class NextSongButton extends MvRockUiComponentObject {
                 Log.i("nextSongImage", "onClick()");
                 if ( MvRockUiComponent.YouMayLikePlayListView.isAvailable()) {
                     if (MvRockModel.CurrentSong.currentMVIndex < 14) {
-                        MvRockUiComponent.MvRockYoutubePlayer.YouTubePlayer.loadVideo(MvRockModel.YouLikedSongList.songArrayList.get(MvRockModel.CurrentSong.currentMVIndex + 1).get("url"));
+                        MvRockUiComponent.MvRockYoutubePlayer.YouTubePlayer.loadVideo(MvRockModel.YouMayLikeSongList.songArrayList.get(MvRockModel.CurrentSong.currentMVIndex + 1).get("url"));
                         MvRockModel.CurrentSong.currentMVIndex++;
                     } else {
                         MvRockUiComponent.YouMayLikePlayListView.RequestPlayListByThread();
                         MvRockModel.CurrentSong.currentMVIndex = 0;
-                        MvRockUiComponent.MvRockYoutubePlayer.YouTubePlayer.loadVideo(MvRockModel.YouLikedSongList.songArrayList.get(0).get("url"));
+                        MvRockUiComponent.MvRockYoutubePlayer.YouTubePlayer.loadVideo(MvRockModel.YouMayLikeSongList.songArrayList.get(0).get("url"));
                     }
                 } else {
                     if(MvRockModel.YouLikedSongList.songArrayList.size()>0)

@@ -19,16 +19,24 @@ import com.mvrock.android.view.MvRockView;
 public class YouLikedPlayListFragment extends Fragment{
     private static final String TAG = "View.YLPlayListFrag";
     public YouLikedPlayListFragment() {
-        Log.i(TAG, "YouLikedPlayListFragment");
+        Log.i(TAG, "YouLikedPlayListFragment()");
         MvRockUiComponent.YouLikedPlayListView = new YouLikedPlayListView();
 
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        Log.i(TAG, "onCreateView()");
         View rightDrawerView = inflater.inflate(R.layout.fragment_right_drawer_play_list,container,false);
        MvRockUiComponent.YouLikedPlayListView.playListview=(ListView) rightDrawerView.findViewById(R.id.right_drawer_play_list);
         MvRockUiComponent.YouLikedPlayListView.Init();
         return rightDrawerView;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.i(TAG, "onResume()");
+        MvRockUiComponent.YouLikedPlayListView.RefreshListView();
     }
 }

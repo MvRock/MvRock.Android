@@ -54,6 +54,7 @@ public class MvRockFragment extends Fragment {
 	private static final String TAG = "View.MvRockFragment";
 
     public MvRockFragment(){
+        Log.i(TAG, "MvRockFragment()");
         MvRockUiComponent.MvRockYoutubePlayer = MvRockYoutubePlayerFragment.newInstance("video_id");
         MvRockUiComponent.NextSongButton= new NextSongButton();
         MvRockUiComponent.ThumbUpButton= new ThumbUpButton();

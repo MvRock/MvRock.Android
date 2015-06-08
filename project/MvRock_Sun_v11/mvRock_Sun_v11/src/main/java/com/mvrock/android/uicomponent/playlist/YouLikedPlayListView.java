@@ -36,12 +36,12 @@ public class YouLikedPlayListView extends PlayListView {
             e1.printStackTrace();
         }
         getYouLikedSongAndUserDataThread.setResponse();
-
+        MvRockModel.YouLikedSongList.convertData();
     }
 
     public void RefreshListView(){
         Log.i(TAG, "RefreshListView()");
-        MvRockModel.YouLikedSongList.convertData();
+
         YouLikedPlayListAdapter playListAdapter = new YouLikedPlayListAdapter(context,
                 new String[] { "song_name","artist_name" },
                 new int[] { R.id.song_name, R.id.artist_name });

@@ -18,7 +18,7 @@ public class SetRatingThread extends MvRockThreadObject {
 	public void setParams() {
 		Log.i(TAG, "setParams()");
 		params.add(new BasicNameValuePair("userid", this.User_id));
-		params.add(new BasicNameValuePair("Song_Url", Song_Url));
+		params.add(new BasicNameValuePair("url", Song_Url));
 		params.add(new BasicNameValuePair("rating", String.valueOf(rating)));
 		params.add(new BasicNameValuePair("songsource", "1"));
 		params.add(new BasicNameValuePair("songfromid", "0"));

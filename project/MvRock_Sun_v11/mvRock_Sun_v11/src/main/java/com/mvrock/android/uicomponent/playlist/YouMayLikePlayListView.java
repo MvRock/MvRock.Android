@@ -39,11 +39,12 @@ public class YouMayLikePlayListView extends PlayListView {
             e1.printStackTrace();
         }
         getYoumaylikeSongDataThread.setResponse();
+        MvRockModel.YouMayLikeSongList.convertData();
     }
 
     public void RefreshListView(){
         Log.i(TAG, "RefreshListView()");
-        MvRockModel.YouMayLikeSongList.convertData();
+
         YouMayLikePlayListAdapter playListAdapter = new YouMayLikePlayListAdapter(context,
                 new String[] { "song_name","artist_name" },
                 new int[] { R.id.song_name, R.id.artist_name });
