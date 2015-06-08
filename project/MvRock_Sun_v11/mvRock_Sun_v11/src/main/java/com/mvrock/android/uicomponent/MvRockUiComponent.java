@@ -5,7 +5,6 @@ import android.util.Log;
 
 import com.examples.youtubeapidemo.R;
 import com.mvrock.android.model.MvRockModel;
-import com.mvrock.android.uicomponent.drawer.LeftTopDrawer;
 import com.mvrock.android.uicomponent.drawer.MvRockDrawer;
 import com.mvrock.android.uicomponent.player.MvRockYoutubePlayerFragment;
 import com.mvrock.android.uicomponent.player.NextSongButton;
@@ -78,7 +77,7 @@ public class MvRockUiComponent {
     public static MvRockTabHost MvRockTabHost;
 
     public static ActionBarDrawerToggle LeftDrawerToggle;
-    public static LeftTopDrawer LeftTopDrawer;
+//    public static LeftTopDrawer LeftTopDrawer;
 
     public static StationCancelButton StationCancelButton;
     public static StationListView StationListView;

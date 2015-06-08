@@ -40,13 +40,13 @@ public class StationListView extends MvRockUiComponentObject {
                 MvRockUiComponent.YouMayLikePlayListView.playListview=null;
 
                 MvRockUiComponent.StationPlayListView=new StationPlayListView();
-                MvRockUiComponent.StationPlayListView.playListview = (ListView) view.findViewById(R.id.youmaylike);
+//                MvRockUiComponent.StationPlayListView.playListview = (ListView) view.findViewById(R.id.youmaylike);
                 MvRockUiComponent.StationPlayListView.Init();
 
                 MvRockUiComponent.StationSearchView.topSearchView.onActionViewCollapsed();
                 StationListview.setVisibility(View.INVISIBLE);
                 MvRockUiComponent.StationCancelButton.stationCancelImage.setVisibility(View.VISIBLE);
-                MvRockUiComponent.LeftTopDrawer.AddStationList();
+//                MvRockUiComponent.LeftTopDrawer.AddStationList();
             }
         });
     }

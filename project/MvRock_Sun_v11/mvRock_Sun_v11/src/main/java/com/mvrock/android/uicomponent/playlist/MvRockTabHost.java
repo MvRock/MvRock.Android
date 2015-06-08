@@ -19,18 +19,18 @@ public class MvRockTabHost extends MvRockUiComponentObject{
     }
 
     public void Init(){
-       Log.i(TAG, "Init()");
-       TabHost.setup();
-       android.widget.TabHost.TabSpec TabSpec;
-       TabSpec= TabHost.newTabSpec("You May Like");
-       TabSpec.setContent(R.id.tab1);
-       TabSpec.setIndicator("You May Like");
-       TabHost.addTab(TabSpec);
-
-       TabSpec =TabHost.newTabSpec("You Liked");
-       TabSpec.setContent(R.id.tab2);
-       TabSpec.setIndicator("You Liked");
-       TabHost.addTab(TabSpec);
+//       Log.i(TAG, "Init()");
+//       TabHost.setup();
+//       android.widget.TabHost.TabSpec TabSpec;
+//       TabSpec= TabHost.newTabSpec("You May Like");
+//       TabSpec.setContent(R.id.tab1);
+//       TabSpec.setIndicator("You May Like");
+//       TabHost.addTab(TabSpec);
+//
+//       TabSpec =TabHost.newTabSpec("You Liked");
+//       TabSpec.setContent(R.id.tab2);
+//       TabSpec.setIndicator("You Liked");
+//       TabHost.addTab(TabSpec);
     }
 
 }

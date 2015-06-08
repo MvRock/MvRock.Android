@@ -59,7 +59,7 @@ public class LeftTopDrawer extends MvRockUiComponentObject {
                 if (groupPosition == MvRockView.MY_STATION_POSITION) {
                     MvRockModel.CurrentStation = leftDrawerChildDirectory.get(
                             leftDrawerDirectory.get(MvRockView.MY_STATION_POSITION)).get(childPosition);
-                    MvRockUiComponent.StationPlayListView.playListview = (ListView) v.findViewById(R.id.youmaylike);
+//                    MvRockUiComponent.StationPlayListView.playListview = (ListView) v.findViewById(R.id.youmaylike);
                     MvRockUiComponent.StationPlayListView.Init();
                     TextView tab_tv = (TextView) MvRockUiComponent.MvRockTabHost.TabHost.getTabWidget()
                             .getChildAt(0).findViewById(android.R.id.title);

@@ -61,7 +61,7 @@ public class MvRockFragment extends Fragment {
         MvRockUiComponent.ThumbDownButton=new ThumbDownButton();
         MvRockUiComponent.ReportButton=new ReportButton();
         MvRockUiComponent.ShareButton=new ShareButton();
-        MvRockUiComponent.MvRockTabHost=new MvRockTabHost();
+//        MvRockUiComponent.MvRockTabHost=new MvRockTabHost();
         MvRockUiComponent.RightFloatingMenu = new RightFloatingMenu();
         MvRockUiComponent.StationCancelButton=new StationCancelButton();
         MvRockUiComponent.StationListView=new StationListView();
