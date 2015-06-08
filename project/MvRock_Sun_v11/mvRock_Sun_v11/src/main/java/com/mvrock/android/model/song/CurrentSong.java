@@ -22,7 +22,6 @@ public class CurrentSong extends MvRockModelObject {
     public int currentMVIndex;
     public String url;
     public int currentTime;
-    protected String strResponse;
 
 
     public CurrentSong() {
@@ -38,6 +37,7 @@ public class CurrentSong extends MvRockModelObject {
 
     public void convertData(){
         try {
+            Log.i(TAG,"convertData()");
             JSONObject JSON = new JSONObject(strResponse);
             int rating = 0;
             rating = Integer.parseInt(JSON.get("UserRating").toString());

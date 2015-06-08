@@ -51,7 +51,7 @@ public abstract class MvRockThreadObject extends Thread{
             httpResponse = new DefaultHttpClient().execute(httpPost);
             if (httpResponse.getStatusLine().getStatusCode() == 200) {
                 strResponse = EntityUtils.toString(httpResponse.getEntity());
-               // Log.i(TAG, strResponse);
+                Log.i(TAG, strResponse);
             }
         } catch (ClientProtocolException e) {
             e.printStackTrace();

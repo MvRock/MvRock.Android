@@ -123,6 +123,7 @@ public class MvRockYoutubePlayerFragment extends YouTubePlayerSupportFragment {
             e1.printStackTrace();
         }
         getNewSongDataThread.setResponse();
+        MvRockModel.CurrentSong.convertData();
     }
 
 }
