@@ -6,9 +6,12 @@ import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerSupportFragment;
 import com.mvrock.android.model.MvRockModel;
+import com.mvrock.android.model.ReasonOption;
 import com.mvrock.android.thread.GetNewSongDataThread;
 import com.mvrock.android.uicomponent.MvRockUiComponent;
 import com.mvrock.android.view.DeveloperKey;
+
+import java.util.Map;
 
 /**
  * Created by Xuer on 5/5/15.
@@ -106,24 +109,45 @@ public class MvRockYoutubePlayerFragment extends YouTubePlayerSupportFragment {
     }
     public void RequestNewSongDataByThread(){
         Log.i(TAG, "RequestNewSongDataByThread()");
-        String song_url;
-        if ( MvRockUiComponent.YouMayLikePlayListView.isAvailable()) {
-            song_url =  MvRockModel.YouMayLikeSongList.songArrayList.get(MvRockModel.CurrentSong.currentMVIndex).get("url");
 
+        if ( MvRockUiComponent.YouMayLikePlayListView.isAvailable()) {
+            Map<String, String> currentSongInfo = MvRockModel.YouMayLikeSongList.songArrayList.get(MvRockModel.CurrentSong.currentMVIndex);
+            MvRockModel.CurrentSong.url =  currentSongInfo.get("url");
+            // set recommendation reason, name
+            MvRockModel.CurrentSong.name = currentSongInfo.get("song_name");
+            int reason = Integer.parseInt(currentSongInfo.get("reason"));
+            switch(reason) {
+                default:
+                case 0:
+                    MvRockModel.CurrentSong.reason = ReasonOption.None;
+                    break;
+                case 1:
+                    MvRockModel.CurrentSong.reason = ReasonOption.Random;
+                    break;
+                case 2:
+                    MvRockModel.CurrentSong.reason = ReasonOption.YouLikedBefore;
+                    break;
+                case 3:
+                    MvRockModel.CurrentSong.reason = ReasonOption.Personalized;
+                    break;
+            }
         } else {
-            song_url = MvRockModel.YouLikedSongList.songArrayList.get(MvRockModel.CurrentSong.currentMVIndex).get("url");
+            Map<String, String> currentSongInfo = MvRockModel.YouLikedSongList.songArrayList.get(MvRockModel.CurrentSong.currentMVIndex);
+            MvRockModel.CurrentSong.url = currentSongInfo.get("url");
+            MvRockModel.CurrentSong.name = currentSongInfo.get("song_name");
+            // clear recommendation reason
+            MvRockModel.CurrentSong.reason = ReasonOption.None;
         }
 
-        GetNewSongDataThread getNewSongDataThread = new GetNewSongDataThread(MvRockModel.User.User_Id,song_url);
+        GetNewSongDataThread getNewSongDataThread = new GetNewSongDataThread(MvRockModel.User.User_Id, MvRockModel.CurrentSong.url);
         getNewSongDataThread.start();
         try {
             getNewSongDataThread.join();
-        } catch (InterruptedException e1) {
-
-            e1.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
         getNewSongDataThread.setResponse();
         MvRockModel.CurrentSong.convertData();
+        MvRockModel.CurrentSong.updateViews();
     }
-
 }
