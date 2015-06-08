@@ -17,8 +17,8 @@
     <FrameLayout
         android:id="@+id/content_frame"
         android:layout_width="match_parent"
-        android:background="#363636"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#363636">
 
         <LinearLayout
             android:id="@+id/main_layout"
@@ -93,34 +93,43 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginRight="5dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="8dp"
                 android:id="@+id/info_part"
-                android:background="#363636"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
+
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="8dp"
+                android:background="#363636"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:id="@+id/music_title"
-                    android:background="@drawable/myborder"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:layout_marginBottom="4dp"
                     android:layout_weight="0.36"
-                    android:orientation="vertical">
+                    android:background="@drawable/myborder"
+                    android:orientation="vertical"
+                    android:paddingBottom="6dp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingTop="6dp">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="0.3"
+                        android:fontFamily="Arial"
                         android:text="MUSIC TITLE"
-                        android:textSize="18dp"/>
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
+                        android:layout_marginBottom="7dp"
                         android:layout_weight="0.2"
                         android:orientation="horizontal">
 
@@ -138,60 +147,64 @@
                     </LinearLayout>
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="1dip"
-
+                        android:layout_width="match_parent"
+                        android:layout_height="2dip"
                         android:background="#ffffff"
                         android:text="" />
 
                     <LinearLayout
                         android:id="@+id/thumb_share"
                         android:layout_width="match_parent"
-                        android:layout_weight="0.5"
                         android:layout_height="0dp"
-                        android:orientation="horizontal">
+                        android:layout_weight="0.5"
+                        android:orientation="horizontal"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp">
 
                         <ImageView
                             android:id="@+id/music_title_thumbup"
                             android:layout_width="0dp"
-                            android:layout_weight="0.12"
                             android:layout_height="match_parent"
+                            android:layout_weight="0.12"
 
                             android:src="@drawable/thumbup_new" />
 
                         <TextView
                             android:id="@+id/number_thumbup"
                             android:layout_width="0dp"
-                            android:layout_weight="0.12"
                             android:layout_height="match_parent"
-                            android:text="" />
+                            android:layout_weight="0.12"
+                            android:paddingTop="3dp"
+                            android:text="100" />
 
                         <ImageView
                             android:id="@+id/music_title_thumbdown"
                             android:layout_width="0dp"
-                            android:layout_weight="0.12"
                             android:layout_height="match_parent"
+                            android:layout_weight="0.12"
                             android:src="@drawable/thumbdown_new" />
 
                         <TextView
                             android:id="@+id/number_thumbdown"
                             android:layout_width="0dp"
-                            android:layout_weight="0.12"
                             android:layout_height="match_parent"
+                            android:layout_weight="0.12"
+                            android:paddingTop="3dp"
                             android:text="" />
 
                         <ImageView
                             android:id="@+id/music_title_share"
                             android:layout_width="0dp"
-                            android:layout_weight="0.12"
                             android:layout_height="match_parent"
+                            android:layout_weight="0.12"
                             android:src="@drawable/share_new" />
 
                         <TextView
-                            android:layout_weight="0.4"
                             android:id="@+id/blank"
                             android:layout_width="0dp"
-                            android:layout_height="match_parent" />
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.4"
+                            android:paddingTop="3dp" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -199,17 +212,96 @@
                     android:id="@+id/artist_and_subscribe"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginTop="4dp"
                     android:layout_weight="0.14"
-                    android:background="#66ffcc"
-                    android:orientation="horizontal"></LinearLayout>
+                    android:background="@drawable/myborder"
+                    android:orientation="horizontal"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp">
+
+                    <ImageView
+                        android:id="@+id/artist_image"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.12" />
+
+                    <TextView
+                        android:id="@+id/name_of_artist"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.58"
+                        android:gravity="center_vertical"
+                        android:text="Justin Bieber"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/subscribe_button"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.3"
+                        android:gravity="end" />
+                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/comment_part"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:layout_marginTop="4dp"
+                    android:padding="6dp"
                     android:layout_weight="0.5"
-                    android:background="#ccff66"
-                    android:orientation="vertical"></LinearLayout>
+                    android:background="@drawable/myborder"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/comment_title"
+                        android:layout_width="match_parent"
+
+                        android:layout_height="0dp"
+                        android:layout_weight="0.18"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="0.25"
+                            android:layout_height="match_parent"
+                            android:text="COMMENTS "
+                            android:gravity="center_vertical"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="0.08"
+                            android:layout_height="match_parent"
+                            android:id="@+id/comment_nummber"
+                            android:text=""/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="0.57"
+                            android:layout_height="match_parent" />
+
+                        <ImageView
+                            android:id="@+id/down_menu"
+                            android:layout_width="0dp"
+                            android:layout_weight="0.1"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="end"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="2dip"
+                        android:background="#ffffff"
+                        android:text="" />
+
+                    <LinearLayout
+                        android:id="@+id/comment_body"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.82"
+                        android:orientation="vertical">
+
+                    </LinearLayout>
+                </LinearLayout>
 
             </LinearLayout>
 
