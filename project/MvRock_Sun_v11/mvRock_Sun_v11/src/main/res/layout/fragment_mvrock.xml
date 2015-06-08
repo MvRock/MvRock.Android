@@ -105,16 +105,12 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-<<<<<<< HEAD
-                    android:id="@+id/music_title"
-=======
+                    android:id="@+id/music_title_part"
                     android:background="@drawable/myborder"
->>>>>>> origin/master
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_marginBottom="4dp"
                     android:layout_weight="0.36"
-                    android:background="@drawable/myborder"
                     android:orientation="vertical"
                     android:paddingBottom="6dp"
                     android:paddingLeft="8dp"
