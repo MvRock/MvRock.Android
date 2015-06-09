@@ -12,6 +12,7 @@ import com.mvrock.android.uicomponent.player.ReportButton;
 import com.mvrock.android.uicomponent.player.ShareButton;
 import com.mvrock.android.uicomponent.player.ThumbDownButton;
 import com.mvrock.android.uicomponent.player.ThumbUpButton;
+import com.mvrock.android.uicomponent.playlist.CommentView;
 import com.mvrock.android.uicomponent.playlist.MvRockTabHost;
 import com.mvrock.android.uicomponent.playlist.RightFloatingMenu;
 import com.mvrock.android.uicomponent.playlist.StationPlayListView;
@@ -86,6 +87,8 @@ public class MvRockUiComponent {
     public static RightFloatingMenu RightFloatingMenu;
 
     public static MvRockDrawer MvRockDrawer;
+
+    public static CommentView commentView;
 
     static{
         TAG="MvRockUiComponent.";

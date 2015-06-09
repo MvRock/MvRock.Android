@@ -11,11 +11,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TabHost;
+import android.widget.TextView;
 
 import com.examples.youtubeapidemo.R;
 import com.facebook.Session;
@@ -31,6 +33,7 @@ import com.mvrock.android.uicomponent.player.ReportButton;
 import com.mvrock.android.uicomponent.player.ShareButton;
 import com.mvrock.android.uicomponent.player.ThumbDownButton;
 import com.mvrock.android.uicomponent.player.ThumbUpButton;
+import com.mvrock.android.uicomponent.playlist.CommentView;
 import com.mvrock.android.uicomponent.playlist.MvRockTabHost;
 import com.mvrock.android.uicomponent.playlist.RightFloatingMenu;
 import com.mvrock.android.uicomponent.station.StationCancelButton;
@@ -66,6 +69,7 @@ public class MvRockFragment extends Fragment {
         MvRockUiComponent.StationCancelButton=new StationCancelButton();
         MvRockUiComponent.StationListView=new StationListView();
         MvRockUiComponent.MvRockDrawer = new MvRockDrawer();
+        MvRockUiComponent.commentView = new CommentView();
 
 
     }
@@ -111,7 +115,10 @@ public class MvRockFragment extends Fragment {
         MvRockUiComponent.MvRockDrawer.frame = (FrameLayout) view.findViewById(R.id.content_frame);
         MvRockUiComponent.MvRockDrawer.Init();
 
-
+        MvRockUiComponent.commentView.commentNumber = (TextView) view.findViewById(R.id.comment_nummber);
+        MvRockUiComponent.commentView.textInput = (EditText) view.findViewById(R.id.comment_input);
+        MvRockUiComponent.commentView.userAvatar = (ImageView)view.findViewById(R.id.user_avatar);
+        MvRockUiComponent.commentView.Init();
 
         MvRockUiComponent.StationCancelButton.stationCancelImage = (ImageView) view.findViewById(R.id.station_cancel);
         MvRockUiComponent.StationCancelButton.Init();

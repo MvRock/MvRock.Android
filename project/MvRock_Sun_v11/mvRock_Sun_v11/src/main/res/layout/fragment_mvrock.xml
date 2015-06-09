@@ -106,11 +106,11 @@
 
                 <LinearLayout
                     android:id="@+id/music_title_part"
-                    android:background="@drawable/myborder"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_marginBottom="4dp"
                     android:layout_weight="0.36"
+                    android:background="@drawable/myborder"
                     android:orientation="vertical"
                     android:paddingBottom="6dp"
                     android:paddingLeft="8dp"
@@ -118,12 +118,12 @@
                     android:paddingTop="6dp">
 
                     <TextView
-						android:id="@+id/music_title"
+                        android:id="@+id/music_title"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
+                        android:layout_gravity="center_vertical"
                         android:layout_weight="0.3"
                         android:fontFamily="Arial"
-                        android:layout_gravity="center_vertical"
                         android:text="MUSIC TITLE"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -144,8 +144,8 @@
 
                             android:id="@+id/recommendation_reasons"
                             android:layout_width="wrap_content"
-                            android:layout_gravity="center_vertical"
                             android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
                             android:text="" />
                     </LinearLayout>
 
@@ -167,8 +167,8 @@
                         <ImageView
                             android:id="@+id/music_title_thumbup"
                             android:layout_width="0dp"
-                            android:layout_gravity="center_vertical"
                             android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
                             android:layout_weight="0.12"
 
                             android:src="@drawable/thumbup_new" />
@@ -176,35 +176,35 @@
                         <TextView
                             android:id="@+id/number_thumbup"
                             android:layout_width="0dp"
-                            android:layout_gravity="center_vertical"
-                            android:gravity="center_vertical"
                             android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
                             android:layout_weight="0.12"
+                            android:gravity="center_vertical"
                             android:paddingTop="3dp"
                             android:text="100" />
 
                         <ImageView
                             android:id="@+id/music_title_thumbdown"
                             android:layout_width="0dp"
-                            android:layout_gravity="center_vertical"
                             android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
                             android:layout_weight="0.12"
                             android:src="@drawable/thumbdown_new" />
 
                         <TextView
                             android:id="@+id/number_thumbdown"
                             android:layout_width="0dp"
-                            android:layout_gravity="center_vertical"
-                            android:gravity="center_vertical"
                             android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
                             android:layout_weight="0.12"
+                            android:gravity="center_vertical"
                             android:text="" />
 
                         <ImageView
                             android:id="@+id/music_title_share"
                             android:layout_width="0dp"
-                            android:layout_gravity="center_vertical"
                             android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
                             android:layout_weight="0.12"
                             android:src="@drawable/share_new" />
 
@@ -232,15 +232,15 @@
                     <ImageView
                         android:id="@+id/artist_image"
                         android:layout_width="0dp"
-                        android:layout_gravity="center_vertical"
                         android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
                         android:layout_weight="0.12" />
 
                     <TextView
                         android:id="@+id/name_of_artist"
                         android:layout_width="0dp"
-                        android:layout_gravity="center_vertical"
                         android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
                         android:layout_weight="0.58"
                         android:gravity="center_vertical"
                         android:text="Justin Bieber"
@@ -249,8 +249,8 @@
                     <ImageView
                         android:id="@+id/subscribe_button"
                         android:layout_width="0dp"
-                        android:layout_gravity="center_vertical"
                         android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
                         android:layout_weight="0.3"
                         android:gravity="end" />
                 </LinearLayout>
@@ -260,10 +260,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_marginTop="4dp"
-                    android:padding="6dp"
                     android:layout_weight="0.5"
                     android:background="@drawable/myborder"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="6dp">
 
                     <LinearLayout
                         android:id="@+id/comment_title"
@@ -272,33 +272,36 @@
                         android:layout_height="0dp"
                         android:layout_weight="0.18"
                         android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
                             android:layout_weight="0.25"
-                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
                             android:text="COMMENTS "
-                            android:layout_gravity="center_vertical"
-                            android:gravity="center_vertical"
-                            android:textStyle="bold"/>
+                            android:textStyle="bold" />
+
                         <TextView
-                            android:layout_width="0dp"
-                            android:layout_weight="0.08"
-                            android:layout_gravity="center_vertical"
-                            android:gravity="center_vertical"
-                            android:layout_height="match_parent"
                             android:id="@+id/comment_nummber"
-                            android:text=""/>
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="0.08"
+                            android:gravity="center_vertical"
+                            android:text="" />
+
                         <TextView
                             android:layout_width="0dp"
-                            android:layout_weight="0.57"
-                            android:layout_height="match_parent" />
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.57" />
 
                         <ImageView
                             android:id="@+id/down_menu"
                             android:layout_width="0dp"
-                            android:layout_weight="0.1"
                             android:layout_height="match_parent"
-                            android:layout_gravity="end"/>
+                            android:layout_gravity="end"
+                            android:layout_weight="0.1" />
 
                     </LinearLayout>
 
@@ -315,6 +318,34 @@
                         android:layout_weight="0.82"
                         android:orientation="vertical">
 
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:orientation="horizontal"
+                            android:layout_weight="0.2">
+                            <ImageView
+                                android:id="@+id/user_avatar"
+                                android:layout_width="0dp"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_weight="0.2"
+                                android:layout_height="match_parent" />
+                            <EditText
+                                android:id="@+id/comment_input"
+                                android:imeOptions="actionDone"
+                                android:hint="Your Comment for This Song"
+                                android:textColorHint="#ffff00"
+                                android:editable="true"
+                                android:layout_width="0dp"
+                                android:layout_weight="0.8"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_height="match_parent" />
+                        </LinearLayout>
+
+                        <ListView
+                            android:id="@+id/comment_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.8"></ListView>
                     </LinearLayout>
                 </LinearLayout>
 
