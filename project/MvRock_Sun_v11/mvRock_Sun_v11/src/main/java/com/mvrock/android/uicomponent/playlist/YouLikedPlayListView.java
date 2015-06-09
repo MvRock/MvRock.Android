@@ -1,6 +1,5 @@
 package com.mvrock.android.uicomponent.playlist;
 
-import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -9,13 +8,9 @@ import android.widget.AdapterView;
 import com.examples.youtubeapidemo.R;
 import com.mvrock.android.model.MvRockModel;
 import com.mvrock.android.model.PlayListOption;
-import com.mvrock.android.thread.GetImageListThread;
 import com.mvrock.android.thread.GetYouLikedSongAndUserDataThread;
 import com.mvrock.android.uicomponent.MvRockUiComponent;
 import com.mvrock.android.view.MvRockView;
-
-import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Xuer on 5/5/15.
@@ -33,25 +28,31 @@ public class YouLikedPlayListView extends PlayListView {
 
     public void RequestPlayListByThread(){
         Log.i(TAG, "RequestPlayListByThread()");
+
         GetYouLikedSongAndUserDataThread getYouLikedSongAndUserDataThread = new GetYouLikedSongAndUserDataThread(MvRockModel.User.User_Id,"");
         getYouLikedSongAndUserDataThread.start();
         try {
             getYouLikedSongAndUserDataThread.join();
-        } catch (InterruptedException e1) {
-            e1.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
         getYouLikedSongAndUserDataThread.setResponse();
         MvRockModel.YouLikedSongList.convertData();
+
+        MvRockModel.YouLikedSongList.imageViewList=RequestImageListByThread(MvRockModel.YouLikedSongList.songArrayList);
     }
 
     public void RefreshListView(){
         Log.i(TAG, "RefreshListView()");
-        if(MvRockModel.YouLikedSongList.songArrayList!=null)
-            MvRockModel.YouLikedSongList.imageViewList=RequestImageListByThread(MvRockModel.YouLikedSongList.songArrayList);
-        YouLikedPlayListAdapter playListAdapter = new YouLikedPlayListAdapter(context,
-                new String[] { "song_name","artist_name" },
-                new int[] { R.id.song_name, R.id.artist_name });
-        this.playListview.setAdapter(playListAdapter);
+
+        if (playListview.getAdapter() == null) {
+            YouLikedPlayListAdapter playListAdapter = new YouLikedPlayListAdapter(context,
+                    new String[]{"song_name", "artist_name"},
+                    new int[]{R.id.song_name, R.id.artist_name});
+            playListview.setAdapter(playListAdapter);
+        } else {
+            ((YouLikedPlayListAdapter) playListview.getAdapter()).notifyDataSetChanged();
+        }
     }
 
     public void Init(){
@@ -74,7 +75,4 @@ public class YouLikedPlayListView extends PlayListView {
             }
         });
     }
-
-
-
 }

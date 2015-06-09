@@ -19,20 +19,26 @@ public abstract class PlayListView extends MvRockUiComponentObject {
 
     public ListView playListview;
     protected Context context;
-    public PlayListView(Context context){
-        this.TAG="UIComponent.";
-        this.context=context;
+
+    public PlayListView(Context context) {
+        this.TAG = "UIComponent.";
+        this.context = context;
         this.RequestPlayListByThread();
     }
+
     public abstract boolean isAvailable();
+
     public abstract void setAvailable();
+
     public abstract void RequestPlayListByThread();
+
     public abstract void RefreshListView();
+
     public abstract void Init();
 
-    public Map<Integer, Drawable> RequestImageListByThread(List<Map<String, String>> song_info){
+    public Map<Integer, Drawable> RequestImageListByThread(List<Map<String, String>> song_info) {
         Log.i(TAG, "RequestImageListByThread()");
-        Thread getImageListThread=  new Thread(new GetImageListThread(song_info, MvRockView.MainActivity));
+        Thread getImageListThread = new Thread(new GetImageListThread(song_info, MvRockView.MainActivity));
         getImageListThread.start();
         try {
             getImageListThread.join();

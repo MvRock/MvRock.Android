@@ -5,6 +5,13 @@ package com.mvrock.android.view;
  *Therefore the consistent of the activity is only one activity and several fragments are created to
  implement some functions
  */
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
+
 import com.examples.youtubeapidemo.R;
 import com.facebook.AppEventsLogger;
 import com.facebook.Session;
@@ -15,12 +22,6 @@ import com.mvrock.android.view.fragment.FbLoginFragment;
 import com.mvrock.android.view.fragment.MvRockFragment;
 import com.mvrock.android.view.fragment.YouLikedPlayListFragment;
 import com.mvrock.android.view.fragment.YouMayLikePlayListFragment;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.util.Log;
 
 public class MainActivity extends FragmentActivity {
 	private static final String USER_SKIPPED_LOGIN_KEY = "user_skipped_login";
@@ -133,17 +134,21 @@ public class MainActivity extends FragmentActivity {
     //According to the info to choose which fragment showed.
     public void showFragment(int fragmentIndex, boolean addToBackStack) {
         Log.i(TAG,"showFragment("+fragmentIndex+")");
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
         for (int i = 0; i < MvRockView.FragmentList.size(); i++) {
             if (i == fragmentIndex) {
-                this.getSupportFragmentManager().beginTransaction().show(MvRockView.FragmentList.get(i)).commit();
+                transaction.show(MvRockView.FragmentList.get(i));
             } else {
-                this.getSupportFragmentManager().beginTransaction().hide(MvRockView.FragmentList.get(i)).commit();
+                transaction.hide(MvRockView.FragmentList.get(i));
             }
         }
         if (addToBackStack) {
-            this.getSupportFragmentManager().beginTransaction().addToBackStack(null).commit();
+            transaction.addToBackStack(null);
         }
 
+        transaction.commit();
     }
 
 
