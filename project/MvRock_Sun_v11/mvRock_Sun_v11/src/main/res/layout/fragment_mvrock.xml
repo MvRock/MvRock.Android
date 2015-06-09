@@ -123,26 +123,28 @@
                         android:layout_height="0dp"
                         android:layout_weight="0.3"
                         android:fontFamily="Arial"
+                        android:layout_gravity="center_vertical"
                         android:text="MUSIC TITLE"
-                        android:textSize="16dp"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_marginBottom="7dp"
                         android:layout_weight="0.2"
                         android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
                             android:text="Recommendation Reasons : " />
 
                         <TextView
 
                             android:id="@+id/recommendation_reasons"
                             android:layout_width="wrap_content"
+                            android:layout_gravity="center_vertical"
                             android:layout_height="match_parent"
                             android:text="" />
                     </LinearLayout>
@@ -165,6 +167,7 @@
                         <ImageView
                             android:id="@+id/music_title_thumbup"
                             android:layout_width="0dp"
+                            android:layout_gravity="center_vertical"
                             android:layout_height="match_parent"
                             android:layout_weight="0.12"
 
@@ -173,6 +176,8 @@
                         <TextView
                             android:id="@+id/number_thumbup"
                             android:layout_width="0dp"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center_vertical"
                             android:layout_height="match_parent"
                             android:layout_weight="0.12"
                             android:paddingTop="3dp"
@@ -181,6 +186,7 @@
                         <ImageView
                             android:id="@+id/music_title_thumbdown"
                             android:layout_width="0dp"
+                            android:layout_gravity="center_vertical"
                             android:layout_height="match_parent"
                             android:layout_weight="0.12"
                             android:src="@drawable/thumbdown_new" />
@@ -188,14 +194,16 @@
                         <TextView
                             android:id="@+id/number_thumbdown"
                             android:layout_width="0dp"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center_vertical"
                             android:layout_height="match_parent"
                             android:layout_weight="0.12"
-                            android:paddingTop="3dp"
                             android:text="" />
 
                         <ImageView
                             android:id="@+id/music_title_share"
                             android:layout_width="0dp"
+                            android:layout_gravity="center_vertical"
                             android:layout_height="match_parent"
                             android:layout_weight="0.12"
                             android:src="@drawable/share_new" />
@@ -224,12 +232,14 @@
                     <ImageView
                         android:id="@+id/artist_image"
                         android:layout_width="0dp"
+                        android:layout_gravity="center_vertical"
                         android:layout_height="match_parent"
                         android:layout_weight="0.12" />
 
                     <TextView
                         android:id="@+id/name_of_artist"
                         android:layout_width="0dp"
+                        android:layout_gravity="center_vertical"
                         android:layout_height="match_parent"
                         android:layout_weight="0.58"
                         android:gravity="center_vertical"
@@ -239,6 +249,7 @@
                     <ImageView
                         android:id="@+id/subscribe_button"
                         android:layout_width="0dp"
+                        android:layout_gravity="center_vertical"
                         android:layout_height="match_parent"
                         android:layout_weight="0.3"
                         android:gravity="end" />
@@ -266,11 +277,14 @@
                             android:layout_weight="0.25"
                             android:layout_height="match_parent"
                             android:text="COMMENTS "
+                            android:layout_gravity="center_vertical"
                             android:gravity="center_vertical"
                             android:textStyle="bold"/>
                         <TextView
                             android:layout_width="0dp"
                             android:layout_weight="0.08"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center_vertical"
                             android:layout_height="match_parent"
                             android:id="@+id/comment_nummber"
                             android:text=""/>
