@@ -2,10 +2,7 @@ package com.mvrock.android.model.songlist;
 
 import android.util.Log;
 
-import com.mvrock.android.thread.GetArtistImageThread;
-
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -14,7 +11,7 @@ import java.util.Map;
 /**
  * Created by Xuer on 5/6/15.
  * Add comment on 5/26/15
- * <p/>
+ *
  * Similar with Class StationSongList
  */
 
@@ -28,10 +25,10 @@ import java.util.Map;
  *    "SongId":["172447","31719"]
  * }
  */
-public class YouMayLikeSongList extends SongList {
+public class YouMayLikeSongList extends SongList{
     public YouMayLikeSongList() {
         super();
-        TAG += "YouMayLikeSongList";
+        TAG+="YouMayLikeSongList";
     }
 
     /**
@@ -39,40 +36,31 @@ public class YouMayLikeSongList extends SongList {
      * convert them in ArrayList and store the new data in songArrayList.
      */
     public void convertData() {
-        Log.i(TAG, "convertData()");
+        Log.i(TAG,"convertData()");
         songArrayList.clear();
         try {
-            JSONObject YouMayLikeSongJSON = new JSONObject(strResponse);
+            JSONObject YouMayLikeSongJSON=new JSONObject(strResponse);
             JSONArray names = YouMayLikeSongJSON.getJSONArray("Name");
             JSONArray urls = YouMayLikeSongJSON.getJSONArray("Url");
             JSONArray reasons = YouMayLikeSongJSON.getJSONArray("Reason");
             JSONArray artists = YouMayLikeSongJSON.getJSONArray("Artist");
-            JSONArray artistImageUrls = YouMayLikeSongJSON.getJSONArray("ArtistPortrait");
-
             for (int i = 0; i < names.length(); i++) {
                 Map<String, String> map = new HashMap<String, String>();
                 map.put("song_name", names.get(i).toString());
                 map.put("url", urls.get(i).toString());
-                map.put("reason", reasons.get(i).toString());
+                map.put("reason",reasons.get(i).toString());
                 StringBuffer buffer = new StringBuffer();
                 buffer.append("By ");
                 buffer.append(artists.get(i).toString());
-                map.put("artist_name", buffer.toString());
+                map.put("artist_name", new String(buffer));
                 songArrayList.add(map);
             }
+            Log.i(TAG,songArrayList.toString());
 
-            // start gathering artist images
-            GetArtistImageThread thread = new GetArtistImageThread(artistImages, artistImageUrls);
-            thread.start();
-            try {
-                thread.join();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-            Log.i(TAG, songArrayList.toString());
-        } catch (JSONException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+
 }

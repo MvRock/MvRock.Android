@@ -27,7 +27,6 @@ public class NextSongButton extends MvRockUiComponentObject {
                         MvRockModel.CurrentSong.currentMVIndex++;
                     } else {
                         MvRockUiComponent.YouMayLikePlayListView.RequestPlayListByThread();
-                        MvRockUiComponent.YouMayLikePlayListView.RefreshListView();
                         MvRockModel.CurrentSong.currentMVIndex = 0;
                         MvRockUiComponent.MvRockYoutubePlayer.YouTubePlayer.loadVideo(MvRockModel.YouMayLikeSongList.songArrayList.get(0).get("url"));
                     }

@@ -124,7 +124,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_weight="0.3"
                         android:fontFamily="Arial"
-                        android:text="TITLE"
+                        android:text="MUSIC TITLE"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -237,13 +237,13 @@
                         android:layout_weight="0.12" />
 
                     <TextView
-                        android:id="@+id/artist_title"
+                        android:id="@+id/name_of_artist"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="0.58"
                         android:gravity="center_vertical"
-                        android:text="ARTIST"
+                        android:text="Justin Bieber"
                         android:textStyle="bold" />
 
                     <ImageView
@@ -289,7 +289,7 @@
                             android:layout_gravity="center_vertical"
                             android:layout_weight="0.08"
                             android:gravity="center_vertical"
-                            android:text="0" />
+                            android:text="" />
 
                         <TextView
                             android:layout_width="0dp"

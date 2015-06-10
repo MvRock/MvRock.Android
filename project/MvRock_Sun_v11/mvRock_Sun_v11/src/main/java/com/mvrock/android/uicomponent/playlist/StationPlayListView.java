@@ -16,22 +16,21 @@ import com.mvrock.android.view.MvRockView;
  * Created by Xuer on 5/5/15.
  */
 public class StationPlayListView extends PlayListView {
-    public StationPlayListView() {
+public StationPlayListView(){
         super(MvRockView.MainActivity);
         TAG += "StationPlayListView";
     }
-
-    public boolean isAvailable() {
-        return MvRockModel.playListOption == PlayListOption.STATION_LIST;
+    public boolean isAvailable(){
+        return MvRockModel.playListOption== PlayListOption.STATION_LIST;
     }
 
-    public void setAvailable() {
-        MvRockModel.playListOption = PlayListOption.STATION_LIST;
+    public void setAvailable(){
+        MvRockModel.playListOption=PlayListOption.STATION_LIST;
     }
 
-    public void RequestPlayListByThread() {
+    public void RequestPlayListByThread(){
         Log.i(TAG, "RequestPlayListByThread()");
-        GetStationSongsThread getStationSongsThread = new GetStationSongsThread(MvRockModel.User.User_Id, MvRockModel.CurrentStation);
+        GetStationSongsThread getStationSongsThread = new GetStationSongsThread(MvRockModel.User.User_Id,MvRockModel.CurrentStation);
         getStationSongsThread.start();
         try {
             getStationSongsThread.join();
@@ -40,36 +39,30 @@ public class StationPlayListView extends PlayListView {
         }
         getStationSongsThread.setResponse();
         MvRockModel.StationSongList.convertData();
-
-        MvRockModel.StationSongList.imageViewList = RequestImageListByThread(MvRockModel.StationSongList.songArrayList);
     }
 
-    public void RefreshListView() {
+    public void RefreshListView(){
         Log.i(TAG, "RefreshListView()");
-
-        if (playListview.getAdapter() == null) {
-            StationPlayListAdapter playListAdapter = new StationPlayListAdapter(context,
-                    new String[]{"song_name", "artist_name"},
-                    new int[]{R.id.song_name, R.id.artist_name});
-            playListview.setAdapter(playListAdapter);
-        } else {
-            ((StationPlayListAdapter) playListview.getAdapter()).notifyDataSetChanged();
-        }
+        MvRockModel.StationSongList.imageViewList=RequestImageListByThread(MvRockModel.StationSongList.songArrayList);
+        StationPlayListAdapter playListAdapter = new StationPlayListAdapter(context,
+                new String[] { "song_name","artist_name" },
+                new int[] { R.id.song_name, R.id.artist_name });
+        this.playListview.setAdapter(playListAdapter);
     }
 
-    public void Init() {
+    public void Init(){
         Log.i(TAG, "Init()");
         this.RefreshListView();
         MvRockModel.CurrentSong.currentMVIndex = 0;
         this.playListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
-            public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+            public void onItemClick(AdapterView<?> arg0, View arg1,int position, long arg3) {
                 Log.i(TAG, "onItemClick(" + arg0 + ", " + arg1 + ", " + position + ", " + arg3 + ")");
                 setAvailable();
                 MvRockModel.CurrentSong.currentMVIndex = position;
                 MvRockModel.CurrentSong.url = MvRockModel.StationSongList.songArrayList.get(MvRockModel.CurrentSong.currentMVIndex).get("url");
-                MvRockModel.CurrentSong.currentTime = 0;
+                MvRockModel.CurrentSong.currentTime=0;
                 MvRockUiComponent.MvRockDrawer.mDrawerLayout.closeDrawer(Gravity.RIGHT);
                 MvRockUiComponent.RightFloatingMenu.actionMenu.close(true);
                 MvRockUiComponent.MvRockYoutubePlayer.YouTubePlayer

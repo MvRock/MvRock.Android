@@ -19,8 +19,9 @@ public class CommentView extends MvRockUiComponentObject {
     public EditText textInput;
 
     public CommentView() {
-        TAG += "CommentView";
+        commentNumber.setText(0);
     }
+
 
     public void Init() {
         userAvatar.setImageDrawable(MvRockModel.User.User_Profile_pic);
@@ -39,4 +40,5 @@ public class CommentView extends MvRockUiComponentObject {
             }
         });
     }
+
 }

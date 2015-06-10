@@ -16,6 +16,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.TabHost;
 import android.widget.TextView;
 
 import com.examples.youtubeapidemo.R;
@@ -33,6 +34,7 @@ import com.mvrock.android.uicomponent.player.ShareButton;
 import com.mvrock.android.uicomponent.player.ThumbDownButton;
 import com.mvrock.android.uicomponent.player.ThumbUpButton;
 import com.mvrock.android.uicomponent.playlist.CommentView;
+import com.mvrock.android.uicomponent.playlist.MvRockTabHost;
 import com.mvrock.android.uicomponent.playlist.RightFloatingMenu;
 import com.mvrock.android.uicomponent.station.StationCancelButton;
 import com.mvrock.android.uicomponent.station.StationListView;
@@ -68,6 +70,8 @@ public class MvRockFragment extends Fragment {
         MvRockUiComponent.StationListView=new StationListView();
         MvRockUiComponent.MvRockDrawer = new MvRockDrawer();
         MvRockUiComponent.commentView = new CommentView();
+
+
     }
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -78,6 +82,7 @@ public class MvRockFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
         Log.i(TAG, "onCreateView()");
         View view = inflater.inflate(R.layout.fragment_mvrock,container, false);
+
 
         Session.setActiveSession(MvRockModel.User.Session);
 
@@ -100,7 +105,9 @@ public class MvRockFragment extends Fragment {
         MvRockUiComponent.ShareButton.shareSongImage = (ImageView) view.findViewById(R.id.sharebutton);
         MvRockUiComponent.ShareButton.Init();
 
+
         MvRockUiComponent.RightFloatingMenu.Init();
+
 
         MvRockUiComponent.MvRockDrawer.mDrawerLayout = (DrawerLayout) view.findViewById(R.id.drawer_layout);
         MvRockUiComponent.MvRockDrawer.leftFragment = (FrameLayout) view.findViewById(R.id.left_drawer);
@@ -119,6 +126,7 @@ public class MvRockFragment extends Fragment {
         MvRockUiComponent.StationListView.StationListview = (ListView) view.findViewById(R.id.station_suggestion);
         MvRockUiComponent.StationListView.Init();
 
+
         setHasOptionsMenu(true);
         return view;
 	}
@@ -126,7 +134,6 @@ public class MvRockFragment extends Fragment {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		i(TAG, "onOptionsItemSelected()");
-
 		if (MvRockUiComponent.LeftDrawerToggle.onOptionsItemSelected(item)) {
 			return true;
 		}

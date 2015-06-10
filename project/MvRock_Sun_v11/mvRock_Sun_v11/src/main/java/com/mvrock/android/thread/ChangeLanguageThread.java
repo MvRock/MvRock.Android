@@ -1,8 +1,7 @@
 package com.mvrock.android.thread;
 
-import android.util.Log;
-
 import org.apache.http.message.BasicNameValuePair;
+import android.util.Log;
 
 public class ChangeLanguageThread extends MvRockThreadObject {
 
