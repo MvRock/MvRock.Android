@@ -9,8 +9,12 @@ import com.mvrock.android.model.MvRockModelObject;
 import com.mvrock.android.model.ReasonOption;
 import com.mvrock.android.view.MvRockView;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Xuer on 5/9/15.
@@ -26,6 +30,8 @@ public class CurrentSong extends MvRockModelObject {
     public String url, name;
     public int currentTime;
     public ReasonOption reason;
+    public int numberOfComments;
+    public Map<String, String> nameAndComments;
 
     public CurrentSong() {
         super();
@@ -37,19 +43,31 @@ public class CurrentSong extends MvRockModelObject {
         this.currentTime = 0;
         this.url = "";
         this.reason = ReasonOption.None;
+        this.numberOfComments = 0;
+        nameAndComments = new HashMap<>();
+
     }
 
     public void convertData() {
         try {
             Log.i(TAG, "convertData()");
-            JSONObject JSON = new JSONObject(strResponse);
+            JSONObject infoJSON = new JSONObject(strResponse);
+            JSONArray commentArrayJSON = infoJSON.getJSONArray("Comment");
+            numberOfComments = commentArrayJSON.length();
+            for(int i = 0 ; i < commentArrayJSON.length();i++){
+                JSONObject tmp = (JSONObject)commentArrayJSON.get(i);
+                nameAndComments.put(tmp.get("name").toString(),
+                        tmp.get("content").toString());
+            }
+            Log.i(TAG,nameAndComments.toString());
             int rating = 0;
-            rating = Integer.parseInt(JSON.get("UserRating").toString());
+            rating = Integer.parseInt(infoJSON.get("UserRating").toString());
             Log.i(TAG, "rating = " + rating);
             MvRockModel.CurrentSong.isLikedIconPressed = rating > 0;
             MvRockModel.CurrentSong.isDislikedIconPressed = rating < 0;
 
         } catch (JSONException e) {
+            numberOfComments = 0;
             e.printStackTrace();
         }
     }

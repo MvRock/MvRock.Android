@@ -17,9 +17,10 @@ import java.util.Map;
  * Created by Xuer on 5/5/15.
  */
 public class MvRockYoutubePlayerFragment extends YouTubePlayerSupportFragment {
-    private static final String TAG="MvRockYoutubePlayer";
+    private static final String TAG = "MvRockYoutubePlayer";
     public YouTubePlayer YouTubePlayer;
-    public boolean isReady=false;
+    public boolean isReady = false;
+
     public static MvRockYoutubePlayerFragment newInstance(String url) {
 
         MvRockYoutubePlayerFragment playerYouTubeFrag = new MvRockYoutubePlayerFragment();
@@ -27,13 +28,13 @@ public class MvRockYoutubePlayerFragment extends YouTubePlayerSupportFragment {
     }
 
     public void Init() {
-        Log.i(TAG,"Init()");
+        Log.i(TAG, "Init()");
         initialize(DeveloperKey.DEVELOPER_KEY, new YouTubePlayer.OnInitializedListener() {
 
             @Override
             public void onInitializationFailure(YouTubePlayer.Provider arg0, YouTubeInitializationResult arg1) {
-                Log.i(TAG,"onInitializationFailure()");
-                Log.i(TAG,arg1.toString());
+                Log.i(TAG, "onInitializationFailure()");
+                Log.i(TAG, arg1.toString());
             }
 
             @Override
@@ -41,7 +42,7 @@ public class MvRockYoutubePlayerFragment extends YouTubePlayerSupportFragment {
                 Log.i(TAG, "onInitializationSuccess()");
                 YouTubePlayer = player;
                 YouTubePlayer.setPlayerStyle(com.google.android.youtube.player.YouTubePlayer.PlayerStyle.DEFAULT);
-                isReady=true;
+                isReady = true;
                 player.setPlayerStateChangeListener(new YouTubePlayer.PlayerStateChangeListener() {
 
                     @Override
@@ -49,6 +50,7 @@ public class MvRockYoutubePlayerFragment extends YouTubePlayerSupportFragment {
                         Log.i(TAG, "onVideoStarted()");
                         RequestNewSongDataByThread();
                         MvRockUiComponent.changeToolBarImage();
+                        MvRockUiComponent.commentView.commentNumber.setText(String.valueOf(MvRockModel.CurrentSong.numberOfComments));
                     }
 
                     @Override
@@ -101,22 +103,23 @@ public class MvRockYoutubePlayerFragment extends YouTubePlayerSupportFragment {
                 });
                 if (!wasRestored) {
                     Log.i(TAG, "play the first song.");
-                        YouTubePlayer.loadVideo(MvRockModel.YouMayLikeSongList.songArrayList.get(0).get("url"));
+                    YouTubePlayer.loadVideo(MvRockModel.YouMayLikeSongList.songArrayList.get(0).get("url"));
                 }
             }
         });
 
     }
-    public void RequestNewSongDataByThread(){
+
+    public void RequestNewSongDataByThread() {
         Log.i(TAG, "RequestNewSongDataByThread()");
 
-        if ( MvRockUiComponent.YouMayLikePlayListView.isAvailable()) {
+        if (MvRockUiComponent.YouMayLikePlayListView.isAvailable()) {
             Map<String, String> currentSongInfo = MvRockModel.YouMayLikeSongList.songArrayList.get(MvRockModel.CurrentSong.currentMVIndex);
-            MvRockModel.CurrentSong.url =  currentSongInfo.get("url");
+            MvRockModel.CurrentSong.url = currentSongInfo.get("url");
             // set recommendation reason, name
             MvRockModel.CurrentSong.name = currentSongInfo.get("song_name");
             int reason = Integer.parseInt(currentSongInfo.get("reason"));
-            switch(reason) {
+            switch (reason) {
                 default:
                 case 0:
                     MvRockModel.CurrentSong.reason = ReasonOption.None;
@@ -149,5 +152,6 @@ public class MvRockYoutubePlayerFragment extends YouTubePlayerSupportFragment {
         getNewSongDataThread.setResponse();
         MvRockModel.CurrentSong.convertData();
         MvRockModel.CurrentSong.updateViews();
+
     }
 }

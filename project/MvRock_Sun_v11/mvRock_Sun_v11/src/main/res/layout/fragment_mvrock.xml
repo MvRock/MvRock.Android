@@ -317,7 +317,10 @@
                         android:layout_height="0dp"
                         android:layout_weight="0.82"
                         android:orientation="vertical">
-
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.1"/>
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
@@ -335,17 +338,18 @@
                                 android:hint="Your Comment for This Song"
                                 android:textColorHint="#ffff00"
                                 android:editable="true"
+                                android:textSize="12dp"
                                 android:layout_width="0dp"
                                 android:layout_weight="0.8"
-                                android:layout_gravity="center_horizontal"
+                                android:layout_gravity="bottom"
                                 android:layout_height="match_parent" />
                         </LinearLayout>
 
-                        <ListView
-                            android:id="@+id/comment_list"
+                        <TextView
+                            android:id="@+id/comment_blank"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
-                            android:layout_weight="0.8"></ListView>
+                            android:layout_weight="0.4"></TextView>
                     </LinearLayout>
                 </LinearLayout>
 

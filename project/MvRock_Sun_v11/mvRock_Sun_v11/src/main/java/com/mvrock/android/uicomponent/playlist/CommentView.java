@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mvrock.android.model.MvRockModel;
+import com.mvrock.android.thread.SetCommentThread;
 import com.mvrock.android.uicomponent.MvRockUiComponentObject;
 
 
@@ -19,19 +20,27 @@ public class CommentView extends MvRockUiComponentObject {
     public EditText textInput;
 
     public CommentView() {
-        commentNumber.setText(0);
     }
 
 
     public void Init() {
         userAvatar.setImageDrawable(MvRockModel.User.User_Profile_pic);
+        commentNumber.setText(String.valueOf(MvRockModel.CurrentSong.numberOfComments));
         textInput.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 String str = textInput.getText().toString();
                 if (keyCode == KeyEvent.KEYCODE_ENTER &&
                         !str.equals("Your Comment for This Song")) {
-                    // put the comment to the database
+
+                    SetCommentThread setCommentThread = new SetCommentThread(
+                            MvRockModel.User.User_Id, str, MvRockModel.CurrentSong.url, "-1");
+                    setCommentThread.start();
+                    try {
+                        setCommentThread.join();
+                    }catch (InterruptedException e){
+                        e.printStackTrace();
+                    }
                     // refresh the comment list
                     // reread the comment content
                     // refresh the number of comments

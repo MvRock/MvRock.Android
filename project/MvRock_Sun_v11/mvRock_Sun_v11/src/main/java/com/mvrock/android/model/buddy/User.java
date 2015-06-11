@@ -1,6 +1,7 @@
 package com.mvrock.android.model.buddy;
 
 import android.graphics.drawable.Drawable;
+import android.nfc.tech.TagTechnology;
 import android.util.Log;
 
 import com.facebook.Session;
@@ -39,6 +40,7 @@ public class User {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
+        Log.i(TAG,User_Id);
     }
 
 
