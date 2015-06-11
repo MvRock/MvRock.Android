@@ -54,34 +54,35 @@ import static android.util.Log.i;
  */
 
 public class MvRockFragment extends Fragment {
-	private static final String TAG = "View.MvRockFragment";
+    private static final String TAG = "View.MvRockFragment";
 
-    public MvRockFragment(){
+    public MvRockFragment() {
         Log.i(TAG, "MvRockFragment()");
         MvRockUiComponent.MvRockYoutubePlayer = MvRockYoutubePlayerFragment.newInstance("video_id");
-        MvRockUiComponent.NextSongButton= new NextSongButton();
-        MvRockUiComponent.ThumbUpButton= new ThumbUpButton();
-        MvRockUiComponent.ThumbDownButton=new ThumbDownButton();
-        MvRockUiComponent.ReportButton=new ReportButton();
-        MvRockUiComponent.ShareButton=new ShareButton();
+        MvRockUiComponent.NextSongButton = new NextSongButton();
+        MvRockUiComponent.ThumbUpButton = new ThumbUpButton();
+        MvRockUiComponent.ThumbDownButton = new ThumbDownButton();
+        MvRockUiComponent.ReportButton = new ReportButton();
+        MvRockUiComponent.ShareButton = new ShareButton();
 //        MvRockUiComponent.MvRockTabHost=new MvRockTabHost();
         MvRockUiComponent.RightFloatingMenu = new RightFloatingMenu();
-        MvRockUiComponent.StationCancelButton=new StationCancelButton();
-        MvRockUiComponent.StationListView=new StationListView();
+        MvRockUiComponent.StationCancelButton = new StationCancelButton();
+        MvRockUiComponent.StationListView = new StationListView();
         MvRockUiComponent.MvRockDrawer = new MvRockDrawer();
         MvRockUiComponent.commentView = new CommentView();
 
 
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         MvRockView.MainActivity = (MainActivity) getActivity();
     }
 
-    public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Log.i(TAG, "onCreateView()");
-        View view = inflater.inflate(R.layout.fragment_mvrock,container, false);
+        View view = inflater.inflate(R.layout.fragment_mvrock, container, false);
 
 
         Session.setActiveSession(MvRockModel.User.Session);
@@ -117,7 +118,7 @@ public class MvRockFragment extends Fragment {
 
         MvRockUiComponent.commentView.commentNumber = (TextView) view.findViewById(R.id.comment_nummber);
         MvRockUiComponent.commentView.textInput = (EditText) view.findViewById(R.id.comment_input);
-        MvRockUiComponent.commentView.userAvatar = (ImageView)view.findViewById(R.id.user_avatar);
+        MvRockUiComponent.commentView.userAvatar = (ImageView) view.findViewById(R.id.user_avatar);
         MvRockUiComponent.commentView.Init();
 
         MvRockUiComponent.StationCancelButton.stationCancelImage = (ImageView) view.findViewById(R.id.station_cancel);
@@ -129,54 +130,54 @@ public class MvRockFragment extends Fragment {
 
         setHasOptionsMenu(true);
         return view;
-	}
+    }
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		i(TAG, "onOptionsItemSelected()");
-		if (MvRockUiComponent.LeftDrawerToggle.onOptionsItemSelected(item)) {
-			return true;
-		}
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        i(TAG, "onOptionsItemSelected()");
+        if (MvRockUiComponent.LeftDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
 
-		switch (item.getItemId()) {
-		case R.id.ALL:
-			ChangeLanguageByThread(3);
-			break;
-		case R.id.ENG:
-			ChangeLanguageByThread(1);
-			break;
-		case R.id.CHN:
-			ChangeLanguageByThread(2);
-			break;
-		default:
-			break;
-		}
-		return super.onOptionsItemSelected(item);
-	}
+        switch (item.getItemId()) {
+            case R.id.ALL:
+                ChangeLanguageByThread(3);
+                break;
+            case R.id.ENG:
+                ChangeLanguageByThread(1);
+                break;
+            case R.id.CHN:
+                ChangeLanguageByThread(2);
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
-	@Override
-	public void onCreateOptionsMenu(Menu menu,MenuInflater inflater) {
-		i(TAG, "onCreateOptionsMenu()");
-		inflater.inflate(R.menu.main, menu);
-        MvRockUiComponent.StationSearchView=new StationSearchView();
-		MvRockUiComponent.StationSearchView.topSearchView = (SearchView) menu.findItem(R.id.search_stations)
-				.getActionView();
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        i(TAG, "onCreateOptionsMenu()");
+        inflater.inflate(R.menu.main, menu);
+        MvRockUiComponent.StationSearchView = new StationSearchView();
+        MvRockUiComponent.StationSearchView.topSearchView = (SearchView) menu.findItem(R.id.search_stations)
+                .getActionView();
         MvRockUiComponent.StationSearchView.Init();
-		super.onCreateOptionsMenu(menu,inflater);
-	}
-	
-	public void ChangeLanguageByThread(int lang){
-		i(TAG, "ChangeLanguageByThread(" + lang + ")");
-		Thread changeLanguageByThread = new Thread(new ChangeLanguageThread(lang, MvRockModel.User.User_Id));
-		changeLanguageByThread.start();
-		try {
-			changeLanguageByThread.join();
-		} catch (InterruptedException e1) {
+        super.onCreateOptionsMenu(menu, inflater);
+    }
 
-			e1.printStackTrace();
-		}
-		MvRockUiComponent.YouMayLikePlayListView.RefreshListView();
-	}
+    public void ChangeLanguageByThread(int lang) {
+        i(TAG, "ChangeLanguageByThread(" + lang + ")");
+        Thread changeLanguageByThread = new Thread(new ChangeLanguageThread(lang, MvRockModel.User.User_Id));
+        changeLanguageByThread.start();
+        try {
+            changeLanguageByThread.join();
+        } catch (InterruptedException e1) {
+
+            e1.printStackTrace();
+        }
+        MvRockUiComponent.YouMayLikePlayListView.RefreshListView();
+    }
 
     public void onResume() {
         super.onResume();
@@ -203,14 +204,14 @@ public class MvRockFragment extends Fragment {
     public void onSaveInstanceState(Bundle state) {
         super.onSaveInstanceState(state);
         i(TAG, "onSaveInstanceState()");
-        MvRockModel.CurrentSong.currentTime =MvRockUiComponent.MvRockYoutubePlayer.YouTubePlayer.getCurrentTimeMillis();
+        MvRockModel.CurrentSong.currentTime = MvRockUiComponent.MvRockYoutubePlayer.YouTubePlayer.getCurrentTimeMillis();
     }
 
     @Override
     public void onViewStateRestored(Bundle state) {
         super.onViewStateRestored(state);
         i(TAG, "onViewStateRestored()");
-        if(MvRockUiComponent.MvRockYoutubePlayer.isReady)
+        if (MvRockUiComponent.MvRockYoutubePlayer.isReady)
             MvRockUiComponent.MvRockYoutubePlayer.YouTubePlayer
                     .cueVideo(MvRockModel.CurrentSong.url, MvRockModel.CurrentSong.currentTime);
     }

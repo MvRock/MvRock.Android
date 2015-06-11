@@ -18,10 +18,10 @@ import java.util.List;
 /**
  * Created by Xuer on 5/5/15.
  */
-public abstract class MvRockThreadObject extends Thread{
+public abstract class MvRockThreadObject extends Thread {
     public static final String HOST = "http://wanlab.poly.edu";
     public static final String PATH = "/xing/tubeok";
-    protected String TAG ;
+    protected String TAG;
     protected List<NameValuePair> params;
     protected String User_id;
     protected String Extra;
@@ -30,10 +30,10 @@ public abstract class MvRockThreadObject extends Thread{
 
 
     public MvRockThreadObject(String User_id, String Extra) {
-        this.TAG="Thread.";
+        this.TAG = "Thread.";
         this.User_id = User_id;
         this.Extra = Extra;
-        this.params=new ArrayList<NameValuePair>();
+        this.params = new ArrayList<NameValuePair>();
         this.strResponse = "";
     }
 

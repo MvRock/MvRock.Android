@@ -54,12 +54,12 @@ public class CurrentSong extends MvRockModelObject {
             JSONObject infoJSON = new JSONObject(strResponse);
             JSONArray commentArrayJSON = infoJSON.getJSONArray("Comment");
             numberOfComments = commentArrayJSON.length();
-            for(int i = 0 ; i < commentArrayJSON.length();i++){
-                JSONObject tmp = (JSONObject)commentArrayJSON.get(i);
+            for (int i = 0; i < commentArrayJSON.length(); i++) {
+                JSONObject tmp = (JSONObject) commentArrayJSON.get(i);
                 nameAndComments.put(tmp.get("name").toString(),
                         tmp.get("content").toString());
             }
-            Log.i(TAG,nameAndComments.toString());
+            Log.i(TAG, nameAndComments.toString());
             int rating = 0;
             rating = Integer.parseInt(infoJSON.get("UserRating").toString());
             Log.i(TAG, "rating = " + rating);

@@ -8,9 +8,10 @@ import org.apache.http.message.BasicNameValuePair;
 public class SetCommentThread extends MvRockThreadObject {
     String songUrl;
     String replyTo;
+
     public SetCommentThread(String User_id, String Extra, String songUrl, String replyTo) {
         super(User_id, Extra);
-        this.Url = "setComment.php";
+        this.Url = "/setComment.php";
         this.TAG = "setComment";
         this.songUrl = songUrl;
         this.replyTo = replyTo;
@@ -28,8 +29,8 @@ public class SetCommentThread extends MvRockThreadObject {
 
     @Override
     protected void setParams() {
-        params.add(new BasicNameValuePair("uid",User_id));
-        params.add(new BasicNameValuePair("url",songUrl));
+        params.add(new BasicNameValuePair("uid", User_id));
+        params.add(new BasicNameValuePair("url", songUrl));
         params.add(new BasicNameValuePair("replyTo", replyTo));
         params.add(new BasicNameValuePair("content", Extra));
     }
