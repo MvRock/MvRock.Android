@@ -16,7 +16,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.TabHost;
 import android.widget.TextView;
 
 import com.examples.youtubeapidemo.R;
@@ -33,9 +32,10 @@ import com.mvrock.android.uicomponent.player.ReportButton;
 import com.mvrock.android.uicomponent.player.ShareButton;
 import com.mvrock.android.uicomponent.player.ThumbDownButton;
 import com.mvrock.android.uicomponent.player.ThumbUpButton;
+import com.mvrock.android.uicomponent.playlist.ArtistView;
 import com.mvrock.android.uicomponent.playlist.CommentView;
-import com.mvrock.android.uicomponent.playlist.MvRockTabHost;
 import com.mvrock.android.uicomponent.playlist.RightFloatingMenu;
+import com.mvrock.android.uicomponent.playlist.SongView;
 import com.mvrock.android.uicomponent.station.StationCancelButton;
 import com.mvrock.android.uicomponent.station.StationListView;
 import com.mvrock.android.uicomponent.station.StationSearchView;
@@ -69,9 +69,9 @@ public class MvRockFragment extends Fragment {
         MvRockUiComponent.StationCancelButton = new StationCancelButton();
         MvRockUiComponent.StationListView = new StationListView();
         MvRockUiComponent.MvRockDrawer = new MvRockDrawer();
+        MvRockUiComponent.songView = new SongView();
+        MvRockUiComponent.artistView = new ArtistView();
         MvRockUiComponent.commentView = new CommentView();
-
-
     }
 
     @Override
@@ -86,6 +86,14 @@ public class MvRockFragment extends Fragment {
 
 
         Session.setActiveSession(MvRockModel.User.Session);
+
+        MvRockUiComponent.songView.songNameView = (TextView) view.findViewById(R.id.music_title);
+        MvRockUiComponent.songView.recommendationReasonView = (TextView) view.findViewById(R.id.recommendation_reasons);
+        MvRockUiComponent.songView.Init();
+
+        MvRockUiComponent.artistView.artistImageView =(ImageView) view.findViewById(R.id.artist_image);
+        MvRockUiComponent.artistView.artistNameView = (TextView) view.findViewById(R.id.name_of_artist);
+        MvRockUiComponent.artistView.Init();
 
         MvRockUiComponent.MvRockYoutubePlayer.Init();
         MvRockView.MainActivity.getSupportFragmentManager().beginTransaction()
@@ -106,9 +114,7 @@ public class MvRockFragment extends Fragment {
         MvRockUiComponent.ShareButton.shareSongImage = (ImageView) view.findViewById(R.id.sharebutton);
         MvRockUiComponent.ShareButton.Init();
 
-
         MvRockUiComponent.RightFloatingMenu.Init();
-
 
         MvRockUiComponent.MvRockDrawer.mDrawerLayout = (DrawerLayout) view.findViewById(R.id.drawer_layout);
         MvRockUiComponent.MvRockDrawer.leftFragment = (FrameLayout) view.findViewById(R.id.left_drawer);
@@ -126,7 +132,6 @@ public class MvRockFragment extends Fragment {
 
         MvRockUiComponent.StationListView.StationListview = (ListView) view.findViewById(R.id.station_suggestion);
         MvRockUiComponent.StationListView.Init();
-
 
         setHasOptionsMenu(true);
         return view;

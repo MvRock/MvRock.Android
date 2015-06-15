@@ -116,8 +116,10 @@ public class MvRockYoutubePlayerFragment extends YouTubePlayerSupportFragment {
         if (MvRockUiComponent.YouMayLikePlayListView.isAvailable()) {
             Map<String, String> currentSongInfo = MvRockModel.YouMayLikeSongList.songArrayList.get(MvRockModel.CurrentSong.currentMVIndex);
             MvRockModel.CurrentSong.url = currentSongInfo.get("url");
-            // set recommendation reason, name
-            MvRockModel.CurrentSong.name = currentSongInfo.get("song_name");
+            /// set recommendation reason, name, artist image
+            MvRockModel.CurrentSong.songName = currentSongInfo.get("song_name");
+            MvRockModel.CurrentSong.artistImage = MvRockModel.YouMayLikeSongList.artistImages.get(MvRockModel.CurrentSong.currentMVIndex);
+            MvRockModel.CurrentSong.artistName = currentSongInfo.get("artist_name").replace("By ", "");
             int reason = Integer.parseInt(currentSongInfo.get("reason"));
             switch (reason) {
                 default:
@@ -137,7 +139,9 @@ public class MvRockYoutubePlayerFragment extends YouTubePlayerSupportFragment {
         } else {
             Map<String, String> currentSongInfo = MvRockModel.YouLikedSongList.songArrayList.get(MvRockModel.CurrentSong.currentMVIndex);
             MvRockModel.CurrentSong.url = currentSongInfo.get("url");
-            MvRockModel.CurrentSong.name = currentSongInfo.get("song_name");
+            MvRockModel.CurrentSong.songName = currentSongInfo.get("song_name");
+            MvRockModel.CurrentSong.artistImage = MvRockModel.YouLikedSongList.artistImages.get(MvRockModel.CurrentSong.currentMVIndex);
+            MvRockModel.CurrentSong.artistName = currentSongInfo.get("artist_name").replace("By ", "");
             // clear recommendation reason
             MvRockModel.CurrentSong.reason = ReasonOption.None;
         }
@@ -151,7 +155,8 @@ public class MvRockYoutubePlayerFragment extends YouTubePlayerSupportFragment {
         }
         getNewSongDataThread.setResponse();
         MvRockModel.CurrentSong.convertData();
-        MvRockModel.CurrentSong.updateViews();
 
+        MvRockUiComponent.songView.update();
+        MvRockUiComponent.artistView.update();
     }
 }

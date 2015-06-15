@@ -1,13 +1,11 @@
 package com.mvrock.android.model.song;
 
+import android.graphics.drawable.Drawable;
 import android.util.Log;
-import android.widget.TextView;
 
-import com.examples.youtubeapidemo.R;
 import com.mvrock.android.model.MvRockModel;
 import com.mvrock.android.model.MvRockModelObject;
 import com.mvrock.android.model.ReasonOption;
-import com.mvrock.android.view.MvRockView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,11 +25,12 @@ public class CurrentSong extends MvRockModelObject {
     public boolean isDislikedIconPressed;
     public boolean isChanged;
     public int currentMVIndex;
-    public String url, name;
+    public String url, songName, artistName;
     public int currentTime;
     public ReasonOption reason;
     public int numberOfComments;
     public Map<String, String> nameAndComments;
+    public Drawable artistImage;
 
     public CurrentSong() {
         super();
@@ -70,10 +69,5 @@ public class CurrentSong extends MvRockModelObject {
             numberOfComments = 0;
             e.printStackTrace();
         }
-    }
-
-    public void updateViews() {
-        ((TextView) MvRockView.MvRockFragment.getView().findViewById(R.id.music_title)).setText(name);
-        ((TextView) MvRockView.MvRockFragment.getView().findViewById(R.id.recommendation_reasons)).setText(reason.toString());
     }
 }

@@ -12,9 +12,11 @@ import com.mvrock.android.uicomponent.player.ReportButton;
 import com.mvrock.android.uicomponent.player.ShareButton;
 import com.mvrock.android.uicomponent.player.ThumbDownButton;
 import com.mvrock.android.uicomponent.player.ThumbUpButton;
+import com.mvrock.android.uicomponent.playlist.ArtistView;
 import com.mvrock.android.uicomponent.playlist.CommentView;
 import com.mvrock.android.uicomponent.playlist.MvRockTabHost;
 import com.mvrock.android.uicomponent.playlist.RightFloatingMenu;
+import com.mvrock.android.uicomponent.playlist.SongView;
 import com.mvrock.android.uicomponent.playlist.StationPlayListView;
 import com.mvrock.android.uicomponent.playlist.YouLikedPlayListView;
 import com.mvrock.android.uicomponent.playlist.YouMayLikePlayListView;
@@ -88,6 +90,8 @@ public class MvRockUiComponent {
 
     public static MvRockDrawer MvRockDrawer;
 
+    public static SongView songView;
+    public static ArtistView artistView;
     public static CommentView commentView;
 
     static{
