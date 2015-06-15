@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mvrock.android.model.MvRockModel;
+import com.mvrock.android.thread.GetNewSongDataThread;
 import com.mvrock.android.thread.SetCommentThread;
 import com.mvrock.android.uicomponent.MvRockUiComponentObject;
 
@@ -39,13 +40,30 @@ public class CommentView extends MvRockUiComponentObject {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
+
+                    getTheNewInfoAfterSetComement();
                     // refresh the comment list
+
                     // reread the comment content
+
                     // refresh the number of comments
+                    commentNumber.setText(String.valueOf(MvRockModel.CurrentSong.numberOfComments));
+
                 }
                 return false;
             }
         });
+    }
+    private void getTheNewInfoAfterSetComement(){
+        GetNewSongDataThread getNewSongDataThread = new GetNewSongDataThread(MvRockModel.User.User_Id, MvRockModel.CurrentSong.url);
+        getNewSongDataThread.start();
+        try {
+            getNewSongDataThread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        getNewSongDataThread.setResponse();
+        MvRockModel.CurrentSong.convertData();
     }
 
 }
