@@ -2,9 +2,11 @@ package com.mvrock.android.uicomponent;
 
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.examples.youtubeapidemo.R;
 import com.mvrock.android.model.MvRockModel;
+import com.mvrock.android.model.songlist.SearchStationList;
 import com.mvrock.android.uicomponent.drawer.MvRockDrawer;
 import com.mvrock.android.uicomponent.player.MvRockYoutubePlayerFragment;
 import com.mvrock.android.uicomponent.player.NextSongButton;
@@ -20,9 +22,12 @@ import com.mvrock.android.uicomponent.playlist.SongView;
 import com.mvrock.android.uicomponent.playlist.StationPlayListView;
 import com.mvrock.android.uicomponent.playlist.YouLikedPlayListView;
 import com.mvrock.android.uicomponent.playlist.YouMayLikePlayListView;
+import com.mvrock.android.uicomponent.station.SearchStationListAdapter;
+import com.mvrock.android.uicomponent.station.SearchStationListView;
 import com.mvrock.android.uicomponent.station.StationCancelButton;
 import com.mvrock.android.uicomponent.station.StationListView;
 import com.mvrock.android.uicomponent.station.StationSearchView;
+import com.mvrock.android.uicomponent.station.fadeStationSearchview;
 
 /**
  * Created by Xuer on 5/8/15.
@@ -80,11 +85,15 @@ public class MvRockUiComponent {
     public static MvRockTabHost MvRockTabHost;
 
     public static ActionBarDrawerToggle LeftDrawerToggle;
-//    public static LeftTopDrawer LeftTopDrawer;
 
     public static StationCancelButton StationCancelButton;
     public static StationListView StationListView;
+    public static fadeStationSearchview fadeStationSearchview;
+    public static TextView noResultTextViewOnStationFrag;
+
     public static StationSearchView StationSearchView;
+    public static SearchStationListView SearchStationListView;
+    public static TextView noResultTextViewOnSearchTextView;
 
     public static RightFloatingMenu RightFloatingMenu;
 

@@ -17,7 +17,7 @@ public class GetStationThread  extends MvRockThreadObject {
 
 	public void setParams() {
 		Log.i(TAG, "setParams()");
-        params.add(new BasicNameValuePair("uid", this.User_id));
+        params.add(new BasicNameValuePair("myId", this.User_id));
 	}
     public void setResponse(){
         MvRockModel.StationList.setHttpResponse(this.strResponse);}

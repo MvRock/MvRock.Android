@@ -7,6 +7,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Xuer on 5/9/15.
@@ -16,21 +18,24 @@ import java.util.ArrayList;
  * When the stationList is required to load, add the station one by one and change its format for showing
  */
 public class StationList  extends MvRockModelObject {
-    public ArrayList<String> stationArrayList;
+    public ArrayList<Map<String, String>> stationArrayList;
 
     public StationList(){
         super();
         this.TAG+="StationList";
-        stationArrayList = new ArrayList<String>();
+        stationArrayList = new ArrayList<Map<String, String>>();
     }
 
     public void convertData(){
         try {
             JSONArray stationListJSONArray = new JSONArray(strResponse);
+            stationArrayList = new ArrayList<Map<String, String>>();
             if (stationListJSONArray!= null) {
                 for (int i = 0; i < stationListJSONArray.length(); i++) {
-                    MvRockModel.StationList.stationArrayList.add(stationListJSONArray.getJSONObject(i)
+                    Map<String, String> map = new HashMap<String, String>();
+                    map.put("station_name",stationListJSONArray.getJSONObject(i)
                             .get("stationname").toString());
+                    stationArrayList.add(map);
                 }
             }
         } catch (JSONException e) {

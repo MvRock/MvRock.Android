@@ -17,34 +17,35 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <string name="app_name">MvRock</string>
-    <string name="videowall_demo_name">Video Wall</string>
-    <string name="standalone_player_demo_name">Standalone Player</string>
-    <string name="fragment_demo_name">Simple PlayerFragment</string>
-    <string name="player_controls_demo_name">Custom Player Controls</string>
-    <string name="action_bar_demo_name">Overlay ActionBar Demo</string>
-    <string name="fullscreen_demo_name">Custom Fullscreen Handling</string>
-    <string name="intents_demo_name">YouTube App Launcher Intents</string>
-    <string name="playerview_text">This is a YouTubePlayerView!</string>
-    <string name="playerfragment_text">This is a YouTubePlayerFragment!</string>
-    <string name="demo_select">Please select a demo:</string>
-    <string name="some_demos_disabled">* Your device is currently running Android API version <xliff:g id="current_version">%1$s</xliff:g>.</string>
-    <string name="list_item_disabled">Requires Android API version <xliff:g id="required_version">%1$s</xliff:g> or higher.</string>
-    <string name="play">Play</string>
-    <string name="pause">Pause</string>
-    <string name="skip_to">Skip To</string>
-    <string name="seconds">secs</string>
-    <string name="player_style">Player Style</string>
-    <string name="def">Default</string>
-    <string name="minimal">Minimal</string>
+    <!--<string name="videowall_demo_name">Video Wall</string>-->
+    <!--<string name="standalone_player_demo_name">Standalone Player</string>-->
+    <!--<string name="fragment_demo_name">Simple PlayerFragment</string>-->
+    <!--<string name="player_controls_demo_name">Custom Player Controls</string>-->
+    <!--<string name="action_bar_demo_name">Overlay ActionBar Demo</string>-->
+    <!--<string name="fullscreen_demo_name">Custom Fullscreen Handling</string>-->
+    <!--<string name="intents_demo_name">YouTube App Launcher Intents</string>-->
+    <!--<string name="playerview_text">This is a YouTubePlayerView!</string>-->
+    <!--<string name="playerfragment_text">This is a YouTubePlayerFragment!</string>-->
+    <!--<string name="demo_select">Please select a demo:</string>-->
+    <!--<string name="some_demos_disabled">* Your device is currently running Android API version <xliff:g id="current_version">%1$s</xliff:g>.</string>-->
+    <!--<string name="list_item_disabled">Requires Android API version <xliff:g id="required_version">%1$s</xliff:g> or higher.</string>-->
+    <!--<string name="play">Play</string>-->
+    <!--<string name="pause">Pause</string>-->
+    <!--<string name="skip_to">Skip To</string>-->
+    <!--<string name="seconds">secs</string>-->
+    <!--<string name="player_style">Player Style</string>-->
+    <!--<string name="def">Default</string>-->
+    <!--<string name="minimal">Minimal</string>-->
     <string name="skip_login">continue as a guest</string>
-    <string name="chromeless">Chromeless</string>
-    <string name="play_video">Play video</string>
-    <string name="play_playlist">Play playlist</string>
-    <string name="start_index">Start index</string>
-    <string name="start_time">Start time (sec)</string>
-    <string name="autoplay">Autoplay</string>
-    <string name="lightbox_mode">Lightbox mode</string>
-    <string name="intent_select">Please select an action:</string>
+    <!--<string name="chromeless">Chromeless</string>-->
+    <!--<string name="play_video">Play video</string>-->
+    <!--<string name="play_playlist">Play playlist</string>-->
+    <!--<string name="start_index">Start index</string>-->
+    <!--<string name="start_time">Start time (sec)</string>-->
+    <!--<string name="autoplay">Autoplay</string>-->
+    <!--<string name="lightbox_mode">Lightbox mode</string>-->
+    <!--<string name="intent_select">Please select an action:</string>-->
+    <string name="no_result">No Search Result.</string>
     <string name="intent_disabled">This intent is not supported with the currently installed version of YouTube.</string>
     <string name="youtube_currently_installed">YouTube version installed on this device: <xliff:g id="youtube_version">%1$s</xliff:g>.</string>
     <string name="youtube_not_installed">YouTube is not installed on this device.</string>
@@ -63,27 +64,27 @@
     <string name="video_image">video_image</string>
     <string name="left_top_menu">menu</string>
     <string name="logo_mark">logo</string>
-    <string name="other_info">侧边栏</string>
+    <!--<string name="other_info">侧边栏</string>-->
     <string name="drawer_open">MvRock</string>
     <string name="drawer_close">MvRock</string>
     <string name = "acc_drawer_open">shabima</string>
     <string name = "acc_drawer_close">shaodiao</string>
 <string name="get_started">To get started, log in using Facebook</string>
-<string name="settings">Settings</string>
-    <string-array name="planets_array">
-        <item>Mercury</item>
-        <item>Venus</item>
-        <item>Earth</item>
-        <item>Mars</item>
-        <item>Jupiter</item>
-        <item>Saturn</item>
-        <item>Uranus</item>
-        <item>Neptune</item>
-    </string-array>
+<!--<string name="settings">Settings</string>-->
+    <!--<string-array name="planets_array">-->
+        <!--<item>Mercury</item>-->
+        <!--<item>Venus</item>-->
+        <!--<item>Earth</item>-->
+        <!--<item>Mars</item>-->
+        <!--<item>Jupiter</item>-->
+        <!--<item>Saturn</item>-->
+        <!--<item>Uranus</item>-->
+        <!--<item>Neptune</item>-->
+    <!--</string-array>-->
     <string name="language_change">all_en_zh</string>
     <string name="ALL">ALL</string>
     <string name="ENG">ENG</string>
     <string name="CHN">CHN</string>
     <string name="search_stations">Search Stations</string>
-    	<string name="facebook_app_id">189448637812265</string>
+    <string name="facebook_app_id">189448637812265</string>
 </resources>

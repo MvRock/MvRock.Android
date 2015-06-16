@@ -4,6 +4,7 @@ import com.mvrock.android.model.buddy.MusicBuddy;
 import com.mvrock.android.model.buddy.RecBuddy;
 import com.mvrock.android.model.buddy.User;
 import com.mvrock.android.model.song.CurrentSong;
+import com.mvrock.android.model.songlist.SearchStationList;
 import com.mvrock.android.model.songlist.StationList;
 import com.mvrock.android.model.songlist.StationSongList;
 import com.mvrock.android.model.songlist.YouLikedSongList;
@@ -24,9 +25,9 @@ public class MvRockModel {
     public static YouLikedSongList YouLikedSongList;
     public static YouMayLikeSongList YouMayLikeSongList;
     public static StationSongList StationSongList;
-    public static String[] SearchStationResultList;
     public static String CurrentStation;
     public static StationList StationList;
+    public static SearchStationList SearchStationList;
     public static CurrentSong CurrentSong;
 
     public static RecBuddy RecBuddy;
@@ -49,7 +50,7 @@ public class MvRockModel {
         YouLikedSongList=new YouLikedSongList();
         YouMayLikeSongList=new YouMayLikeSongList();
         StationSongList=new StationSongList();
-        SearchStationResultList =null;
+        SearchStationList=new SearchStationList();
         CurrentStation="";
         StationList =new StationList();
         CurrentSong = new CurrentSong();

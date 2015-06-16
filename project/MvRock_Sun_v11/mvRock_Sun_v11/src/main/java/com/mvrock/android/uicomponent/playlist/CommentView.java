@@ -21,10 +21,13 @@ public class CommentView extends MvRockUiComponentObject {
     public EditText textInput;
 
     public CommentView() {
+
+        //commentNumber.setText(0);
     }
 
 
     public void Init() {
+
         userAvatar.setImageDrawable(MvRockModel.User.User_Profile_pic);
         commentNumber.setText(String.valueOf(MvRockModel.CurrentSong.numberOfComments));
         textInput.setOnEditorActionListener(new TextView.OnEditorActionListener() {

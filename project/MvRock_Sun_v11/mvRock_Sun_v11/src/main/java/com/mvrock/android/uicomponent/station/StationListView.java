@@ -1,5 +1,7 @@
 package com.mvrock.android.uicomponent.station;
 
+import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -12,6 +14,8 @@ import com.mvrock.android.thread.GetStationThread;
 import com.mvrock.android.uicomponent.MvRockUiComponent;
 import com.mvrock.android.uicomponent.MvRockUiComponentObject;
 import com.mvrock.android.uicomponent.playlist.StationPlayListView;
+import com.mvrock.android.uicomponent.playlist.YouLikedPlayListAdapter;
+import com.mvrock.android.view.MvRockView;
 
 import static android.util.Log.i;
 
@@ -27,29 +31,45 @@ public class StationListView extends MvRockUiComponentObject {
     }
     public void Init(){
         i(TAG,"Init()");
-        StationListview.setVisibility(View.INVISIBLE);
         StationListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view,int i, long l) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 i(TAG, "onItemClick()");
-                TextView tab_tv = (TextView) MvRockUiComponent.MvRockTabHost.TabHost.getTabWidget().getChildAt(0)
-                        .findViewById(android.R.id.title);
 
-                tab_tv.setText(MvRockModel.SearchStationResultList[i]);
-                CreateStationByThread(MvRockModel.SearchStationResultList[i]);
-                MvRockUiComponent.YouMayLikePlayListView.playListview=null;
+                MvRockModel.CurrentStation=MvRockModel.StationList.stationArrayList.get(i).get("station_name");
+                MvRockUiComponent.StationPlayListView.RequestPlayListByThread();
 
-                MvRockUiComponent.StationPlayListView=new StationPlayListView();
-//                MvRockUiComponent.StationPlayListView.playListview = (ListView) view.findViewById(R.id.youmaylike);
-                MvRockUiComponent.StationPlayListView.Init();
+                MvRockView.MainActivity.getSupportFragmentManager().beginTransaction().
+                        replace(R.id.right_drawer, MvRockView.StationPlayListFragment).commit();
 
-                MvRockUiComponent.StationSearchView.topSearchView.onActionViewCollapsed();
-                StationListview.setVisibility(View.INVISIBLE);
-                MvRockUiComponent.StationCancelButton.stationCancelImage.setVisibility(View.VISIBLE);
-//                MvRockUiComponent.LeftTopDrawer.AddStationList();
+                MvRockModel.CurrentSong.currentMVIndex = 0;
+                MvRockUiComponent.StationPlayListView.setAvailable();
+                MvRockModel.CurrentSong.url = MvRockModel.StationSongList.songArrayList.get(MvRockModel.CurrentSong.currentMVIndex).get("url");
+                MvRockModel.CurrentSong.currentTime=0;
+
+                MvRockUiComponent.MvRockDrawer.mDrawerLayout.closeDrawer(Gravity.RIGHT);
+                MvRockUiComponent.RightFloatingMenu.actionMenu.close(true);
+                MvRockUiComponent.MvRockYoutubePlayer.YouTubePlayer
+                        .loadVideo(MvRockModel.CurrentSong.url, MvRockModel.CurrentSong.currentTime);
+
             }
         });
     }
+
+    public void RefreshListView(){
+        Log.i(TAG, "RefreshListView()");
+        if(MvRockModel.StationList.stationArrayList!=null) {
+            StationListAdapter stationListAdapter = new StationListAdapter(MvRockView.MainActivity,MvRockModel.StationList.stationArrayList,
+                    new String[] {"station_name" },
+                    new int[] {  R.id.station_name });
+            this.StationListview.setAdapter(stationListAdapter);
+        }else{
+
+        }
+
+    }
+
+
     public void RequestStationByThread(){
         i(TAG, "RequestStationByThread()");
         GetStationThread getStationThread = new GetStationThread(MvRockModel.User.User_Id,"");
@@ -61,6 +81,7 @@ public class StationListView extends MvRockUiComponentObject {
             e1.printStackTrace();
         }
         getStationThread.setResponse();
+        MvRockModel.StationList.convertData();
     }
 
     public void CreateStationByThread(String stationName){

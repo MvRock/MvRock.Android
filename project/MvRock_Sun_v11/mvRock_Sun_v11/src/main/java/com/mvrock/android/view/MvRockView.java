@@ -3,6 +3,7 @@ package com.mvrock.android.view;
 import android.support.v4.app.Fragment;
 
 import com.mvrock.android.view.fragment.MvRockFragment;
+import com.mvrock.android.view.fragment.SearchStationFragment;
 import com.mvrock.android.view.fragment.StationListFragment;
 import com.mvrock.android.view.fragment.StationPlayListFragment;
 import com.mvrock.android.view.fragment.YouLikedPlayListFragment;
@@ -23,6 +24,7 @@ public class MvRockView {
     public static YouLikedPlayListFragment YouLikedPlayListFragment;
     public static StationPlayListFragment StationPlayListFragment;
     public static StationListFragment StationListFragment;
+    public static SearchStationFragment SearchStationFragment;
     public static MainActivity MainActivity;
 
     public static final int FBLOGIN_FRAG = 0;

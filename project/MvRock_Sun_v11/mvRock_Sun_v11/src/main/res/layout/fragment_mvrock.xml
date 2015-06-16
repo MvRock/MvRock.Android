@@ -1,7 +1,8 @@
 <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
     <!--left-->
     <!--<ExpandableListView-->
@@ -357,27 +358,27 @@
 
         </LinearLayout>
 
-        <ListView
-            android:id="@+id/station_suggestion"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:background="#000000" />
+        <!--<ListView-->
+            <!--android:id="@+id/station_suggestion"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="fill_parent"-->
+            <!--android:background="#000000" />-->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:orientation="vertical"
-            android:paddingBottom="218dp"
-            android:paddingLeft="137dp">
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="bottom"-->
+            <!--android:orientation="vertical"-->
+            <!--android:paddingBottom="218dp"-->
+            <!--android:paddingLeft="137dp">-->
 
-            <ImageView
-                android:id="@+id/station_cancel"
-                android:layout_width="25sp"
-                android:layout_height="25sp"
-                android:contentDescription="@string/send_song"
-                android:src="@drawable/red_close" />
-        </LinearLayout>
+            <!--<ImageView-->
+                <!--android:id="@+id/station_cancel"-->
+                <!--android:layout_width="25sp"-->
+                <!--android:layout_height="25sp"-->
+                <!--android:contentDescription="@string/send_song"-->
+                <!--android:src="@drawable/red_close" />-->
+        <!--</LinearLayout>-->
 
         <!--<ImageView-->
         <!--android:id="@+id/right_drawer_control_button"-->

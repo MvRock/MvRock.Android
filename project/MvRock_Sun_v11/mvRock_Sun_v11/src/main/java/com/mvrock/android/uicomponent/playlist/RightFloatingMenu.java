@@ -31,9 +31,6 @@ public class RightFloatingMenu extends MvRockUiComponentObject {
     public void Init() {
         //1 - Create a button to attach the menu
         // in Activity Context
-//        RightDrawerControlButton.setImageDrawable(MvRockView.MainActivity.
-//                getResources().getDrawable(R.drawable.mvrock_phone_1_icon));
-
         actionButton = new FloatingActionButton.Builder(MvRockView.MainActivity)
                 .setBackgroundDrawable(MvRockView.MainActivity.
                         getResources().getDrawable(R.drawable.mvrock_phone_1_icon))
@@ -85,7 +82,6 @@ public class RightFloatingMenu extends MvRockUiComponentObject {
                 StationPlayListButton.setImageDrawable(MvRockView.MainActivity.getResources().getDrawable(R.drawable.mvrock_station_grey));
                 MvRockView.MainActivity.getSupportFragmentManager().beginTransaction().
                         replace(R.id.right_drawer, MvRockView.YouMayLikePlayListFragment).commit();
-               // MvRockUiComponent.YouMayLikePlayListView.RefreshListView();
             }
         });
 
@@ -97,23 +93,22 @@ public class RightFloatingMenu extends MvRockUiComponentObject {
                 StationPlayListButton.setImageDrawable(MvRockView.MainActivity.getResources().getDrawable(R.drawable.mvrock_station_grey));
                 MvRockView.MainActivity.getSupportFragmentManager().beginTransaction().
                         replace(R.id.right_drawer, MvRockView.YouLikedPlayListFragment).commit();
-               // MvRockUiComponent.YouLikedPlayListView.RefreshListView();
             }
         });
         //3 - Create the menu with the items:
 
 
-//        button3.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                YouMayLikePlayListButton.setImageDrawable(MvRockView.MainActivity.getResources().getDrawable(R.drawable.mvrock_youmaylike_grey));
-//                YouLikedPlayListButton.setImageDrawable(MvRockView.MainActivity.getResources().getDrawable(R.drawable.mvrock_liked_grey));
-//                StationPlayListButton.setImageDrawable(MvRockView.MainActivity.getResources().getDrawable(R.drawable.mvrock_station_red));
-//                MvRockView.MainActivity.getSupportFragmentManager().beginTransaction().
-//                        add(R.id.right_drawer,MvRockView.StationPlayListFragment).commit();
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                YouMayLikePlayListButton.setImageDrawable(MvRockView.MainActivity.getResources().getDrawable(R.drawable.mvrock_youmaylike_grey));
+                YouLikedPlayListButton.setImageDrawable(MvRockView.MainActivity.getResources().getDrawable(R.drawable.mvrock_liked_grey));
+                StationPlayListButton.setImageDrawable(MvRockView.MainActivity.getResources().getDrawable(R.drawable.mvrock_station_red));
+                MvRockView.MainActivity.getSupportFragmentManager().beginTransaction().
+                        replace(R.id.right_drawer,MvRockView.StationListFragment).commit();
 
-//            }
-//        });
+            }
+        });
 
     }
 }

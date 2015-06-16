@@ -19,7 +19,6 @@ import com.mvrock.android.view.MvRockView;
  */
 public class YouMayLikePlayListView extends PlayListView {
 
-
     public YouMayLikePlayListView() {
         super(MvRockView.MainActivity);
         TAG += "YouMayLikeListView";

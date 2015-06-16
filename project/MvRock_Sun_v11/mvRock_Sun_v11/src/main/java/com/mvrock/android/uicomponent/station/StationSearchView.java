@@ -33,11 +33,13 @@ import static android.util.Log.i;
  */
 public class StationSearchView extends MvRockUiComponentObject {
     public SearchView topSearchView;
+    public int[] subscribelist;
     public StationSearchView(){
         TAG+="SearchView";
     }
     public void Init(){
         Log.i(TAG, "Init()");
+
         topSearchView.setQueryHint("Search Stations");
         topSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
@@ -48,6 +50,8 @@ public class StationSearchView extends MvRockUiComponentObject {
             public boolean onQueryTextSubmit(String s) {
                 i(TAG, "onQueryTextSubmit()");
                 RequestSearchStationResultByThread();
+                MvRockModel.SearchStationList.convertData();
+                MvRockUiComponent.SearchStationListView.RefreshListView();
                 return true;
             }
         });
@@ -55,16 +59,16 @@ public class StationSearchView extends MvRockUiComponentObject {
 
     public void RequestSearchStationResultByThread() {
         i(TAG, "RequestSearchStationResultByThread()");
-        Thread getRecStationThread = new Thread(
-                new GetSearchStationThread(MvRockModel.User.User_Id, String.valueOf(MvRockUiComponent.StationSearchView.topSearchView.getQuery())));
+        GetSearchStationThread getRecStationThread =
+                new GetSearchStationThread(MvRockModel.User.User_Id,
+                        String.valueOf(MvRockUiComponent.StationSearchView.topSearchView.getQuery()));
         getRecStationThread.start();
         try {
             getRecStationThread.join();
         } catch (InterruptedException e1) {
             e1.printStackTrace();
         }
-        MvRockModel.SearchStationResultList = GetSearchStationThread.getArrayRecStations();
-        MvRockUiComponent.StationListView.StationListview.setAdapter(new ArrayAdapter<String>(MvRockView.MainActivity, android.R.layout.simple_list_item_1, MvRockModel.SearchStationResultList));
-        MvRockUiComponent.StationListView.StationListview.setVisibility(View.VISIBLE);
+        getRecStationThread.setResponse();
+        MvRockModel.SearchStationList.convertData();
     }
 }

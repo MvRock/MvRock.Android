@@ -70,11 +70,18 @@ public class MvRockDrawer extends MvRockUiComponentObject {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             MvRockUiComponent.MvRockDrawer.frame.setTranslationX(moveFactor);
+           // MvRockUiComponent.MvRockDrawer.mDrawerLayout.setTranslationX(moveFactor);
         } else {
-            TranslateAnimation anim = new TranslateAnimation(MvRockUiComponent.MvRockDrawer.lastTranslate, moveFactor, 0.0f, 0.0f);
-            anim.setDuration(0);
-            anim.setFillAfter(true);
-            MvRockUiComponent.MvRockDrawer.frame.startAnimation(anim);
+            TranslateAnimation anim1 = new TranslateAnimation(MvRockUiComponent.MvRockDrawer.lastTranslate, moveFactor, 0.0f, 0.0f);
+            anim1.setDuration(0);
+            anim1.setFillAfter(true);
+            MvRockUiComponent.MvRockDrawer.frame.startAnimation(anim1);
+            //new
+//            TranslateAnimation anim2 = new TranslateAnimation(MvRockUiComponent.MvRockDrawer.lastTranslate, moveFactor, 0.0f, 0.0f);
+//            anim2.setDuration(0);
+//            anim2.setFillAfter(true);
+//            MvRockUiComponent.MvRockDrawer.mDrawerLayout.startAnimation(anim2);
+            //new end
             MvRockUiComponent.MvRockDrawer.lastTranslate = moveFactor;
         }
     }

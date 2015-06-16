@@ -13,6 +13,9 @@ import com.facebook.UiLifecycleHelper;
 import com.mvrock.android.model.MvRockModel;
 import com.mvrock.android.view.fragment.FbLoginFragment;
 import com.mvrock.android.view.fragment.MvRockFragment;
+import com.mvrock.android.view.fragment.SearchStationFragment;
+import com.mvrock.android.view.fragment.StationListFragment;
+import com.mvrock.android.view.fragment.StationPlayListFragment;
 import com.mvrock.android.view.fragment.YouLikedPlayListFragment;
 import com.mvrock.android.view.fragment.YouMayLikePlayListFragment;
 
@@ -158,10 +161,14 @@ public class MainActivity extends FragmentActivity {
             MvRockModel.User.Session= Session.getActiveSession();
             MvRockModel.User.RequestFBUserInfoByThread();
             if (MvRockView.FragmentList.size()<(MvRockView.MVROCK_FRAG+1)) {
+                //center
                 MvRockView.MvRockFragment=new MvRockFragment();
+                //right drawer
                 MvRockView.YouMayLikePlayListFragment=new YouMayLikePlayListFragment();
                 MvRockView.YouLikedPlayListFragment =new YouLikedPlayListFragment();
-
+                MvRockView.StationListFragment = new StationListFragment();
+                MvRockView.StationPlayListFragment = new StationPlayListFragment();
+                MvRockView.SearchStationFragment = new SearchStationFragment();
                 MvRockView.FragmentList.add(MvRockView.MvRockFragment);
                 this.getSupportFragmentManager().beginTransaction()
                         .add(R.id.mvRockFragment, MvRockView.FragmentList.get(MvRockView.MVROCK_FRAG)).commit();
