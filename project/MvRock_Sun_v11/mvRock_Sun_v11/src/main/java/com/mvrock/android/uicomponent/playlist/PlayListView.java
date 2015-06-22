@@ -3,6 +3,7 @@ package com.mvrock.android.uicomponent.playlist;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
+import android.util.SparseArray;
 import android.widget.ListView;
 
 import com.mvrock.android.thread.GetImageListThread;
@@ -30,7 +31,7 @@ public abstract class PlayListView extends MvRockUiComponentObject {
     public abstract void RefreshListView();
     public abstract void Init();
 
-    public Map<Integer, Drawable> RequestImageListByThread(List<Map<String, String>> song_info){
+    public SparseArray<Drawable> RequestImageListByThread(List<Map<String, String>> song_info){
         Log.i(TAG, "RequestImageListByThread()");
         Thread getImageListThread=  new Thread(new GetImageListThread(song_info, MvRockView.MainActivity));
         getImageListThread.start();

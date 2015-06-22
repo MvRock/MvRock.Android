@@ -2,6 +2,7 @@ package com.mvrock.android.uicomponent.station;
 
 import android.graphics.drawable.Drawable;
 import android.util.Log;
+import android.util.SparseArray;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -102,7 +103,7 @@ public class StationListView extends MvRockUiComponentObject {
         }
     }
 
-    public Map<Integer, Drawable> RequestStationImageListByThread(List<Map<String, String>> song_info){
+    public SparseArray<Drawable> RequestStationImageListByThread(List<Map<String, String>> song_info){
         Log.i(TAG, "RequestStationImageListByThread()");
         Thread getStationImageListThread=  new Thread(new GetStationImageListThread(song_info, MvRockView.MainActivity));
         getStationImageListThread.start();

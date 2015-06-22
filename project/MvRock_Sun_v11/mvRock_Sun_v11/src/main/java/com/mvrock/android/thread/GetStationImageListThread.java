@@ -1,43 +1,39 @@
 package com.mvrock.android.thread;
 
-import android.annotation.SuppressLint;
+
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
+import android.util.SparseArray;
 
 import com.examples.youtubeapidemo.R;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class GetStationImageListThread implements Runnable {
 	private static final String TAG = "GetStationImageThread";
-	@SuppressLint("UseSparseArrays")
-	private static Map<Integer, Drawable> ImageView_List;
+    private static SparseArray<Drawable> ImageView_List;
 	private List<Map<String, String>> song_info;
 	private Context context;
 
-	@SuppressLint("UseSparseArrays")
 	public GetStationImageListThread(List<Map<String, String>> song_info,
                                      Context context) {
 		super();
 		this.song_info = song_info;
 		this.context = context;
-		ImageView_List=  new HashMap<Integer, Drawable>();
+		ImageView_List=  new SparseArray<Drawable>();
 	}
 
-	public static Map<Integer, Drawable> getImageView_List() {
+	public static SparseArray<Drawable> getImageView_List() {
 		return ImageView_List;
 	}
 
 
 
-	@SuppressLint("UseSparseArrays")
 	@Override
 	public void run() {
 		Log.i(TAG,"run()");
@@ -69,12 +65,10 @@ public class GetStationImageListThread implements Runnable {
 	 * "android.permission.INTERNET" permission set in AndroidManifest.xml.
 	 *
 	 * @param urlString
-	 * @return
-	 * @throws java.net.MalformedURLException
 	 * @throws java.io.IOException
 	 */
 	private InputStream download(String urlString)
-			throws MalformedURLException, IOException {
+			throws IOException {
 		//Log.i(TAG,"download( "+urlString+" )");
 		InputStream inputStream = (InputStream) new URL(urlString).getContent();
 		return inputStream;

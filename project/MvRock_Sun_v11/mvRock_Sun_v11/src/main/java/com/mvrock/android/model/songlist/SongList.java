@@ -18,13 +18,13 @@ import java.util.Map;
  * Extend from MvRockModelObjectList
  */
 public abstract class SongList extends MvRockModelObject {
-    public Map<Integer, Drawable> imageViewList;
+    public SparseArray<Drawable> imageViewList;
     public ArrayList<Map<String, String>> songArrayList;
     public SparseArray<Drawable> artistImages;
 
     protected SongList() {
         songArrayList = new ArrayList<Map<String, String>>();
-        imageViewList = new HashMap<Integer, Drawable>();
+        imageViewList = new SparseArray<Drawable>();
         artistImages = new SparseArray<Drawable>();
         strResponse = "";
     }

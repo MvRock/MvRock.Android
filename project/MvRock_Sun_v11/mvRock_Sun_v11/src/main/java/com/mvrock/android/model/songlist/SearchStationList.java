@@ -31,7 +31,7 @@ public class SearchStationList extends MvRockModelObject {
         Log.i(TAG,"convertData()");
         try {
             JSONArray searchStationListJSONArray = new JSONArray(strResponse);
-            searchStationArrayList = new ArrayList<Map<String, String>>();
+            searchStationArrayList.clear();
             if (searchStationListJSONArray!= null) {
                 for (int i = 0; i < searchStationListJSONArray.length(); i++) {
                     Map<String, String> map = new HashMap<String, String>();
