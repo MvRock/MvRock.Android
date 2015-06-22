@@ -43,7 +43,7 @@ public class CurrentSong extends MvRockModelObject {
         this.url = "";
         this.reason = ReasonOption.None;
         this.numberOfComments = 0;
-        nameAndComments = new HashMap<>();
+        nameAndComments = new HashMap<String, String>();
 
     }
 

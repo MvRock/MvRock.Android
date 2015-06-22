@@ -1,5 +1,7 @@
 package com.mvrock.android.model.songlist;
 
+import android.graphics.drawable.Drawable;
+
 import com.mvrock.android.model.MvRockModel;
 import com.mvrock.android.model.MvRockModelObject;
 
@@ -19,23 +21,28 @@ import java.util.Map;
  */
 public class StationList  extends MvRockModelObject {
     public ArrayList<Map<String, String>> stationArrayList;
-
+    public Map<Integer, Drawable>  stationImageArrayList;
     public StationList(){
         super();
         this.TAG+="StationList";
         stationArrayList = new ArrayList<Map<String, String>>();
+        stationImageArrayList = new HashMap<Integer,Drawable>();
     }
 
     public void convertData(){
         try {
             JSONArray stationListJSONArray = new JSONArray(strResponse);
             stationArrayList = new ArrayList<Map<String, String>>();
+
             if (stationListJSONArray!= null) {
                 for (int i = 0; i < stationListJSONArray.length(); i++) {
                     Map<String, String> map = new HashMap<String, String>();
                     map.put("station_name",stationListJSONArray.getJSONObject(i)
                             .get("stationname").toString());
+                    map.put("url",stationListJSONArray.getJSONObject(i)
+                            .get("ArtistPortrait").toString());
                     stationArrayList.add(map);
+
                 }
             }
         } catch (JSONException e) {

@@ -3,6 +3,7 @@ package com.mvrock.android.uicomponent.station;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.examples.youtubeapidemo.R;
+import com.mvrock.android.model.MvRockModel;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -45,6 +47,7 @@ public class StationListAdapter extends SimpleAdapter {
             holder = new ViewHolder();
             holder.stationname_textview = (TextView) convertView.findViewById(R.id.station_name);
             holder.station_imageview = (ImageView) convertView.findViewById(R.id.station_image);
+            holder.station_imageview.setImageDrawable((Drawable)MvRockModel.StationList.stationImageArrayList.get(position));
             convertView.setTag(holder);
         } else {
             holder =  (ViewHolder)convertView.getTag();

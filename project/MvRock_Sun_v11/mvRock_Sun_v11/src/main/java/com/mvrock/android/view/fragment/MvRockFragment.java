@@ -171,44 +171,6 @@ public class MvRockFragment extends Fragment {
         super.onCreateOptionsMenu(menu, inflater);
     }
 
-//    public void ChangeLanguageByThread(int lang) {
-//        i(TAG, "ChangeLanguageByThread(" + lang + ")");
-//        Thread changeLanguageByThread = new Thread(new ChangeLanguageThread(lang, MvRockModel.User.User_Id));
-//        changeLanguageByThread.start();
-//        try {
-//            changeLanguageByThread.join();
-//        } catch (InterruptedException e1) {
-//
-//            e1.printStackTrace();
-//        }
-//        MvRockUiComponent.YouMayLikePlayListView.RefreshListView();
-//    }
-        //getActivity().getActionBar().hide();
-       // return view;
-	//}
-
-//	@Override
-//	public boolean onOptionsItemSelected(MenuItem item) {
-//		i(TAG, "onOptionsItemSelected()");
-//		if (MvRockUiComponent.LeftDrawerToggle.onOptionsItemSelected(item)) {
-//			return true;
-//		}
-//
-//		switch (item.getItemId()) {
-//		case R.id.ALL:
-//			ChangeLanguageByThread(3);
-//			break;
-//		case R.id.ENG:
-//			ChangeLanguageByThread(1);
-//			break;
-//		case R.id.CHN:
-//			ChangeLanguageByThread(2);
-//			break;
-//		default:
-//			break;
-//		}
-//		return super.onOptionsItemSelected(item);
-//	}
 
 //	@Override
 //	public void onCreateOptionsMenu(Menu menu,MenuInflater inflater) {
@@ -241,11 +203,6 @@ public class MvRockFragment extends Fragment {
 
     }
 
-//    @Override
-//    public void onPrepareOptionsMenu(Menu menu) {
-//        i(TAG, "onPrepareOptionsMenu()");
-//        super.onPrepareOptionsMenu(menu);
-//    }
 //
 //    @Override
 //    public void onConfigurationChanged(Configuration newConfig) {

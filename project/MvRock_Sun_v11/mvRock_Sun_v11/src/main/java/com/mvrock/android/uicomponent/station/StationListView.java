@@ -1,21 +1,24 @@
 package com.mvrock.android.uicomponent.station;
 
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.examples.youtubeapidemo.R;
 import com.mvrock.android.model.MvRockModel;
 import com.mvrock.android.thread.CreateStationThread;
+import com.mvrock.android.thread.GetImageListThread;
+import com.mvrock.android.thread.GetStationImageListThread;
 import com.mvrock.android.thread.GetStationThread;
 import com.mvrock.android.uicomponent.MvRockUiComponent;
 import com.mvrock.android.uicomponent.MvRockUiComponentObject;
-import com.mvrock.android.uicomponent.playlist.StationPlayListView;
-import com.mvrock.android.uicomponent.playlist.YouLikedPlayListAdapter;
 import com.mvrock.android.view.MvRockView;
+
+import java.util.List;
+import java.util.Map;
 
 import static android.util.Log.i;
 
@@ -59,6 +62,7 @@ public class StationListView extends MvRockUiComponentObject {
     public void RefreshListView(){
         Log.i(TAG, "RefreshListView()");
         if(MvRockModel.StationList.stationArrayList!=null) {
+            MvRockModel.StationList.stationImageArrayList=RequestStationImageListByThread(MvRockModel.StationList.stationArrayList);
             StationListAdapter stationListAdapter = new StationListAdapter(MvRockView.MainActivity,MvRockModel.StationList.stationArrayList,
                     new String[] {"station_name" },
                     new int[] {  R.id.station_name });
@@ -82,6 +86,8 @@ public class StationListView extends MvRockUiComponentObject {
         }
         getStationThread.setResponse();
         MvRockModel.StationList.convertData();
+
+
     }
 
     public void CreateStationByThread(String stationName){
@@ -94,5 +100,17 @@ public class StationListView extends MvRockUiComponentObject {
 
             e1.printStackTrace();
         }
+    }
+
+    public Map<Integer, Drawable> RequestStationImageListByThread(List<Map<String, String>> song_info){
+        Log.i(TAG, "RequestStationImageListByThread()");
+        Thread getStationImageListThread=  new Thread(new GetStationImageListThread(song_info, MvRockView.MainActivity));
+        getStationImageListThread.start();
+        try {
+            getStationImageListThread.join();
+        } catch (InterruptedException e1) {
+            e1.printStackTrace();
+        }
+        return GetStationImageListThread.getImageView_List();
     }
 }
