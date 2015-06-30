@@ -25,7 +25,7 @@ public class CurrentSong extends MvRockModelObject {
     public boolean isDislikedIconPressed;
     public boolean isChanged;
     public int currentMVIndex;
-    public String url, songName, artistName;
+    public String url, songName, artistName, rootShareUserId;
     public int currentTime;
     public ReasonOption reason;
     public int numberOfComments;
@@ -44,6 +44,7 @@ public class CurrentSong extends MvRockModelObject {
         this.reason = ReasonOption.None;
         this.numberOfComments = 0;
         nameAndComments = new HashMap<String, String>();
+        rootShareUserId = "0";
 
     }
 

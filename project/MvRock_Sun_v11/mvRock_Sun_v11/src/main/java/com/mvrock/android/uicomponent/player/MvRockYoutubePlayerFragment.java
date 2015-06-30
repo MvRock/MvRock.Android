@@ -120,6 +120,8 @@ public class MvRockYoutubePlayerFragment extends YouTubePlayerSupportFragment {
             MvRockModel.CurrentSong.songName = currentSongInfo.get("song_name");
             MvRockModel.CurrentSong.artistImage = MvRockModel.YouMayLikeSongList.artistImages.get(MvRockModel.CurrentSong.currentMVIndex);
             MvRockModel.CurrentSong.artistName = currentSongInfo.get("artist_name").replace("By ", "");
+            MvRockModel.CurrentSong.rootShareUserId = MvRockModel.User.User_Id;
+
             int reason = Integer.parseInt(currentSongInfo.get("reason"));
             switch (reason) {
                 default:
@@ -136,14 +138,18 @@ public class MvRockYoutubePlayerFragment extends YouTubePlayerSupportFragment {
                     MvRockModel.CurrentSong.reason = ReasonOption.Personalized;
                     break;
             }
-        } else {
+            MvRockUiComponent.songView.showRecommendation();
+
+        } else if (MvRockUiComponent.YouLikedPlayListView.isAvailable()){
             Map<String, String> currentSongInfo = MvRockModel.YouLikedSongList.songArrayList.get(MvRockModel.CurrentSong.currentMVIndex);
             MvRockModel.CurrentSong.url = currentSongInfo.get("url");
             MvRockModel.CurrentSong.songName = currentSongInfo.get("song_name");
             MvRockModel.CurrentSong.artistImage = MvRockModel.YouLikedSongList.artistImages.get(MvRockModel.CurrentSong.currentMVIndex);
             MvRockModel.CurrentSong.artistName = currentSongInfo.get("artist_name").replace("By ", "");
-            // clear recommendation reason
             MvRockModel.CurrentSong.reason = ReasonOption.None;
+            MvRockModel.CurrentSong.rootShareUserId = MvRockModel.User.User_Id;
+
+            MvRockUiComponent.songView.hideRecommendation();
         }
 
         GetNewSongDataThread getNewSongDataThread = new GetNewSongDataThread(MvRockModel.User.User_Id, MvRockModel.CurrentSong.url);

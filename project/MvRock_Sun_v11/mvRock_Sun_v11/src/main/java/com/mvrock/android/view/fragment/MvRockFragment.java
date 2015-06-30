@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
-
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -14,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
 
@@ -93,7 +91,8 @@ public class MvRockFragment extends Fragment {
         Session.setActiveSession(MvRockModel.User.Session);
 
         MvRockUiComponent.songView.songNameView = (TextView) view.findViewById(R.id.music_title);
-        MvRockUiComponent.songView.recommendationReasonView = (TextView) view.findViewById(R.id.recommendation_reasons);
+        MvRockUiComponent.songView.recommendationTitleView = (TextView) view.findViewById(R.id.recommendation_title);
+        MvRockUiComponent.songView.recommendationReasonView = (TextView) view.findViewById(R.id.recommendation_reason);
         MvRockUiComponent.songView.Init();
 
         MvRockUiComponent.artistView.artistImageView =(ImageView) view.findViewById(R.id.artist_image);
