@@ -27,13 +27,11 @@ import com.mvrock.android.uicomponent.drawer.MvRockDrawer;
 import com.mvrock.android.uicomponent.player.MvRockYoutubePlayerFragment;
 import com.mvrock.android.uicomponent.player.NextSongButton;
 import com.mvrock.android.uicomponent.player.ReportButton;
-import com.mvrock.android.uicomponent.player.ShareButton;
-import com.mvrock.android.uicomponent.player.ThumbDownButton;
-import com.mvrock.android.uicomponent.player.ThumbUpButton;
 import com.mvrock.android.uicomponent.playlist.ArtistView;
 import com.mvrock.android.uicomponent.playlist.CommentView;
 import com.mvrock.android.uicomponent.playlist.RightFloatingMenu;
 import com.mvrock.android.uicomponent.playlist.SongView;
+import com.mvrock.android.uicomponent.playlist.ThumbShareView;
 import com.mvrock.android.uicomponent.station.StationCancelButton;
 import com.mvrock.android.uicomponent.station.StationListView;
 import com.mvrock.android.uicomponent.station.StationSearchView;
@@ -58,22 +56,15 @@ public class MvRockFragment extends Fragment {
         Log.i(TAG, "MvRockFragment()");
         MvRockUiComponent.MvRockYoutubePlayer = MvRockYoutubePlayerFragment.newInstance("video_id");
         MvRockUiComponent.NextSongButton = new NextSongButton();
-        MvRockUiComponent.ThumbUpButton = new ThumbUpButton();
-        MvRockUiComponent.ThumbDownButton = new ThumbDownButton();
         MvRockUiComponent.ReportButton = new ReportButton();
-        MvRockUiComponent.ShareButton = new ShareButton();
 
-        MvRockUiComponent.NextSongButton= new NextSongButton();
-        MvRockUiComponent.ThumbUpButton= new ThumbUpButton();
-        MvRockUiComponent.ThumbDownButton=new ThumbDownButton();
-        MvRockUiComponent.ReportButton=new ReportButton();
-        MvRockUiComponent.ShareButton=new ShareButton();
         MvRockUiComponent.RightFloatingMenu = new RightFloatingMenu();
         MvRockUiComponent.StationCancelButton = new StationCancelButton();
         MvRockUiComponent.StationListView = new StationListView();
         MvRockUiComponent.MvRockDrawer = new MvRockDrawer();
         MvRockUiComponent.songView = new SongView();
         MvRockUiComponent.artistView = new ArtistView();
+        MvRockUiComponent.thumbShareView = new ThumbShareView();
         MvRockUiComponent.commentView = new CommentView();
     }
 
@@ -87,7 +78,6 @@ public class MvRockFragment extends Fragment {
         Log.i(TAG, "onCreateView()");
         View view = inflater.inflate(R.layout.fragment_mvrock, container, false);
 
-
         Session.setActiveSession(MvRockModel.User.Session);
 
         MvRockUiComponent.songView.songNameView = (TextView) view.findViewById(R.id.music_title);
@@ -99,6 +89,13 @@ public class MvRockFragment extends Fragment {
         MvRockUiComponent.artistView.artistNameView = (TextView) view.findViewById(R.id.name_of_artist);
         MvRockUiComponent.artistView.Init();
 
+        MvRockUiComponent.thumbShareView.thumbUpNumber = (TextView) view.findViewById(R.id.number_thumbup);
+        MvRockUiComponent.thumbShareView.thumbDownNumber = (TextView) view.findViewById(R.id.number_thumbdown);
+        MvRockUiComponent.thumbShareView.thumbUpButton.likeSongImage = (ImageView) view.findViewById(R.id.music_title_thumbup);
+        MvRockUiComponent.thumbShareView.thumbDownButton.dislikeSongImage = (ImageView) view.findViewById(R.id.music_title_thumbdown);
+        MvRockUiComponent.thumbShareView.shareButton.shareSongImage = (ImageView) view.findViewById(R.id.music_title_share);
+        MvRockUiComponent.thumbShareView.Init();
+
         MvRockUiComponent.MvRockYoutubePlayer.Init();
         MvRockView.MainActivity.getSupportFragmentManager().beginTransaction()
                 .replace(R.id.youtubeplayerfragment, MvRockUiComponent.MvRockYoutubePlayer).commit();
@@ -106,17 +103,8 @@ public class MvRockFragment extends Fragment {
         MvRockUiComponent.NextSongButton.nextSongImage = (ImageView) view.findViewById(R.id.nextbutton);
         MvRockUiComponent.NextSongButton.Init();
 
-        MvRockUiComponent.ThumbUpButton.likeSongImage = (ImageView) view.findViewById(R.id.thumbupbutton);
-        MvRockUiComponent.ThumbUpButton.Init();
-
-        MvRockUiComponent.ThumbDownButton.dislikeSongImage = (ImageView) view.findViewById(R.id.thumbdownbotton);
-        MvRockUiComponent.ThumbDownButton.Init();
-
         MvRockUiComponent.ReportButton.reportSongImage = (ImageView) view.findViewById(R.id.reportbutton);
         MvRockUiComponent.ReportButton.Init();
-
-        MvRockUiComponent.ShareButton.shareSongImage = (ImageView) view.findViewById(R.id.sharebutton);
-        MvRockUiComponent.ShareButton.Init();
 
         MvRockUiComponent.RightFloatingMenu.Init();
 
@@ -130,7 +118,6 @@ public class MvRockFragment extends Fragment {
         MvRockUiComponent.commentView.textInput = (EditText) view.findViewById(R.id.comment_input);
         MvRockUiComponent.commentView.userAvatar = (ImageView) view.findViewById(R.id.user_avatar);
         MvRockUiComponent.commentView.Init();
-
 
         getActivity().getActionBar().hide();
         return view;

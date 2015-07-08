@@ -48,9 +48,8 @@ public class MvRockYoutubePlayerFragment extends YouTubePlayerSupportFragment {
                     @Override
                     public void onVideoStarted() {
                         Log.i(TAG, "onVideoStarted()");
-                        RequestNewSongDataByThread();
-                        MvRockUiComponent.changeToolBarImage();
-                        MvRockUiComponent.commentView.commentNumber.setText(String.valueOf(MvRockModel.CurrentSong.numberOfComments));
+
+                        updateCurrentSong();
                     }
 
                     @Override
@@ -61,12 +60,10 @@ public class MvRockYoutubePlayerFragment extends YouTubePlayerSupportFragment {
                                 String next = MvRockModel.YouLikedSongList.songArrayList.get(MvRockModel.CurrentSong.currentMVIndex + 1).get("url");
                                 MvRockModel.CurrentSong.currentMVIndex++;
                                 YouTubePlayer.loadVideo(next);
-
                             } else {
                                 MvRockUiComponent.YouMayLikePlayListView.RequestPlayListByThread();
                                 MvRockModel.CurrentSong.currentMVIndex = 0;
                                 YouTubePlayer.loadVideo(MvRockModel.YouLikedSongList.songArrayList.get(0).get("url"));
-
                             }
                         } else {
                             if (MvRockModel.YouLikedSongList.songArrayList.size() > 0) {
@@ -74,14 +71,11 @@ public class MvRockYoutubePlayerFragment extends YouTubePlayerSupportFragment {
                                     String next = MvRockModel.YouLikedSongList.songArrayList.get(MvRockModel.CurrentSong.currentMVIndex + 1).get("url");
                                     MvRockModel.CurrentSong.currentMVIndex++;
                                     YouTubePlayer.loadVideo(next);
-
                                 } else {
                                     MvRockModel.CurrentSong.currentMVIndex = 0;
                                     YouTubePlayer.loadVideo(MvRockModel.YouLikedSongList.songArrayList.get(0).get("url"));
-
                                 }
                             }
-
                         }
                     }
 
@@ -101,8 +95,10 @@ public class MvRockYoutubePlayerFragment extends YouTubePlayerSupportFragment {
                     public void onAdStarted() {
                     }
                 });
+
                 if (!wasRestored) {
                     Log.i(TAG, "play the first song.");
+
                     YouTubePlayer.loadVideo(MvRockModel.YouMayLikeSongList.songArrayList.get(0).get("url"));
                 }
             }
@@ -110,13 +106,13 @@ public class MvRockYoutubePlayerFragment extends YouTubePlayerSupportFragment {
 
     }
 
-    public void RequestNewSongDataByThread() {
-        Log.i(TAG, "RequestNewSongDataByThread()");
+    public void updateCurrentSong() {
+        Log.i(TAG, "updateCurrentSong()");
 
         if (MvRockUiComponent.YouMayLikePlayListView.isAvailable()) {
             Map<String, String> currentSongInfo = MvRockModel.YouMayLikeSongList.songArrayList.get(MvRockModel.CurrentSong.currentMVIndex);
+
             MvRockModel.CurrentSong.url = currentSongInfo.get("url");
-            /// set recommendation reason, name, artist image
             MvRockModel.CurrentSong.songName = currentSongInfo.get("song_name");
             MvRockModel.CurrentSong.artistImage = MvRockModel.YouMayLikeSongList.artistImages.get(MvRockModel.CurrentSong.currentMVIndex);
             MvRockModel.CurrentSong.artistName = currentSongInfo.get("artist_name").replace("By ", "");
@@ -142,6 +138,7 @@ public class MvRockYoutubePlayerFragment extends YouTubePlayerSupportFragment {
 
         } else if (MvRockUiComponent.YouLikedPlayListView.isAvailable()){
             Map<String, String> currentSongInfo = MvRockModel.YouLikedSongList.songArrayList.get(MvRockModel.CurrentSong.currentMVIndex);
+
             MvRockModel.CurrentSong.url = currentSongInfo.get("url");
             MvRockModel.CurrentSong.songName = currentSongInfo.get("song_name");
             MvRockModel.CurrentSong.artistImage = MvRockModel.YouLikedSongList.artistImages.get(MvRockModel.CurrentSong.currentMVIndex);
@@ -164,5 +161,7 @@ public class MvRockYoutubePlayerFragment extends YouTubePlayerSupportFragment {
 
         MvRockUiComponent.songView.update();
         MvRockUiComponent.artistView.update();
+        MvRockUiComponent.thumbShareView.update();
+        MvRockUiComponent.commentView.update();
     }
 }

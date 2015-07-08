@@ -21,10 +21,8 @@ public class CommentView extends MvRockUiComponentObject {
     public EditText textInput;
 
     public CommentView() {
-
         //commentNumber.setText(0);
     }
-
 
     public void Init() {
 
@@ -57,6 +55,7 @@ public class CommentView extends MvRockUiComponentObject {
             }
         });
     }
+
     private void getTheNewInfoAfterSetComement(){
         GetNewSongDataThread getNewSongDataThread = new GetNewSongDataThread(MvRockModel.User.User_Id, MvRockModel.CurrentSong.url);
         getNewSongDataThread.start();
@@ -69,4 +68,7 @@ public class CommentView extends MvRockUiComponentObject {
         MvRockModel.CurrentSong.convertData();
     }
 
+    public void update() {
+        commentNumber.setText(String.valueOf(MvRockModel.CurrentSong.numberOfComments));
+    }
 }
