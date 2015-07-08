@@ -44,15 +44,21 @@ public class ThumbShareView extends MvRockUiComponentObject {
         thumbDownNumber.setText(String.valueOf(MvRockModel.CurrentSong.numDislikes));
 
         if (MvRockModel.CurrentSong.isLikedIconPressed) {
-            thumbUpButton.likeSongImage.setImageResource(R.drawable.thumbuporange);
+            thumbUpButton.likeSongImage.setImageResource(R.drawable.thumbup_new_colored);
         } else {
             thumbUpButton.likeSongImage.setImageResource(R.drawable.thumbup_new);
         }
 
         if (MvRockModel.CurrentSong.isDislikedIconPressed) {
-            thumbDownButton.dislikeSongImage.setImageResource(R.drawable.thumbdownorange);
+            thumbDownButton.dislikeSongImage.setImageResource(R.drawable.thumbdown_new_colored);
         } else {
             thumbDownButton.dislikeSongImage.setImageResource(R.drawable.thumbdown_new);
+        }
+
+        if (MvRockModel.CurrentSong.isShared) {
+            shareButton.shareSongImage.setImageResource(R.drawable.share_new_colored);
+        } else {
+            shareButton.shareSongImage.setImageResource(R.drawable.share_new);
         }
     }
 }

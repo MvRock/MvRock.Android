@@ -20,8 +20,7 @@ import java.util.Map;
  * This class is used to deal with the current song which is liked or disliked by user.
  */
 public class CurrentSong extends MvRockModelObject {
-    public boolean isLikedIconPressed;
-    public boolean isDislikedIconPressed;
+    public boolean isLikedIconPressed, isDislikedIconPressed, isShared;
     public boolean isChanged;
     public int currentMVIndex;
     public String url, songName, artistName, rootShareUserId;
@@ -59,6 +58,10 @@ public class CurrentSong extends MvRockModelObject {
             Log.i(TAG, "rating = " + rating);
             isLikedIconPressed = rating > 0;
             isDislikedIconPressed = rating < 0;
+
+            int sharing = Integer.parseInt(infoJSON.get("UserSharing").toString());
+            Log.i(TAG, "shared = " + sharing);
+            isShared = sharing > 0;
 
             try {
                 // gets all the good (liked) users and all the the bad (disliked) users
