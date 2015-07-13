@@ -21,17 +21,14 @@ import com.facebook.Session;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubePlayerView;
 import com.mvrock.android.model.MvRockModel;
-import com.mvrock.android.thread.ChangeLanguageThread;
 import com.mvrock.android.uicomponent.MvRockUiComponent;
 import com.mvrock.android.uicomponent.drawer.MvRockDrawer;
 import com.mvrock.android.uicomponent.player.MvRockYoutubePlayerFragment;
-import com.mvrock.android.uicomponent.player.NextSongButton;
-import com.mvrock.android.uicomponent.player.ReportButton;
 import com.mvrock.android.uicomponent.playlist.ArtistView;
 import com.mvrock.android.uicomponent.playlist.CommentView;
 import com.mvrock.android.uicomponent.playlist.RightFloatingMenu;
 import com.mvrock.android.uicomponent.playlist.SongView;
-import com.mvrock.android.uicomponent.playlist.ThumbShareView;
+import com.mvrock.android.uicomponent.playlist.ToolbarView;
 import com.mvrock.android.uicomponent.station.StationCancelButton;
 import com.mvrock.android.uicomponent.station.StationListView;
 import com.mvrock.android.uicomponent.station.StationSearchView;
@@ -55,8 +52,6 @@ public class MvRockFragment extends Fragment {
     public MvRockFragment() {
         Log.i(TAG, "MvRockFragment()");
         MvRockUiComponent.MvRockYoutubePlayer = MvRockYoutubePlayerFragment.newInstance("video_id");
-        MvRockUiComponent.NextSongButton = new NextSongButton();
-        MvRockUiComponent.ReportButton = new ReportButton();
 
         MvRockUiComponent.RightFloatingMenu = new RightFloatingMenu();
         MvRockUiComponent.StationCancelButton = new StationCancelButton();
@@ -64,7 +59,7 @@ public class MvRockFragment extends Fragment {
         MvRockUiComponent.MvRockDrawer = new MvRockDrawer();
         MvRockUiComponent.songView = new SongView();
         MvRockUiComponent.artistView = new ArtistView();
-        MvRockUiComponent.thumbShareView = new ThumbShareView();
+        MvRockUiComponent.toolbarView = new ToolbarView();
         MvRockUiComponent.commentView = new CommentView();
     }
 
@@ -89,22 +84,19 @@ public class MvRockFragment extends Fragment {
         MvRockUiComponent.artistView.artistNameView = (TextView) view.findViewById(R.id.name_of_artist);
         MvRockUiComponent.artistView.Init();
 
-        MvRockUiComponent.thumbShareView.thumbUpNumber = (TextView) view.findViewById(R.id.number_thumbup);
-        MvRockUiComponent.thumbShareView.thumbDownNumber = (TextView) view.findViewById(R.id.number_thumbdown);
-        MvRockUiComponent.thumbShareView.thumbUpButton.likeSongImage = (ImageView) view.findViewById(R.id.music_title_thumbup);
-        MvRockUiComponent.thumbShareView.thumbDownButton.dislikeSongImage = (ImageView) view.findViewById(R.id.music_title_thumbdown);
-        MvRockUiComponent.thumbShareView.shareButton.shareSongImage = (ImageView) view.findViewById(R.id.music_title_share);
-        MvRockUiComponent.thumbShareView.Init();
+        MvRockUiComponent.toolbarView.thumbUpNumber = (TextView) view.findViewById(R.id.number_thumbup);
+        MvRockUiComponent.toolbarView.thumbDownNumber = (TextView) view.findViewById(R.id.number_thumbdown);
+        MvRockUiComponent.toolbarView.nextSongButton.nextSongImage = (ImageView) view.findViewById(R.id.music_title_next);
+        MvRockUiComponent.toolbarView.thumbUpButton.likeSongImage = (ImageView) view.findViewById(R.id.music_title_thumbup);
+        MvRockUiComponent.toolbarView.thumbDownButton.dislikeSongImage = (ImageView) view.findViewById(R.id.music_title_thumbdown);
+        MvRockUiComponent.toolbarView.shareButton.shareSongImage = (ImageView) view.findViewById(R.id.music_title_share);
+        MvRockUiComponent.toolbarView.reportButton.reportSongImage = (ImageView) view.findViewById(R.id.music_title_report);
+        MvRockUiComponent.toolbarView.languageButton.languageImage = (ImageView) view.findViewById(R.id.music_title_language);
+        MvRockUiComponent.toolbarView.Init();
 
         MvRockUiComponent.MvRockYoutubePlayer.Init();
         MvRockView.MainActivity.getSupportFragmentManager().beginTransaction()
                 .replace(R.id.youtubeplayerfragment, MvRockUiComponent.MvRockYoutubePlayer).commit();
-
-        MvRockUiComponent.NextSongButton.nextSongImage = (ImageView) view.findViewById(R.id.nextbutton);
-        MvRockUiComponent.NextSongButton.Init();
-
-        MvRockUiComponent.ReportButton.reportSongImage = (ImageView) view.findViewById(R.id.reportbutton);
-        MvRockUiComponent.ReportButton.Init();
 
         MvRockUiComponent.RightFloatingMenu.Init();
 
@@ -130,7 +122,7 @@ public class MvRockFragment extends Fragment {
             return true;
         }
 
-        switch (item.getItemId()) {
+        /*switch (item.getItemId()) {
             case R.id.ALL:
                 ChangeLanguageByThread(3);
                 break;
@@ -142,7 +134,7 @@ public class MvRockFragment extends Fragment {
                 break;
             default:
                 break;
-        }
+        }*/
         return super.onOptionsItemSelected(item);
     }
 
@@ -168,19 +160,6 @@ public class MvRockFragment extends Fragment {
 //        MvRockUiComponent.StationSearchView.Init();
 //		super.onCreateOptionsMenu(menu,inflater);
 //	}
-	
-	public void ChangeLanguageByThread(int lang){
-		i(TAG, "ChangeLanguageByThread(" + lang + ")");
-		Thread changeLanguageByThread = new Thread(new ChangeLanguageThread(lang, MvRockModel.User.User_Id));
-		changeLanguageByThread.start();
-		try {
-			changeLanguageByThread.join();
-		} catch (InterruptedException e1) {
-
-			e1.printStackTrace();
-		}
-		MvRockUiComponent.YouMayLikePlayListView.RefreshListView();
-	}
 
     public void onResume() {
         super.onResume();
@@ -202,16 +181,17 @@ public class MvRockFragment extends Fragment {
     public void onSaveInstanceState(Bundle state) {
         super.onSaveInstanceState(state);
         i(TAG, "onSaveInstanceState()");
-        MvRockModel.CurrentSong.currentTime = MvRockUiComponent.MvRockYoutubePlayer.YouTubePlayer.getCurrentTimeMillis();
+        if (MvRockUiComponent.MvRockYoutubePlayer.YouTubePlayer != null && MvRockModel.CurrentSong != null) {
+            MvRockModel.CurrentSong.currentTime = MvRockUiComponent.MvRockYoutubePlayer.YouTubePlayer.getCurrentTimeMillis();
+        }
     }
 
     @Override
     public void onViewStateRestored(Bundle state) {
         super.onViewStateRestored(state);
         i(TAG, "onViewStateRestored()");
-        if (MvRockUiComponent.MvRockYoutubePlayer.isReady)
-            MvRockUiComponent.MvRockYoutubePlayer.YouTubePlayer
-                    .cueVideo(MvRockModel.CurrentSong.url, MvRockModel.CurrentSong.currentTime);
+        if (MvRockUiComponent.MvRockYoutubePlayer.YouTubePlayer != null) {
+            MvRockUiComponent.MvRockYoutubePlayer.YouTubePlayer.cueVideo(MvRockModel.CurrentSong.url, MvRockModel.CurrentSong.currentTime);
+        }
     }
-
 }

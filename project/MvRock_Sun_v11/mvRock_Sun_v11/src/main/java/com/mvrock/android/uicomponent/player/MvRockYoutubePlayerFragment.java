@@ -19,7 +19,6 @@ import java.util.Map;
 public class MvRockYoutubePlayerFragment extends YouTubePlayerSupportFragment {
     private static final String TAG = "MvRockYoutubePlayer";
     public YouTubePlayer YouTubePlayer;
-    public boolean isReady = false;
 
     public static MvRockYoutubePlayerFragment newInstance(String url) {
 
@@ -42,7 +41,6 @@ public class MvRockYoutubePlayerFragment extends YouTubePlayerSupportFragment {
                 Log.i(TAG, "onInitializationSuccess()");
                 YouTubePlayer = player;
                 YouTubePlayer.setPlayerStyle(com.google.android.youtube.player.YouTubePlayer.PlayerStyle.DEFAULT);
-                isReady = true;
                 player.setPlayerStateChangeListener(new YouTubePlayer.PlayerStateChangeListener() {
 
                     @Override
@@ -149,6 +147,8 @@ public class MvRockYoutubePlayerFragment extends YouTubePlayerSupportFragment {
             MvRockUiComponent.songView.hideRecommendation();
         }
 
+        MvRockModel.CurrentSong.isReported = false;
+
         GetNewSongDataThread getNewSongDataThread = new GetNewSongDataThread(MvRockModel.User.User_Id, MvRockModel.CurrentSong.url);
         getNewSongDataThread.start();
         try {
@@ -161,7 +161,7 @@ public class MvRockYoutubePlayerFragment extends YouTubePlayerSupportFragment {
 
         MvRockUiComponent.songView.update();
         MvRockUiComponent.artistView.update();
-        MvRockUiComponent.thumbShareView.update();
+        MvRockUiComponent.toolbarView.update();
         MvRockUiComponent.commentView.update();
     }
 }

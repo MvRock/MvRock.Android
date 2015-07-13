@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.examples.youtubeapidemo.R;
 import com.mvrock.android.model.MvRockModel;
 import com.mvrock.android.thread.ReportThread;
+import com.mvrock.android.uicomponent.MvRockUiComponent;
 import com.mvrock.android.view.MvRockView;
 
 /**
@@ -62,6 +63,8 @@ public class ReportButton extends PlayerControlButton {
 
                         // send report to MvRock email
                         new ReportThread(MvRockModel.User.User_Id, MvRockModel.CurrentSong.url, message).start();
+                        MvRockModel.CurrentSong.isReported = true;
+                        MvRockUiComponent.toolbarView.update();
                         Toast.makeText(MvRockView.MainActivity, "Your report has been sent", Toast.LENGTH_SHORT).show();
                     }
                 })

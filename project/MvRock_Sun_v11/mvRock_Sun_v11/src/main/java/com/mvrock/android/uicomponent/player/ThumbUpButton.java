@@ -41,7 +41,7 @@ public class ThumbUpButton extends PlayerControlButton{
                         MvRockModel.CurrentSong.isLikedIconPressed = true;
                         MvRockModel.CurrentSong.numLikes += 1;
                         //4. change the tool bar image of this song.
-                        MvRockUiComponent.thumbShareView.update();
+                        MvRockUiComponent.toolbarView.update();
                     } else if(!MvRockModel.CurrentSong.isLikedIconPressed && MvRockModel.CurrentSong.isDislikedIconPressed) {
                         //1. rate this song
                         PostRatingByThread(1);
@@ -53,7 +53,7 @@ public class ThumbUpButton extends PlayerControlButton{
                         MvRockModel.CurrentSong.numLikes += 1;
                         MvRockModel.CurrentSong.numDislikes -= 1;
                         //4. change the tool bar image of this song.
-                        MvRockUiComponent.thumbShareView.update();
+                        MvRockUiComponent.toolbarView.update();
                     } else {
                         //1. rate this song
                         PostRatingByThread(0);
@@ -70,7 +70,7 @@ public class ThumbUpButton extends PlayerControlButton{
                         MvRockModel.CurrentSong.isLikedIconPressed = false;
                         MvRockModel.CurrentSong.numLikes -= 1;
                         //4. change the tool bar image of this song.
-                        MvRockUiComponent.thumbShareView.update();
+                        MvRockUiComponent.toolbarView.update();
                     }
                 } else {
                     //the song playing right now is on the you liked list.
@@ -80,7 +80,7 @@ public class ThumbUpButton extends PlayerControlButton{
                     MvRockModel.CurrentSong.isLikedIconPressed = false;
                     MvRockModel.CurrentSong.numLikes -= 1;
                     //31. change the tool bar image of this song.
-                    MvRockUiComponent.thumbShareView.update();
+                    MvRockUiComponent.toolbarView.update();
                     //4. remove song from you liked list.
                     MvRockModel.YouLikedSongList.songArrayList.remove(MvRockModel.CurrentSong.currentMVIndex);
                     //5. play the next song.

@@ -19,67 +19,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <LinearLayout
-                android:id="@+id/icon_bar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/nextbutton"
-                    android:layout_width="30sp"
-                    android:layout_height="40sp"
-                    android:layout_weight="1"
-                    android:contentDescription="@string/next_song"
-                    android:padding="9sp"
-                    android:src="@drawable/next" />
-
-                <ImageView
-                    android:id="@+id/thumbupbutton"
-                    android:layout_width="30sp"
-                    android:layout_height="40sp"
-                    android:layout_weight="1"
-                    android:contentDescription="@string/like_song"
-                    android:padding="9sp"
-                    android:src="@drawable/thumbup" />
-
-                <ImageView
-                    android:id="@+id/thumbdownbotton"
-                    android:layout_width="30sp"
-                    android:layout_height="40sp"
-                    android:layout_weight="1"
-                    android:contentDescription="@string/dislike_song"
-                    android:padding="9sp"
-                    android:src="@drawable/thumbdown" />
-
-                <ImageView
-                    android:id="@+id/sharebutton"
-                    android:layout_width="30sp"
-                    android:layout_height="40sp"
-                    android:layout_weight="1"
-                    android:contentDescription="@string/share_song"
-                    android:padding="9sp"
-                    android:src="@drawable/sharewhite" />
-
-                <ImageView
-                    android:id="@+id/atbutton"
-                    android:layout_width="30sp"
-                    android:layout_height="40sp"
-                    android:layout_weight="1"
-                    android:contentDescription="@string/send_song"
-                    android:padding="9sp"
-                    android:src="@drawable/impact7" />
-
-                <ImageView
-                    android:id="@+id/reportbutton"
-                    android:layout_width="30sp"
-                    android:layout_height="40sp"
-                    android:layout_weight="1"
-                    android:contentDescription="@string/report_song"
-                    android:padding="9sp"
-                    android:src="@drawable/flaggrey" />
-            </LinearLayout>
-
             <TextView
                 android:id="@+id/blueline"
                 android:layout_width="match_parent"

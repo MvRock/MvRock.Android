@@ -5,15 +5,13 @@ import android.widget.TextView;
 
 import com.mvrock.android.uicomponent.drawer.MvRockDrawer;
 import com.mvrock.android.uicomponent.player.MvRockYoutubePlayerFragment;
-import com.mvrock.android.uicomponent.player.NextSongButton;
-import com.mvrock.android.uicomponent.player.ReportButton;
 import com.mvrock.android.uicomponent.playlist.ArtistView;
 import com.mvrock.android.uicomponent.playlist.CommentView;
 import com.mvrock.android.uicomponent.playlist.MvRockTabHost;
 import com.mvrock.android.uicomponent.playlist.RightFloatingMenu;
 import com.mvrock.android.uicomponent.playlist.SongView;
 import com.mvrock.android.uicomponent.playlist.StationPlayListView;
-import com.mvrock.android.uicomponent.playlist.ThumbShareView;
+import com.mvrock.android.uicomponent.playlist.ToolbarView;
 import com.mvrock.android.uicomponent.playlist.YouLikedPlayListView;
 import com.mvrock.android.uicomponent.playlist.YouMayLikePlayListView;
 import com.mvrock.android.uicomponent.station.SearchStationListView;
@@ -63,14 +61,10 @@ import com.mvrock.android.uicomponent.station.fadeStationSearchview;
  * load the icon.
  */
 public class MvRockUiComponent {
-    private static final String TAG;
     public static YouMayLikePlayListView YouMayLikePlayListView;
     public static YouLikedPlayListView YouLikedPlayListView;
     public static StationPlayListView StationPlayListView;
     public static MvRockYoutubePlayerFragment MvRockYoutubePlayer;
-
-    public static NextSongButton NextSongButton;
-    public static ReportButton ReportButton;
 
     public static MvRockTabHost MvRockTabHost;
 
@@ -91,10 +85,6 @@ public class MvRockUiComponent {
 
     public static SongView songView;
     public static ArtistView artistView;
-    public static ThumbShareView thumbShareView;
+    public static ToolbarView toolbarView;
     public static CommentView commentView;
-
-    static{
-        TAG="MvRockUiComponent.";
-    }
 }

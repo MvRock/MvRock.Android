@@ -39,7 +39,7 @@ public class ThumbDownButton extends PlayerControlButton {
                         MvRockModel.CurrentSong.isDislikedIconPressed = true;
                         MvRockModel.CurrentSong.numDislikes += 1;
                         //3. change the tool bar image of this song.
-                        MvRockUiComponent.thumbShareView.update();
+                        MvRockUiComponent.toolbarView.update();
                     } else if (!MvRockModel.CurrentSong.isLikedIconPressed && MvRockModel.CurrentSong.isDislikedIconPressed) {
                         //1. rate this song
                         PostRatingByThread(0);
@@ -47,7 +47,7 @@ public class ThumbDownButton extends PlayerControlButton {
                         MvRockModel.CurrentSong.isDislikedIconPressed = false;
                         MvRockModel.CurrentSong.numDislikes -= 1;
                         //3. change the tool bar image of this song.
-                        MvRockUiComponent.thumbShareView.update();
+                        MvRockUiComponent.toolbarView.update();
                     } else {
                         //1. rate this song
                         PostRatingByThread(-1);
@@ -57,7 +57,7 @@ public class ThumbDownButton extends PlayerControlButton {
                         MvRockModel.CurrentSong.numLikes -= 1;
                         MvRockModel.CurrentSong.numDislikes += 1;
                         //3. change the tool bar image of this song.
-                        MvRockUiComponent.thumbShareView.update();
+                        MvRockUiComponent.toolbarView.update();
                         //4. remove song from you liked list.
                         String currentSongUrl = MvRockModel.CurrentSong.url;
                         for (int i = 0; i < MvRockModel.YouLikedSongList.songArrayList.size(); i++) {
@@ -77,7 +77,7 @@ public class ThumbDownButton extends PlayerControlButton {
                     MvRockModel.CurrentSong.numLikes -= 1;
                     MvRockModel.CurrentSong.numDislikes += 1;
                     //3. change the tool bar image of this song.
-                    MvRockUiComponent.thumbShareView.update();
+                    MvRockUiComponent.toolbarView.update();
                     //4. remove song from you liked list.
                     MvRockModel.YouLikedSongList.songArrayList.remove(MvRockModel.CurrentSong.currentMVIndex);
                     //5. play the next song.

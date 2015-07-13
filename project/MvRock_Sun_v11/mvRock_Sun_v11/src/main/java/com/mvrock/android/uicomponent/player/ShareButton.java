@@ -1,11 +1,14 @@
 package com.mvrock.android.uicomponent.player;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.examples.youtubeapidemo.R;
 import com.facebook.FacebookException;
 import com.facebook.FacebookOperationCanceledException;
 import com.facebook.Session;
@@ -13,6 +16,7 @@ import com.facebook.widget.FacebookDialog;
 import com.facebook.widget.WebDialog;
 import com.mvrock.android.model.MvRockModel;
 import com.mvrock.android.thread.SetShareThread;
+import com.mvrock.android.uicomponent.MvRockUiComponent;
 import com.mvrock.android.uicomponent.MvRockUiComponentObject;
 import com.mvrock.android.view.MvRockView;
 
@@ -49,51 +53,62 @@ public class ShareButton extends MvRockUiComponentObject {
                 Log.i(TAG, "onClick()");
 
                 // share to facebook
-                if (FacebookDialog.canPresentShareDialog(MvRockView.MainActivity, FacebookDialog.ShareDialogFeature.SHARE_DIALOG)) {
-                    new FacebookDialog.ShareDialogBuilder(MvRockView.MainActivity)
-                            .setLink(String.format("http://apps.facebook.com/mv_rock/index.php?song_url=%s&sender_uid=%s", MvRockModel.CurrentSong.url, MvRockModel.User.User_Id))
-                            .setName(String.format("%s - %s", MvRockModel.CurrentSong.artistName, MvRockModel.CurrentSong.songName))
-                            .setDescription(String.format("Listening to %s by %s from the MvRock Android version.", MvRockModel.CurrentSong.songName, MvRockModel.CurrentSong.artistName))
-                            //.setCaption("Caption")
-                            .setPicture(String.format("http://img.youtube.com/vi/%s/0.jpg", MvRockModel.CurrentSong.url))
-                            .build()
-                            .present();
-                } else {
-                    Bundle params = new Bundle();
-                    params.putString("link", String.format("http://apps.facebook.com/mv_rock/index.php?song_url=%s&sender_uid=%s", MvRockModel.CurrentSong.url, MvRockModel.User.User_Id));
-                    params.putString("name", String.format("%s - %s", MvRockModel.CurrentSong.artistName, MvRockModel.CurrentSong.songName));
-                    //params.putString("caption", "Caption");
-                    params.putString("description", String.format("Listening to %s by %s from the MvRock Android version.", MvRockModel.CurrentSong.songName, MvRockModel.CurrentSong.artistName));
-                    params.putString("picture", String.format("http://img.youtube.com/vi/%s/0.jpg", MvRockModel.CurrentSong.url));
+                new AlertDialog.Builder(MvRockView.MainActivity, R.style.AlertDialogTheme)
+                        .setTitle("Share to Facebook?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                if (FacebookDialog.canPresentShareDialog(MvRockView.MainActivity, FacebookDialog.ShareDialogFeature.SHARE_DIALOG)) {
+                                    new FacebookDialog.ShareDialogBuilder(MvRockView.MainActivity)
+                                            .setLink(String.format("http://apps.facebook.com/mv_rock/index.php?song_url=%s&sender_uid=%s", MvRockModel.CurrentSong.url, MvRockModel.User.User_Id))
+                                            .setName(String.format("%s - %s", MvRockModel.CurrentSong.artistName, MvRockModel.CurrentSong.songName))
+                                            .setDescription(String.format("Listening to %s by %s from the MvRock Android version.", MvRockModel.CurrentSong.songName, MvRockModel.CurrentSong.artistName))
+                                                    //.setCaption("Caption")
+                                            .setPicture(String.format("http://img.youtube.com/vi/%s/0.jpg", MvRockModel.CurrentSong.url))
+                                            .build()
+                                            .present();
+                                } else {
+                                    Bundle params = new Bundle();
+                                    params.putString("link", String.format("http://apps.facebook.com/mv_rock/index.php?song_url=%s&sender_uid=%s", MvRockModel.CurrentSong.url, MvRockModel.User.User_Id));
+                                    params.putString("name", String.format("%s - %s", MvRockModel.CurrentSong.artistName, MvRockModel.CurrentSong.songName));
+                                    //params.putString("caption", "Caption");
+                                    params.putString("description", String.format("Listening to %s by %s from the MvRock Android version.", MvRockModel.CurrentSong.songName, MvRockModel.CurrentSong.artistName));
+                                    params.putString("picture", String.format("http://img.youtube.com/vi/%s/0.jpg", MvRockModel.CurrentSong.url));
 
-                    new WebDialog.FeedDialogBuilder(MvRockView.MainActivity, Session.getActiveSession(), params)
-                            .setOnCompleteListener(new WebDialog.OnCompleteListener() {
-                                @Override
-                                public void onComplete(Bundle values, FacebookException error) {
-                                    if (error == null) {
-                                        // When the story is posted, echo the success
-                                        // and the post Id.
-                                        final String postId = values.getString("post_id");
-                                        if (postId != null) {
-                                            Toast.makeText(MvRockView.MainActivity, "Shared on Facebook", Toast.LENGTH_SHORT).show();
-                                        } else {
-                                            // User clicked the Cancel button
-                                            Toast.makeText(MvRockView.MainActivity, "Cancelled", Toast.LENGTH_SHORT).show();
-                                        }
-                                    } else if (error instanceof FacebookOperationCanceledException) {
-                                        // User clicked the "x" button
-                                        Toast.makeText(MvRockView.MainActivity, "Cancelled", Toast.LENGTH_SHORT).show();
-                                    } else {
-                                        Toast.makeText(MvRockView.MainActivity, "Error sharing to Facebook", Toast.LENGTH_SHORT).show();
-                                    }
+                                    new WebDialog.FeedDialogBuilder(MvRockView.MainActivity, Session.getActiveSession(), params)
+                                            .setOnCompleteListener(new WebDialog.OnCompleteListener() {
+                                                @Override
+                                                public void onComplete(Bundle values, FacebookException error) {
+                                                    if (error == null) {
+                                                        // When the story is posted, echo the success
+                                                        // and the post Id.
+                                                        final String postId = values.getString("post_id");
+                                                        if (postId != null) {
+                                                            Toast.makeText(MvRockView.MainActivity, "Shared on Facebook", Toast.LENGTH_SHORT).show();
+                                                        } else {
+                                                            // User clicked the Cancel button
+                                                            Toast.makeText(MvRockView.MainActivity, "Cancelled", Toast.LENGTH_SHORT).show();
+                                                        }
+                                                    } else if (error instanceof FacebookOperationCanceledException) {
+                                                        // User clicked the "x" button
+                                                        Toast.makeText(MvRockView.MainActivity, "Cancelled", Toast.LENGTH_SHORT).show();
+                                                    } else {
+                                                        Toast.makeText(MvRockView.MainActivity, "Error sharing to Facebook", Toast.LENGTH_SHORT).show();
+                                                    }
+                                                }
+                                            })
+                                            .build()
+                                            .show();
                                 }
-                            })
-                            .build()
-                            .show();
-                }
+                            }
+                        })
+                        .setNegativeButton("No", null)
+                        .show();
 
                 // share to MvRock
                 shareMvRockByThread();
+                MvRockModel.CurrentSong.isShared = true;
+                MvRockUiComponent.toolbarView.update();
             }
         });
     }
