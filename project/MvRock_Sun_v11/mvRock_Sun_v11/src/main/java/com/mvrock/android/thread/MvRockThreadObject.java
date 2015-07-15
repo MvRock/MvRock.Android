@@ -12,7 +12,9 @@ import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -44,6 +46,8 @@ public abstract class MvRockThreadObject extends Thread {
         HttpPost httpPost = new HttpPost(this.Url);
 
         setParams();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-ss-SSS");
+        Log.i(TAG, "BeginTime "+sdf.format(new Date()));
 
         HttpResponse httpResponse = null;
         try {
@@ -52,6 +56,7 @@ public abstract class MvRockThreadObject extends Thread {
             if (httpResponse.getStatusLine().getStatusCode() == 200) {
                 strResponse = EntityUtils.toString(httpResponse.getEntity());
                 Log.i(TAG, strResponse);
+                Log.i(TAG, "EndTime " + sdf.format(new Date()));
             }
         } catch (ClientProtocolException e) {
             e.printStackTrace();

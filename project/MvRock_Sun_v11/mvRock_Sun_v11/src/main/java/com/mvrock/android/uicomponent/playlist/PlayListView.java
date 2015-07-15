@@ -28,6 +28,7 @@ public abstract class PlayListView extends MvRockUiComponentObject {
     public abstract boolean isAvailable();
     public abstract void setAvailable();
     public abstract void RequestPlayListByThread();
+//    public abstract void RequestPlayListDataAtBeginning();
     public abstract void RefreshListView();
     public abstract void Init();
 

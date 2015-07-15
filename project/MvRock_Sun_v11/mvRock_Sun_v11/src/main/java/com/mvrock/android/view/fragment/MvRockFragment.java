@@ -55,7 +55,6 @@ public class MvRockFragment extends Fragment {
 
         MvRockUiComponent.RightFloatingMenu = new RightFloatingMenu();
         MvRockUiComponent.StationCancelButton = new StationCancelButton();
-        MvRockUiComponent.StationListView = new StationListView();
         MvRockUiComponent.MvRockDrawer = new MvRockDrawer();
         MvRockUiComponent.songView = new SongView();
         MvRockUiComponent.artistView = new ArtistView();

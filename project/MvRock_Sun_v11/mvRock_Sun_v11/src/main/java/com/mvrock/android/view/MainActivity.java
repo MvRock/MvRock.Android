@@ -160,16 +160,20 @@ public class MainActivity extends FragmentActivity {
         if (session != null && session.isOpened()) {
             MvRockModel.User.Session = Session.getActiveSession();
             MvRockModel.User.RequestFBUserInfoByThread();
-            MvRockModel.User.getUserDataByThread();
+//            MvRockModel.User.getUserDataByThread();
             if (MvRockView.FragmentList.size() < (MvRockView.MVROCK_FRAG + 1)) {
                 //center
                 MvRockView.MvRockFragment = new MvRockFragment();
                 //right drawer
+
                 MvRockView.YouMayLikePlayListFragment = new YouMayLikePlayListFragment();
                 MvRockView.YouLikedPlayListFragment = new YouLikedPlayListFragment();
                 MvRockView.StationListFragment = new StationListFragment();
+
+
                 MvRockView.StationPlayListFragment = new StationPlayListFragment();
                 MvRockView.SearchStationFragment = new SearchStationFragment();
+
                 MvRockView.FragmentList.add(MvRockView.MvRockFragment);
                 this.getSupportFragmentManager().beginTransaction()
                         .add(R.id.mvRockFragment, MvRockView.FragmentList.get(MvRockView.MVROCK_FRAG)).commit();

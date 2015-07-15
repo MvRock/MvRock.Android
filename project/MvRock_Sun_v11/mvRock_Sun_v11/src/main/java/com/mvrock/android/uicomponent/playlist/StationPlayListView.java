@@ -12,6 +12,9 @@ import com.mvrock.android.thread.GetStationSongsThread;
 import com.mvrock.android.uicomponent.MvRockUiComponent;
 import com.mvrock.android.view.MvRockView;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by Xuer on 5/5/15.
  */

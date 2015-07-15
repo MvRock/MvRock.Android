@@ -24,19 +24,26 @@ public class YouMayLikePlayListView extends PlayListView {
         TAG += "YouMayLikeListView";
     }
 
-    public boolean isAvailable(){return MvRockModel.playListOption== PlayListOption.YOU_MAY_LIKE_LIST;}
+    public boolean isAvailable(){
+        return MvRockModel.playListOption== PlayListOption.YOU_MAY_LIKE_LIST;
+    }
 
-    public void setAvailable(){MvRockModel.playListOption=PlayListOption.YOU_MAY_LIKE_LIST; }
+    public void setAvailable(){
+        MvRockModel.playListOption=PlayListOption.YOU_MAY_LIKE_LIST;
+    }
+
 
     public void RequestPlayListByThread(){
         Log.i(TAG, "RequestPlayListByThread()");
         GetYoumaylikePlayListThread getYoumaylikeSongDataThread = new GetYoumaylikePlayListThread(MvRockModel.User.User_Id,"");
         getYoumaylikeSongDataThread.start();
+
         try {
             getYoumaylikeSongDataThread.join();
         } catch (InterruptedException e1) {
             e1.printStackTrace();
         }
+
         getYoumaylikeSongDataThread.setResponse();
         MvRockModel.YouMayLikeSongList.convertData();
     }

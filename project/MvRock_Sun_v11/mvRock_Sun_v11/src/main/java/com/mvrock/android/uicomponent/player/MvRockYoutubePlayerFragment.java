@@ -46,7 +46,6 @@ public class MvRockYoutubePlayerFragment extends YouTubePlayerSupportFragment {
                     @Override
                     public void onVideoStarted() {
                         Log.i(TAG, "onVideoStarted()");
-
                         updateCurrentSong();
                     }
 
