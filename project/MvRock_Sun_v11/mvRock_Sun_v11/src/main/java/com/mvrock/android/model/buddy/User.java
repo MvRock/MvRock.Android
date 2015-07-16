@@ -3,10 +3,11 @@ package com.mvrock.android.model.buddy;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 
-import com.facebook.Session;
+import com.facebook.AccessToken;
+import com.facebook.Profile;
 import com.mvrock.android.model.LanguageOption;
 import com.mvrock.android.model.MvRockModelObject;
-import com.mvrock.android.thread.GetUserInfoThread;
+import com.mvrock.android.thread.GetProfilePicThread;
 import com.mvrock.android.thread.GetYouLikedSongAndUserDataThread;
 
 import org.json.JSONException;
@@ -21,7 +22,8 @@ import org.json.JSONObject;
  *
  */
 public class User extends MvRockModelObject {
-    public Session Session;
+    public AccessToken accessToken;
+    public Profile profile;
     public String User_Id;
     public String User_Name;
     public Drawable User_Profile_pic;
@@ -34,7 +36,8 @@ public class User extends MvRockModelObject {
         TAG += "User";
         User_Id = "";
         User_Name = "";
-        Session = null;
+        accessToken = null;
+        profile = null;
         User_Profile_pic = null;
 
         skin = -1;
@@ -42,19 +45,20 @@ public class User extends MvRockModelObject {
         accuPoint = -1;
     }
 
-    public void RequestFBUserInfoByThread(){
-        Log.i(TAG, "RequestFBUserInfoByThread()");
-        Thread getUserInfoThread= new Thread(new GetUserInfoThread());
-        getUserInfoThread.start();
+    public void getProfilePicByThread(){
+        Log.i(TAG, "getProfilePicByThread()");
+
+        GetProfilePicThread getProfilePicThread = new GetProfilePicThread();
+        getProfilePicThread.start();
         try {
-            getUserInfoThread.join();
+            getProfilePicThread.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        Log.i(TAG, User_Id);
     }
 
     public void getUserDataByThread() {
+        // this is used to get the language, skin, and accuPoint data! language data is used for toolbar image
         GetYouLikedSongAndUserDataThread getYouLikedSongAndUserDataThread = new GetYouLikedSongAndUserDataThread(User_Id, null);
         getYouLikedSongAndUserDataThread.start();
         try {

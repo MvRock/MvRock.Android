@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <item
+        android:id="@+id/logout"
+        android:title="@string/logout"
+        app:showAsAction="never"/>
 
-    <group android:id="@+id/language_group">
-        <item android:id="@+id/ALL"
-              android:title="@string/ALL"/>
-        <item android:id="@+id/ENG"
-              android:title="@string/ENG"/>
-        <item android:id="@+id/CHN"
-              android:title="@string/CHN"/>
-    </group>
-
-    <item android:id="@+id/search_stations"
-          android:title="@string/search_stations"
-          android:icon="@drawable/ic_action_search"
-          android:showAsAction="always"
-          android:actionViewClass="android.widget.SearchView"/>
-
+    <!-- <item
+        android:id="@+id/search_stations"
+        android:actionViewClass="android.widget.SearchView"
+        android:icon="@drawable/ic_action_search"
+        android:title="@string/search_stations"
+        app:showAsAction="always"/> -->
 
 </menu>

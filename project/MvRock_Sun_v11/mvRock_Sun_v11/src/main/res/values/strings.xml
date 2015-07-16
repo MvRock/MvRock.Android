@@ -36,7 +36,7 @@
     <!--<string name="player_style">Player Style</string>-->
     <!--<string name="def">Default</string>-->
     <!--<string name="minimal">Minimal</string>-->
-    <string name="skip_login">continue as a guest</string>
+    <string name="skip_login">Continue as a guest</string>
     <!--<string name="chromeless">Chromeless</string>-->
     <!--<string name="play_video">Play video</string>-->
     <!--<string name="play_playlist">Play playlist</string>-->
@@ -87,4 +87,5 @@
     <string name="CHN">CHN</string>
     <string name="search_stations">Search Stations</string>
     <string name="facebook_app_id">189448637812265</string>
+    <string name="logout">Logout</string>
 </resources>

@@ -1,26 +1,5 @@
 package com.mvrock.android.uicomponent.drawer;
 
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.view.View;
-import android.widget.ExpandableListView;
-import android.widget.ListView;
-import android.widget.TextView;
-
-import com.examples.youtubeapidemo.R;
-import com.facebook.Session;
-import com.mvrock.android.model.MvRockModel;
-import com.mvrock.android.thread.FacebookLogoutThread;
-import com.mvrock.android.uicomponent.MvRockUiComponent;
-import com.mvrock.android.uicomponent.MvRockUiComponentObject;
-import com.mvrock.android.view.MvRockView;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-import static android.util.Log.i;
-
 /**
  * Created by Xuer on 5/24/15.
  */

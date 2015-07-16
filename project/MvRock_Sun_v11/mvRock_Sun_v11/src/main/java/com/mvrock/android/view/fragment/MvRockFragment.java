@@ -17,7 +17,7 @@ import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.examples.youtubeapidemo.R;
-import com.facebook.Session;
+import com.facebook.login.LoginManager;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubePlayerView;
 import com.mvrock.android.model.MvRockModel;
@@ -30,9 +30,7 @@ import com.mvrock.android.uicomponent.playlist.RightFloatingMenu;
 import com.mvrock.android.uicomponent.playlist.SongView;
 import com.mvrock.android.uicomponent.playlist.ToolbarView;
 import com.mvrock.android.uicomponent.station.StationCancelButton;
-import com.mvrock.android.uicomponent.station.StationListView;
 import com.mvrock.android.uicomponent.station.StationSearchView;
-import com.mvrock.android.view.MainActivity;
 import com.mvrock.android.view.MvRockView;
 
 import static android.util.Log.i;
@@ -51,8 +49,14 @@ public class MvRockFragment extends Fragment {
 
     public MvRockFragment() {
         Log.i(TAG, "MvRockFragment()");
-        MvRockUiComponent.MvRockYoutubePlayer = MvRockYoutubePlayerFragment.newInstance("video_id");
 
+        MvRockView.YouMayLikePlayListFragment = new YouMayLikePlayListFragment();
+        MvRockView.YouLikedPlayListFragment = new YouLikedPlayListFragment();
+        MvRockView.StationListFragment = new StationListFragment();
+        MvRockView.StationPlayListFragment = new StationPlayListFragment();
+        MvRockView.SearchStationFragment = new SearchStationFragment();
+
+        MvRockUiComponent.MvRockYoutubePlayer = MvRockYoutubePlayerFragment.newInstance("video_id");
         MvRockUiComponent.RightFloatingMenu = new RightFloatingMenu();
         MvRockUiComponent.StationCancelButton = new StationCancelButton();
         MvRockUiComponent.MvRockDrawer = new MvRockDrawer();
@@ -62,17 +66,9 @@ public class MvRockFragment extends Fragment {
         MvRockUiComponent.commentView = new CommentView();
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        MvRockView.MainActivity = (MainActivity) getActivity();
-    }
-
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Log.i(TAG, "onCreateView()");
         View view = inflater.inflate(R.layout.fragment_mvrock, container, false);
-
-        Session.setActiveSession(MvRockModel.User.Session);
 
         MvRockUiComponent.songView.songNameView = (TextView) view.findViewById(R.id.music_title);
         MvRockUiComponent.songView.recommendationTitleView = (TextView) view.findViewById(R.id.recommendation_title);
@@ -94,8 +90,7 @@ public class MvRockFragment extends Fragment {
         MvRockUiComponent.toolbarView.Init();
 
         MvRockUiComponent.MvRockYoutubePlayer.Init();
-        MvRockView.MainActivity.getSupportFragmentManager().beginTransaction()
-                .replace(R.id.youtubeplayerfragment, MvRockUiComponent.MvRockYoutubePlayer).commit();
+        getChildFragmentManager().beginTransaction().replace(R.id.youtubeplayerfragment, MvRockUiComponent.MvRockYoutubePlayer).commit();
 
         MvRockUiComponent.RightFloatingMenu.Init();
 
@@ -116,55 +111,30 @@ public class MvRockFragment extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        i(TAG, "onOptionsItemSelected()");
-        if (MvRockUiComponent.LeftDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
+        Log.i(TAG, "onOptionsItemSelected()");
+
+        if (MvRockUiComponent.LeftDrawerToggle.onOptionsItemSelected(item)) return true;
+
+        switch (item.getItemId()) {
+            case R.id.logout:
+                LoginManager loginManager = LoginManager.getInstance();
+                loginManager.logOut();
+                break;
         }
 
-        /*switch (item.getItemId()) {
-            case R.id.ALL:
-                ChangeLanguageByThread(3);
-                break;
-            case R.id.ENG:
-                ChangeLanguageByThread(1);
-                break;
-            case R.id.CHN:
-                ChangeLanguageByThread(2);
-                break;
-            default:
-                break;
-        }*/
         return super.onOptionsItemSelected(item);
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         i(TAG, "onCreateOptionsMenu()");
-        inflater.inflate(R.menu.main, menu);
-        MvRockUiComponent.StationSearchView = new StationSearchView();
-        MvRockUiComponent.StationSearchView.topSearchView = (SearchView) menu.findItem(R.id.search_stations)
-                .getActionView();
-        MvRockUiComponent.StationSearchView.Init();
         super.onCreateOptionsMenu(menu, inflater);
-    }
 
+        inflater.inflate(R.menu.main, menu);
 
-//	@Override
-//	public void onCreateOptionsMenu(Menu menu,MenuInflater inflater) {
-//		i(TAG, "onCreateOptionsMenu()");
-//		inflater.inflate(R.menu.main, menu);
-//        MvRockUiComponent.StationSearchView=new StationSearchView();
-//		MvRockUiComponent.StationSearchView.topSearchView = (SearchView) menu.findItem(R.id.search_stations)
-//				.getActionView();
-//        MvRockUiComponent.StationSearchView.Init();
-//		super.onCreateOptionsMenu(menu,inflater);
-//	}
-
-    public void onResume() {
-        super.onResume();
-        i(TAG, "onResume()");
-        Session.getActiveSession();
-
+        MvRockUiComponent.StationSearchView = new StationSearchView();
+        MvRockUiComponent.StationSearchView.topSearchView = (SearchView) menu.findItem(R.id.search_stations).getActionView();
+        MvRockUiComponent.StationSearchView.Init();
     }
 
 //
@@ -178,8 +148,9 @@ public class MvRockFragment extends Fragment {
 
     @Override
     public void onSaveInstanceState(Bundle state) {
-        super.onSaveInstanceState(state);
         i(TAG, "onSaveInstanceState()");
+        super.onSaveInstanceState(state);
+
         if (MvRockUiComponent.MvRockYoutubePlayer.YouTubePlayer != null && MvRockModel.CurrentSong != null) {
             MvRockModel.CurrentSong.currentTime = MvRockUiComponent.MvRockYoutubePlayer.YouTubePlayer.getCurrentTimeMillis();
         }
@@ -187,8 +158,9 @@ public class MvRockFragment extends Fragment {
 
     @Override
     public void onViewStateRestored(Bundle state) {
-        super.onViewStateRestored(state);
         i(TAG, "onViewStateRestored()");
+        super.onViewStateRestored(state);
+
         if (MvRockUiComponent.MvRockYoutubePlayer.YouTubePlayer != null) {
             MvRockUiComponent.MvRockYoutubePlayer.YouTubePlayer.cueVideo(MvRockModel.CurrentSong.url, MvRockModel.CurrentSong.currentTime);
         }
