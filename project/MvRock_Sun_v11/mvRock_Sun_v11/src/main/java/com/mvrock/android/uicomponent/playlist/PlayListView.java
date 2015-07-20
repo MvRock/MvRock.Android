@@ -23,7 +23,7 @@ public abstract class PlayListView extends MvRockUiComponentObject {
     public PlayListView(Context context){
         this.TAG="UIComponent.";
         this.context=context;
-        this.RequestPlayListByThread();
+//        this.RequestPlayListByThread();
     }
     public abstract boolean isAvailable();
     public abstract void setAvailable();

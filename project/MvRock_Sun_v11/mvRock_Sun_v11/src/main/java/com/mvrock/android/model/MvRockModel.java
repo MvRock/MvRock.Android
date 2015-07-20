@@ -18,6 +18,7 @@ import com.mvrock.android.model.songlist.YouMayLikeSongList;
  * Define Set and Get method to get and set private object.
  */
 public class MvRockModel {
+    public static  DataInitialization dataInitialization;
     public static PlayListOption playListOption;
     public static YouLikedSongList YouLikedSongList;
     public static YouMayLikeSongList YouMayLikeSongList;

@@ -2,6 +2,7 @@ package com.mvrock.android.thread;
 
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.util.Log;
 
 import com.mvrock.android.model.MvRockModel;
 
@@ -14,6 +15,7 @@ public class GetProfilePicThread extends Thread {
 
     @Override
     public void run() {
+        Log.i(TAG, "run()");
         try {
             Uri uri = MvRockModel.User.profile.getProfilePictureUri(200, 200);
 

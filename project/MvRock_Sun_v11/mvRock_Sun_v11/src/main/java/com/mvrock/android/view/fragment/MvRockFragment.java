@@ -20,6 +20,7 @@ import com.examples.youtubeapidemo.R;
 import com.facebook.login.LoginManager;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubePlayerView;
+import com.mvrock.android.model.DataInitialization;
 import com.mvrock.android.model.MvRockModel;
 import com.mvrock.android.uicomponent.MvRockUiComponent;
 import com.mvrock.android.uicomponent.drawer.MvRockDrawer;
@@ -49,6 +50,8 @@ public class MvRockFragment extends Fragment {
 
     public MvRockFragment() {
         Log.i(TAG, "MvRockFragment()");
+
+        MvRockModel.dataInitialization = new DataInitialization();
 
         MvRockView.YouMayLikePlayListFragment = new YouMayLikePlayListFragment();
         MvRockView.YouLikedPlayListFragment = new YouLikedPlayListFragment();
