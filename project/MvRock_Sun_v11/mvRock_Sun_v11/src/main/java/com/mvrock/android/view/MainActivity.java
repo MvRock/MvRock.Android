@@ -20,9 +20,12 @@ import com.facebook.FacebookSdk;
 import com.facebook.Profile;
 import com.facebook.ProfileTracker;
 import com.facebook.appevents.AppEventsLogger;
+import com.mvrock.android.model.Cache;
 import com.mvrock.android.model.MvRockModel;
 import com.mvrock.android.view.fragment.FacebookLoginFragment;
 import com.mvrock.android.view.fragment.MvRockFragment;
+
+import java.io.IOException;
 
 public class MainActivity extends FragmentActivity {
 
@@ -120,7 +123,11 @@ public class MainActivity extends FragmentActivity {
     public void onPause() {
         Log.i(TAG, "onPause()");
         super.onPause();
-
+        try{
+            Cache.DiskLruCache.flush();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
         AppEventsLogger.deactivateApp(this);
     }
 

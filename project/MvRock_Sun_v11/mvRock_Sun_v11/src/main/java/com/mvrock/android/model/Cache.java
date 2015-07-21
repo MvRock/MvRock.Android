@@ -16,7 +16,7 @@ import java.io.IOException;
  * Created by Tianhao on 15/7/20.
  */
 public class Cache {
-    DiskLruCache mDiskLruCache = null;
+    public static DiskLruCache DiskLruCache = null;
     String TAG = "Cache";
     public Cache(){
         Log.i(TAG, "Cache Initialization");
@@ -24,7 +24,7 @@ public class Cache {
             File cacheDir = getDiskCacheDir(MvRockView.MainActivity, "bitmap");
             if(!cacheDir.exists())
                 cacheDir.mkdirs();
-            mDiskLruCache = DiskLruCache.open(cacheDir, getAppVersion(MvRockView.MainActivity), 1, 10 * 1024 * 1024);
+            DiskLruCache = DiskLruCache.open(cacheDir, getAppVersion(MvRockView.MainActivity), 1, 10 * 1024 * 1024);
             Log.i(TAG,cacheDir.toString());
         }catch (IOException e){
             e.printStackTrace();
