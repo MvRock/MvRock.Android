@@ -4,17 +4,11 @@ import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.util.SparseArray;
 
-import com.examples.youtubeapidemo.R;
 import com.mvrock.android.model.MvRockModel;
-import com.mvrock.android.view.MvRockView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -32,6 +26,7 @@ public class GetArtistImageThread extends Thread {
     public GetArtistImageThread(SparseArray<Drawable> artistImages, JSONArray imageUrls){
         this.artistImages = artistImages;
         artistsList = new LinkedList<>();
+
         for(int i = 0 ; i < imageUrls.length() ; i++){
             try {
 
@@ -42,7 +37,6 @@ public class GetArtistImageThread extends Thread {
                 e.printStackTrace();
             }
         }
-
     }
 
     @Override

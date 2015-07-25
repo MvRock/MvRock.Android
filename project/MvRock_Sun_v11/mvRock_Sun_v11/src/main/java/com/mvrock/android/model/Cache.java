@@ -51,6 +51,7 @@ public class Cache {
                                   List<Map<String, String>> song_info, String prefix, String postfix){
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-ss-SSS");
+
         for(int i = 0 ; i < song_info.size();i++){
             String songUrl = song_info.get(i).get("url");
             String imageUrl = prefix + song_info.get(i).get("url")+ postfix;
@@ -71,18 +72,19 @@ public class Cache {
                     DiskLruCache.Editor editor = Cache.DiskLruCache.edit(key);
                     if(editor != null){
                         OutputStream outputStream = editor.newOutputStream(0);
-                        if(download(imageUrl, outputStream)){
+                        InputStream inputStream = null;
+
+                        if(download(imageUrl, outputStream, inputStream)){
                             editor.commit();
-                        }else
+                            drawable = Drawable.createFromStream(inputStream, "src");
+                            if(drawable != null)
+                                ImageView_List.put(i, drawable);
+                        }else {
                             editor.abort();
+                        }
                     }
 
-                    InputStream is = download(imageUrl);
-                    drawable = Drawable.createFromStream(is, "src");
-                    if(drawable != null)
-                        ImageView_List.put(i, drawable);
                     Log.i(TAG,"DownLoadFrom Internet Time END " + sdf.format(new Date()));
-
                 }
             }catch(IOException e){
                 Log.e(this.getClass().getSimpleName(), "Image download failed", e);
@@ -91,6 +93,7 @@ public class Cache {
             }
         }
     }
+
     private File getDiskCacheDir(Context context, String uniqueName){
         String cachePath;
         Log.i(TAG, "Get Cache Path");
@@ -118,13 +121,13 @@ public class Cache {
         return versionCode;
     }
 
-    private InputStream download(String urlString)
-            throws  IOException {
-        InputStream inputStream = (InputStream) new URL(urlString).getContent();
-        return inputStream;
-    }
+//    private InputStream download(String urlString)
+//            throws  IOException {
+//        InputStream inputStream = (InputStream) new URL(urlString).getContent();
+//        return inputStream;
+//    }
 
-    private boolean download(String imageUrl, OutputStream outputStream)
+    private boolean download(String imageUrl, OutputStream outputStream, InputStream inputStream)
             throws IOException{
         HttpURLConnection urlConnection = null;
         BufferedInputStream in = null;
@@ -133,6 +136,7 @@ public class Cache {
             final URL url = new URL(imageUrl);
             urlConnection = (HttpURLConnection)url.openConnection();
             in = new BufferedInputStream(urlConnection.getInputStream(), 8 * 1024);
+            inputStream = in;
             out = new BufferedOutputStream(outputStream, 8 * 1024);
             int b;
             while((b = in.read()) != -1){

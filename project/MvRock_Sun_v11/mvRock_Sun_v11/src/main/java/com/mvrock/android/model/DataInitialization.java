@@ -25,6 +25,7 @@ public class DataInitialization {
                 = new GetYoumaylikePlayListThread(MvRockModel.User.User_Id, null);
         GetStationSongsThread stationSongInfoThread
                 = new GetStationSongsThread(MvRockModel.User.User_Id, null);
+
         youLikedSongInfoThread.start();
         youMayLikedSongInfoThread.start();
         station.start();
