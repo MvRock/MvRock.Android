@@ -1,30 +1,20 @@
 package com.mvrock.android.thread;
 
-
-import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.util.SparseArray;
-
-import com.examples.youtubeapidemo.R;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
+import com.mvrock.android.model.MvRockModel;
 import java.util.List;
 import java.util.Map;
 
 public class GetStationImageListThread implements Runnable {
 	private static final String TAG = "GetStationImageThread";
     private static SparseArray<Drawable> ImageView_List;
-	private List<Map<String, String>> song_info;
-	private Context context;
+	private List<Map<String, String>> station_url;
 
-	public GetStationImageListThread(List<Map<String, String>> song_info,
-                                     Context context) {
+	public GetStationImageListThread(List<Map<String, String>> station_url) {
 		super();
-		this.song_info = song_info;
-		this.context = context;
+		this.station_url = station_url;
 		ImageView_List=  new SparseArray<Drawable>();
 	}
 
@@ -32,46 +22,10 @@ public class GetStationImageListThread implements Runnable {
 		return ImageView_List;
 	}
 
-
-
 	@Override
 	public void run() {
 		Log.i(TAG,"run()");
-		for(int i=0;i<song_info.size();i++)
-		{
-			String imageUrl = song_info.get(i).get("url");
-			Drawable drawable = null;
-			try {
-				InputStream is = download(imageUrl);
-				drawable = Drawable.createFromStream(is, "src");
-
-				if (drawable != null) {
-					ImageView_List.put(i, drawable);
-				}
-			} catch (Exception e) {
-				Log.e(this.getClass().getSimpleName(),
-						"Image download failed", e);
-				// Show "download fail" image
-				drawable=context.getResources().getDrawable(R.drawable.image_fail);
-				ImageView_List.put(i, drawable);
-			}
-
-		}
+		MvRockModel.cache.getImageFromCache(ImageView_List, station_url, "", "");
 	}
 
-
-	/**
-	 * Download image from given url. Make sure you have
-	 * "android.permission.INTERNET" permission set in AndroidManifest.xml.
-	 *
-	 * @param urlString
-	 * @throws java.io.IOException
-	 */
-	private InputStream download(String urlString)
-			throws IOException {
-		//Log.i(TAG,"download( "+urlString+" )");
-		InputStream inputStream = (InputStream) new URL(urlString).getContent();
-		return inputStream;
-	}
-	
 }

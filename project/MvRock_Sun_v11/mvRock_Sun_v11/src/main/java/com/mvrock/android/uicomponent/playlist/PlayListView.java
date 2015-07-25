@@ -34,7 +34,7 @@ public abstract class PlayListView extends MvRockUiComponentObject {
 
     public SparseArray<Drawable> RequestImageListByThread(List<Map<String, String>> song_info){
         Log.i(TAG, "RequestImageListByThread()");
-        Thread getImageListThread=  new Thread(new GetImageListThread(song_info, MvRockView.MainActivity));
+        Thread getImageListThread=  new Thread(new GetImageListThread(song_info));
         getImageListThread.start();
         try {
             getImageListThread.join();

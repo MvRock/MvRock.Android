@@ -31,7 +31,7 @@ public class StationListView extends MvRockUiComponentObject {
     public ListView StationListview;
     public StationListView(){
         TAG+="StationListView";
-        RequestStationByThread();
+//        RequestStationByThread();
     }
     public void Init(){
         i(TAG,"Init()");
@@ -105,7 +105,7 @@ public class StationListView extends MvRockUiComponentObject {
 
     public SparseArray<Drawable> RequestStationImageListByThread(List<Map<String, String>> song_info){
         Log.i(TAG, "RequestStationImageListByThread()");
-        Thread getStationImageListThread=  new Thread(new GetStationImageListThread(song_info, MvRockView.MainActivity));
+        Thread getStationImageListThread=  new Thread(new GetStationImageListThread(song_info));
         getStationImageListThread.start();
         try {
             getStationImageListThread.join();

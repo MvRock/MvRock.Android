@@ -5,6 +5,7 @@ import android.util.Log;
 import android.util.SparseArray;
 
 import com.examples.youtubeapidemo.R;
+import com.mvrock.android.model.MvRockModel;
 import com.mvrock.android.view.MvRockView;
 
 import org.json.JSONArray;
@@ -13,36 +14,40 @@ import org.json.JSONException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Kenneth on 6/9/2015.
  */
 public class GetArtistImageThread extends Thread {
 
+    private  String TAG = "GetArtistImageThread";
     private SparseArray<Drawable> artistImages;
-    private JSONArray imageUrls;
+    private List<Map<String, String>> artistsList;
 
     public GetArtistImageThread(SparseArray<Drawable> artistImages, JSONArray imageUrls){
         this.artistImages = artistImages;
-        this.imageUrls = imageUrls;
+        artistsList = new LinkedList<>();
+        for(int i = 0 ; i < imageUrls.length() ; i++){
+            try {
+
+                Map<String, String> memo = new HashMap<>();
+                memo.put("url", imageUrls.getString(i));
+                artistsList.add(memo);
+            }catch(JSONException e){
+                e.printStackTrace();
+            }
+        }
+
     }
 
     @Override
     public void run() {
-        for (int i = 0; i < imageUrls.length(); i++) {
-            try {
-                InputStream is = (InputStream) new URL(imageUrls.getString(i)).getContent();
-                Drawable drawable = Drawable.createFromStream(is, "src");
-
-                if (drawable != null) {
-                    artistImages.put(i, drawable);
-                }
-            } catch (JSONException|IOException e) {
-                Log.e(this.getClass().getSimpleName(), "Image download failed", e);
-                // Show "download fail" image
-                Drawable drawable = MvRockView.MainActivity.getResources().getDrawable(R.drawable.image_fail);
-                artistImages.put(i, drawable);
-            }
-        }
+        Log.i(TAG,"run()");
+        MvRockModel.cache.getImageFromCache(artistImages, artistsList, "", "");
     }
 }
