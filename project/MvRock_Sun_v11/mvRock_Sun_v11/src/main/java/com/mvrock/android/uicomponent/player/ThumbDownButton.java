@@ -82,6 +82,7 @@ public class ThumbDownButton extends PlayerControlButton {
                     MvRockModel.YouLikedSongList.songArrayList.remove(MvRockModel.CurrentSong.currentMVIndex);
                     //5. play the next song.
                     playNextSongAfterRemovedASongFromYoulikedList();
+                    MvRockUiComponent.YouLikedPlayListView.RefreshListView();
                 }
             }
         });

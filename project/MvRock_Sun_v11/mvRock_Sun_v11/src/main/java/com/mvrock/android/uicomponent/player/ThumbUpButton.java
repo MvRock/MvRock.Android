@@ -42,6 +42,7 @@ public class ThumbUpButton extends PlayerControlButton{
                         MvRockModel.CurrentSong.numLikes += 1;
                         //4. change the tool bar image of this song.
                         MvRockUiComponent.toolbarView.update();
+
                     } else if(!MvRockModel.CurrentSong.isLikedIconPressed && MvRockModel.CurrentSong.isDislikedIconPressed) {
                         //1. rate this song
                         PostRatingByThread(1);
@@ -85,6 +86,7 @@ public class ThumbUpButton extends PlayerControlButton{
                     MvRockModel.YouLikedSongList.songArrayList.remove(MvRockModel.CurrentSong.currentMVIndex);
                     //5. play the next song.
                     playNextSongAfterRemovedASongFromYoulikedList();
+                    MvRockUiComponent.YouLikedPlayListView.RefreshListView();
                 }
             }
         });
