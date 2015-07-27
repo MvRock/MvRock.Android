@@ -60,38 +60,28 @@ public class Cache {
                 DiskLruCache.Snapshot snapshot = Cache.DiskLruCache.get(key);
                 if(snapshot != null){
                     Log.i(TAG, "ReadFrom Cache Time Begin " + sdf.format(new Date()));
-                    InputStream is = snapshot.getInputStream(0);
-                    drawable = Drawable.createFromStream(is, "src");
-                    if(drawable != null) {
-                        ImageView_List.add(drawable);
-                    } else {
-                        drawable = MvRockView.MainActivity.getResources().getDrawable(R.drawable.image_fail);
-                        ImageView_List.add(drawable);
-                    }
+                    drawable = getDrawable(snapshot);
+                    ImageView_List.add(drawable);
                     Log.i(TAG, "ReadFrom Cache Time End " + sdf.format(new Date()));
 
                 }else{
                     Log.i(TAG,"DownLoadFrom Internet Time Begin " + sdf.format(new Date()));
                     DiskLruCache.Editor editor = Cache.DiskLruCache.edit(key);
+
                     if(editor != null){
                         OutputStream outputStream = editor.newOutputStream(0);
-                        InputStream inputStream = null;
-
-                        if(download(imageUrl, outputStream, inputStream)){
+                        if(download(imageUrl, outputStream)){
                             editor.commit();
-                            drawable = Drawable.createFromStream(inputStream, "src");
-                            if(drawable != null) {
-                                ImageView_List.add(drawable);
-                            } else {
-                                drawable = MvRockView.MainActivity.getResources().getDrawable(R.drawable.image_fail);
-                                ImageView_List.add(drawable);
-                            }
+
                         }else {
                             editor.abort();
-                            drawable = MvRockView.MainActivity.getResources().getDrawable(R.drawable.image_fail);
-                            ImageView_List.add(drawable);
                         }
                     }
+
+                    DiskLruCache.Snapshot snapshot1 = Cache.DiskLruCache.get(key);
+                    drawable = getDrawable(snapshot1);
+                    ImageView_List.add(drawable);
+
 
                     Log.i(TAG,"DownLoadFrom Internet Time END " + sdf.format(new Date()));
                 }
@@ -100,6 +90,17 @@ public class Cache {
                 drawable = MvRockView.MainActivity.getResources().getDrawable(R.drawable.image_fail);
                 ImageView_List.add(drawable);
             }
+        }
+    }
+
+    private Drawable getDrawable(DiskLruCache.Snapshot snapshot){
+        InputStream is = snapshot.getInputStream(0);
+        Drawable drawable = Drawable.createFromStream(is, "src");
+        if(drawable != null)
+            return drawable;
+        else {
+            drawable = MvRockView.MainActivity.getResources().getDrawable(R.drawable.image_fail);
+            return drawable;
         }
     }
 
@@ -136,7 +137,7 @@ public class Cache {
 //        return inputStream;
 //    }
 
-    private boolean download(String imageUrl, OutputStream outputStream, InputStream inputStream)
+    private boolean download(String imageUrl, OutputStream outputStream)
             throws IOException{
         HttpURLConnection urlConnection = null;
         BufferedInputStream in = null;
@@ -145,7 +146,6 @@ public class Cache {
             final URL url = new URL(imageUrl);
             urlConnection = (HttpURLConnection)url.openConnection();
             in = new BufferedInputStream(urlConnection.getInputStream(), 8 * 1024);
-            inputStream = in;
             out = new BufferedOutputStream(outputStream, 8 * 1024);
             int b;
             while((b = in.read()) != -1){
