@@ -1,12 +1,10 @@
 package com.mvrock.android.model.songlist;
 
 import android.graphics.drawable.Drawable;
-import android.util.SparseArray;
 
 import com.mvrock.android.model.MvRockModelObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -18,14 +16,14 @@ import java.util.Map;
  * Extend from MvRockModelObjectList
  */
 public abstract class SongList extends MvRockModelObject {
-    public SparseArray<Drawable> imageViewList;
+    public ArrayList<Drawable> imageViewList;
     public ArrayList<Map<String, String>> songArrayList;
-    public SparseArray<Drawable> artistImages;
+    public ArrayList<Drawable> artistImages;
 
     protected SongList() {
         songArrayList = new ArrayList<Map<String, String>>();
-        imageViewList = new SparseArray<Drawable>();
-        artistImages = new SparseArray<Drawable>();
+        imageViewList = new ArrayList<Drawable>();
+        artistImages = new ArrayList<Drawable>();
         strResponse = "";
     }
 

@@ -89,7 +89,7 @@ public class MvRockFragment extends Fragment {
         MvRockUiComponent.toolbarView.thumbDownButton.dislikeSongImage = (ImageView) view.findViewById(R.id.music_title_thumbdown);
         MvRockUiComponent.toolbarView.shareButton.shareSongImage = (ImageView) view.findViewById(R.id.music_title_share);
         MvRockUiComponent.toolbarView.reportButton.reportSongImage = (ImageView) view.findViewById(R.id.music_title_report);
-        MvRockUiComponent.toolbarView.languageButton.languageImage = (ImageView) view.findViewById(R.id.music_title_language);
+        //MvRockUiComponent.toolbarView.inviteFriendsButton = (ImageView) view.findViewById(R.id.invite_friends);
         MvRockUiComponent.toolbarView.Init();
 
         MvRockUiComponent.MvRockYoutubePlayer.Init();

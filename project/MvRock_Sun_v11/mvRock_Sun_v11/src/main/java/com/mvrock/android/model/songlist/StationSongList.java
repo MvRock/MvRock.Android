@@ -20,6 +20,8 @@ package com.mvrock.android.model.songlist;
  */
 import android.util.Log;
 
+import com.mvrock.android.thread.GetArtistImageThread;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -47,21 +49,31 @@ public class StationSongList extends SongList {
      */
     public void convertData() {
         Log.i(TAG, "convertData()");
+        imageViewList.clear();
         songArrayList.clear();
+        artistImages.clear();
         try {
             JSONObject YouMayLikeSongJSON=new JSONObject(strResponse);
             JSONArray names = YouMayLikeSongJSON.getJSONArray("Name");
             JSONArray urls = YouMayLikeSongJSON.getJSONArray("Url");
             JSONArray artists = YouMayLikeSongJSON.getJSONArray("Artist");
+            JSONArray artistImageUrls = YouMayLikeSongJSON.getJSONArray("ArtistPortrait");
+
             for (int i = 0; i < names.length(); i++) {
                 Map<String, String> map = new HashMap<String, String>();
                 map.put("song_name", names.get(i).toString());
                 map.put("url", urls.get(i).toString());
-                StringBuffer buffer = new StringBuffer();
-                buffer.append("By ");
-                buffer.append(artists.get(i).toString());
-                map.put("artist_name", new String(buffer));
+                map.put("artist_name", artists.get(i).toString());
                 songArrayList.add(map);
+            }
+
+            // start gathering artist images
+            GetArtistImageThread thread = new GetArtistImageThread(artistImages, artistImageUrls);
+            thread.start();
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         } catch (Exception e) {
             e.printStackTrace();

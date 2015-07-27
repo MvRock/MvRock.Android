@@ -2,7 +2,6 @@ package com.mvrock.android.uicomponent.station;
 
 import android.graphics.drawable.Drawable;
 import android.util.Log;
-import android.util.SparseArray;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,13 +10,13 @@ import android.widget.ListView;
 import com.examples.youtubeapidemo.R;
 import com.mvrock.android.model.MvRockModel;
 import com.mvrock.android.thread.CreateStationThread;
-import com.mvrock.android.thread.GetImageListThread;
 import com.mvrock.android.thread.GetStationImageListThread;
 import com.mvrock.android.thread.GetStationThread;
 import com.mvrock.android.uicomponent.MvRockUiComponent;
 import com.mvrock.android.uicomponent.MvRockUiComponentObject;
 import com.mvrock.android.view.MvRockView;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -103,15 +102,15 @@ public class StationListView extends MvRockUiComponentObject {
         }
     }
 
-    public SparseArray<Drawable> RequestStationImageListByThread(List<Map<String, String>> song_info){
+    public ArrayList<Drawable> RequestStationImageListByThread(List<Map<String, String>> song_info){
         Log.i(TAG, "RequestStationImageListByThread()");
-        Thread getStationImageListThread=  new Thread(new GetStationImageListThread(song_info));
+        GetStationImageListThread getStationImageListThread=  new GetStationImageListThread(song_info);
         getStationImageListThread.start();
         try {
             getStationImageListThread.join();
         } catch (InterruptedException e1) {
             e1.printStackTrace();
         }
-        return GetStationImageListThread.getImageView_List();
+        return getStationImageListThread.getImageView_List();
     }
 }

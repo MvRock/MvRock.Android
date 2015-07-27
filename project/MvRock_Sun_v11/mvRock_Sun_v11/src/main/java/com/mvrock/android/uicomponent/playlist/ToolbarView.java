@@ -4,10 +4,8 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.examples.youtubeapidemo.R;
-import com.mvrock.android.model.LanguageOption;
 import com.mvrock.android.model.MvRockModel;
 import com.mvrock.android.uicomponent.MvRockUiComponentObject;
-import com.mvrock.android.uicomponent.player.LanguageButton;
 import com.mvrock.android.uicomponent.player.NextSongButton;
 import com.mvrock.android.uicomponent.player.ReportButton;
 import com.mvrock.android.uicomponent.player.ShareButton;
@@ -25,7 +23,7 @@ public class ToolbarView extends MvRockUiComponentObject {
     public ThumbDownButton thumbDownButton;
     public ShareButton shareButton;
     public ReportButton reportButton;
-    public LanguageButton languageButton;
+    //public ImageView inviteFriendsButton;
 
     public ToolbarView() {
         TAG += "ToolbarView";
@@ -35,7 +33,6 @@ public class ToolbarView extends MvRockUiComponentObject {
         thumbDownButton = new ThumbDownButton();
         shareButton = new ShareButton();
         reportButton = new ReportButton();
-        languageButton = new LanguageButton();
     }
 
     @Override
@@ -47,7 +44,21 @@ public class ToolbarView extends MvRockUiComponentObject {
         thumbDownButton.Init();
         shareButton.Init();
         reportButton.Init();
-        languageButton.Init();
+//        inviteFriendsButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (AppInviteDialog.canShow()) {
+//                    AppInviteContent content = new AppInviteContent.Builder()
+//                            .setApplinkUrl(String.format("http://apps.facebook.com/mv_rock/index.php?song_url=%s&sender_uid=%s", MvRockModel.CurrentSong.url, MvRockModel.User.User_Id))
+//                            .setPreviewImageUrl(String.format("http://img.youtube.com/vi/%s/0.jpg", MvRockModel.CurrentSong.url))
+//                            .build();
+//
+//                    AppInviteDialog.show(MvRockView.MainActivity, content);
+//                } else {
+//                    Toast.makeText(MvRockView.MainActivity, "Unable to share to Facebook. Please install the Facebook app.", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
     }
 
     public void update() {
@@ -78,14 +89,6 @@ public class ToolbarView extends MvRockUiComponentObject {
             reportButton.reportSongImage.setImageResource(R.drawable.report_red);
         } else {
             reportButton.reportSongImage.setImageResource(R.drawable.report);
-        }
-
-        if (MvRockModel.User.language == LanguageOption.ALL) {
-            languageButton.languageImage.setImageResource(R.drawable.lang_all);
-        } else if (MvRockModel.User.language == LanguageOption.ENG) {
-            languageButton.languageImage.setImageResource(R.drawable.lang_english);
-        } else if (MvRockModel.User.language == LanguageOption.CHN) {
-            languageButton.languageImage.setImageResource(R.drawable.lang_chinese);
         }
     }
 }

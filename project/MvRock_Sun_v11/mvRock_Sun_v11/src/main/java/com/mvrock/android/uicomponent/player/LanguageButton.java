@@ -76,7 +76,7 @@ public class LanguageButton extends MvRockUiComponentObject {
                                         break;
                                 }
 
-                                MvRockUiComponent.toolbarView.update();
+                                MvRockView.YouMayLikePlayListFragment.update();
                             }
                         })
                         .setNegativeButton("Cancel", null)

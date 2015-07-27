@@ -2,7 +2,9 @@ package com.mvrock.android.model.songlist;
 
 import android.util.Log;
 
+import com.mvrock.android.model.MvRockModel;
 import com.mvrock.android.thread.GetArtistImageThread;
+import com.mvrock.android.uicomponent.MvRockUiComponent;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -40,11 +42,14 @@ public class YouMayLikeSongList extends SongList {
      */
     public void convertData() {
         Log.i(TAG, "convertData()");
+        imageViewList.clear();
         songArrayList.clear();
+        artistImages.clear();
         try {
             JSONObject YouMayLikeSongJSON = new JSONObject(strResponse);
             JSONArray names = YouMayLikeSongJSON.getJSONArray("Name");
             JSONArray urls = YouMayLikeSongJSON.getJSONArray("Url");
+            JSONArray songIds = YouMayLikeSongJSON.getJSONArray("SongId");
             JSONArray reasons = YouMayLikeSongJSON.getJSONArray("Reason");
             JSONArray artists = YouMayLikeSongJSON.getJSONArray("Artist");
             JSONArray artistImageUrls = YouMayLikeSongJSON.getJSONArray("ArtistPortrait");
@@ -53,11 +58,9 @@ public class YouMayLikeSongList extends SongList {
                 Map<String, String> map = new HashMap<String, String>();
                 map.put("song_name", names.get(i).toString());
                 map.put("url", urls.get(i).toString());
+                map.put("song_id", songIds.get(i).toString());
                 map.put("reason", reasons.get(i).toString());
-                StringBuffer buffer = new StringBuffer();
-                buffer.append("By ");
-                buffer.append(artists.get(i).toString());
-                map.put("artist_name", buffer.toString());
+                map.put("artist_name", artists.get(i).toString());
                 songArrayList.add(map);
             }
 
@@ -74,5 +77,23 @@ public class YouMayLikeSongList extends SongList {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    public void convertOneRecSongData() {
+        try {
+            JSONObject recSongJSON = new JSONObject(strResponse);
+
+            Map<String, String> map = new HashMap<String, String>();
+            map.put("song_name", recSongJSON.getString("name"));
+            map.put("url", recSongJSON.getString("url"));
+            map.put("song_id", recSongJSON.getString("songId"));
+            map.put("reason", "3");
+            map.put("artist_name", recSongJSON.getString("artist"));
+            songArrayList.add(MvRockModel.CurrentSong.currentMVIndex + 1, map); // insert after the liked song
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        MvRockUiComponent.YouMayLikePlayListView.RefreshListView();
     }
 }

@@ -6,7 +6,6 @@ import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Environment;
 import android.util.Log;
-import android.util.SparseArray;
 
 import com.examples.youtubeapidemo.R;
 import com.jakewharton.disklrucache.DiskLruCache;
@@ -47,7 +46,7 @@ public class Cache {
 
     }
 
-    public void getImageFromCache(SparseArray<Drawable> ImageView_List,
+    public void getImageFromCache(List<Drawable> ImageView_List,
                                   List<Map<String, String>> song_info, String prefix, String postfix){
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-ss-SSS");
@@ -63,8 +62,12 @@ public class Cache {
                     Log.i(TAG, "ReadFrom Cache Time Begin " + sdf.format(new Date()));
                     InputStream is = snapshot.getInputStream(0);
                     drawable = Drawable.createFromStream(is, "src");
-                    if(drawable != null)
-                        ImageView_List.put(i,drawable);
+                    if(drawable != null) {
+                        ImageView_List.add(drawable);
+                    } else {
+                        drawable = MvRockView.MainActivity.getResources().getDrawable(R.drawable.image_fail);
+                        ImageView_List.add(drawable);
+                    }
                     Log.i(TAG, "ReadFrom Cache Time End " + sdf.format(new Date()));
 
                 }else{
@@ -77,10 +80,16 @@ public class Cache {
                         if(download(imageUrl, outputStream, inputStream)){
                             editor.commit();
                             drawable = Drawable.createFromStream(inputStream, "src");
-                            if(drawable != null)
-                                ImageView_List.put(i, drawable);
+                            if(drawable != null) {
+                                ImageView_List.add(drawable);
+                            } else {
+                                drawable = MvRockView.MainActivity.getResources().getDrawable(R.drawable.image_fail);
+                                ImageView_List.add(drawable);
+                            }
                         }else {
                             editor.abort();
+                            drawable = MvRockView.MainActivity.getResources().getDrawable(R.drawable.image_fail);
+                            ImageView_List.add(drawable);
                         }
                     }
 
@@ -89,7 +98,7 @@ public class Cache {
             }catch(IOException e){
                 Log.e(this.getClass().getSimpleName(), "Image download failed", e);
                 drawable = MvRockView.MainActivity.getResources().getDrawable(R.drawable.image_fail);
-                ImageView_List.put(i, drawable);
+                ImageView_List.add(drawable);
             }
         }
     }

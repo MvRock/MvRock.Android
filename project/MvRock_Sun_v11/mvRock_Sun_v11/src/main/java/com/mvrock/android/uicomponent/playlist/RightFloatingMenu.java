@@ -17,41 +17,35 @@ import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
  */
 public class RightFloatingMenu extends MvRockUiComponentObject {
     private FloatingActionButton actionButton;
-    public ImageView RightDrawerControlButton;
     private ImageView YouMayLikePlayListButton;
     private ImageView YouLikedPlayListButton;
     private ImageView StationPlayListButton;
     public FloatingActionMenu actionMenu;
-
-    public RightFloatingMenu() {
-        RightDrawerControlButton = new ImageView(MvRockView.MainActivity);
-    }
 
     @Override
     public void Init() {
         //1 - Create a button to attach the menu
         // in Activity Context
         actionButton = new FloatingActionButton.Builder(MvRockView.MainActivity)
-                .setBackgroundDrawable(MvRockView.MainActivity.
-                        getResources().getDrawable(R.drawable.mvrock_phone_1_icon))
-                .setContentView(RightDrawerControlButton).build();
+                .setBackgroundDrawable(MvRockView.MainActivity.getResources().getDrawable(R.drawable.mvrock_phone_1_icon))
+                .build();
 
         //2 - Create menu items:
 
         SubActionButton.Builder itemBuilder = new SubActionButton.Builder(MvRockView.MainActivity);
         // repeat many times:
         YouMayLikePlayListButton = new ImageView(MvRockView.MainActivity);
-        YouMayLikePlayListButton.setImageDrawable(MvRockView.MainActivity.getResources().getDrawable(R.drawable.mvrock_youmaylike_red));
+        YouMayLikePlayListButton.setImageResource(R.drawable.mvrock_youmaylike_red);
         SubActionButton button1 = itemBuilder.setContentView(YouMayLikePlayListButton).build();
 
 
         YouLikedPlayListButton = new ImageView(MvRockView.MainActivity);
-        YouLikedPlayListButton.setImageDrawable(MvRockView.MainActivity.getResources().getDrawable(R.drawable.mvrock_liked_grey));
+        YouLikedPlayListButton.setImageResource(R.drawable.mvrock_liked_grey);
         SubActionButton button2 = itemBuilder.setContentView(YouLikedPlayListButton).build();
 
 
         StationPlayListButton = new ImageView(MvRockView.MainActivity);
-        StationPlayListButton.setImageDrawable(MvRockView.MainActivity.getResources().getDrawable(R.drawable.mvrock_station_grey));
+        StationPlayListButton.setImageResource(R.drawable.mvrock_station_grey);
         SubActionButton button3 = itemBuilder.setContentView(StationPlayListButton).build();
 
         actionMenu = new FloatingActionMenu.Builder(MvRockView.MainActivity)
@@ -65,7 +59,6 @@ public class RightFloatingMenu extends MvRockUiComponentObject {
             @Override
             public void onMenuOpened(FloatingActionMenu floatingActionMenu) {
                 MvRockUiComponent.MvRockDrawer.mDrawerLayout.openDrawer(Gravity.RIGHT);
-
             }
 
             @Override
@@ -73,42 +66,36 @@ public class RightFloatingMenu extends MvRockUiComponentObject {
                 MvRockUiComponent.MvRockDrawer.mDrawerLayout.closeDrawer(Gravity.RIGHT);
             }
         });
-        
+
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                YouMayLikePlayListButton.setImageDrawable(MvRockView.MainActivity.getResources().getDrawable(R.drawable.mvrock_youmaylike_red));
-                YouLikedPlayListButton.setImageDrawable(MvRockView.MainActivity.getResources().getDrawable(R.drawable.mvrock_liked_grey));
-                StationPlayListButton.setImageDrawable(MvRockView.MainActivity.getResources().getDrawable(R.drawable.mvrock_station_grey));
-                MvRockView.MainActivity.getSupportFragmentManager().beginTransaction().
-                        replace(R.id.right_drawer, MvRockView.YouMayLikePlayListFragment).commit();
+                YouMayLikePlayListButton.setImageResource(R.drawable.mvrock_youmaylike_red);
+                YouLikedPlayListButton.setImageResource(R.drawable.mvrock_liked_grey);
+                StationPlayListButton.setImageResource(R.drawable.mvrock_station_grey);
+                MvRockView.MainActivity.getSupportFragmentManager().beginTransaction().replace(R.id.right_drawer, MvRockView.YouMayLikePlayListFragment).commit();
             }
         });
 
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                YouMayLikePlayListButton.setImageDrawable(MvRockView.MainActivity.getResources().getDrawable(R.drawable.mvrock_youmaylike_grey));
-                YouLikedPlayListButton.setImageDrawable(MvRockView.MainActivity.getResources().getDrawable(R.drawable.mvrock_liked_red));
-                StationPlayListButton.setImageDrawable(MvRockView.MainActivity.getResources().getDrawable(R.drawable.mvrock_station_grey));
-                MvRockView.MainActivity.getSupportFragmentManager().beginTransaction().
-                        replace(R.id.right_drawer, MvRockView.YouLikedPlayListFragment).commit();
+                YouMayLikePlayListButton.setImageResource(R.drawable.mvrock_youmaylike_grey);
+                YouLikedPlayListButton.setImageResource(R.drawable.mvrock_liked_red);
+                StationPlayListButton.setImageResource(R.drawable.mvrock_station_grey);
+                MvRockView.MainActivity.getSupportFragmentManager().beginTransaction().replace(R.id.right_drawer, MvRockView.YouLikedPlayListFragment).commit();
             }
         });
         //3 - Create the menu with the items:
 
-
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                YouMayLikePlayListButton.setImageDrawable(MvRockView.MainActivity.getResources().getDrawable(R.drawable.mvrock_youmaylike_grey));
-                YouLikedPlayListButton.setImageDrawable(MvRockView.MainActivity.getResources().getDrawable(R.drawable.mvrock_liked_grey));
-                StationPlayListButton.setImageDrawable(MvRockView.MainActivity.getResources().getDrawable(R.drawable.mvrock_station_red));
-                MvRockView.MainActivity.getSupportFragmentManager().beginTransaction().
-                        replace(R.id.right_drawer,MvRockView.StationListFragment).commit();
-
+                YouMayLikePlayListButton.setImageResource(R.drawable.mvrock_youmaylike_grey);
+                YouLikedPlayListButton.setImageResource(R.drawable.mvrock_liked_grey);
+                StationPlayListButton.setImageResource(R.drawable.mvrock_station_red);
+                MvRockView.MainActivity.getSupportFragmentManager().beginTransaction().replace(R.id.right_drawer,MvRockView.StationListFragment).commit();
             }
         });
-
     }
 }

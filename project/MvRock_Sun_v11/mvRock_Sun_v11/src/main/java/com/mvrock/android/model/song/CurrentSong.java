@@ -26,7 +26,7 @@ public class CurrentSong extends MvRockModelObject {
     public String url, songName, artistName, rootShareUserId;
     public int currentTime;
     public ReasonOption reason;
-    public int numberOfComments, numLikes, numDislikes;
+    public int numberOfComments, numLikes, numDislikes, songId;
     public Map<String, String> nameAndComments;
     public Drawable artistImage;
 

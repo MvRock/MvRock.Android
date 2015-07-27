@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.mvrock.android.model.MvRockModel;
+import com.mvrock.android.thread.GetOneRecSongThread;
 import com.mvrock.android.uicomponent.MvRockUiComponent;
 
 
@@ -30,24 +31,27 @@ public class ThumbUpButton extends PlayerControlButton{
                         + ", MvRockModel.CurrentSong.isLikedIconPressed = " + Boolean.toString(MvRockModel.CurrentSong.isLikedIconPressed) +
                         ", MvRockModel.CurrentSong.isDislikedIconPressed = " + Boolean.toString(MvRockModel.CurrentSong.isDislikedIconPressed));
 
-                if( MvRockUiComponent.YouMayLikePlayListView.isAvailable()) {
+                if (MvRockUiComponent.YouMayLikePlayListView.isAvailable()) {
                     //the song playing right now is on the you may like list.
                     if(!MvRockModel.CurrentSong.isLikedIconPressed && !MvRockModel.CurrentSong.isDislikedIconPressed) {
                         //1. rate this song
+                        getOneRecSongByThread();
                         PostRatingByThread(1);
                         //2. add this song into you liked list
                         MvRockModel.YouLikedSongList.songArrayList.add(MvRockModel.YouMayLikeSongList.songArrayList.get(MvRockModel.CurrentSong.currentMVIndex));
+                        MvRockModel.YouLikedSongList.artistImages.add(MvRockModel.YouMayLikeSongList.artistImages.get(MvRockModel.CurrentSong.currentMVIndex));
                         //3. change status variable
                         MvRockModel.CurrentSong.isLikedIconPressed = true;
                         MvRockModel.CurrentSong.numLikes += 1;
                         //4. change the tool bar image of this song.
                         MvRockUiComponent.toolbarView.update();
-
                     } else if(!MvRockModel.CurrentSong.isLikedIconPressed && MvRockModel.CurrentSong.isDislikedIconPressed) {
                         //1. rate this song
+                        getOneRecSongByThread();
                         PostRatingByThread(1);
                         //2. add this song into you liked list
                         MvRockModel.YouLikedSongList.songArrayList.add(MvRockModel.YouMayLikeSongList.songArrayList.get(MvRockModel.CurrentSong.currentMVIndex));
+                        MvRockModel.YouLikedSongList.artistImages.add(MvRockModel.YouMayLikeSongList.artistImages.get(MvRockModel.CurrentSong.currentMVIndex));
                         //3. change status variable
                         MvRockModel.CurrentSong.isLikedIconPressed = true;
                         MvRockModel.CurrentSong.isDislikedIconPressed = false;
@@ -64,6 +68,7 @@ public class ThumbUpButton extends PlayerControlButton{
                         for (int i = 0; i < MvRockModel.YouLikedSongList.songArrayList.size(); i++) {
                             if (currentSongUrl.equals(MvRockModel.YouLikedSongList.songArrayList.get(i).get("url"))) {
                                 MvRockModel.YouLikedSongList.songArrayList.remove(i);
+                                MvRockModel.YouLikedSongList.artistImages.remove(i);
                                 break;
                             }
                         }
@@ -73,7 +78,7 @@ public class ThumbUpButton extends PlayerControlButton{
                         //4. change the tool bar image of this song.
                         MvRockUiComponent.toolbarView.update();
                     }
-                } else {
+                } else if (MvRockUiComponent.YouLikedPlayListView.isAvailable()) {
                     //the song playing right now is on the you liked list.
                     //1. rate this song
                     PostRatingByThread(0);
@@ -84,11 +89,62 @@ public class ThumbUpButton extends PlayerControlButton{
                     MvRockUiComponent.toolbarView.update();
                     //4. remove song from you liked list.
                     MvRockModel.YouLikedSongList.songArrayList.remove(MvRockModel.CurrentSong.currentMVIndex);
+                    MvRockModel.YouLikedSongList.artistImages.remove(MvRockModel.CurrentSong.currentMVIndex);
+                    MvRockUiComponent.YouLikedPlayListView.RefreshListView();
                     //5. play the next song.
                     playNextSongAfterRemovedASongFromYoulikedList();
-                    MvRockUiComponent.YouLikedPlayListView.RefreshListView();
+                } else if (MvRockUiComponent.StationPlayListView.isAvailable()) {
+                    if(!MvRockModel.CurrentSong.isLikedIconPressed && !MvRockModel.CurrentSong.isDislikedIconPressed) {
+                        //1. rate this song
+                        PostRatingByThread(1);
+                        //2. add this song into you liked list
+                        MvRockModel.YouLikedSongList.songArrayList.add(MvRockModel.StationSongList.songArrayList.get(MvRockModel.CurrentSong.currentMVIndex));
+                        MvRockModel.YouLikedSongList.artistImages.add(MvRockModel.StationSongList.artistImages.get(MvRockModel.CurrentSong.currentMVIndex));
+                        //3. change status variable
+                        MvRockModel.CurrentSong.isLikedIconPressed = true;
+                        MvRockModel.CurrentSong.numLikes += 1;
+                        //4. change the tool bar image of this song.
+                        MvRockUiComponent.toolbarView.update();
+                    } else if(!MvRockModel.CurrentSong.isLikedIconPressed && MvRockModel.CurrentSong.isDislikedIconPressed) {
+                        //1. rate this song
+                        getOneRecSongByThread();
+                        PostRatingByThread(1);
+                        //2. add this song into you liked list
+                        MvRockModel.YouLikedSongList.songArrayList.add(MvRockModel.StationSongList.songArrayList.get(MvRockModel.CurrentSong.currentMVIndex));
+                        MvRockModel.YouLikedSongList.artistImages.add(MvRockModel.StationSongList.artistImages.get(MvRockModel.CurrentSong.currentMVIndex));
+                        //3. change status variable
+                        MvRockModel.CurrentSong.isLikedIconPressed = true;
+                        MvRockModel.CurrentSong.isDislikedIconPressed = false;
+                        MvRockModel.CurrentSong.numLikes += 1;
+                        MvRockModel.CurrentSong.numDislikes -= 1;
+                        //4. change the tool bar image of this song.
+                        MvRockUiComponent.toolbarView.update();
+                    } else {
+                        //1. rate this song
+                        PostRatingByThread(0);
+                        //2. remove song from you liked list.
+                        String currentSongUrl = MvRockModel.CurrentSong.url;
+
+                        for (int i = 0; i < MvRockModel.YouLikedSongList.songArrayList.size(); i++) {
+                            if (currentSongUrl.equals(MvRockModel.YouLikedSongList.songArrayList.get(i).get("url"))) {
+                                MvRockModel.YouLikedSongList.songArrayList.remove(i);
+                                MvRockModel.YouLikedSongList.artistImages.remove(i);
+                                break;
+                            }
+                        }
+                        //3. change status variable
+                        MvRockModel.CurrentSong.isLikedIconPressed = false;
+                        MvRockModel.CurrentSong.numLikes -= 1;
+                        //4. change the tool bar image of this song.
+                        MvRockUiComponent.toolbarView.update();
+                    }
                 }
             }
         });
+    }
+
+    public void getOneRecSongByThread() {
+        GetOneRecSongThread getOneRecSongThread = new GetOneRecSongThread(MvRockModel.User.User_Id, MvRockModel.CurrentSong.url);
+        getOneRecSongThread.start();
     }
 }

@@ -65,7 +65,7 @@ public class ShareButton extends MvRockUiComponentObject {
 
                                     ShareDialog.show(MvRockView.MainActivity, content);
                                 } else {
-                                    Toast.makeText(MvRockView.MainActivity, "Unable to share to Facebook. Please install the Facebook app.", Toast.LENGTH_SHORT);
+                                    Toast.makeText(MvRockView.MainActivity, "Unable to share to Facebook. Please install the Facebook app.", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         })

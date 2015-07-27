@@ -39,7 +39,9 @@ public class YouLikedSongList extends SongList {
      */
     public void convertData() {
         Log.i(TAG, "convertData()");
+        imageViewList.clear();
         songArrayList.clear();
+        artistImages.clear();
         try {
             Log.i(TAG, strResponse);
             JSONObject YouMayLikeSongJSON = new JSONObject(strResponse);
@@ -57,10 +59,7 @@ public class YouLikedSongList extends SongList {
                 JSONObject cur = (JSONObject) liked_songs.get(i);
                 Map<String, String> map = new HashMap<String, String>();
                 map.put("song_name", cur.get("name").toString());
-                StringBuffer buffer = new StringBuffer();
-                buffer.append("By ");
-                buffer.append(cur.get("artist").toString());
-                map.put("artist_name", buffer.toString());
+                map.put("artist_name", cur.get("artist").toString());
                 map.put("url", cur.get("url").toString());
                 songArrayList.add(map);
 

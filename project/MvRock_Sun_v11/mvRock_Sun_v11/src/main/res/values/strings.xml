@@ -37,6 +37,7 @@
     <!--<string name="def">Default</string>-->
     <!--<string name="minimal">Minimal</string>-->
     <string name="skip_login">Continue as a guest</string>
+    <string name="backPressTwice">Press back again to exit</string>
     <!--<string name="chromeless">Chromeless</string>-->
     <!--<string name="play_video">Play video</string>-->
     <!--<string name="play_playlist">Play playlist</string>-->
@@ -45,7 +46,7 @@
     <!--<string name="autoplay">Autoplay</string>-->
     <!--<string name="lightbox_mode">Lightbox mode</string>-->
     <!--<string name="intent_select">Please select an action:</string>-->
-    <string name="no_result">No Search Result.</string>
+    <string name="no_result">No Search Results</string>
     <string name="intent_disabled">This intent is not supported with the currently installed version of YouTube.</string>
     <string name="youtube_currently_installed">YouTube version installed on this device: <xliff:g id="youtube_version">%1$s</xliff:g>.</string>
     <string name="youtube_not_installed">YouTube is not installed on this device.</string>

@@ -2,16 +2,14 @@ package com.mvrock.android.thread;
 
 import android.graphics.drawable.Drawable;
 import android.util.Log;
-import android.util.SparseArray;
 
 import com.mvrock.android.model.MvRockModel;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -20,17 +18,16 @@ import java.util.Map;
 public class GetArtistImageThread extends Thread {
 
     private  String TAG = "GetArtistImageThread";
-    private SparseArray<Drawable> artistImages;
-    private List<Map<String, String>> artistsList;
+    private ArrayList<Drawable> artistImages;
+    private ArrayList<Map<String, String>> artistsList;
 
-    public GetArtistImageThread(SparseArray<Drawable> artistImages, JSONArray imageUrls){
+    public GetArtistImageThread(ArrayList<Drawable> artistImages, JSONArray imageUrls){
         this.artistImages = artistImages;
-        artistsList = new LinkedList<>();
+        artistsList = new ArrayList<Map<String, String>>();
 
-        for(int i = 0 ; i < imageUrls.length() ; i++){
+        for(int i = 0; i < imageUrls.length(); i++){
             try {
-
-                Map<String, String> memo = new HashMap<>();
+                HashMap<String, String> memo = new HashMap<String, String>(1);
                 memo.put("url", imageUrls.getString(i));
                 artistsList.add(memo);
             }catch(JSONException e){

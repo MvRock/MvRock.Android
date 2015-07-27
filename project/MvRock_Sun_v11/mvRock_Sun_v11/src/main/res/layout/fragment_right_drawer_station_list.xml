@@ -1,38 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
     <LinearLayout
-        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/right_drawer_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:textAppearance="@android:style/TextAppearance.Large"/>
+
+        <ImageView
+            android:id="@+id/right_drawer_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:padding="5dp"/>
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <!--<Button-->
-            <!--android:id="@+id/back_to_station_list_fragment_button"-->
-            <!--android:layout_width="30dp"-->
-            <!--android:layout_height="30dp" />-->
+        <!--android:id="@+id/back_to_station_list_fragment_button"-->
+        <!--android:layout_width="30dp"-->
+        <!--android:layout_height="30dp" />-->
 
         <SearchView
             android:id="@+id/search_stations"
-            android:title="@string/search_stations"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:icon="@drawable/ic_action_search"
-            android:layout_width="240dp"
-            android:layout_height="30dp"
-            android:showAsAction="always"
-            android:actionViewClass="android.widget.SearchView"/>
+            android:queryHint="@string/search_stations"/>
     </LinearLayout>
+
     <ListView
         android:id="@+id/station_list"
-        android:layout_width="240dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
     <TextView
         android:id="@+id/no_result"
-        android:text="@string/no_result"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_gravity="center"
+        android:text="@string/no_result"
         android:visibility="invisible"/>
 
 </LinearLayout>

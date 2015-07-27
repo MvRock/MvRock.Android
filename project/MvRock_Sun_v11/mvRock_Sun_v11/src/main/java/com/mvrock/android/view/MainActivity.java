@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.examples.youtubeapidemo.R;
 import com.facebook.AccessToken;
@@ -31,7 +32,9 @@ public class MainActivity extends FragmentActivity {
 
     private static final String USER_SKIPPED_LOGIN_KEY = "user_skipped_login";
     private static final String TAG = "View.MainActivity";
+    private static final long TIMEOUT = 2000L;
 
+    private long backPressTime;
     private boolean userSkippedLogin = false;
     private AccessTokenTracker accessTokenTracker;
     private ProfileTracker profileTracker;
@@ -123,9 +126,9 @@ public class MainActivity extends FragmentActivity {
     public void onPause() {
         Log.i(TAG, "onPause()");
         super.onPause();
-        try{
+        try {
             Cache.DiskLruCache.flush();
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
         AppEventsLogger.deactivateApp(this);
@@ -154,6 +157,16 @@ public class MainActivity extends FragmentActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         callbackManager.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (backPressTime + TIMEOUT > System.currentTimeMillis()) {
+            super.onBackPressed();
+            return;
+        }
+        Toast.makeText(this, getResources().getString(R.string.backPressTwice), Toast.LENGTH_SHORT).show();
+        backPressTime = System.currentTimeMillis();
     }
 
     public void showFragment(int fragmentIndex, boolean addToBackStack) {
