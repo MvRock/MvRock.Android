@@ -24,23 +24,12 @@
             android:padding="5dp"/>
     </LinearLayout>
 
-    <LinearLayout
+    <SearchView
+        android:id="@+id/search_stations"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <!--<Button-->
-        <!--android:id="@+id/back_to_station_list_fragment_button"-->
-        <!--android:layout_width="30dp"-->
-        <!--android:layout_height="30dp" />-->
-
-        <SearchView
-            android:id="@+id/search_stations"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:icon="@drawable/ic_action_search"
-            android:queryHint="@string/search_stations"/>
-    </LinearLayout>
+        android:icon="@drawable/ic_action_search"
+        android:queryHint="@string/search_stations"/>
 
     <ListView
         android:id="@+id/station_list"
@@ -48,11 +37,28 @@
         android:layout_height="wrap_content"/>
 
     <TextView
+        android:id="@+id/no_stations"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="5dp"
+        android:text="@string/no_stations"
+        android:textAppearance="@android:style/TextAppearance.Large"
+        android:visibility="gone"/>
+
+    <ListView
+        android:id="@+id/station_search_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
         android:id="@+id/no_result"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="5dp"
         android:text="@string/no_result"
-        android:visibility="invisible"/>
+        android:textAppearance="@android:style/TextAppearance.Large"
+        android:visibility="gone"/>
 
 </LinearLayout>

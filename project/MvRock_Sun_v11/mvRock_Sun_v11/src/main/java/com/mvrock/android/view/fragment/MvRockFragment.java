@@ -57,7 +57,6 @@ public class MvRockFragment extends Fragment {
         MvRockView.YouLikedPlayListFragment = new YouLikedPlayListFragment();
         MvRockView.StationListFragment = new StationListFragment();
         MvRockView.StationPlayListFragment = new StationPlayListFragment();
-        MvRockView.SearchStationFragment = new SearchStationFragment();
 
         MvRockUiComponent.MvRockYoutubePlayer = MvRockYoutubePlayerFragment.newInstance("video_id");
         MvRockUiComponent.RightFloatingMenu = new RightFloatingMenu();

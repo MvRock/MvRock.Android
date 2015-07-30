@@ -39,6 +39,7 @@ public class YouLikedPlayListFragment extends Fragment {
         View rightDrawerView = inflater.inflate(R.layout.fragment_right_drawer_play_list, container, false);
 
         MvRockUiComponent.YouLikedPlayListView.playListview = (ListView) rightDrawerView.findViewById(R.id.right_drawer_listview);
+        MvRockUiComponent.YouLikedPlayListView.playListview.setEmptyView(rightDrawerView.findViewById(R.id.you_like_empty));
         MvRockUiComponent.YouLikedPlayListView.Init();
 
         title = (TextView) rightDrawerView.findViewById(R.id.right_drawer_title);

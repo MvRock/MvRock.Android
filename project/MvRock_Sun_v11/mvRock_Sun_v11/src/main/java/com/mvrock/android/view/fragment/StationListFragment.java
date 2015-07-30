@@ -2,7 +2,6 @@ package com.mvrock.android.view.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +13,9 @@ import android.widget.Toast;
 
 import com.examples.youtubeapidemo.R;
 import com.mvrock.android.uicomponent.MvRockUiComponent;
+import com.mvrock.android.uicomponent.station.SearchStationListView;
 import com.mvrock.android.uicomponent.station.StationListView;
-import com.mvrock.android.uicomponent.station.fadeStationSearchview;
+import com.mvrock.android.uicomponent.station.StationSearchView;
 import com.mvrock.android.view.MvRockView;
 
 /**
@@ -25,12 +25,13 @@ public class StationListFragment extends Fragment {
 
     private static final String TAG = "View.StationListFrag";
 
-    private TextView title;
-    private ImageView refreshButton;
+    public TextView title;
+    public ImageView refreshButton;
 
     public StationListFragment() {
         MvRockUiComponent.StationListView = new StationListView();
-        MvRockUiComponent.fadeStationSearchview = new fadeStationSearchview();
+        MvRockUiComponent.SearchStationListView = new SearchStationListView();
+        MvRockUiComponent.StationSearchView = new StationSearchView();
     }
 
     @Override
@@ -38,12 +39,15 @@ public class StationListFragment extends Fragment {
         View rightDrawerView = inflater.inflate(R.layout.fragment_right_drawer_station_list, container, false);
 
         MvRockUiComponent.StationListView.StationListview = (ListView) rightDrawerView.findViewById(R.id.station_list);
+        MvRockUiComponent.StationListView.noStations = (TextView) rightDrawerView.findViewById(R.id.no_stations);
         MvRockUiComponent.StationListView.Init();
 
-        MvRockUiComponent.noResultTextViewOnStationFrag = (TextView) rightDrawerView.findViewById(R.id.no_result);
+        MvRockUiComponent.SearchStationListView.SearchStationListView = (ListView) rightDrawerView.findViewById(R.id.station_search_list);
+        MvRockUiComponent.SearchStationListView.noSearchResults = (TextView) rightDrawerView.findViewById(R.id.no_result);
+        MvRockUiComponent.SearchStationListView.Init();
 
-        MvRockUiComponent.fadeStationSearchview.topSearchView = (SearchView) rightDrawerView.findViewById(R.id.search_stations);
-        MvRockUiComponent.fadeStationSearchview.Init();
+        MvRockUiComponent.StationSearchView.topSearchView = (SearchView) rightDrawerView.findViewById(R.id.search_stations);
+        MvRockUiComponent.StationSearchView.Init();
 
         title = (TextView) rightDrawerView.findViewById(R.id.right_drawer_title);
         title.setText("Stations");
@@ -60,13 +64,8 @@ public class StationListFragment extends Fragment {
             }
         });
 
-        return rightDrawerView;
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        Log.i(TAG, "onResume()");
         MvRockUiComponent.StationListView.RefreshListView();
+
+        return rightDrawerView;
     }
 }

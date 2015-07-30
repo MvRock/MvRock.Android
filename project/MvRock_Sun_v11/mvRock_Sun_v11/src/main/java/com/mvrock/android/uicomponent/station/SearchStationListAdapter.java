@@ -15,6 +15,7 @@ import com.examples.youtubeapidemo.R;
 import com.mvrock.android.model.MvRockModel;
 import com.mvrock.android.thread.CreateStationThread;
 import com.mvrock.android.thread.RemoveStationThread;
+import com.mvrock.android.uicomponent.MvRockUiComponent;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -68,6 +69,11 @@ public class SearchStationListAdapter extends SimpleAdapter {
                         holder.SubscribeOrUnsubscribe.setBackgroundColor(Color.GREEN);
                     }
                     MvRockModel.SearchStationList.subscribeList[position] = 1 - MvRockModel.SearchStationList.subscribeList[position];
+
+                    MvRockUiComponent.StationListView.RequestStationByThread();
+                    MvRockUiComponent.StationListView.RefreshListView();
+                    MvRockUiComponent.StationListView.StationListview.setVisibility(View.GONE);
+                    MvRockUiComponent.StationListView.noStations.setVisibility(View.GONE);
                 }
             });
 //            convertView.setTag(holder);

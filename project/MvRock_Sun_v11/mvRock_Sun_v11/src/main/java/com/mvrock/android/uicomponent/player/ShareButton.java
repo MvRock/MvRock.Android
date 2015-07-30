@@ -49,33 +49,35 @@ public class ShareButton extends MvRockUiComponentObject {
             public void onClick(View v) {
                 Log.i(TAG, "onClick()");
 
-                // share to facebook
-                new AlertDialog.Builder(MvRockView.MainActivity, R.style.AlertDialogTheme)
-                        .setTitle("Share to Facebook?")
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                if (ShareDialog.canShow(ShareLinkContent.class)) {
-                                    ShareLinkContent content = new ShareLinkContent.Builder()
-                                            .setContentUrl(Uri.parse(String.format("http://apps.facebook.com/mv_rock/index.php?song_url=%s&sender_uid=%s", MvRockModel.CurrentSong.url, MvRockModel.User.User_Id)))
-                                            .setContentTitle(String.format("%s - %s", MvRockModel.CurrentSong.artistName, MvRockModel.CurrentSong.songName))
-                                            .setContentDescription(String.format("Listening to %s by %s from the MvRock Android version.", MvRockModel.CurrentSong.songName, MvRockModel.CurrentSong.artistName))
-                                            .setImageUrl(Uri.parse(String.format("http://img.youtube.com/vi/%s/0.jpg", MvRockModel.CurrentSong.url)))
-                                            .build();
+                if (MvRockModel.CurrentSong.url != null) {
+                    // share to facebook
+                    new AlertDialog.Builder(MvRockView.MainActivity, R.style.AlertDialogTheme)
+                            .setTitle("Share to Facebook?")
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    if (ShareDialog.canShow(ShareLinkContent.class)) {
+                                        ShareLinkContent content = new ShareLinkContent.Builder()
+                                                .setContentUrl(Uri.parse(String.format("http://apps.facebook.com/mv_rock/index.php?song_url=%s&sender_uid=%s", MvRockModel.CurrentSong.url, MvRockModel.User.User_Id)))
+                                                .setContentTitle(String.format("%s - %s", MvRockModel.CurrentSong.artistName, MvRockModel.CurrentSong.songName))
+                                                .setContentDescription(String.format("Listening to %s by %s from the MvRock Android version.", MvRockModel.CurrentSong.songName, MvRockModel.CurrentSong.artistName))
+                                                .setImageUrl(Uri.parse(String.format("http://img.youtube.com/vi/%s/0.jpg", MvRockModel.CurrentSong.url)))
+                                                .build();
 
-                                    ShareDialog.show(MvRockView.MainActivity, content);
-                                } else {
-                                    Toast.makeText(MvRockView.MainActivity, "Unable to share to Facebook. Please install the Facebook app.", Toast.LENGTH_SHORT).show();
+                                        ShareDialog.show(MvRockView.MainActivity, content);
+                                    } else {
+                                        Toast.makeText(MvRockView.MainActivity, "Unable to share to Facebook. Please install the Facebook app.", Toast.LENGTH_SHORT).show();
+                                    }
                                 }
-                            }
-                        })
-                        .setNegativeButton("No", null)
-                        .show();
+                            })
+                            .setNegativeButton("No", null)
+                            .show();
 
-                // share to MvRock
-                shareMvRockByThread();
-                MvRockModel.CurrentSong.isShared = true;
-                MvRockUiComponent.toolbarView.update();
+                    // share to MvRock
+                    shareMvRockByThread();
+                    MvRockModel.CurrentSong.isShared = true;
+                    MvRockUiComponent.toolbarView.update();
+                }
             }
         });
     }

@@ -1,7 +1,6 @@
 package com.mvrock.android.uicomponent;
 
 import android.support.v4.app.ActionBarDrawerToggle;
-import android.widget.TextView;
 
 import com.mvrock.android.uicomponent.drawer.MvRockDrawer;
 import com.mvrock.android.uicomponent.player.MvRockYoutubePlayerFragment;
@@ -18,7 +17,6 @@ import com.mvrock.android.uicomponent.station.SearchStationListView;
 import com.mvrock.android.uicomponent.station.StationCancelButton;
 import com.mvrock.android.uicomponent.station.StationListView;
 import com.mvrock.android.uicomponent.station.StationSearchView;
-import com.mvrock.android.uicomponent.station.fadeStationSearchview;
 
 /**
  * Created by Xuer on 5/8/15.
@@ -72,12 +70,9 @@ public class MvRockUiComponent {
 
     public static StationCancelButton StationCancelButton;
     public static StationListView StationListView;
-    public static fadeStationSearchview fadeStationSearchview;
-    public static TextView noResultTextViewOnStationFrag;
 
     public static StationSearchView StationSearchView;
     public static SearchStationListView SearchStationListView;
-    public static TextView noResultTextViewOnSearchTextView;
 
     public static RightFloatingMenu RightFloatingMenu;
 

@@ -2,7 +2,6 @@ package com.mvrock.android.uicomponent.station;
 
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.SearchView;
 
 import com.mvrock.android.model.MvRockModel;
@@ -32,25 +31,45 @@ import static android.util.Log.i;
  *
  */
 public class StationSearchView extends MvRockUiComponentObject {
+
     public SearchView topSearchView;
-    public int[] subscribelist;
+
     public StationSearchView(){
         TAG+="SearchView";
     }
     public void Init(){
         Log.i(TAG, "Init()");
 
-        topSearchView.setQueryHint("Search Stations");
-        topSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        topSearchView.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
+                MvRockView.StationListFragment.title.setText("Stations");
 
+                MvRockUiComponent.SearchStationListView.SearchStationListView.setVisibility(View.GONE);
+                MvRockUiComponent.SearchStationListView.noSearchResults.setVisibility(View.GONE);
+
+                MvRockView.StationListFragment.refreshButton.setVisibility(View.VISIBLE);
+                MvRockUiComponent.StationListView.RefreshListView();
+                return false;
+            }
+        });
+
+        topSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextChange(String s) {
                 return false;
             }
+
+            @Override
             public boolean onQueryTextSubmit(String s) {
                 i(TAG, "onQueryTextSubmit()");
+                MvRockView.StationListFragment.title.setText("Search Stations");
+
+                MvRockUiComponent.StationListView.StationListview.setVisibility(View.GONE);
+                MvRockUiComponent.StationListView.noStations.setVisibility(View.GONE);
+                MvRockView.StationListFragment.refreshButton.setVisibility(View.GONE);
+
                 RequestSearchStationResultByThread();
-                MvRockModel.SearchStationList.convertData();
                 MvRockUiComponent.SearchStationListView.RefreshListView();
                 return true;
             }
@@ -59,14 +78,13 @@ public class StationSearchView extends MvRockUiComponentObject {
 
     public void RequestSearchStationResultByThread() {
         i(TAG, "RequestSearchStationResultByThread()");
-        GetSearchStationThread getRecStationThread =
-                new GetSearchStationThread(MvRockModel.User.User_Id,
-                        String.valueOf(MvRockUiComponent.StationSearchView.topSearchView.getQuery()));
+        GetSearchStationThread getRecStationThread = new GetSearchStationThread(MvRockModel.User.User_Id,
+                MvRockUiComponent.StationSearchView.topSearchView.getQuery().toString());
         getRecStationThread.start();
         try {
             getRecStationThread.join();
-        } catch (InterruptedException e1) {
-            e1.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
         getRecStationThread.setResponse();
         MvRockModel.SearchStationList.convertData();

@@ -31,22 +31,19 @@ public class RightFloatingMenu extends MvRockUiComponentObject {
                 .build();
 
         //2 - Create menu items:
-
-        SubActionButton.Builder itemBuilder = new SubActionButton.Builder(MvRockView.MainActivity);
         // repeat many times:
         YouMayLikePlayListButton = new ImageView(MvRockView.MainActivity);
         YouMayLikePlayListButton.setImageResource(R.drawable.mvrock_youmaylike_red);
-        SubActionButton button1 = itemBuilder.setContentView(YouMayLikePlayListButton).build();
-
+        SubActionButton button1 = new SubActionButton.Builder(MvRockView.MainActivity).setContentView(YouMayLikePlayListButton).build();
 
         YouLikedPlayListButton = new ImageView(MvRockView.MainActivity);
         YouLikedPlayListButton.setImageResource(R.drawable.mvrock_liked_grey);
-        SubActionButton button2 = itemBuilder.setContentView(YouLikedPlayListButton).build();
+        SubActionButton button2 = new SubActionButton.Builder(MvRockView.MainActivity).setContentView(YouLikedPlayListButton).build();
 
 
         StationPlayListButton = new ImageView(MvRockView.MainActivity);
         StationPlayListButton.setImageResource(R.drawable.mvrock_station_grey);
-        SubActionButton button3 = itemBuilder.setContentView(StationPlayListButton).build();
+        SubActionButton button3 = new SubActionButton.Builder(MvRockView.MainActivity).setContentView(StationPlayListButton).build();
 
         actionMenu = new FloatingActionMenu.Builder(MvRockView.MainActivity)
                 .addSubActionView(button1)
@@ -55,7 +52,7 @@ public class RightFloatingMenu extends MvRockUiComponentObject {
                 .attachTo(actionButton)
                 .build();
 
-        actionMenu.setStateChangeListener(new FloatingActionMenu.MenuStateChangeListener(){
+        actionMenu.setStateChangeListener(new FloatingActionMenu.MenuStateChangeListener() {
             @Override
             public void onMenuOpened(FloatingActionMenu floatingActionMenu) {
                 MvRockUiComponent.MvRockDrawer.mDrawerLayout.openDrawer(Gravity.RIGHT);
@@ -94,7 +91,11 @@ public class RightFloatingMenu extends MvRockUiComponentObject {
                 YouMayLikePlayListButton.setImageResource(R.drawable.mvrock_youmaylike_grey);
                 YouLikedPlayListButton.setImageResource(R.drawable.mvrock_liked_grey);
                 StationPlayListButton.setImageResource(R.drawable.mvrock_station_red);
-                MvRockView.MainActivity.getSupportFragmentManager().beginTransaction().replace(R.id.right_drawer,MvRockView.StationListFragment).commit();
+                if (MvRockUiComponent.StationPlayListView.isAvailable()) {
+                    MvRockView.MainActivity.getSupportFragmentManager().beginTransaction().replace(R.id.right_drawer, MvRockView.StationPlayListFragment).commit();
+                } else {
+                    MvRockView.MainActivity.getSupportFragmentManager().beginTransaction().replace(R.id.right_drawer, MvRockView.StationListFragment).commit();
+                }
             }
         });
     }
