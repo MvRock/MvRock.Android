@@ -11,6 +11,8 @@ import com.examples.youtubeapidemo.R;
 import com.jakewharton.disklrucache.DiskLruCache;
 import com.mvrock.android.view.MvRockView;
 
+
+
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -29,9 +31,11 @@ import java.util.Map;
 /**
  * Created by Tianhao on 15/7/20.
  */
+
 public class Cache {
     public static DiskLruCache DiskLruCache = null;
     String TAG = "Cache";
+    private static final long timeDifference = 3 * 60 * 1000; //unit is ms
 
     public Cache() {
         Log.i(TAG, "Cache Initialization");
@@ -59,12 +63,11 @@ public class Cache {
             Drawable drawable = null;
             try {
                 DiskLruCache.Snapshot snapshot = Cache.DiskLruCache.get(key);
-                if (snapshot != null) {
+                if (snapshot != null && !imageNeedUpdate(key)) {
                     Log.i(TAG, "ReadFrom Cache Time Begin " + sdf.format(new Date()));
                     drawable = getDrawable(snapshot);
                     ImageView_List.add(drawable);
                     Log.i(TAG, "ReadFrom Cache Time End " + sdf.format(new Date()));
-
                 } else {
                     Log.i(TAG, "DownLoadFrom Internet Time Begin " + sdf.format(new Date()));
                     DiskLruCache.Editor editor = Cache.DiskLruCache.edit(key);
@@ -93,6 +96,25 @@ public class Cache {
         }
     }
 
+    private boolean imageNeedUpdate(String key){
+        File file = new File(DiskLruCache.getDirectory(), key + ".0" );
+        long oldTime = file.lastModified();
+        Date nowDate = new Date();
+        long nowTime = nowDate.getTime();
+        long difference = nowTime - oldTime;
+        if(difference > timeDifference)
+            return false;
+        else {
+            try{
+                DiskLruCache.remove(key);
+                Log.i(TAG + "remove Image", "This picture is expired");
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+            return true;
+        }
+
+    }
     private Drawable getDrawable(DiskLruCache.Snapshot snapshot) {
         if (snapshot == null)
             return MvRockView.MainActivity.getResources().getDrawable(R.drawable.image_fail);
@@ -148,8 +170,8 @@ public class Cache {
         try {
             final URL url = new URL(imageUrl);
             urlConnection = (HttpURLConnection) url.openConnection();
-            in = new BufferedInputStream(urlConnection.getInputStream(), 8 * 1024);
-            out = new BufferedOutputStream(outputStream, 8 * 1024);
+            in = new BufferedInputStream(urlConnection.getInputStream(), 50 * 1024);
+            out = new BufferedOutputStream(outputStream, 50 * 1024);
             int b;
             while ((b = in.read()) != -1) {
                 out.write(b);
