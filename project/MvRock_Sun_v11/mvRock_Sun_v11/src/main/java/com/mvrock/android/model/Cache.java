@@ -48,7 +48,6 @@ public class Cache {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     public void getImageFromCache(List<Drawable> ImageView_List,
@@ -81,7 +80,6 @@ public class Cache {
                             editor.abort();
                         }
                     }
-
                     DiskLruCache.Snapshot snapshot1 = Cache.DiskLruCache.get(key);
                     drawable = getDrawable(snapshot1);
                     ImageView_List.add(drawable);
@@ -142,6 +140,7 @@ public class Cache {
         return new File(cachePath + File.separator + uniqueName);
     }
 
+    
     private int getAppVersion(Context context) {
         Log.i(TAG, "Get App Version");
         int versionCode;
