@@ -10,6 +10,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -79,6 +80,7 @@ public class MvRockFragment extends Fragment {
 
         MvRockUiComponent.artistView.artistImageView =(ImageView) view.findViewById(R.id.artist_image);
         MvRockUiComponent.artistView.artistNameView = (TextView) view.findViewById(R.id.name_of_artist);
+        MvRockUiComponent.artistView.subscribeButton = (Button) view.findViewById(R.id.subscribe_button);
         MvRockUiComponent.artistView.Init();
 
         MvRockUiComponent.toolbarView.thumbUpNumber = (TextView) view.findViewById(R.id.number_thumbup);
@@ -102,7 +104,7 @@ public class MvRockFragment extends Fragment {
         MvRockUiComponent.MvRockDrawer.frame = (FrameLayout) view.findViewById(R.id.content_frame);
         MvRockUiComponent.MvRockDrawer.Init();
 
-        MvRockUiComponent.commentView.commentNumber = (TextView) view.findViewById(R.id.comment_nummber);
+        MvRockUiComponent.commentView.commentNumber = (TextView) view.findViewById(R.id.comment_number);
         MvRockUiComponent.commentView.textInput = (EditText) view.findViewById(R.id.comment_input);
         MvRockUiComponent.commentView.userAvatar = (ImageView) view.findViewById(R.id.user_avatar);
         MvRockUiComponent.commentView.Init();

@@ -21,7 +21,7 @@ import java.util.Map;
  */
 public class CurrentSong extends MvRockModelObject {
     public boolean isLikedIconPressed, isDislikedIconPressed, isShared, isReported;
-    public boolean isChanged;
+    public boolean isChanged, isArtistSubscribed;
     public int currentMVIndex;
     public String url, songName, artistName, rootShareUserId;
     public int currentTime;

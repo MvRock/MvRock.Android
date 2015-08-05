@@ -94,7 +94,7 @@ public class StationListView extends MvRockUiComponentObject {
     }
 
     public void CreateStationByThread(String stationName) {
-        i(TAG, "CreateStationByThread(" + stationName + ")");
+        i(TAG, "createStationByThread(" + stationName + ")");
         Thread createStationByThread = new Thread(new CreateStationThread(stationName, MvRockModel.User.User_Id));
         createStationByThread.start();
         try {

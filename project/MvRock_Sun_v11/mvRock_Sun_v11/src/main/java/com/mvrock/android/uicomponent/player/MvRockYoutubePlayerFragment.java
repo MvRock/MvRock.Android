@@ -176,6 +176,7 @@ public class MvRockYoutubePlayerFragment extends YouTubePlayerSupportFragment {
         }
 
         MvRockModel.CurrentSong.isReported = false;
+        MvRockModel.CurrentSong.isArtistSubscribed = MvRockModel.StationList.isSubscribed(MvRockModel.CurrentSong.artistName);
 
         GetNewSongDataThread getNewSongDataThread = new GetNewSongDataThread(MvRockModel.User.User_Id, MvRockModel.CurrentSong.url);
         getNewSongDataThread.start();

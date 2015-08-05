@@ -45,6 +45,7 @@ public class StationPlayListFragment extends Fragment {
             public void onClick(View v) {
                 MvRockView.MainActivity.getSupportFragmentManager().beginTransaction().replace(R.id.right_drawer, MvRockView.StationListFragment).commit();
                 MvRockModel.CurrentSong.currentMVIndex = 0;
+                MvRockUiComponent.YouMayLikePlayListView.setAvailable();
                 MvRockUiComponent.MvRockYoutubePlayer.YouTubePlayer.loadVideo(MvRockModel.YouMayLikeSongList.songArrayList.get(0).get("url"));
             }
         });

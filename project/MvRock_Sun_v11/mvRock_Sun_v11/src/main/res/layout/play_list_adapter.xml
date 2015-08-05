@@ -1,39 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="86dp" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal">
 
     <ImageView
         android:id="@+id/song_image"
-        android:layout_width="120dp"
-        android:layout_height="80dp"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
+        android:layout_width="0dp"
+        android:layout_height="90dp"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
         android:adjustViewBounds="true"
-        android:contentDescription="@string/video_image"
-        android:padding="2dip" />
+        android:contentDescription="@string/video_image"/>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@id/song_image"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
         android:orientation="vertical"
-        android:padding="2dip" >
+        android:padding="5dp">
 
         <TextView
             android:id="@+id/song_name"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="2dip"
-            android:textSize="20sp" />
+            android:textAppearance="@android:style/TextAppearance.Medium"/>
 
         <TextView
             android:id="@+id/artist_name"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="2dip"
-            android:textSize="14sp" />
+            android:textAppearance="@android:style/TextAppearance.Small"/>
     </LinearLayout>
-
-</RelativeLayout>
+</LinearLayout>

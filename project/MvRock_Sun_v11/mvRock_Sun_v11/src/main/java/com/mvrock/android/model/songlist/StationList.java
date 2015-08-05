@@ -2,7 +2,10 @@ package com.mvrock.android.model.songlist;
 
 import android.graphics.drawable.Drawable;
 
+import com.mvrock.android.model.MvRockModel;
 import com.mvrock.android.model.MvRockModelObject;
+import com.mvrock.android.thread.CreateStationThread;
+import com.mvrock.android.thread.RemoveStationThread;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -10,6 +13,8 @@ import org.json.JSONException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+import static android.util.Log.i;
 
 /**
  * Created by Xuer on 5/9/15.
@@ -47,5 +52,39 @@ public class StationList extends MvRockModelObject {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    public void createStationByThread(String stationName) {
+        i(TAG, "createStationByThread(" + stationName + ")");
+
+        CreateStationThread createStationByThread = new CreateStationThread(stationName, MvRockModel.User.User_Id);
+        createStationByThread.start();
+        try {
+            createStationByThread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void removeStationByThread(String stationName) {
+        i(TAG, "removeStationByThread(" + stationName + ")");
+
+        RemoveStationThread removeStationByThread = new RemoveStationThread(stationName, MvRockModel.User.User_Id);
+        removeStationByThread.start();
+        try {
+            removeStationByThread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public boolean isSubscribed(String station) {
+        for (int i = 0; i < stationArrayList.size(); i++) {
+            if (stationArrayList.get(i).get("station_name").equals(station)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
