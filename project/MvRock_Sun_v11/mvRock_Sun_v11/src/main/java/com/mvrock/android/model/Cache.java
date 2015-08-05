@@ -100,9 +100,7 @@ public class Cache {
         Date nowDate = new Date();
         long nowTime = nowDate.getTime();
         long difference = nowTime - oldTime;
-        if(difference > timeDifference)
-            return false;
-        else {
+        if(difference > timeDifference) {
             try{
                 DiskLruCache.remove(key);
                 Log.i(TAG + "remove Image", "This picture is expired");
@@ -111,8 +109,10 @@ public class Cache {
             }
             return true;
         }
-
+        else
+            return false;
     }
+    
     private Drawable getDrawable(DiskLruCache.Snapshot snapshot) {
         if (snapshot == null)
             return MvRockView.MainActivity.getResources().getDrawable(R.drawable.image_fail);
@@ -140,7 +140,7 @@ public class Cache {
         return new File(cachePath + File.separator + uniqueName);
     }
 
-    
+
     private int getAppVersion(Context context) {
         Log.i(TAG, "Get App Version");
         int versionCode;
