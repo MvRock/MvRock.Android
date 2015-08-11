@@ -14,6 +14,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.MultiAutoCompleteTextView;
 import android.widget.SearchView;
 import android.widget.TextView;
 
@@ -105,7 +106,7 @@ public class MvRockFragment extends Fragment {
         MvRockUiComponent.MvRockDrawer.Init();
 
         MvRockUiComponent.commentView.commentNumber = (TextView) view.findViewById(R.id.comment_number);
-        MvRockUiComponent.commentView.textInput = (AutoCompleteTextView) view.findViewById(R.id.comment_input);
+        MvRockUiComponent.commentView.textInput = (MultiAutoCompleteTextView) view.findViewById(R.id.comment_input);
         MvRockUiComponent.commentView.userAvatar = (ImageView) view.findViewById(R.id.user_avatar);
         MvRockUiComponent.commentView.Init();
 
