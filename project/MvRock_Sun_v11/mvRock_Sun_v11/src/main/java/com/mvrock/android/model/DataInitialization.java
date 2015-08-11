@@ -2,6 +2,8 @@ package com.mvrock.android.model;
 
 import android.util.Log;
 
+import com.mvrock.android.thread.GetMusicBuddyThread;
+import com.mvrock.android.thread.GetRecBuddyThread;
 import com.mvrock.android.thread.GetStationSongsThread;
 import com.mvrock.android.thread.GetStationThread;
 import com.mvrock.android.thread.GetYouLikedSongAndUserDataThread;
@@ -25,17 +27,22 @@ public class DataInitialization {
                 = new GetYoumaylikePlayListThread(MvRockModel.User.User_Id, null);
         GetStationSongsThread stationSongInfoThread
                 = new GetStationSongsThread(MvRockModel.User.User_Id, null);
-
+        GetMusicBuddyThread musicBuddy = new GetMusicBuddyThread(MvRockModel.User.User_Id,null);
+        GetRecBuddyThread recBuddy = new GetRecBuddyThread(MvRockModel.User.User_Id, null);
         youLikedSongInfoThread.start();
         youMayLikedSongInfoThread.start();
         station.start();
         stationSongInfoThread.start();
+        musicBuddy.start();
+        recBuddy.start();
 
         try{
             youLikedSongInfoThread.join();
             youMayLikedSongInfoThread.join();
             station.join();
             stationSongInfoThread.join();
+            musicBuddy.join();
+            recBuddy.join();
         }catch (InterruptedException e){
             e.printStackTrace();
         }
@@ -48,6 +55,10 @@ public class DataInitialization {
         MvRockModel.StationList.convertData();
         stationSongInfoThread.setResponse();
         MvRockModel.StationSongList.convertData();
+        musicBuddy.setResponse();
+        MvRockModel.MusicBuddy.convertData();
+        recBuddy.setResponse();
+        MvRockModel.RecBuddy.convertData();
     }
 
 }

@@ -12,7 +12,6 @@ import com.jakewharton.disklrucache.DiskLruCache;
 import com.mvrock.android.view.MvRockView;
 
 
-
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -35,7 +34,9 @@ import java.util.Map;
 public class Cache {
     public static DiskLruCache DiskLruCache = null;
     String TAG = "Cache";
-    private static final long timeDifference = 3 * 60 * 1000; //unit is ms
+    private static final long timeDifference = 7 * 24 * 60 * 60 * 1000; //unit is ms
+    private static final long testTimeDifference = 33 * 60 * 1000;
+//    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");
 
     public Cache() {
         Log.i(TAG, "Cache Initialization");
@@ -53,7 +54,6 @@ public class Cache {
     public void getImageFromCache(List<Drawable> ImageView_List,
                                   List<Map<String, String>> song_info, String prefix, String postfix) {
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-ss-SSS");
 
         for (int i = 0; i < song_info.size(); i++) {
             String songUrl = song_info.get(i).get("url");
@@ -63,12 +63,12 @@ public class Cache {
             try {
                 DiskLruCache.Snapshot snapshot = Cache.DiskLruCache.get(key);
                 if (snapshot != null && !imageNeedUpdate(key)) {
-                    Log.i(TAG, "ReadFrom Cache Time Begin " + sdf.format(new Date()));
+//                    Log.i(TAG + "Cache Time Cost Test", "ReadFrom Cache Time Begin " + sdf.format(new Date()));
                     drawable = getDrawable(snapshot);
                     ImageView_List.add(drawable);
-                    Log.i(TAG, "ReadFrom Cache Time End " + sdf.format(new Date()));
+//                    Log.i(TAG + "Cache Time Cost Test", "ReadFrom Cache Time End " + sdf.format(new Date()));
                 } else {
-                    Log.i(TAG, "DownLoadFrom Internet Time Begin " + sdf.format(new Date()));
+//                    Log.i(TAG + "Cache Time Cost Test", "DownLoadFrom Internet Time Begin " + sdf.format(new Date()));
                     DiskLruCache.Editor editor = Cache.DiskLruCache.edit(key);
 
                     if (editor != null) {
@@ -84,7 +84,7 @@ public class Cache {
                     drawable = getDrawable(snapshot1);
                     ImageView_List.add(drawable);
 
-                    Log.i(TAG, "DownLoadFrom Internet Time END " + sdf.format(new Date()));
+//                    Log.i(TAG + "Cache Time Cost Test", "DownLoadFrom Internet Time END " + sdf.format(new Date()));
                 }
             } catch (IOException e) {
                 Log.e(this.getClass().getSimpleName(), "Image download failed", e);
@@ -94,25 +94,24 @@ public class Cache {
         }
     }
 
-    private boolean imageNeedUpdate(String key){
-        File file = new File(DiskLruCache.getDirectory(), key + ".0" );
+    private boolean imageNeedUpdate(String key) {
+        File file = new File(DiskLruCache.getDirectory(), key + ".0");
         long oldTime = file.lastModified();
         Date nowDate = new Date();
         long nowTime = nowDate.getTime();
         long difference = nowTime - oldTime;
-        if(difference > timeDifference) {
-            try{
+        if (difference > testTimeDifference) {
+            try {
                 DiskLruCache.remove(key);
                 Log.i(TAG + "remove Image", "This picture is expired");
-            }catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
             return true;
-        }
-        else
+        } else
             return false;
     }
-    
+
     private Drawable getDrawable(DiskLruCache.Snapshot snapshot) {
         if (snapshot == null)
             return MvRockView.MainActivity.getResources().getDrawable(R.drawable.image_fail);

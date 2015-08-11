@@ -2,7 +2,7 @@ package com.mvrock.android.uicomponent.playlist;
 
 import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
-import android.widget.EditText;
+import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,7 +18,7 @@ import com.mvrock.android.uicomponent.MvRockUiComponentObject;
 public class CommentView extends MvRockUiComponentObject {
     public TextView commentNumber;
     public ImageView userAvatar;
-    public EditText textInput;
+    public AutoCompleteTextView textInput;
 
     public CommentView() {
         //commentNumber.setText(0);

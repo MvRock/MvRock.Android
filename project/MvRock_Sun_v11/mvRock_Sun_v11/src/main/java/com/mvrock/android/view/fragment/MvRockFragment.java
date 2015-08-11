@@ -10,8 +10,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.SearchView;
@@ -105,7 +105,7 @@ public class MvRockFragment extends Fragment {
         MvRockUiComponent.MvRockDrawer.Init();
 
         MvRockUiComponent.commentView.commentNumber = (TextView) view.findViewById(R.id.comment_number);
-        MvRockUiComponent.commentView.textInput = (EditText) view.findViewById(R.id.comment_input);
+        MvRockUiComponent.commentView.textInput = (AutoCompleteTextView) view.findViewById(R.id.comment_input);
         MvRockUiComponent.commentView.userAvatar = (ImageView) view.findViewById(R.id.user_avatar);
         MvRockUiComponent.commentView.Init();
 

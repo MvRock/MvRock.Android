@@ -306,13 +306,16 @@
                                     android:layout_weight="1"
                                     android:adjustViewBounds="true"/>
 
-                                <EditText
+                                <AutoCompleteTextView
                                     android:id="@+id/comment_input"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_vertical"
                                     android:layout_weight="5"
                                     android:hint="Enter comment"
+                                    android:dropDownWidth="wrap_content"
+                                    android:inputType="textAutoComplete|textAutoCorrect"
+                                    android:popupBackground="@color/gray"
                                     android:textAppearance="@android:style/TextAppearance.Small"
                                     android:textColorHint="#ffffff00"/>
                             </LinearLayout>
