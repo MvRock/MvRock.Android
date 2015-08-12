@@ -2,6 +2,7 @@ package com.mvrock.android.model;
 
 
 import com.mvrock.android.model.buddy.BuddyFeed;
+import com.mvrock.android.model.buddy.MusicBuddy;
 import com.mvrock.android.model.buddy.RecBuddy;
 import com.mvrock.android.model.buddy.User;
 import com.mvrock.android.model.song.CurrentSong;
@@ -29,6 +30,7 @@ public class MvRockModel {
     public static SearchStationList SearchStationList;
     public static CurrentSong CurrentSong;
 
+    public static MusicBuddy MusicBuddy;
     public static Cache cache;
     public static RecBuddy RecBuddy;
     public static BuddyFeed BuddyFeed;
@@ -44,6 +46,7 @@ public class MvRockModel {
         CurrentSong = new CurrentSong();
         RecBuddy = new RecBuddy();
         BuddyFeed = new BuddyFeed();
+        MusicBuddy = new MusicBuddy();
         User = new User();
         cache = new Cache();
         playListOption = PlayListOption.YOU_MAY_LIKE_LIST;
