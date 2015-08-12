@@ -28,10 +28,10 @@ import java.util.Set;
  * }]
  */
 
-public class MusicBuddy extends MvRockModelObject {
+public class BuddyFeed extends MvRockModelObject {
     public Set<String> musicBuddy;
 
-    public MusicBuddy() {
+    public BuddyFeed() {
         musicBuddy = new HashSet<>();
         TAG += "Music Buddy";
     }

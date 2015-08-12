@@ -9,9 +9,9 @@ import org.apache.http.message.BasicNameValuePair;
 /**
  * Created by Tianhao on 15/8/11.
  */
-public class GetMusicBuddyThread extends MvRockThreadObject{
+public class GetBuddyFeedThread extends MvRockThreadObject{
 
-    public GetMusicBuddyThread(String User_id, String Extra){
+    public GetBuddyFeedThread(String User_id, String Extra){
         super(User_id, Extra);
         this.TAG = "GetMusicBuddyThread";
         this.Url = "/getMusicBuddy.php";
@@ -24,6 +24,6 @@ public class GetMusicBuddyThread extends MvRockThreadObject{
 
     @Override
     public void setResponse() {
-        MvRockModel.MusicBuddy.setHttpResponse(this.strResponse);
+        MvRockModel.BuddyFeed.setHttpResponse(this.strResponse);
     }
 }
