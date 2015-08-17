@@ -38,12 +38,12 @@
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:fillViewport="true">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:background="#ff000000"
                     android:descendantFocusability="beforeDescendants"
                     android:focusableInTouchMode="true"
@@ -318,10 +318,20 @@
                                     android:popupBackground="@color/gray"
                                     android:textAppearance="@android:style/TextAppearance.Small"
                                     android:textColorHint="#ffffff00"/>
+
                             </LinearLayout>
+
+                            <com.mvrock.android.uicomponent.playlist.NonScrollListView
+                                android:id="@+id/comment_list"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                            </com.mvrock.android.uicomponent.playlist.NonScrollListView>
+
                         </LinearLayout>
                     </LinearLayout>
+
                 </LinearLayout>
+
             </ScrollView>
         </LinearLayout>
 

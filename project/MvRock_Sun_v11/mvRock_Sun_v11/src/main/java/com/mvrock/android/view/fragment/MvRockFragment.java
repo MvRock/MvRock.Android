@@ -8,12 +8,15 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.ExpandableListView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.MultiAutoCompleteTextView;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -29,6 +32,7 @@ import com.mvrock.android.uicomponent.drawer.MvRockDrawer;
 import com.mvrock.android.uicomponent.player.MvRockYoutubePlayerFragment;
 import com.mvrock.android.uicomponent.playlist.ArtistView;
 import com.mvrock.android.uicomponent.playlist.CommentView;
+import com.mvrock.android.uicomponent.playlist.NonScrollListView;
 import com.mvrock.android.uicomponent.playlist.RightFloatingMenu;
 import com.mvrock.android.uicomponent.playlist.SongView;
 import com.mvrock.android.uicomponent.playlist.ToolbarView;
@@ -108,6 +112,8 @@ public class MvRockFragment extends Fragment {
         MvRockUiComponent.commentView.commentNumber = (TextView) view.findViewById(R.id.comment_number);
         MvRockUiComponent.commentView.textInput = (MultiAutoCompleteTextView) view.findViewById(R.id.comment_input);
         MvRockUiComponent.commentView.userAvatar = (ImageView) view.findViewById(R.id.user_avatar);
+        MvRockUiComponent.commentView.commentList = (NonScrollListView)view.findViewById(R.id.comment_list);
+
         MvRockUiComponent.commentView.Init();
 
         getActivity().getActionBar().hide();

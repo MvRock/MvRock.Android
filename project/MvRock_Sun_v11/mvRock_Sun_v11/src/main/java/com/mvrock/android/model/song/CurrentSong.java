@@ -10,6 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,7 +28,7 @@ public class CurrentSong extends MvRockModelObject {
     public int currentTime;
     public ReasonOption reason;
     public int numberOfComments, numLikes, numDislikes, songId;
-    public Map<String, String> nameAndComments;
+    public Map<String, ArrayList<String>> nameAndComments;
     public Drawable artistImage;
 
     public CurrentSong() {
@@ -44,7 +45,7 @@ public class CurrentSong extends MvRockModelObject {
         url = "";
         reason = ReasonOption.None;
         numberOfComments = 0;
-        nameAndComments = new HashMap<String, String>();
+        nameAndComments = new HashMap<>();
         rootShareUserId = "0";
         numLikes = 0;
         numDislikes = 0;
@@ -90,14 +91,24 @@ public class CurrentSong extends MvRockModelObject {
             }
             Log.i(TAG, String.format("numLikes = %d, numDislikes = %d", numLikes, numDislikes));
 
+            numberOfComments = 0;
+            nameAndComments.clear();
             try {
                 JSONArray commentArrayJSON = infoJSON.getJSONArray("Comment");
 
                 numberOfComments = commentArrayJSON.length();
                 for (int i = 0; i < commentArrayJSON.length(); i++) {
                     JSONObject tmp = (JSONObject) commentArrayJSON.get(i);
-                    nameAndComments.put(tmp.get("name").toString(),
-                            tmp.get("content").toString());
+                    String name = tmp.get("name").toString();
+                    String content = tmp.get("content").toString();
+                    if(nameAndComments.containsKey(name))
+                        nameAndComments.get(name).add(content);
+                    else{
+                        ArrayList<String> list = new ArrayList<>();
+                        list.add(content);
+                        nameAndComments.put(name,list);
+                    }
+
                 }
             } catch (JSONException e) {
                 Log.i(TAG, "No comments");
