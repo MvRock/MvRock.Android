@@ -28,7 +28,10 @@ public class CurrentSong extends MvRockModelObject {
     public int currentTime;
     public ReasonOption reason;
     public int numberOfComments, numLikes, numDislikes, songId;
-    public Map<String, ArrayList<String>> nameAndComments;
+    public ArrayList<String> commentAuthor;
+    public ArrayList<String> commentContent;
+    public ArrayList<String> commentTime;
+    public ArrayList<String> authorID;
     public Drawable artistImage;
 
     public CurrentSong() {
@@ -45,10 +48,14 @@ public class CurrentSong extends MvRockModelObject {
         url = "";
         reason = ReasonOption.None;
         numberOfComments = 0;
-        nameAndComments = new HashMap<>();
         rootShareUserId = "0";
         numLikes = 0;
         numDislikes = 0;
+
+        commentAuthor = new ArrayList<>();
+        commentTime = new ArrayList<>();
+        commentContent = new ArrayList<>();
+        authorID = new ArrayList<>();
     }
 
     public void convertData() {
@@ -92,7 +99,11 @@ public class CurrentSong extends MvRockModelObject {
             Log.i(TAG, String.format("numLikes = %d, numDislikes = %d", numLikes, numDislikes));
 
             numberOfComments = 0;
-            nameAndComments.clear();
+            commentAuthor.clear();
+            commentContent.clear();
+            commentTime.clear();
+            authorID.clear();
+
             try {
                 JSONArray commentArrayJSON = infoJSON.getJSONArray("Comment");
 
@@ -101,20 +112,17 @@ public class CurrentSong extends MvRockModelObject {
                     JSONObject tmp = (JSONObject) commentArrayJSON.get(i);
                     String name = tmp.get("name").toString();
                     String content = tmp.get("content").toString();
-                    if(nameAndComments.containsKey(name))
-                        nameAndComments.get(name).add(content);
-                    else{
-                        ArrayList<String> list = new ArrayList<>();
-                        list.add(content);
-                        nameAndComments.put(name,list);
-                    }
-
+                    String ID = tmp.get("uid").toString();
+//                    String time = tmp.get("time").toString();
+//                    commentTime.add(time);
+                    commentAuthor.add(name);
+                    commentContent.add(content);
+                    authorID.add(ID);
                 }
             } catch (JSONException e) {
                 Log.i(TAG, "No comments");
                 numberOfComments = 0;
             }
-            Log.i(TAG, nameAndComments.toString());
         } catch (JSONException e) {
             e.printStackTrace();
         }
