@@ -51,7 +51,7 @@ public class Cache {
         }
     }
 
-    public void getImageFromCache(List<Drawable> ImageView_List,
+    public void getImageFromCache (List<Drawable> ImageView_List,
                                   List<Map<String, String>> song_info, String prefix, String postfix) {
 
 
@@ -75,7 +75,6 @@ public class Cache {
                         OutputStream outputStream = editor.newOutputStream(0);
                         if (download(imageUrl, outputStream)) {
                             editor.commit();
-
                         } else {
                             editor.abort();
                         }

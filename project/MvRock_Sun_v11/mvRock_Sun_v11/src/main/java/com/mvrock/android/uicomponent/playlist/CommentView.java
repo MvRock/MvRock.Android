@@ -11,35 +11,26 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.MultiAutoCompleteTextView;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
-import com.examples.youtubeapidemo.R;
 import com.mvrock.android.model.MvRockModel;
 import com.mvrock.android.thread.GetNewSongDataThread;
 import com.mvrock.android.thread.SetCommentThread;
 import com.mvrock.android.uicomponent.MvRockUiComponentObject;
 import com.mvrock.android.view.MvRockView;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 
 /**
  * Created by Tianhao on 15/6/8.
  */
 public class CommentView extends MvRockUiComponentObject {
+    private ArrayAdapter<String> userNameArray;
+
     public NonScrollListView commentList;
     public TextView commentNumber;
     public ImageView userAvatar;
-    public MultiAutoCompleteTextView textInput;
-    private static final String[] key = {"image", "author", "content"};
-    private static final int[] id =
-            {R.id.image_of_author, R.id.authorName, R.id.content_of_comment};
-    private ArrayAdapter<String> userNameArray;
 
+    public MultiAutoCompleteTextView textInput;
 
 
     public CommentView() {
@@ -51,11 +42,14 @@ public class CommentView extends MvRockUiComponentObject {
     public void Init() {
 
         userAvatar.setImageDrawable(MvRockModel.User.User_Profile_pic);
+
         commentNumber.setText(String.valueOf(MvRockModel.CurrentSong.numberOfComments));
+
         textInput.setAdapter(userNameArray);
         textInput.setThreshold(1);
 
         showComment();
+
         textInput.setTokenizer(new MultiAutoCompleteTextView.Tokenizer() {
 
             @Override
@@ -162,25 +156,12 @@ public class CommentView extends MvRockUiComponentObject {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        //need to show the new list of comments
     }
 
     private void showComment() {
-        SimpleAdapter adapter = new SimpleAdapter(MvRockView.MainActivity, getData(), R.layout.one_comment,key, id);
+        CommentListAdapter adapter = new CommentListAdapter(MvRockModel.CurrentSong.authorID);
         commentList.setAdapter(adapter);
-    }
-
-    private List<Map<String, Object>> getData() {
-        List<Map<String, Object>> res = new ArrayList<>();
-
-        Map<String,Object>[] memo = new Map[MvRockModel.CurrentSong.numberOfComments];
-        for(int i = 0 ; i < MvRockModel.CurrentSong.numberOfComments ;i++){
-            memo[i] = new HashMap<>();
-            memo[i].put(key[0], R.drawable.report_red);
-            memo[i].put(key[1], "By " + MvRockModel.CurrentSong.commentAuthor.get(i));
-            memo[i].put(key[2], MvRockModel.CurrentSong.commentContent.get(i));
-            res.add(memo[i]);
-        }
-        return res;
     }
 
     private void getTheNewInfoAfterSetComment() {
@@ -199,5 +180,4 @@ public class CommentView extends MvRockUiComponentObject {
         commentNumber.setText(String.valueOf(MvRockModel.CurrentSong.numberOfComments));
         showComment();
     }
-
 }
