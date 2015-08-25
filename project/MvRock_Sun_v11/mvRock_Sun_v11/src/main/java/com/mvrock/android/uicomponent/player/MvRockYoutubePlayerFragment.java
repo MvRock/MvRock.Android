@@ -20,12 +20,6 @@ public class MvRockYoutubePlayerFragment extends YouTubePlayerSupportFragment {
     private static final String TAG = "MvRockYoutubePlayer";
     public YouTubePlayer YouTubePlayer;
 
-    public static MvRockYoutubePlayerFragment newInstance(String url) {
-
-        MvRockYoutubePlayerFragment playerYouTubeFrag = new MvRockYoutubePlayerFragment();
-        return playerYouTubeFrag;
-    }
-
     public void Init() {
         Log.i(TAG, "Init()");
         initialize(DeveloperKey.DEVELOPER_KEY, new YouTubePlayer.OnInitializedListener() {
@@ -148,7 +142,7 @@ public class MvRockYoutubePlayerFragment extends YouTubePlayerSupportFragment {
 
             MvRockUiComponent.songView.showRecommendation();
 
-        } else if (MvRockUiComponent.YouLikedPlayListView.isAvailable()){
+        } else if (MvRockUiComponent.YouLikedPlayListView.isAvailable()) {
             Map<String, String> currentSongInfo = MvRockModel.YouLikedSongList.songArrayList.get(MvRockModel.CurrentSong.currentMVIndex);
 
             MvRockModel.CurrentSong.url = currentSongInfo.get("url");
@@ -176,6 +170,7 @@ public class MvRockYoutubePlayerFragment extends YouTubePlayerSupportFragment {
         }
 
         MvRockModel.CurrentSong.isReported = false;
+        MvRockModel.CurrentSong.hasSentSong = false;
         MvRockModel.CurrentSong.isArtistSubscribed = MvRockModel.StationList.isSubscribed(MvRockModel.CurrentSong.artistName);
 
         GetNewSongDataThread getNewSongDataThread = new GetNewSongDataThread(MvRockModel.User.User_Id, MvRockModel.CurrentSong.url);

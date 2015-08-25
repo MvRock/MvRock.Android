@@ -1,5 +1,6 @@
 package com.mvrock.android.view.fragment;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
@@ -8,21 +9,19 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.ExpandableListView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.MultiAutoCompleteTextView;
-import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.examples.youtubeapidemo.R;
 import com.facebook.login.LoginManager;
+import com.facebook.share.model.AppInviteContent;
+import com.facebook.share.widget.AppInviteDialog;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubePlayerView;
 import com.mvrock.android.model.DataInitialization;
@@ -37,7 +36,6 @@ import com.mvrock.android.uicomponent.playlist.RightFloatingMenu;
 import com.mvrock.android.uicomponent.playlist.SongView;
 import com.mvrock.android.uicomponent.playlist.ToolbarView;
 import com.mvrock.android.uicomponent.station.StationCancelButton;
-import com.mvrock.android.uicomponent.station.StationSearchView;
 import com.mvrock.android.view.MvRockView;
 
 import static android.util.Log.i;
@@ -64,7 +62,7 @@ public class MvRockFragment extends Fragment {
         MvRockView.StationListFragment = new StationListFragment();
         MvRockView.StationPlayListFragment = new StationPlayListFragment();
 
-        MvRockUiComponent.MvRockYoutubePlayer = MvRockYoutubePlayerFragment.newInstance("video_id");
+        MvRockUiComponent.MvRockYoutubePlayer = new MvRockYoutubePlayerFragment();
         MvRockUiComponent.RightFloatingMenu = new RightFloatingMenu();
         MvRockUiComponent.StationCancelButton = new StationCancelButton();
         MvRockUiComponent.MvRockDrawer = new MvRockDrawer();
@@ -83,7 +81,7 @@ public class MvRockFragment extends Fragment {
         MvRockUiComponent.songView.recommendationReasonView = (TextView) view.findViewById(R.id.recommendation_reason);
         MvRockUiComponent.songView.Init();
 
-        MvRockUiComponent.artistView.artistImageView =(ImageView) view.findViewById(R.id.artist_image);
+        MvRockUiComponent.artistView.artistImageView = (ImageView) view.findViewById(R.id.artist_image);
         MvRockUiComponent.artistView.artistNameView = (TextView) view.findViewById(R.id.name_of_artist);
         MvRockUiComponent.artistView.subscribeButton = (Button) view.findViewById(R.id.subscribe_button);
         MvRockUiComponent.artistView.Init();
@@ -94,8 +92,8 @@ public class MvRockFragment extends Fragment {
         MvRockUiComponent.toolbarView.thumbUpButton.likeSongImage = (ImageView) view.findViewById(R.id.music_title_thumbup);
         MvRockUiComponent.toolbarView.thumbDownButton.dislikeSongImage = (ImageView) view.findViewById(R.id.music_title_thumbdown);
         MvRockUiComponent.toolbarView.shareButton.shareSongImage = (ImageView) view.findViewById(R.id.music_title_share);
+        MvRockUiComponent.toolbarView.sendSongButton.sendSongImage = (ImageView) view.findViewById(R.id.music_title_send_song);
         MvRockUiComponent.toolbarView.reportButton.reportSongImage = (ImageView) view.findViewById(R.id.music_title_report);
-        //MvRockUiComponent.toolbarView.inviteFriendsButton = (ImageView) view.findViewById(R.id.invite_friends);
         MvRockUiComponent.toolbarView.Init();
 
         MvRockUiComponent.MvRockYoutubePlayer.Init();
@@ -112,10 +110,11 @@ public class MvRockFragment extends Fragment {
         MvRockUiComponent.commentView.commentNumber = (TextView) view.findViewById(R.id.comment_number);
         MvRockUiComponent.commentView.textInput = (MultiAutoCompleteTextView) view.findViewById(R.id.comment_input);
         MvRockUiComponent.commentView.userAvatar = (ImageView) view.findViewById(R.id.user_avatar);
-        MvRockUiComponent.commentView.commentList = (NonScrollListView)view.findViewById(R.id.comment_list);
+        MvRockUiComponent.commentView.commentList = (NonScrollListView) view.findViewById(R.id.comment_list);
 
         MvRockUiComponent.commentView.Init();
 
+        setHasOptionsMenu(true);
         getActivity().getActionBar().hide();
         return view;
     }
@@ -124,9 +123,23 @@ public class MvRockFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         Log.i(TAG, "onOptionsItemSelected()");
 
-        if (MvRockUiComponent.LeftDrawerToggle.onOptionsItemSelected(item)) return true;
+        //if (MvRockUiComponent.LeftDrawerToggle.onOptionsItemSelected(item)) return true;
 
         switch (item.getItemId()) {
+            case R.id.invite_friends:
+                if (AppInviteDialog.canShow()) {
+                    AppInviteContent content = new AppInviteContent.Builder()
+                            // edit the app link in Facebook developers; TODO: in the future change url to Play store
+                            // Edit here: https://developers.facebook.com/quickstarts/?platform=app-links-host
+                            .setApplinkUrl("https://fb.me/942660789157709")
+                            .setPreviewImageUrl("https://wanlab.poly.edu/xing/tube/img/mark.png")
+                            .build();
+
+                    AppInviteDialog.show(MvRockView.MainActivity, content);
+                } else {
+                    Toast.makeText(MvRockView.MainActivity, "Unable to invite friends. Please install the Facebook app.", Toast.LENGTH_SHORT).show();
+                }
+                break;
             case R.id.logout:
                 LoginManager loginManager = LoginManager.getInstance();
                 loginManager.logOut();
@@ -142,20 +155,15 @@ public class MvRockFragment extends Fragment {
         super.onCreateOptionsMenu(menu, inflater);
 
         inflater.inflate(R.menu.main, menu);
-
-        MvRockUiComponent.StationSearchView = new StationSearchView();
-        MvRockUiComponent.StationSearchView.topSearchView = (SearchView) menu.findItem(R.id.search_stations).getActionView();
-        MvRockUiComponent.StationSearchView.Init();
     }
 
-//
-//    @Override
-//    public void onConfigurationChanged(Configuration newConfig) {
-//        i(TAG, "onConfigurationChanged()");
-//        super.onConfigurationChanged(newConfig);
-//        MvRockUiComponent.LeftDrawerToggle.onConfigurationChanged(newConfig);
-//    }
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        i(TAG, "onConfigurationChanged()");
+        super.onConfigurationChanged(newConfig);
 
+        MvRockUiComponent.LeftDrawerToggle.onConfigurationChanged(newConfig);
+    }
 
     @Override
     public void onSaveInstanceState(Bundle state) {

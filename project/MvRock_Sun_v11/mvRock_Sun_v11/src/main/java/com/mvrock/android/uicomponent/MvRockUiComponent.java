@@ -1,6 +1,6 @@
 package com.mvrock.android.uicomponent;
 
-import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v7.app.ActionBarDrawerToggle;
 
 import com.mvrock.android.uicomponent.drawer.MvRockDrawer;
 import com.mvrock.android.uicomponent.player.MvRockYoutubePlayerFragment;
@@ -21,39 +21,39 @@ import com.mvrock.android.uicomponent.station.StationSearchView;
 /**
  * Created by Xuer on 5/8/15.
  * Add comment on 5/26/15.
- *
+ * <p/>
  * This class is used for define and storing UI component.
- *
- *
+ * <p/>
+ * <p/>
  * Component :
- *
+ * <p/>
  * List:
  * YouMayLikePlayListView
  * YouLikedPlayListView
  * StationPlayListView
- *
+ * <p/>
  * Player:
  * MvRockYoutubePlayerFragment
- *
+ * <p/>
  * Button:
  * NextSongButton
  * ThumbUpButton
  * ThumbDownButton
  * ReportButton
  * ShareButton
- *
+ * <p/>
  * TabHost:
  * MvRockTabHost
- *
+ * <p/>
  * Tool:
  * ActionbarDrawerToggle
  * LeftTopDrawer
- *
+ * <p/>
  * Station Operation:
  * StationListView
  * StationListView
  * StationSearchView
- *
+ * <p/>
  * ChangeToolBarImage :
  * when the thumbup or thumbdown button are pressed, the icon of each should be changed
  * load the icon.

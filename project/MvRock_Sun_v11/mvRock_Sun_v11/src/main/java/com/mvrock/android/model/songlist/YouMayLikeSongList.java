@@ -90,6 +90,9 @@ public class YouMayLikeSongList extends SongList {
             map.put("reason", "3");
             map.put("artist_name", recSongJSON.getString("artist"));
             songArrayList.add(MvRockModel.CurrentSong.currentMVIndex + 1, map); // insert after the liked song
+            // TODO: we are guessing that the recommended song has the same artist; should download image in the future if artist is different
+            artistImages.add(MvRockModel.CurrentSong.currentMVIndex + 1,
+                    artistImages.get(MvRockModel.CurrentSong.currentMVIndex));
         } catch (JSONException e) {
             e.printStackTrace();
         }

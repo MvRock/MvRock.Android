@@ -1,8 +1,8 @@
 package com.mvrock.android.uicomponent.drawer;
 
 import android.os.Build;
-import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.View;
 import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
@@ -27,36 +27,36 @@ public class MvRockDrawer extends MvRockUiComponentObject {
     @Override
     public void Init() {
         MvRockView.MainActivity.getSupportFragmentManager().beginTransaction().
-                add(R.id.right_drawer, MvRockView.YouMayLikePlayListFragment).commit();
-        MvRockUiComponent.MvRockDrawer.mDrawerToggle =
-                new ActionBarDrawerToggle(MvRockView.MainActivity, MvRockUiComponent.MvRockDrawer.mDrawerLayout,
-                        R.drawable.ic_launcher, R.string.acc_drawer_open, R.string.acc_drawer_close) {
+                replace(R.id.right_drawer, MvRockView.YouMayLikePlayListFragment).commit();
 
-                    public void onDrawerSlide(View drawerView, float slideOffset) {
-                        DrawerSlide(drawerView, slideOffset);
-                    }
+        mDrawerToggle = new ActionBarDrawerToggle(MvRockView.MainActivity, mDrawerLayout, R.string.acc_drawer_open, R.string.acc_drawer_close) {
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+                DrawerSlide(drawerView, slideOffset);
+            }
 
-                    @Override
-                    public void onDrawerOpened(View drawerView) {
-                        super.onDrawerOpened(drawerView);
-                        if (drawerView.getId() == R.id.right_drawer) {
-                            MvRockUiComponent.RightFloatingMenu.actionMenu.open(true);
-                        }else{
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+                if (drawerView.getId() == R.id.right_drawer) {
+                    MvRockUiComponent.RightFloatingMenu.actionMenu.open(true);
+                } else {
 
-                        }
-                    }
+                }
+            }
 
-                    @Override
-                    public void onDrawerClosed(View drawerView) {
-                        super.onDrawerClosed(drawerView);
-                        if (drawerView.getId() == R.id.right_drawer) {
-                        MvRockUiComponent.RightFloatingMenu.actionMenu.close(true);
-                        }else{
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+                if (drawerView.getId() == R.id.right_drawer) {
+                    MvRockUiComponent.RightFloatingMenu.actionMenu.close(true);
+                } else {
 
-                        }
-                    }
-                };
-        MvRockUiComponent.MvRockDrawer.mDrawerLayout.setDrawerListener(MvRockUiComponent.MvRockDrawer.mDrawerToggle);
+                }
+            }
+        };
+
+        mDrawerLayout.setDrawerListener(mDrawerToggle);
     }
 
     public void DrawerSlide(View drawerView, float slideOffset) {
@@ -70,7 +70,7 @@ public class MvRockDrawer extends MvRockUiComponentObject {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             MvRockUiComponent.MvRockDrawer.frame.setTranslationX(moveFactor);
-           // MvRockUiComponent.MvRockDrawer.mDrawerLayout.setTranslationX(moveFactor);
+            // MvRockUiComponent.MvRockDrawer.mDrawerLayout.setTranslationX(moveFactor);
         } else {
             TranslateAnimation anim1 = new TranslateAnimation(MvRockUiComponent.MvRockDrawer.lastTranslate, moveFactor, 0.0f, 0.0f);
             anim1.setDuration(0);

@@ -11,8 +11,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by Xuer on 5/9/15.
@@ -21,7 +19,7 @@ import java.util.Map;
  * This class is used to deal with the current song which is liked or disliked by user.
  */
 public class CurrentSong extends MvRockModelObject {
-    public boolean isLikedIconPressed, isDislikedIconPressed, isShared, isReported;
+    public boolean isLikedIconPressed, isDislikedIconPressed, isShared, hasSentSong, isReported;
     public boolean isChanged, isArtistSubscribed;
     public int currentMVIndex;
     public String url, songName, artistName, rootShareUserId;

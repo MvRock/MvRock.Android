@@ -12,28 +12,28 @@ import com.mvrock.android.uicomponent.MvRockUiComponent;
 /**
  * Created by Xuer on 5/5/15.
  */
-public class ThumbUpButton extends PlayerControlButton{
+public class ThumbUpButton extends PlayerControlButton {
 
     public ImageView likeSongImage;
 
     public ThumbUpButton() {
-        TAG+="ThumbUpButton";
+        TAG += "ThumbUpButton";
     }
 
-    public void Init(){
-        Log.i(TAG,"Init()");
+    public void Init() {
+        Log.i(TAG, "Init()");
 
         likeSongImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.i("likeSongImage", "onClick()");
-                Log.i(TAG, "isYoumaylikeTabSelected = " + Boolean.toString( MvRockUiComponent.YouMayLikePlayListView.isAvailable())
+                Log.i(TAG, "isYoumaylikeTabSelected = " + Boolean.toString(MvRockUiComponent.YouMayLikePlayListView.isAvailable())
                         + ", MvRockModel.CurrentSong.isLikedIconPressed = " + Boolean.toString(MvRockModel.CurrentSong.isLikedIconPressed) +
                         ", MvRockModel.CurrentSong.isDislikedIconPressed = " + Boolean.toString(MvRockModel.CurrentSong.isDislikedIconPressed));
 
                 if (MvRockUiComponent.YouMayLikePlayListView.isAvailable()) {
                     //the song playing right now is on the you may like list.
-                    if(!MvRockModel.CurrentSong.isLikedIconPressed && !MvRockModel.CurrentSong.isDislikedIconPressed) {
+                    if (!MvRockModel.CurrentSong.isLikedIconPressed && !MvRockModel.CurrentSong.isDislikedIconPressed) {
                         //1. rate this song
                         getOneRecSongByThread();
                         PostRatingByThread(1);
@@ -45,7 +45,7 @@ public class ThumbUpButton extends PlayerControlButton{
                         MvRockModel.CurrentSong.numLikes += 1;
                         //4. change the tool bar image of this song.
                         MvRockUiComponent.toolbarView.update();
-                    } else if(!MvRockModel.CurrentSong.isLikedIconPressed && MvRockModel.CurrentSong.isDislikedIconPressed) {
+                    } else if (!MvRockModel.CurrentSong.isLikedIconPressed && MvRockModel.CurrentSong.isDislikedIconPressed) {
                         //1. rate this song
                         getOneRecSongByThread();
                         PostRatingByThread(1);
@@ -94,7 +94,7 @@ public class ThumbUpButton extends PlayerControlButton{
                     //5. play the next song.
                     playNextSongAfterRemovedASongFromYoulikedList();
                 } else if (MvRockUiComponent.StationPlayListView.isAvailable()) {
-                    if(!MvRockModel.CurrentSong.isLikedIconPressed && !MvRockModel.CurrentSong.isDislikedIconPressed) {
+                    if (!MvRockModel.CurrentSong.isLikedIconPressed && !MvRockModel.CurrentSong.isDislikedIconPressed) {
                         //1. rate this song
                         PostRatingByThread(1);
                         //2. add this song into you liked list
@@ -105,7 +105,7 @@ public class ThumbUpButton extends PlayerControlButton{
                         MvRockModel.CurrentSong.numLikes += 1;
                         //4. change the tool bar image of this song.
                         MvRockUiComponent.toolbarView.update();
-                    } else if(!MvRockModel.CurrentSong.isLikedIconPressed && MvRockModel.CurrentSong.isDislikedIconPressed) {
+                    } else if (!MvRockModel.CurrentSong.isLikedIconPressed && MvRockModel.CurrentSong.isDislikedIconPressed) {
                         //1. rate this song
                         getOneRecSongByThread();
                         PostRatingByThread(1);
@@ -144,7 +144,10 @@ public class ThumbUpButton extends PlayerControlButton{
     }
 
     public void getOneRecSongByThread() {
-        GetOneRecSongThread getOneRecSongThread = new GetOneRecSongThread(MvRockModel.User.User_Id, MvRockModel.CurrentSong.url);
-        getOneRecSongThread.start();
+        // only get one recommended song if on you may like list
+        if (MvRockUiComponent.YouMayLikePlayListView.isAvailable()) {
+            GetOneRecSongThread getOneRecSongThread = new GetOneRecSongThread(MvRockModel.User.User_Id, MvRockModel.CurrentSong.url);
+            getOneRecSongThread.start();
+        }
     }
 }

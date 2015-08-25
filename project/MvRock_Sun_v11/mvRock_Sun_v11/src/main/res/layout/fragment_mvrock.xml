@@ -112,13 +112,6 @@
                             android:paddingRight="7dp"
                             android:paddingTop="20dp">
 
-                            <!-- <ImageView
-                                android:id="@+id/invite_friends"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:src="@drawable/next"/> -->
-
                             <ImageView
                                 android:id="@+id/music_title_next"
                                 android:layout_width="0dp"
@@ -178,6 +171,14 @@
                                 android:layout_weight="1"
                                 android:padding="3dp"
                                 android:src="@drawable/share"/>
+
+                            <ImageView
+                                android:id="@+id/music_title_send_song"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:padding="3dp"
+                                android:src="@drawable/impact7"/>
 
                             <ImageView
                                 android:id="@+id/music_title_report"
