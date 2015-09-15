@@ -105,6 +105,8 @@ public class CommentView extends MvRockUiComponentObject {
             }
         });
 
+
+        
 //        textInput.addTextChangedListener(new TextWatcher() {
 //
 //            @Override
