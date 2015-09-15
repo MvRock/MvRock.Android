@@ -21,8 +21,8 @@ import java.util.List;
  * Created by Xuer on 5/5/15.
  */
 public abstract class MvRockThreadObject extends Thread {
-    public static final String HOST = "http://wanlab.poly.edu";
-    public static final String PATH = "/xing/tubeok";
+    public static final String HOST = "https://wanlab.poly.edu";
+    public static final String PATH = "/tube_test";
     protected String TAG;
     protected List<NameValuePair> params;
     protected String User_id;

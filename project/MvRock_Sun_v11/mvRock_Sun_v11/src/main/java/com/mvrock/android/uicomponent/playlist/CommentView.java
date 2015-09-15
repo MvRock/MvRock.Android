@@ -105,29 +105,29 @@ public class CommentView extends MvRockUiComponentObject {
             }
         });
 
-        textInput.addTextChangedListener(new TextWatcher() {
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                Layout layout = textInput.getLayout();
-                int pos = textInput.getSelectionStart();
-                int line = layout.getLineForOffset(pos);
-                int baseline = layout.getLineBaseline(line);
-
-                int bottom = textInput.getHeight();
-
-                textInput.setDropDownVerticalOffset(baseline - bottom);
-
-            }
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-            }
-        });
+//        textInput.addTextChangedListener(new TextWatcher() {
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//                Layout layout = textInput.getLayout();
+//                int pos = textInput.getSelectionStart();
+//                int line = layout.getLineForOffset(pos);
+//                int baseline = layout.getLineBaseline(line);
+//
+//                int bottom = textInput.getHeight();
+//
+//                textInput.setDropDownVerticalOffset(baseline - bottom);
+//
+//            }
+//
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//            }
+//        });
 
         textInput.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
