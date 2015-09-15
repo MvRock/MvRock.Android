@@ -150,4 +150,5 @@ public class ThumbUpButton extends PlayerControlButton {
             getOneRecSongThread.start();
         }
     }
+
 }

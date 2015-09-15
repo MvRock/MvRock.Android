@@ -22,7 +22,7 @@ import java.util.Map;
 
 /**
  * JSON format:
- * <p/>
+ * <p>
  * {
  * "Name”:["I Want You To Know”,"\u5e78\u798f\u989d\u5ea6"],
  * "Url":["X46t8ZFqUB4","lWd7YUSzTMg"],

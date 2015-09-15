@@ -17,7 +17,7 @@ import com.mvrock.android.view.MvRockView;
  */
 public class StationPlayListView extends PlayListView {
     public StationPlayListView() {
-        super(MvRockView.MainActivity);
+        super();
         TAG += "StationPlayListView";
     }
 
@@ -45,7 +45,7 @@ public class StationPlayListView extends PlayListView {
     public void RefreshListView() {
         Log.i(TAG, "RefreshListView()");
         MvRockModel.StationSongList.imageViewList = RequestImageListByThread(MvRockModel.StationSongList.songArrayList);
-        StationPlayListAdapter playListAdapter = new StationPlayListAdapter(context,
+        StationPlayListAdapter playListAdapter = new StationPlayListAdapter(MvRockView.MainActivity,
                 new String[]{"song_name", "artist_name"},
                 new int[]{R.id.song_name, R.id.artist_name});
         this.playListview.setAdapter(playListAdapter);

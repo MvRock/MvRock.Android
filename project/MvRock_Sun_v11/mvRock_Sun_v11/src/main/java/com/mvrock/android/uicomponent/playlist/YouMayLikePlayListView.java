@@ -19,7 +19,7 @@ import com.mvrock.android.view.MvRockView;
 public class YouMayLikePlayListView extends PlayListView {
 
     public YouMayLikePlayListView() {
-        super(MvRockView.MainActivity);
+        super();
         TAG += "YouMayLikeListView";
     }
 
@@ -50,7 +50,7 @@ public class YouMayLikePlayListView extends PlayListView {
     public void RefreshListView() {
         Log.i(TAG, "RefreshListView()");
         MvRockModel.YouMayLikeSongList.imageViewList = RequestImageListByThread(MvRockModel.YouMayLikeSongList.songArrayList);
-        YouMayLikePlayListAdapter playListAdapter = new YouMayLikePlayListAdapter(context,
+        YouMayLikePlayListAdapter playListAdapter = new YouMayLikePlayListAdapter(MvRockView.MainActivity,
                 new String[]{"song_name", "artist_name"},
                 new int[]{R.id.song_name, R.id.artist_name});
         this.playListview.setAdapter(playListAdapter);

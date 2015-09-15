@@ -8,9 +8,15 @@ import android.os.Environment;
 import android.util.Log;
 
 import com.examples.youtubeapidemo.R;
+import com.facebook.AccessToken;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.HttpMethod;
 import com.jakewharton.disklrucache.DiskLruCache;
 import com.mvrock.android.view.MvRockView;
 
+
+import org.json.JSONException;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -92,6 +98,50 @@ public class Cache {
             }
         }
     }
+
+//    public void getUserPicFromCache(List<Drawable> UserPic_List,
+//                                    List<Map<String, String>> User_id_list) {
+//
+//
+//        for (int i = 0; i < User_id_list.size(); i++) {
+//            String User_id = User_id_list.get(i).get("uid");
+//
+//            String key = hashKeyForDisk(User_id);
+//            Drawable drawable = null;
+//            try {
+//                DiskLruCache.Snapshot snapshot = Cache.DiskLruCache.get(key);
+//                if (snapshot != null && !imageNeedUpdate(key)) {
+////                    Log.i(TAG + "Cache Time Cost Test", "ReadFrom Cache Time Begin " + sdf.format(new Date()));
+//                    drawable = getDrawable(snapshot);
+//                    UserPic_List.add(drawable);
+////                    Log.i(TAG + "Cache Time Cost Test", "ReadFrom Cache Time End " + sdf.format(new Date()));
+//                } else {
+////                    Log.i(TAG + "Cache Time Cost Test", "DownLoadFrom Internet Time Begin " + sdf.format(new Date()));
+//                    DiskLruCache.Editor editor = Cache.DiskLruCache.edit(key);
+//
+//                    if (editor != null) {
+//                        OutputStream outputStream = editor.newOutputStream(0);
+//                        if (downloadUserPicFromFB(User_id, outputStream)) {
+//                            editor.commit();
+//
+//                        } else {
+//                            editor.abort();
+//                        }
+//                    }
+//                    DiskLruCache.Snapshot snapshot1 = Cache.DiskLruCache.get(key);
+//                    drawable = getDrawable(snapshot1);
+//                    UserPic_List.add(drawable);
+//
+////                    Log.i(TAG + "Cache Time Cost Test", "DownLoadFrom Internet Time END " + sdf.format(new Date()));
+//                }
+//            } catch (IOException e) {
+//                Log.e(this.getClass().getSimpleName(), "Image download failed", e);
+//                drawable = MvRockView.MainActivity.getResources().getDrawable(R.drawable.image_fail);
+//                UserPic_List.add(drawable);
+//            }
+//        }
+//    }
+
 
     private boolean imageNeedUpdate(String key) {
         File file = new File(DiskLruCache.getDirectory(), key + ".0");
@@ -191,6 +241,61 @@ public class Cache {
         }
         return false;
     }
+
+//    private boolean downloadUserPicFromFB(String User_id, OutputStream outputStream)
+//            throws IOException {
+//        HttpURLConnection urlConnection = null;
+//        BufferedInputStream in = null;
+//        BufferedOutputStream out = null;
+//        String imageUrl = "";
+//         /* make the API call */
+//        GraphResponse response = new GraphRequest(
+//                AccessToken.getCurrentAccessToken(),
+//                "/" + User_id + "/picture",
+//                null,
+//                HttpMethod.GET,
+//                new GraphRequest.Callback() {
+//                    public String url = "";
+//                    public void onCompleted(GraphResponse response) {
+//                            /* handle the result */
+//                    }
+//                }
+//        ).executeAndWait();
+//
+//        try {
+//            imageUrl = response.getJSONObject().get("url").toString();
+//
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//
+//        try {
+//            final URL url = new URL(imageUrl);
+//            urlConnection = (HttpURLConnection) url.openConnection();
+//            in = new BufferedInputStream(urlConnection.getInputStream(), 50 * 1024);
+//            out = new BufferedOutputStream(outputStream, 50 * 1024);
+//            int b;
+//            while ((b = in.read()) != -1) {
+//                out.write(b);
+//            }
+//            return true;
+//        } catch (final IOException e) {
+//            e.printStackTrace();
+//        } finally {
+//            if (urlConnection != null) {
+//                urlConnection.disconnect();
+//            }
+//            try {
+//                if (out != null)
+//                    out.close();
+//                if (in != null)
+//                    in.close();
+//            } catch (final IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//        return false;
+//    }
 
     private String hashKeyForDisk(String key) {
         String cacheKey;

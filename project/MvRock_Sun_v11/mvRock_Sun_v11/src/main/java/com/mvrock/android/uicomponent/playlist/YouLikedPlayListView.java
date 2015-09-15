@@ -17,7 +17,7 @@ import com.mvrock.android.view.MvRockView;
  */
 public class YouLikedPlayListView extends PlayListView {
     public YouLikedPlayListView() {
-        super(MvRockView.MainActivity);
+        super();
         TAG += "YouLikedListView";
     }
 
@@ -30,7 +30,7 @@ public class YouLikedPlayListView extends PlayListView {
     }
 
     public void RequestPlayListByThread() {
-        Log.i(TAG, "RequestPlayListByThread()");
+        Log.i(TAG, "RequestBuddyFeedByThread()");
         GetYouLikedSongAndUserDataThread getYouLikedSongAndUserDataThread = new GetYouLikedSongAndUserDataThread(MvRockModel.User.User_Id, null);
         getYouLikedSongAndUserDataThread.start();
         try {
@@ -46,7 +46,7 @@ public class YouLikedPlayListView extends PlayListView {
         Log.i(TAG, "RefreshListView()");
         if (MvRockModel.YouLikedSongList.songArrayList != null)
             MvRockModel.YouLikedSongList.imageViewList = RequestImageListByThread(MvRockModel.YouLikedSongList.songArrayList);
-        YouLikedPlayListAdapter playListAdapter = new YouLikedPlayListAdapter(context,
+        YouLikedPlayListAdapter playListAdapter = new YouLikedPlayListAdapter(MvRockView.MainActivity,
                 new String[]{"song_name", "artist_name"},
                 new int[]{R.id.song_name, R.id.artist_name});
         this.playListview.setAdapter(playListAdapter);

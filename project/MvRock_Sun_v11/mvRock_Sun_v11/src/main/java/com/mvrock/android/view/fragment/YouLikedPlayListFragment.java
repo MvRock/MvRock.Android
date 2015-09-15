@@ -64,7 +64,7 @@ public class YouLikedPlayListFragment extends Fragment {
     public void onResume() {
         super.onResume();
         Log.i(TAG, "onResume()");
-        // MvRockUiComponent.YouLikedPlayListView.RequestPlayListByThread();
+        // MvRockUiComponent.YouLikedPlayListView.RequestBuddyFeedByThread();
         MvRockUiComponent.YouLikedPlayListView.RefreshListView();
     }
 }

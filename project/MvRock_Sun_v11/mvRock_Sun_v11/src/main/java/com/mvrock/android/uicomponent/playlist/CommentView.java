@@ -36,7 +36,7 @@ public class CommentView extends MvRockUiComponentObject {
     public CommentView() {
         userNameArray = new ArrayAdapter<>(MvRockView.MainActivity,
                 android.R.layout.simple_expandable_list_item_1);
-        userNameArray.addAll(MvRockModel.MusicBuddy.userName);
+       userNameArray.addAll(MvRockModel.MusicBuddy.userName);
     }
 
     public void Init() {

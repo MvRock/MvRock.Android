@@ -13,7 +13,7 @@ public class GetBuddyFeedThread extends MvRockThreadObject{
 
     public GetBuddyFeedThread(String User_id, String Extra){
         super(User_id, Extra);
-        this.TAG = "GetMusicBuddyThread";
+        this.TAG = "GetBuddyFeedThread";
         this.Url = "/getMusicBuddy.php";
     }
     @Override

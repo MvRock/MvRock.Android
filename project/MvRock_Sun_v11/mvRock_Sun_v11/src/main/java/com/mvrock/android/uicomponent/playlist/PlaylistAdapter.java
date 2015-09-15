@@ -4,9 +4,11 @@ import android.content.Context;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.SimpleAdapter;
 
 import com.examples.youtubeapidemo.R;
+import com.mvrock.android.model.MvRockModel;
 
 import java.util.ArrayList;
 import java.util.Map;

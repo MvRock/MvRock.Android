@@ -18,16 +18,12 @@ import java.util.Map;
 public abstract class PlayListView extends MvRockUiComponentObject {
 
     public ListView playListview;
-    protected Context context;
-    public PlayListView(Context context){
+    public PlayListView(){
         this.TAG="UIComponent.";
-        this.context=context;
-//        this.RequestPlayListByThread();
     }
     public abstract boolean isAvailable();
     public abstract void setAvailable();
     public abstract void RequestPlayListByThread();
-//    public abstract void RequestPlayListDataAtBeginning();
     public abstract void RefreshListView();
     public abstract void Init();
 

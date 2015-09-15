@@ -30,10 +30,10 @@ public class MvRockModel {
     public static SearchStationList SearchStationList;
     public static CurrentSong CurrentSong;
 
-    public static MusicBuddy MusicBuddy;
     public static Cache cache;
     public static RecBuddy RecBuddy;
     public static BuddyFeed BuddyFeed;
+    public static MusicBuddy MusicBuddy;
     public static User User;
 
     static {
@@ -45,8 +45,8 @@ public class MvRockModel {
         StationList = new StationList();
         CurrentSong = new CurrentSong();
         RecBuddy = new RecBuddy();
-        BuddyFeed = new BuddyFeed();
         MusicBuddy = new MusicBuddy();
+        BuddyFeed = new BuddyFeed();
         User = new User();
         cache = new Cache();
         playListOption = PlayListOption.YOU_MAY_LIKE_LIST;

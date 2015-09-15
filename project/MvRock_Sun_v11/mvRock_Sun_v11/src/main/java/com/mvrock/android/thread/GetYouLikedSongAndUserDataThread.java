@@ -21,6 +21,7 @@ public class GetYouLikedSongAndUserDataThread extends MvRockThreadObject {
 
     public void setResponse() {
         MvRockModel.YouLikedSongList.setHttpResponse(strResponse);
+        MvRockModel.BuddyFeed.setHttpResponse(strResponse);
         MvRockModel.User.setHttpResponse(strResponse);
     }
 }

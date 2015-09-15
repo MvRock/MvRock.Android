@@ -35,6 +35,7 @@ import com.mvrock.android.uicomponent.playlist.NonScrollListView;
 import com.mvrock.android.uicomponent.playlist.RightFloatingMenu;
 import com.mvrock.android.uicomponent.playlist.SongView;
 import com.mvrock.android.uicomponent.playlist.ToolbarView;
+import com.mvrock.android.uicomponent.socialstuff.LeftFloatingMenu;
 import com.mvrock.android.uicomponent.station.StationCancelButton;
 import com.mvrock.android.view.MvRockView;
 
@@ -61,9 +62,11 @@ public class MvRockFragment extends Fragment {
         MvRockView.YouLikedPlayListFragment = new YouLikedPlayListFragment();
         MvRockView.StationListFragment = new StationListFragment();
         MvRockView.StationPlayListFragment = new StationPlayListFragment();
+        MvRockView.BuddyFeedFragment = new BuddyFeedFragment();
 
         MvRockUiComponent.MvRockYoutubePlayer = new MvRockYoutubePlayerFragment();
         MvRockUiComponent.RightFloatingMenu = new RightFloatingMenu();
+        MvRockUiComponent.LeftFloatingMenu = new LeftFloatingMenu();
         MvRockUiComponent.StationCancelButton = new StationCancelButton();
         MvRockUiComponent.MvRockDrawer = new MvRockDrawer();
         MvRockUiComponent.songView = new SongView();
@@ -100,6 +103,7 @@ public class MvRockFragment extends Fragment {
         getChildFragmentManager().beginTransaction().replace(R.id.youtubeplayerfragment, MvRockUiComponent.MvRockYoutubePlayer).commit();
 
         MvRockUiComponent.RightFloatingMenu.Init();
+        MvRockUiComponent.LeftFloatingMenu.Init();
 
         MvRockUiComponent.MvRockDrawer.mDrawerLayout = (DrawerLayout) view.findViewById(R.id.drawer_layout);
         MvRockUiComponent.MvRockDrawer.leftFragment = (FrameLayout) view.findViewById(R.id.left_drawer);
