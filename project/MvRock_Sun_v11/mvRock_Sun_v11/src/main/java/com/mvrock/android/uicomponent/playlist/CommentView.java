@@ -1,11 +1,9 @@
 package com.mvrock.android.uicomponent.playlist;
 
-import android.text.Editable;
-import android.text.Layout;
+import android.content.Context;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
@@ -32,8 +30,7 @@ public class CommentView extends MvRockUiComponentObject {
 
 
     public CommentView() {
-        userNameArray = new ArrayAdapter<>(MvRockView.MainActivity,
-                android.R.layout.simple_expandable_list_item_1);
+       userNameArray = new ArrayAdapter<>(MvRockView.MainActivity, android.R.layout.simple_expandable_list_item_1);
        userNameArray.addAll(MvRockModel.MusicBuddy.userName);
     }
 
