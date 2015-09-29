@@ -73,7 +73,7 @@ public class YouMayLikeSongList extends SongList {
                 e.printStackTrace();
             }
 
-            Log.i(TAG, songArrayList.toString());
+
         } catch (JSONException e) {
             e.printStackTrace();
         }

@@ -31,22 +31,21 @@ public class BuddyFeedFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Log.i(TAG, "onCreateView()");
 
-        View rightDrawerView = inflater.inflate(R.layout.fragment_right_drawer_play_list, container, false);
+        View leftDrawerView = inflater.inflate(R.layout.fragment_left_drawer_list, container, false);
 
-        MvRockUiComponent.BuddyFeedListView.buddyFeedListView = (ListView) rightDrawerView.findViewById(R.id.right_drawer_listview);
+        MvRockUiComponent.BuddyFeedListView.buddyFeedListView = (ListView) leftDrawerView.findViewById(R.id.left_drawer_listview);
         MvRockUiComponent.BuddyFeedListView.Init();
-
 
         update();
 
-        return rightDrawerView;
+        return leftDrawerView;
     }
 
     @Override
     public void onResume() {
         super.onResume();
         Log.i(TAG, "onResume()");
-        MvRockUiComponent.YouMayLikePlayListView.RefreshListView();
+        MvRockUiComponent.BuddyFeedListView.RefreshListView();
     }
 
     public void update() {

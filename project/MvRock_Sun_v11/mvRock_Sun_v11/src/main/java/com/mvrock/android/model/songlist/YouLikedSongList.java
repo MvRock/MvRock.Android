@@ -43,7 +43,6 @@ public class YouLikedSongList extends SongList {
         songArrayList.clear();
         artistImages.clear();
         try {
-            Log.i(TAG, strResponse);
             JSONObject YouMayLikeSongJSON = new JSONObject(strResponse);
             JSONArray liked_songs;
             if (YouMayLikeSongJSON.getJSONArray("LikedSong") == null) {

@@ -28,6 +28,9 @@ public class MvRockDrawer extends MvRockUiComponentObject {
     public void Init() {
         MvRockView.MainActivity.getSupportFragmentManager().beginTransaction().
                 add(R.id.right_drawer, MvRockView.YouMayLikePlayListFragment).commit();
+        MvRockView.MainActivity.getSupportFragmentManager().beginTransaction().
+                add(R.id.left_drawer, MvRockView.BuddyFeedFragment).commit();
+
         MvRockUiComponent.MvRockDrawer.mDrawerToggle =
                 new ActionBarDrawerToggle(MvRockView.MainActivity, MvRockUiComponent.MvRockDrawer.mDrawerLayout,
                         R.drawable.ic_launcher, R.string.acc_drawer_open, R.string.acc_drawer_close) {

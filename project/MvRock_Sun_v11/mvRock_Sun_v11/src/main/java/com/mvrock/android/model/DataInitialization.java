@@ -31,6 +31,7 @@ public class DataInitialization {
         GetMusicBuddyThread musicBuddy = new GetMusicBuddyThread(MvRockModel.User.User_Id,null);
         GetRecBuddyThread recBuddy = new GetRecBuddyThread(MvRockModel.User.User_Id, null);
         GetBuddyFeedThread buddyFeedThread = new GetBuddyFeedThread(MvRockModel.User.User_Id, null);
+
         youLikedSongInfoThread.start();
         youMayLikedSongInfoThread.start();
         station.start();
@@ -53,16 +54,22 @@ public class DataInitialization {
 
         youLikedSongInfoThread.setResponse();
         MvRockModel.YouLikedSongList.convertData();
+
         youMayLikedSongInfoThread.setResponse();
         MvRockModel.YouMayLikeSongList.convertData();
+
         station.setResponse();
         MvRockModel.StationList.convertData();
+
         stationSongInfoThread.setResponse();
         MvRockModel.StationSongList.convertData();
+
         musicBuddy.setResponse();
         MvRockModel.MusicBuddy.convertData();
+
         recBuddy.setResponse();
         MvRockModel.RecBuddy.convertData();
+
         buddyFeedThread.setResponse();
         MvRockModel.BuddyFeed.convertData();
     }

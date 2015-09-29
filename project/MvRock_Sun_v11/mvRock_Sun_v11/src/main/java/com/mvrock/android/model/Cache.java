@@ -38,10 +38,10 @@ import java.util.Map;
  */
 
 public class Cache {
-    public static DiskLruCache DiskLruCache = null;
-    String TAG = "Cache";
     private static final long timeDifference = 7 * 24 * 60 * 60 * 1000; //unit is ms
     private static final long testTimeDifference = 33 * 60 * 1000;
+    public static DiskLruCache DiskLruCache = null;
+    String TAG = "Cache";
 //    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");
 
     public Cache() {
@@ -149,7 +149,7 @@ public class Cache {
         Date nowDate = new Date();
         long nowTime = nowDate.getTime();
         long difference = nowTime - oldTime;
-        if (difference > testTimeDifference) {
+        if (difference > timeDifference) {
             try {
                 DiskLruCache.remove(key);
                 Log.i(TAG + "remove Image", "This picture is expired");

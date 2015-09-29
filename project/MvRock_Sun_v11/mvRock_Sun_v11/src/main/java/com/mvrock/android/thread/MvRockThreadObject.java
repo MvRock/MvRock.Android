@@ -22,7 +22,7 @@ import java.util.List;
  */
 public abstract class MvRockThreadObject extends Thread {
     public static final String HOST = "http://wanlab.poly.edu";
-    public static final String PATH = "/xing/tubeok";
+    public static final String PATH = "/xing/tube";
     protected String TAG;
     protected List<NameValuePair> params;
     protected String User_id;
@@ -55,7 +55,7 @@ public abstract class MvRockThreadObject extends Thread {
             httpResponse = new DefaultHttpClient().execute(httpPost);
             if (httpResponse.getStatusLine().getStatusCode() == 200) {
                 strResponse = EntityUtils.toString(httpResponse.getEntity());
-                Log.i(TAG, strResponse);
+                Log.i(TAG, strResponse +"\n");
 //                Log.i(TAG, "EndTime " + sdf.format(new Date()));
             }
         } catch (ClientProtocolException e) {
