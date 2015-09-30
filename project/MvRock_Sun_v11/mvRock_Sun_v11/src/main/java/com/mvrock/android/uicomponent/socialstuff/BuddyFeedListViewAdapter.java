@@ -1,7 +1,5 @@
 package com.mvrock.android.uicomponent.socialstuff;
 
-import android.content.Context;
-import android.content.Intent;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
@@ -17,7 +15,6 @@ import com.examples.youtubeapidemo.R;
 import com.mvrock.android.model.MvRockModel;
 import com.mvrock.android.view.MvRockView;
 
-import java.util.ArrayList;
 import java.util.Map;
 
 /**
@@ -36,10 +33,28 @@ public class BuddyFeedListViewAdapter extends SimpleAdapter {
         Log.i(TAG, "getView(" + position + ")");
 
         convertView =  super.getView(position, convertView, parent);
+
+        Map<String, String> buddyFeed = MvRockModel.BuddyFeed.buddyFeedList.get(position);
         ((ImageView) convertView.findViewById(R.id.buddy_feed_user_image)).setBackgroundDrawable(MvRockModel.BuddyFeed.userPic_List.get(position));
-        ((ImageView) convertView.findViewById(R.id.buddy_feed_shared_button)).setImageResource(R.drawable.share_red);
         TextView buddy_feed_user_name=(TextView)convertView.findViewById(R.id.buddy_feed_user_name);
-        TextView buddy_feed_song_name=(TextView)convertView.findViewById(R.id.buddy_feed_song_name);
+
+        switch(buddyFeed.get("From")) {
+            case "1":
+                break;
+            case "2":
+                break;
+            case "3":
+                break;
+            default:
+
+        }
+
+
+
+
+        ((ImageView) convertView.findViewById(R.id.buddy_feed_button)).setImageResource(R.drawable.share_red);
+
+        TextView buddy_feed_song_name_or_message=(TextView)convertView.findViewById(R.id.buddy_feed_song_name_or_message);
         String strUser_Name=MvRockModel.BuddyFeed.buddyFeedList.get(position).get("userName");
         String strSong_Name=MvRockModel.BuddyFeed.buddyFeedList.get(position).get("songName");
         SpannableString spannableUser_Name=new SpannableString(strUser_Name);
@@ -65,8 +80,8 @@ public class BuddyFeedListViewAdapter extends SimpleAdapter {
 
         buddy_feed_user_name.setText(spannableUser_Name);
         buddy_feed_user_name.setMovementMethod(LinkMovementMethod.getInstance());
-        buddy_feed_song_name.setText(spannableString2);
-        buddy_feed_song_name.setMovementMethod(LinkMovementMethod.getInstance());
+        buddy_feed_song_name_or_message.setText(spannableString2);
+        buddy_feed_song_name_or_message.setMovementMethod(LinkMovementMethod.getInstance());
 
         return convertView;
     }

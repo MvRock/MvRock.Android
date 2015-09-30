@@ -32,7 +32,7 @@
             android:padding="5dp">
 
             <ImageView
-                android:id="@+id/buddy_feed_shared_button"
+                android:id="@+id/buddy_feed_button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
@@ -40,7 +40,7 @@
                 android:adjustViewBounds="true" />
 
             <TextView
-                android:id="@+id/buddy_feed_song_name"
+                android:id="@+id/buddy_feed_song_name_or_message"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
